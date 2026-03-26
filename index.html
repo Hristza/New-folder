@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Defend the Base - Final</title>
+    <style>
+        body { background-color: #1e272e; color: white; text-align: center; font-family: Arial, sans-serif; margin: 0; padding: 10px; }
+        #gameContainer { position: relative; display: inline-block; }
+        canvas { background-color: #27ae60; border: 5px solid #2f3640; border-radius: 10px; cursor: crosshair; box-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        #ui { margin-bottom: 10px; font-size: 20px; font-weight: bold; }
+        #moneyDisplay { color: #f1c40f; } #levelDisplay { color: #3498db; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 62, 80, 0.95); border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 10; }
+        .overlay h1 { color: #2ecc71; text-shadow: 2px 2px 4px #000; }
+        .btn { padding: 15px 40px; font-size: 24px; font-weight: bold; background: #f1c40f; border: none; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .btn:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <h2>Defend the Base</h2>
+        <p>Пари: <span id="moneyDisplay">150</span> | Ниво: <span id="levelDisplay">1 / 10</span></p>
+    </div>
+    
+    <div id="gameContainer">
+        <div id="startMenu" class="overlay">
+            <h1>ПАЗИ БАЗАТА!</h1>
+            <p>Строй кули (50$). Спечели на Ниво 10!</p>
+            <button id="startBtn" class="btn">ИГРАЙ</button>
+        </div>
+        
+        <div id="levelMenu" class="overlay" style="display: none;">
+            <h1 style="color:#3498db;">НИВОТО Е ПРЕМИНАТО!</h1>
+            <button id="nextLevelBtn" class="btn">СЛЕДВАЩО НИВО</button>
+        </div>
+        
+        <div id="gameOverMenu" class="overlay" style="display: none; background: rgba(0,0,0,0.9);">
+            <h1 style="color:red; font-size: 80px; margin-bottom: 0;">DEAD</h1>
+            <h2 style="color:white; margin-top: 0;">; TRY AGAIN</h2>
+            <button id="restartBtn" class="btn" style="background: red; color: white;">РЕСПАРТ</button>
+        </div>
+
+        <div id="winMenu" class="overlay" style="display: none; background: rgba(46, 204, 113, 0.95);">
+            <h1 style="color:white; font-size: 70px; margin-bottom: 0;">ПОБЕДА!</h1>
+            <h2 style="color:white; margin-top: 10px;">Ти защити базата!</h2>
+            <button id="winRestartBtn" class="btn" style="background: white; color: #2ecc71;">ИГРАЙ ОТНОВО</button>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="500"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // --- ГЕНЕРАТОР НА ЗВУЦИ (РАБОТИ ВИНАГИ) ---
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playSound(type) {
+            try {
+                // Първо опитва да пусне твоя файл
+                let audio = new Audio('assets/sounds/' + type + '.wav');
+                audio.volume = 0.5; audio.play().catch(e => synthSound(type));
+            } catch(e) { synthSound(type); }
+        }
+
+        // Ако файлът липсва, браузърът сам синтезира звука!
+        function synthSound(type) {
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            
+            if(type === 'shoot') {
+                osc.type = 'square'; osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.1, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+                osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+            } else if (type === 'kill') {
+                osc.type = 'sawtooth'; osc.frequency.setValueAtTime(100, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.3);
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start(); osc.stop(audioCtx.currentTime + 0.3);
+            } else if (type === 'lose') {
+                osc.type = 'sawtooth'; osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 1);
+                gain.gain.setValueAtTime(0.4, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1);
+                osc.start(); osc.stop(audioCtx.currentTime + 1);
+            } else if (type === 'win') {
+                osc.type = 'sine'; osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(800, audioCtx.currentTime + 1);
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 1);
+                osc.start(); osc.stop(audioCtx.currentTime + 1);
+            }
+        }
+
+        // --- КЛАСОВЕ И FSM ---
+        const STATES = { SPAWN: 0, WALK: 1, ATTACK: 2, REACHED_BASE: 3, DEAD: 4 };
+        class FSM {
+            constructor() { this.state = STATES.SPAWN; this.timer = 0; }
+            update(enemy, towers) {
+                if (enemy.health <= 0) { this.state = STATES.DEAD; return; }
+                switch (this.state) {
+                    case STATES.SPAWN: if (this.timer++ > 20) this.state = STATES.WALK; break;
+                    case STATES.WALK: 
+                        enemy.x -= enemy.speed; 
+                        if (enemy.x <= 50) { this.state = STATES.REACHED_BASE; return; }
+                        for (let i = 0; i < towers.length; i++) {
+                            let t = towers[i];
+                            if (Math.abs(enemy.x - t.x) < 40 && Math.abs(enemy.y - t.y) < 40) {
+                                enemy.targetTower = t; this.state = STATES.ATTACK; break;
+                            }
+                        }
+                        break;
+                    case STATES.ATTACK:
+                        if (!towers.includes(enemy.targetTower)) this.state = STATES.WALK;
+                        else enemy.targetTower.health -= 1;
+                        break;
+                    case STATES.REACHED_BASE: enemy.health = 0; this.state = STATES.DEAD; break;
+                }
+            }
+        }
+
+        class Enemy {
+            constructor(x, y, level) {
+                this.x = x; this.y = y; this.width = 40; this.height = 40;
+                this.maxHealth = 30 + (level * 10); this.health = this.maxHealth; 
+                this.speed = 1 + (level * 0.2) + Math.random();
+                this.fsm = new FSM(); this.targetTower = null;
+            }
+            update(towers) { this.fsm.update(this, towers); }
+            draw(ctx, img) {
+                if (img && img.complete && img.naturalHeight !== 0) { ctx.drawImage(img, this.x, this.y, this.width, this.height); }
+                else { ctx.font = '40px Arial'; ctx.fillText('🧟', this.x, this.y + 35); }
+                ctx.fillStyle = 'red'; ctx.fillRect(this.x, this.y - 10, 40, 5);
+                ctx.fillStyle = '#2ecc71'; ctx.fillRect(this.x, this.y - 10, 40 * (this.health/this.maxHealth), 5);
+            }
+        }
+
+        class Tower {
+            constructor(x, y) {
+                this.x = x; this.y = y; this.width = 50; this.height = 50;
+                this.health = 100; this.cooldown = 0; this.range = 350;
+            }
+            update(enemies, bullets) {
+                this.cooldown--;
+                if (this.cooldown <= 0 && enemies.length > 0) {
+                    let closest = enemies[0];
+                    if (closest.x - this.x < this.range && closest.x > this.x) {
+                        bullets.push(new Bullet(this.x + 25, this.y + 25));
+                        this.cooldown = 40; playSound('shoot');
+                    }
+                }
+            }
+            draw(ctx, img) {
+                if (img && img.complete && img.naturalHeight !== 0) { ctx.drawImage(img, this.x, this.y, this.width, this.height); }
+                else { ctx.font = '45px Arial'; ctx.fillText('🗼', this.x + 2, this.y + 40); }
+                ctx.fillStyle = 'red'; ctx.fillRect(this.x, this.y + 45, 50, 5);
+                ctx.fillStyle = '#3498db'; ctx.fillRect(this.x, this.y + 45, 50 * (this.health/100), 5);
+            }
+        }
+
+        class Bullet {
+            constructor(x, y) { this.x = x; this.y = y; this.speed = 8; this.damage = 25; }
+            update() { this.x += this.speed; }
+            draw(ctx) { ctx.fillStyle = '#f1c40f'; ctx.beginPath(); ctx.arc(this.x, this.y, 6, 0, Math.PI*2); ctx.fill(); }
+        }
+
+        // --- ИГРОВИ ПРОМЕНЛИВИ ---
+        let towers = []; let enemies = []; let bullets = [];
+        let money = 150; let level = 1; let enemiesToSpawn = 5; let frames = 0;
+        let gameState = 'START'; let mouseX = 0; let mouseY = 0;
+
+        const imgTower = new Image(); imgTower.src = 'assets/images/tower.png';
+        const imgEnemy = new Image(); imgEnemy.src = 'assets/images/enemy.png';
+
+        // --- БУТОНИ И СЪБИТИЯ ---
+        document.getElementById('startBtn').onclick = function() {
+            document.getElementById('startMenu').style.display = 'none';
+            gameState = 'PLAYING'; audioCtx.resume(); animate();
+        };
+
+        document.getElementById('nextLevelBtn').onclick = function() {
+            level++; enemiesToSpawn = 5 + (level * 2); 
+            document.getElementById('levelDisplay').innerText = level + " / 10";
+            document.getElementById('levelMenu').style.display = 'none'; 
+            gameState = 'PLAYING'; animate();
+        };
+
+        document.getElementById('restartBtn').onclick = function() { location.reload(); };
+        document.getElementById('winRestartBtn').onclick = function() { location.reload(); };
+
+        canvas.onmousemove = function(e) {
+            const rect = canvas.getBoundingClientRect(); mouseX = e.clientX - rect.left; mouseY = e.clientY - rect.top;
+        };
+
+        canvas.onclick = function() {
+            if (gameState !== 'PLAYING') return;
+            if (mouseX > 50 && money >= 50) {
+                const gridX = Math.floor(mouseX/50)*50; const gridY = Math.floor(mouseY/50)*50;
+                if (!towers.some(t => t.x === gridX && t.y === gridY)) {
+                    towers.push(new Tower(gridX, gridY)); money -= 50; document.getElementById('moneyDisplay').innerText = money;
+                }
+            }
+        };
+
+        // --- ЦИКЪЛ НА ИГРАТА ---
+        function animate() {
+            if (gameState !== 'PLAYING') return; 
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.strokeStyle = 'rgba(0,0,0,0.1)'; ctx.lineWidth = 1;
+            for(let i=0; i<=canvas.width; i+=50) { ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i,canvas.height); ctx.stroke(); }
+            for(let i=0; i<=canvas.height; i+=50) { ctx.beginPath(); ctx.moveTo(0,i); ctx.lineTo(canvas.width,i); ctx.stroke(); }
+            ctx.fillStyle = '#2c3e50'; ctx.fillRect(0, 0, 50, canvas.height); 
+            if (mouseX > 50) { ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fillRect(Math.floor(mouseX/50)*50, Math.floor(mouseY/50)*50, 50, 50); }
+
+            if (frames % Math.max(30, 100 - level * 5) === 0 && enemiesToSpawn > 0) {
+                enemies.push(new Enemy(canvas.width, Math.floor(Math.random() * 10) * 50, level)); enemiesToSpawn--;
+            }
+
+            towers = towers.filter(t => t.health > 0);
+            towers.forEach(t => { t.update(enemies, bullets); t.draw(ctx, imgTower); });
+            
+            bullets.forEach((b, bIndex) => {
+                b.update(); b.draw(ctx);
+                enemies.forEach((e, eIndex) => {
+                    if (b.x < e.x + e.width && b.x + 10 > e.x && b.y < e.y + e.height && b.y + 10 > e.y) {
+                        e.health -= b.damage; setTimeout(() => bullets.splice(bIndex, 1), 0);
+                    }
+                });
+                if (b.x > canvas.width) setTimeout(() => bullets.splice(bIndex, 1), 0);
+            });
+
+            enemies.forEach((e, index) => {
+                e.update(towers); e.draw(ctx, imgEnemy);
+                if (e.fsm.state === STATES.DEAD) {
+                    if (e.health > 0) { 
+                        gameState = 'GAMEOVER'; document.getElementById('gameOverMenu').style.display = 'flex'; playSound('lose');
+                    } else { 
+                        money += 20; document.getElementById('moneyDisplay').innerText = money; playSound('kill'); 
+                    }
+                    setTimeout(() => enemies.splice(index, 1), 0);
+                }
+            });
+
+            // ПРОВЕРКА ЗА СЛЕДВАЩО НИВО ИЛИ ПОБЕДА
+            if (enemiesToSpawn === 0 && enemies.length === 0 && gameState === 'PLAYING') {
+                if (level >= 10) {
+                    // АКО СИ СТИГНАЛ НИВО 10 -> ПЕЧЕЛИШ ИГРАТА
+                    gameState = 'WIN'; 
+                    document.getElementById('winMenu').style.display = 'flex';
+                    playSound('win');
+                } else {
+                    // ИНАЧЕ -> СЛЕДВАЩО НИВО
+                    gameState = 'NEXT_LEVEL'; 
+                    document.getElementById('levelMenu').style.display = 'flex';
+                }
+            }
+
+            frames++; if (gameState === 'PLAYING') requestAnimationFrame(animate);
+        }
+    </script>
+</body>
+</html>
