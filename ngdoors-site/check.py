@@ -203,6 +203,107 @@ def main():
             fail("a page links Google Fonts")
             break
 
+    # ---- prices and the size picker
+    # The picker reprices in JS. If its arithmetic or its money format ever drifts
+    # from build.py's, the page changes format the moment it is touched, which reads
+    # as broken. These two must be checked together, not trusted.
+    # Importing build runs it as a module: same catalogue the pages were rendered
+    # from, so the checker grades the real records rather than re-deriving them.
+    import build
+    import pricing
+    prices = pricing.load()
+    if not prices.get("draft"):
+        warns.append("prices.json is no longer marked draft — confirm the numbers are real")
+
+    doors = [r for r in build.ALL_DOORS if r["kind"] == "door"]
+    unpriced = [r["name"] for r in doors if r["price"] <= 0]
+    picker = [r for r in doors if len(r.get("size_opts") or []) > 1]
+    print("doors priced: %d/%d | with a size picker: %d" % (len(doors) - len(unpriced), len(doors), len(picker)))
+    if unpriced:
+        fail("%d door(s) still have no price, first: %s" % (len(unpriced), unpriced[0]))
+
+    # Read the shipped HTML, not the in-memory records: pricing.parse_size already
+    # guarantees the shape of what it returns, so checking its own output proves
+    # nothing. What can still break is the template — an unescaped value, a delta
+    # that never made it onto the button, a pill emitted outside its radiogroup.
+    pill_re = re.compile(r'<button class="size-pill"[^>]*>')
+    size_re = re.compile(r'data-size="([^"]*)"')
+    delta_re = re.compile(r'data-delta="(-?[\d.]+)"')
+    checked = pills = 0
+    for rec in picker:
+        page = os.path.join(SITE, rec["url"].strip("/"), "index.html")
+        if not os.path.exists(page):
+            continue
+        html = io.open(page, encoding="utf-8").read()
+        if 'role="radiogroup"' not in html:
+            fail("%s: size pills are not inside a radiogroup" % rec["name"])
+            break
+        found = pill_re.findall(html)
+        if len(found) != len(rec["size_opts"]):
+            fail("%s: %d size pills rendered for %d options"
+                 % (rec["name"], len(found), len(rec["size_opts"])))
+            break
+        for tag in found:
+            pills += 1
+            m, d = size_re.search(tag), delta_re.search(tag)
+            if not m or not re.match(r"^\d{2,3}/\d{2,3}$", m.group(1)):
+                fail("%s: rendered size %r is not a WIDTH/HEIGHT pair"
+                     % (rec["name"], m.group(1) if m else None))
+                break
+            if not d:
+                fail("%s: size pill %s carries no surcharge" % (rec["name"], m.group(1)))
+                break
+        if html.count('aria-checked="true"') < 1:
+            fail("%s: no size is selected on load" % rec["name"])
+            break
+        checked += 1
+    print("size pickers verified in HTML: %d (%d pills)" % (checked, pills))
+
+    # A door whose selected option is not the one the server priced would show one
+    # number on load and a different one after the first click on the same size.
+    for r in picker:
+        anchor_opt = [s_ for s_ in r["size_opts"] if s_["size"] == r["base_size"]]
+        if not anchor_opt:
+            fail("%s: base_size %r is not among its offered sizes" % (r["name"], r["base_size"]))
+            break
+        if abs(anchor_opt[0]["delta"]) > 0.001:
+            fail("%s: the anchor size carries a non-zero surcharge" % r["name"])
+            break
+        if any(s_["delta"] < -0.001 for s_ in r["size_opts"]):
+            fail("%s: a size is cheaper than the anchor, so the headline price is not the lowest"
+                 % r["name"])
+            break
+
+    # JS mirror of money(): same rate, same comma decimal, same euro-first order.
+    js = io.open(os.path.join(HERE, "static", "site.js"), encoding="utf-8").read()
+    if "%s" % build.BGN_PER_EUR not in js:
+        fail("site.js does not carry build.py's BGN_PER_EUR (%s)" % build.BGN_PER_EUR)
+    for rec in doors[:200]:
+        for opt in (rec.get("size_opts") or []):
+            want = build.money(opt["price"])
+            eur = ("%.2f" % (opt["price"] / build.BGN_PER_EUR)).replace(".", ",")
+            lev = ("%.2f" % opt["price"]).replace(".", ",")
+            got = '<span class="eur">%s €</span> <span class="bgn">(%s лв.)</span>' % (eur, lev)
+            if want != got:
+                fail("price format disagrees for %s at %s" % (rec["name"], opt["size"]))
+                break
+
+    # ---- draft disclosure
+    # A draft price with no notice beside it is a quote. Every priced door page must
+    # say so, on the page, not only in the JSON.
+    if prices.get("draft"):
+        missing = 0
+        for rec in doors:
+            if rec["price"] <= 0:
+                continue
+            page = os.path.join(SITE, rec["url"].strip("/"), "index.html")
+            if not os.path.exists(page):
+                continue
+            if "price-note" not in io.open(page, encoding="utf-8").read():
+                missing += 1
+        if missing:
+            fail("%d priced door page(s) carry a draft price with no draft notice" % missing)
+
     # ---- weight
     total = 0
     for root, _d, files in os.walk(SITE):

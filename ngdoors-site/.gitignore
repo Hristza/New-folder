@@ -1,2 +1,4 @@
 cache/
 renders/raw/
+__pycache__/
+*.pyc
