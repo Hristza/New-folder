@@ -3,3 +3,4 @@ renders/raw/
 __pycache__/
 *.pyc
 ngdoors-product-demo.html
+ngdoors-preview.html
