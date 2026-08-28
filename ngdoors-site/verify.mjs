@@ -15,10 +15,12 @@
 // report net::ERR_FAILED on a page that is fine.
 
 import { chromium } from 'playwright';
-const B = 'http://127.0.0.1:8099';
+const B = process.env.VERIFY_BASE || 'http://127.0.0.1:8099';
 const PAGES = ['/', '/vrati/', '/produkt/d-012-lara-antratsit-2890/', '/nastilki/', '/kontakti/'];
 const WIDTHS = [390, 768, 1440];
-const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+// The cloud sandbox pins a chromium path that does not exist on other machines;
+// PW_CHROMIUM overrides it and an empty value falls back to playwright's own.
+const b = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
 let bad = 0;
 
 const settle = async p => {

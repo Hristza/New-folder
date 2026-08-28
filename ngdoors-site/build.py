@@ -855,7 +855,9 @@ def page_category(path):
             trail.append((TREE[anc]["url"], TREE[anc]["label"]))
     trail.append((None, node["label"]))
 
-    kids = [c for c in sorted(node["children"], key=lambda c: -len(TREE[c]["all"]))
+    # children is a set, so a pure count key leaves ties in hash order and the
+    # build stops being reproducible; the path breaks the tie.
+    kids = [c for c in sorted(node["children"], key=lambda c: (-len(TREE[c]["all"]), c))
             if TREE[c]["all"]]
 
     if kids:
