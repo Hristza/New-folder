@@ -23,6 +23,10 @@ STATIC = os.path.join(HERE, "static")
 PHONE = "+359898441552"
 PHONE_H = "+359 898 441 552"
 EMAIL = "info@ngdoors.bg"
+# Viber has no web fallback: viber.me is for public accounts, not a phone number, so this is
+# the only scheme that opens a chat. It does nothing on a desktop without Viber installed,
+# which is why the number itself stays visible next to every one of these links.
+VIBER = "viber://chat?number=%2B" + PHONE.lstrip("+")
 ADDRESS = "бул. Европа 115, 2227 Божурище"
 HOURS = "Понеделник – петък, 9:00 – 18:00"
 SITE_NAME = "NG Doors"
@@ -399,6 +403,7 @@ def shell(path, title, desc, body, cls=""):
     <span class="hours">%(hours)s</span>
     <span class="utility-right">
       <a href="tel:%(phone)s">%(phone_h)s</a>
+      <a href="%(viber)s">Viber</a>
       <a href="mailto:%(email)s">%(email)s</a>
     </span>
   </div>
@@ -445,6 +450,7 @@ def shell(path, title, desc, body, cls=""):
         <h4>Контакти</h4>
         <ul>
           <li><a href="tel:%(phone)s">%(phone_h)s</a></li>
+          <li><a href="%(viber)s">Viber на същия номер</a></li>
           <li><a href="mailto:%(email)s">%(email)s</a></li>
           <li>%(address)s</li>
           <li><a href="/proekti/">Реализирани проекти</a></li>
@@ -471,7 +477,7 @@ def shell(path, title, desc, body, cls=""):
         "title": esc(title), "desc": esc(desc), "canonical": esc(canonical),
         "body": body,
         "cls": ' class="%s"' % cls if cls else "", "nav": nav,
-        "phone": PHONE, "phone_h": PHONE_H, "email": EMAIL,
+        "phone": PHONE, "phone_h": PHONE_H, "email": EMAIL, "viber": VIBER,
         "address": esc(ADDRESS), "hours": HOURS,
         "foot_doors": "".join('<li><a href="%s">%s</a></li>' % (TREE[p]["url"], esc(TREE[p]["label"]))
                               for p in ROOTS[:5]),
@@ -649,14 +655,39 @@ def crumbs(items):
     return '<nav class="crumbs" aria-label="Пътека">%s</nav>' % "".join(parts)
 
 
-def pagehead(title, lede="", crumb=None, note=""):
+# One generated room per section top. Keyed by the page path so a caller cannot hand
+# the wrong scene to the wrong page. A path with no entry gets no banner, which is why
+# every other pagehead() call needed no change.
+SCENES = {
+    "/vrati/vhodni-vrati/":     ("vhodni",      "Входна врата в коридор на апартамент"),
+    "/vrati/interiorni-vrati/": ("interiorni",  "Открехната интериорна врата към стая"),
+    "/nastilki/":               ("nastilki",    "Ламиниран под в дневна светлина"),
+    "/granitogres/":            ("granitogres", "Гранитогрес на кухненски под"),
+    "/parvazi/":                ("parvazi",     "Первази в ъгъла между под и стена"),
+    "/vrati/":                  ("proekti",     "Завършена стая с интериорна врата"),
+}
+
+
+def scene_band(path):
+    got = SCENES.get(path)
+    if not got:
+        return ""
+    name, alt = got
+    return ('<div class="scene"><img src="/assets/scenes/cat-%s-1600.webp" '
+            'srcset="/assets/scenes/cat-%s-900.webp 900w, /assets/scenes/cat-%s-1600.webp 1600w" '
+            'sizes="(max-width: 1360px) 100vw, 1320px" width="1600" height="686" '
+            'alt="%s" loading="lazy" decoding="async"></div>') % (name, name, name, esc(alt))
+
+
+def pagehead(title, lede="", crumb=None, note="", scene=None):
     return """<section class="pagehead"><div class="wrap">
-%s<h1>%s</h1>%s%s
+%s<h1>%s</h1>%s%s%s
 </div></section>""" % (
         crumbs(crumb) if crumb else "",
         esc(title),
         '<p class="lede">%s</p>' % esc(lede) if lede else "",
-        '<p class="count-note">%s</p>' % esc(note) if note else "")
+        '<p class="count-note">%s</p>' % esc(note) if note else "",
+        scene_band(scene) if scene else "")
 
 
 ENQUIRY = """<section class="section"><div class="wrap">
@@ -667,10 +698,11 @@ ENQUIRY = """<section class="section"><div class="wrap">
     </div>
     <div class="enquiry-actions">
       <a class="btn btn-light" href="tel:%s">%s</a>
+      <a class="btn btn-light" href="%s">Пишете в Viber</a>
       <a class="btn btn-light" href="mailto:%s">Пишете ни</a>
     </div>
   </div>
-</div></section>""" % (PHONE, PHONE_H, EMAIL)
+</div></section>""" % (PHONE, PHONE_H, VIBER, EMAIL)
 
 
 # ------------------------------------------------------------------ pages
@@ -773,7 +805,12 @@ def page_home():
       </div>
     </div>
     <div class="hero-art">
-      <figure class="tall">%s<figcaption class="art-tag">%s</figcaption></figure>
+      <figure class="tall">
+        <img src="/assets/scenes/hero-hallway-1140.webp"
+             srcset="/assets/scenes/hero-hallway-760.webp 760w, /assets/scenes/hero-hallway-1140.webp 1140w"
+             sizes="(max-width: 900px) 60vw, 380px" width="1140" height="1527"
+             alt="Коридор с интериорна врата и ламиниран под" fetchpriority="high" decoding="async">
+        <figcaption class="art-tag">Врати</figcaption></figure>
       <figure class="short">%s<figcaption class="art-tag">Настилки</figcaption></figure>
     </div>
   </div>
@@ -815,8 +852,6 @@ def page_home():
 %s""" % (
         plural(len(ALL_DOORS), "модел", "модела"),
         plural(len(FLOORS), "артикул", "артикула"),
-        img_tag(hero_a["images"][0], hero_a["name"], "(max-width: 900px) 60vw, 380px", eager=True),
-        esc(hero_a["brand"] or "Врати"),
         img_tag(hero_b["images"][0], hero_b["name"], "(max-width: 900px) 40vw, 300px", eager=True),
         rail, bento, strip, feat_cards, HOURS, ENQUIRY)
 
@@ -836,7 +871,8 @@ def page_doors_index():
                     "Входни, интериорни, алуминиеви и пожароустойчиви врати. "
                     "Всеки модел е с реални размери и обков от производителя.",
                     [("/", "Начало"), (None, "Врати")],
-                    "%s в %s" % (plural(len(ALL_DOORS), "модел", "модела"), plural(len(ROOTS), "категория", "категории"))) + \
+                    "%s в %s" % (plural(len(ALL_DOORS), "модел", "модела"), plural(len(ROOTS), "категория", "категории")),
+                    scene="/vrati/") + \
         '<section class="section" style="padding-top:0"><div class="wrap"><div class="grid">%s</div></div></section>%s' % (tiles, ENQUIRY)
     write("/vrati/", shell("/vrati/", "Врати — NG Doors",
                            "Входни, интериорни, алуминиеви и пожароустойчиви врати — %s." % plural(len(ALL_DOORS), "модел", "модела"),
@@ -874,7 +910,8 @@ def page_category(path):
                    '<div class="grid">%s</div>') % (
                 esc(node["label"]), "".join(card(r, kicker="") for r in node["own"]))
         body = pagehead(node["label"], "", trail,
-                        "%s в %s" % (plural(len(node["all"]), "модел", "модела"), plural(len(kids), "серия", "серии"))) + \
+                        "%s в %s" % (plural(len(node["all"]), "модел", "модела"), plural(len(kids), "серия", "серии")),
+                        scene=node["url"]) + \
             '<section class="section" style="padding-top:0"><div class="wrap"><div class="grid">%s</div>%s</div></section>%s' % (
                 tiles, own, ENQUIRY)
     else:
@@ -952,6 +989,7 @@ def page_product(rec):
     <div class="product-cta">
       <a class="btn btn-primary" href="mailto:%s?subject=%s">Направете запитване</a>
       <a class="btn btn-ghost" href="tel:%s">%s</a>
+      <a class="btn btn-ghost" href="%s">Viber</a>
     </div>
     <p class="source-note">Каталожна информация от %s. Наличността и срокът се потвърждават при запитване.</p>
   </div>
@@ -965,7 +1003,7 @@ def page_product(rec):
        esc(rec["name"]), price_html(rec, big=True), price_note_html(rec),
        '<div class="desc">%s</div>' % esc(clean_desc(rec)) if clean_desc(rec) else "",
        sizes, addons_html(rec), spec,
-       EMAIL, esc(subject).replace(" ", "%20"), PHONE, PHONE_H,
+       EMAIL, esc(subject).replace(" ", "%20"), PHONE, PHONE_H, VIBER,
        "ngdoors.bg" if rec["kind"] == "door" else "darnox.com",
        trail[-2][0] or section_url, sticky_buy(rec))
     write(rec["url"], shell(rec["url"], page_title(rec), meta_desc(rec), body))
@@ -994,7 +1032,7 @@ def floor_section(path, title, lede, items, brands=None):
         '<div data-t="%s" data-a="%s">%s</div>' % (esc(f["thick"]), esc(f["ac"]), card(f))
         for f in items)
     body = pagehead(title, lede, [("/", "Начало"), (None, title)],
-                    count_note(items)) + \
+                    count_note(items), scene=path) + \
         '<section class="section" style="padding-top:0"><div class="wrap">%s%s<div class="grid" id="filtergrid">%s</div></div></section>%s' % (
             brand_nav, chips, grid, ENQUIRY)
     write(path, shell(path, "%s — NG Doors" % title, lede or title, body))
@@ -1037,6 +1075,7 @@ def page_contact():
     <div>
       <dl class="contact-list">
         <dt>Телефон</dt><dd><a href="tel:%s">%s</a></dd>
+        <dt>Viber</dt><dd><a href="%s">%s</a></dd>
         <dt>Имейл</dt><dd><a href="mailto:%s">%s</a></dd>
         <dt>Адрес</dt><dd>%s</dd>
         <dt>Работно време</dt><dd>%s</dd>
@@ -1065,7 +1104,7 @@ def page_contact():
       </form>
     </div>
   </div>
-</div></section>""" % (PHONE, PHONE_H, EMAIL, EMAIL, esc(ADDRESS), HOURS,
+</div></section>""" % (PHONE, PHONE_H, VIBER, PHONE_H, EMAIL, EMAIL, esc(ADDRESS), HOURS,
                         urllib.parse.quote("NG Doors, " + ADDRESS))
     write("/kontakti/", shell("/kontakti/", "Контакти — NG Doors",
                               "NG Doors, %s. Телефон %s, имейл %s." % (ADDRESS, PHONE_H, EMAIL), body))
@@ -1088,6 +1127,14 @@ def main():
     shutil.copy(os.path.join(STATIC, "site.css"), os.path.join(SITE, "assets", "site.css"))
     shutil.copy(os.path.join(STATIC, "site.js"), os.path.join(SITE, "assets", "site.js"))
     shutil.copy(os.path.join(STATIC, "favicon.svg"), os.path.join(SITE, "assets", "favicon.svg"))
+    # Generated room scenes. They carry no product claim, which is the whole reason they
+    # exist: the 623 catalogue photos stay real because a price sits next to them.
+    scenes_src = os.path.join(STATIC, "scenes")
+    if os.path.isdir(scenes_src):
+        scenes_dst = os.path.join(SITE, "assets", "scenes")
+        os.makedirs(scenes_dst, exist_ok=True)
+        for name in sorted(os.listdir(scenes_src)):
+            shutil.copy(os.path.join(scenes_src, name), os.path.join(scenes_dst, name))
     fdir = os.path.join(SITE, "assets", "fonts")
     os.makedirs(fdir, exist_ok=True)
     # Vendored in static/fonts/ so the build is self-contained. They used to be

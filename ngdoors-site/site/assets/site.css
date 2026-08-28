@@ -391,6 +391,23 @@ p { margin: 0; text-wrap: pretty; }
 .crumbs .sep { color: var(--line); }
 .crumbs .here { color: var(--ink); font-weight: 600; }
 .count-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+/* Generated room scene under a section title. It is atmosphere, never a product:
+   the catalogue photos stay real because a price sits beside them. See LOOK-LOCK.md.
+   Height is clamped, not derived from the file's 21:9 ratio: at 1320px wide that
+   ratio renders 566px tall and the band pushes every product below the fold. The
+   image is cropped to the clamp by object-fit, which is why one file serves every
+   width instead of a second render for phones. */
+.scene {
+  margin-top: 26px; border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow-soft);
+}
+.scene img {
+  display: block; width: 100%;
+  height: clamp(150px, 22vw, 300px); object-fit: cover;
+  /* Centred cover cut the floor off and left a door with no base. The subject in
+     every one of these scenes sits low in the frame, so the crop is weighted down. */
+  object-position: 50% 72%;
+}
 
 .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }
 .chip {

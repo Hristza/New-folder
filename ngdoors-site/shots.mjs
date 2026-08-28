@@ -16,8 +16,8 @@
 // excluded from the unloaded-image count rather than counted as a defect.
 
 import { chromium } from 'playwright';
-const B = 'http://127.0.0.1:8099';
-const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+const B = process.env.VERIFY_BASE || 'http://127.0.0.1:8099';
+const b = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
 
 // A fullPage capture sits at scroll 0 and photographs the whole document, so any
 // scroll-revealed section is legitimately still at opacity 0 and photographs blank
