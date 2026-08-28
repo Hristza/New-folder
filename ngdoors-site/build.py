@@ -1119,7 +1119,11 @@ ALL_PRODUCTS = ALL_DOORS + FLOORS
 def main():
     if os.path.isdir(SITE):
         for entry in os.listdir(SITE):
-            if entry == "assets":
+            # Dotfiles in here are tooling state, not build output. rmtree quietly
+            # does nothing to a file, so site/.gitignore always survived -- but
+            # site/.vercel is a DIRECTORY, and wiping it unlinked the project, so the
+            # next deploy silently created a second one named after the folder.
+            if entry == "assets" or entry.startswith("."):
                 continue
             shutil.rmtree(os.path.join(SITE, entry), ignore_errors=True)
     os.makedirs(os.path.join(SITE, "assets"), exist_ok=True)
