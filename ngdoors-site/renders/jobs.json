@@ -1,0 +1,69 @@
+{
+ "_note": "Series masters already generated and PAID FOR (24 credits) on 2026-08-28. Download these rather than regenerating. Result URLs may expire; if they 404, re-run the job ids through the Higgsfield API before paying for new renders.",
+ "_status": "Not yet wired into the site. Series-level art must NOT be used on product cards — every door in a series would show the same picture, so a 13-door grid renders 13 identical images. Use these for category art only, or generate per-door variants (image-to-image off each master) once the network allows bulk download.",
+ "model": "nano_banana_pro",
+ "resolution": "2k",
+ "aspect_ratio": "3:4",
+ "renders": [
+  {
+   "series": "интериорни-врати/интериорни-врати-efapel",
+   "job_id": "dece4386-964d-46c7-8639-c73f87ba77c0",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_dece4386-964d-46c7-8639-c73f87ba77c0.png"
+  },
+  {
+   "series": "обков-и-аксесоари/дръжки/дръжки-за-интериорни-врати",
+   "job_id": "acd7ff28-261a-410d-af51-2aca2d02343e",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_acd7ff28-261a-410d-af51-2aca2d02343e.png"
+  },
+  {
+   "series": "интериорни-врати/интериорна-врата-vario-door",
+   "job_id": "32e400ac-8b55-4939-ba71-20f8e5ba6252",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_32e400ac-8b55-4939-ba71-20f8e5ba6252.png"
+  },
+  {
+   "series": "интериорни-врати/интериорни-врати-gradde",
+   "job_id": "14e6bab9-9792-4360-8f90-9b030337149a",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_14e6bab9-9792-4360-8f90-9b030337149a.png"
+  },
+  {
+   "series": "входни-врати/за-апартамент-star-steel-door/серия-parkdoor",
+   "job_id": "3b803a4a-041a-49ec-88e8-e686db14a1a1",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_3b803a4a-041a-49ec-88e8-e686db14a1a1.png"
+  },
+  {
+   "series": "алуминиеви-врати/алуминиеви-врати-gradde",
+   "job_id": "cd496c49-96f7-4b79-898e-f4115ee1e53a",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055333_cd496c49-96f7-4b79-898e-f4115ee1e53a.png"
+  },
+  {
+   "series": "входни-врати/входни-врати-за-къщи/серия-бетон",
+   "job_id": "701cae6f-6012-43e3-86ea-a0eaf0f2371e",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_701cae6f-6012-43e3-86ea-a0eaf0f2371e.png"
+  },
+  {
+   "series": "интериорни-врати/интериорни-врати-classen",
+   "job_id": "769ec192-ba6d-4655-893d-f6aed2b43045",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_769ec192-ba6d-4655-893d-f6aed2b43045.png"
+  },
+  {
+   "series": "интериорни-врати/интериорни-врати-стандарт",
+   "job_id": "3d3264bc-5e5c-40ce-8a9e-167929ea07fe",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055333_3d3264bc-5e5c-40ce-8a9e-167929ea07fe.png"
+  },
+  {
+   "series": "входни-врати/входни-врати-за-апартамент-g-door/серия-dublin",
+   "job_id": "e87242cf-e91f-4599-8872-c74d4c7499f6",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_e87242cf-e91f-4599-8872-c74d4c7499f6.png"
+  },
+  {
+   "series": "входни-врати/за-апартамент-star-steel-door/серия-starlife",
+   "job_id": "b8bab51e-7cde-46e8-98a4-206d5b8dffa3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_b8bab51e-7cde-46e8-98a4-206d5b8dffa3.png"
+  },
+  {
+   "series": "обков-и-аксесоари/дръжки/дръжки-за-входни-врати",
+   "job_id": "f341b0e2-9cca-4de9-bb5a-7fdc7d350e28",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Fa9udS21mjbXbzPiuZecqKOrt6/hf_20260828_055332_f341b0e2-9cca-4de9-bb5a-7fdc7d350e28.png"
+  }
+ ]
+}
