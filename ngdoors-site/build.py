@@ -668,15 +668,36 @@ SCENES = {
 }
 
 
+def film(name, alt, w, h, cls, eager=False):
+    """One scene as a silent looping video, with its own first frame as the poster.
+
+    The poster is cut from the clip rather than reused from the old still, so the
+    two are the same pixels and the frame cannot shift the moment playback starts.
+    preload is 'none' on a band: the poster paints immediately and not a byte of
+    video is fetched until site.js sees the band come into view. The hero is the
+    one exception, because it is above the fold on every visit.
+
+    role=img is deliberate. These carry the same meaning the <img alt> carried and
+    none of the meaning of a media player: nothing to hear, nothing to seek, no
+    controls. A screen reader should read the label and move on.
+    """
+    return ('<div class="%s"><video class="film" data-film poster="/assets/scenes/%s-poster.webp" '
+            'width="%d" height="%d" muted loop playsinline preload="%s"%s '
+            'role="img" aria-label="%s">'
+            '<source src="/assets/scenes/%s.webm" type="video/webm">'
+            '<source src="/assets/scenes/%s.mp4" type="video/mp4">'
+            '</video></div>') % (cls, name, w, h,
+                                 "auto" if eager else "none",
+                                 " autoplay" if eager else "",
+                                 esc(alt), name, name)
+
+
 def scene_band(path):
     got = SCENES.get(path)
     if not got:
         return ""
     name, alt = got
-    return ('<div class="scene"><img src="/assets/scenes/cat-%s-1600.webp" '
-            'srcset="/assets/scenes/cat-%s-900.webp 900w, /assets/scenes/cat-%s-1600.webp 1600w" '
-            'sizes="(max-width: 1360px) 100vw, 1320px" width="1600" height="686" '
-            'alt="%s" loading="lazy" decoding="async"></div>') % (name, name, name, esc(alt))
+    return film(name, alt, 1120, 630, "scene reveal")
 
 
 def pagehead(title, lede="", crumb=None, note="", scene=None):
@@ -805,11 +826,7 @@ def page_home():
       </div>
     </div>
     <div class="hero-art">
-      <figure class="tall">
-        <img src="/assets/scenes/hero-hallway-1140.webp"
-             srcset="/assets/scenes/hero-hallway-760.webp 760w, /assets/scenes/hero-hallway-1140.webp 1140w"
-             sizes="(max-width: 900px) 60vw, 380px" width="1140" height="1527"
-             alt="Коридор с интериорна врата и ламиниран под" fetchpriority="high" decoding="async">
+      <figure class="tall">%s
         <figcaption class="art-tag">Врати</figcaption></figure>
       <figure class="short">%s<figcaption class="art-tag">Настилки</figcaption></figure>
     </div>
@@ -852,6 +869,8 @@ def page_home():
 %s""" % (
         plural(len(ALL_DOORS), "модел", "модела"),
         plural(len(FLOORS), "артикул", "артикула"),
+        film("hero", "Коридор с интериорна врата и ламиниран под", 834, 1112,
+             "hero-tall", eager=True),
         img_tag(hero_b["images"][0], hero_b["name"], "(max-width: 900px) 40vw, 300px", eager=True),
         rail, bento, strip, feat_cards, HOURS, ENQUIRY)
 

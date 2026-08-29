@@ -199,9 +199,13 @@ p { margin: 0; text-wrap: pretty; }
 .hero-art figure { margin: 0; position: relative; }
 .hero-art .tall { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-soft); }
 .hero-art .short { border-radius: var(--radius); overflow: hidden; margin-top: 54px; box-shadow: var(--shadow-soft); }
-.hero-art img { width: 100%; object-fit: cover; }
-.hero-art .tall img { aspect-ratio: 3 / 4; }
+.hero-art img, .hero-art .film { width: 100%; object-fit: cover; }
 .hero-art .short img { aspect-ratio: 3 / 4; }
+/* .hero-tall wraps the film so the figure keeps one child to lay out, and the
+   3:4 box is held by the wrapper: a <video> that has not loaded yet reports its
+   own intrinsic size and the hero would jump the moment metadata arrived. */
+.hero-art .hero-tall { display: block; aspect-ratio: 3 / 4; }
+.hero-art .hero-tall .film { display: block; height: 100%; }
 .art-tag {
   position: absolute; left: 12px; bottom: 12px;
   background: #fffffff0; color: var(--ink);
@@ -400,13 +404,25 @@ p { margin: 0; text-wrap: pretty; }
 .scene {
   margin-top: 26px; border-radius: var(--radius);
   overflow: hidden; box-shadow: var(--shadow-soft);
+  position: relative; height: clamp(150px, 22vw, 300px);
 }
-.scene img {
-  display: block; width: 100%;
-  height: clamp(150px, 22vw, 300px); object-fit: cover;
-  /* Centred cover cut the floor off and left a door with no base. The subject in
-     every one of these scenes sits low in the frame, so the crop is weighted down. */
-  object-position: 50% 72%;
+/* The film is taller than the band it sits in, and the overflow is the parallax
+   budget: site.js slides it inside that margin as the band crosses the viewport,
+   so there is headroom at both ends and no strip of background can ever show.
+   88% is measured, not chosen, and must not drift back toward the middle. A band is
+   3.6:1 and the clip is 16:9, so at 1440 the band shows less than half the frame's
+   height -- and the floor line, which is the only thing giving the door a base,
+   sits at 85% of it. A brightness profile down the left of every poster puts it
+   there. At 50% the band came back as a bare wall with a door hanging in it; at
+   72% the floor survived as six pixels. 88% is the lowest crop that still keeps
+   the door's handle in shot at 390, 768 and 1440 alike. */
+.scene .film {
+  position: absolute; left: 0; top: -9%; width: 100%; height: 118%;
+  object-fit: cover; object-position: 50% 88%;
+}
+.scene .film[data-parallax] { will-change: transform; }
+@media (prefers-reduced-motion: reduce) {
+  .scene .film { transform: none !important; }
 }
 
 .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }

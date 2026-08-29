@@ -264,17 +264,78 @@
     }
   }
 
-  /* ---------------------------------------------------------- hero video */
-  /* autoplay is a request, not a guarantee: iOS low-power mode refuses it and
-     leaves a frozen first frame. Fall back to the poster rather than pretending. */
-  var film = document.querySelector('[data-film]');
-  if (film) {
+  /* ---------------------------------------------------------- scene films */
+  /* Every clip is silent, looping and decorative, so nothing here needs to
+     recover from a refusal: autoplay is a request, not a guarantee, and a clip
+     that never starts simply stays on its poster, which is its own first frame.
+     That is why there is no error branch and no fallback image to swap in.
+
+     Two jobs. Play only what is on screen, because a paused offscreen video is
+     the difference between one decoded stream and four on a phone. And carry a
+     slow parallax on the bands, which is the whole reason the film is taller
+     than the band it sits in. */
+  var films = [].slice.call(document.querySelectorAll('[data-film]'));
+  if (films.length) {
     if (reduced) {
-      film.removeAttribute('autoplay');
-      film.pause();
+      films.forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
     } else {
-      var go = film.play();
-      if (go && go.catch) go.catch(function () { film.setAttribute('data-failed', 'true'); });
+      var live = [];
+      var start = function (v) {
+        var go = v.play();
+        if (go && go.catch) go.catch(function () {});
+      };
+
+      if ('IntersectionObserver' in window) {
+        var vio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            var v = en.target;
+            var i = live.indexOf(v);
+            if (en.isIntersecting) {
+              if (i < 0) live.push(v);
+              start(v);
+            } else {
+              if (i >= 0) live.splice(i, 1);
+              v.pause();
+            }
+          });
+        }, { rootMargin: '200px 0px' });
+        films.forEach(function (v) { vio.observe(v); });
+      } else {
+        live = films.slice();
+        films.forEach(start);
+      }
+
+      /* Parallax, on the bands only -- the hero already moves, and moving its
+         box as well would fight the shot. The film has 9% of slack above and
+         below it, so the travel is capped well inside that and no gap can open
+         at either end however tall the band gets. */
+      var bands = films.filter(function (v) {
+        return v.parentNode && v.parentNode.classList.contains('scene');
+      });
+      bands.forEach(function (v) { v.setAttribute('data-parallax', 'true'); });
+
+      if (bands.length) {
+        var pTick = false;
+        var drift = function () {
+          var vh = window.innerHeight || 1;
+          bands.forEach(function (v) {
+            var r = v.parentNode.getBoundingClientRect();
+            if (r.bottom < 0 || r.top > vh) return;
+            /* -1 when the band is entering at the bottom, +1 when it leaves
+               the top, 0 when it is centred. */
+            var t = ((vh - r.top) / (vh + r.height)) * 2 - 1;
+            v.style.transform = 'translate3d(0,' + (t * 5).toFixed(2) + '%,0)';
+          });
+        };
+        var onDrift = function () {
+          if (pTick) return;
+          pTick = true;
+          window.requestAnimationFrame(function () { pTick = false; drift(); });
+        };
+        window.addEventListener('scroll', onDrift, { passive: true });
+        window.addEventListener('resize', onDrift, { passive: true });
+        drift();
+      }
     }
   }
 
