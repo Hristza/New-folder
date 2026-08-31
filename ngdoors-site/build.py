@@ -1135,6 +1135,26 @@ ALL_DOORS = sorted({r["id"]: r for p in ROOTS for r in TREE[p]["all"]}.values(),
 ALL_PRODUCTS = ALL_DOORS + FLOORS
 
 
+def mirror(src, dst):
+    """Make dst hold exactly what src holds -- copy in, and delete what is no longer there.
+
+    Both of these directories used to be copied name-by-name and never cleared, so a
+    file removed from static/ stayed in the built site forever and shipped. That is how
+    six retired font files were still being served from production after the family was
+    replaced: the stylesheet had stopped asking for them and the deploy still carried
+    them. Copying is not the same as mirroring, and only mirroring is idempotent.
+    """
+    if not os.path.isdir(src):
+        return
+    os.makedirs(dst, exist_ok=True)
+    keep = set(os.listdir(src))
+    for name in sorted(keep):
+        shutil.copy(os.path.join(src, name), os.path.join(dst, name))
+    for name in sorted(set(os.listdir(dst)) - keep):
+        os.remove(os.path.join(dst, name))
+        print("  removed stale asset %s/%s" % (os.path.basename(dst), name))
+
+
 def main():
     if os.path.isdir(SITE):
         for entry in os.listdir(SITE):
@@ -1152,22 +1172,11 @@ def main():
     shutil.copy(os.path.join(STATIC, "favicon.svg"), os.path.join(SITE, "assets", "favicon.svg"))
     # Generated room scenes. They carry no product claim, which is the whole reason they
     # exist: the 623 catalogue photos stay real because a price sits next to them.
-    scenes_src = os.path.join(STATIC, "scenes")
-    if os.path.isdir(scenes_src):
-        scenes_dst = os.path.join(SITE, "assets", "scenes")
-        os.makedirs(scenes_dst, exist_ok=True)
-        for name in sorted(os.listdir(scenes_src)):
-            shutil.copy(os.path.join(scenes_src, name), os.path.join(scenes_dst, name))
-    fdir = os.path.join(SITE, "assets", "fonts")
-    os.makedirs(fdir, exist_ok=True)
+    mirror(os.path.join(STATIC, "scenes"), os.path.join(SITE, "assets", "scenes"))
     # Vendored in static/fonts/ so the build is self-contained. They used to be
     # copied from a sibling project folder, which made the build depend on a
     # directory that does not exist in this repository.
-    src_fonts = os.path.join(STATIC, "fonts")
-    for name in ("bitter-var-cyrillic.woff2", "bitter-var-latin.woff2", "bitter-var-latin-ext.woff2",
-                 "ubuntusans-var-cyrillic.woff2", "ubuntusans-var-latin.woff2",
-                 "ubuntusans-var-latin-ext.woff2"):
-        shutil.copy(os.path.join(src_fonts, name), os.path.join(fdir, name))
+    mirror(os.path.join(STATIC, "fonts"), os.path.join(SITE, "assets", "fonts"))
 
     page_home()
     page_doors_index()
