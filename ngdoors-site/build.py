@@ -30,7 +30,12 @@ VIBER = "viber://chat?number=%2B" + PHONE.lstrip("+")
 ADDRESS = "бул. Европа 115, 2227 Божурище"
 HOURS = "Понеделник – петък, 9:00 – 18:00"
 SITE_NAME = "NG Doors"
-BASE_URL = "https://ngdoors-site.vercel.app"
+# The Vercel project is called "ngdoors", so the alias is ngdoors.vercel.app.
+# This said ngdoors-site.vercel.app, which 404s: every canonical tag on all 564
+# pages and every <loc> in the sitemap pointed at a domain that does not exist.
+# It did no damage only because robots.txt still disallows everything. Verify
+# this against `vercel project ls` before changing it, never against memory.
+BASE_URL = "https://ngdoors.vercel.app"
 
 # ------------------------------------------------------------------ slugs
 TRANS = {

@@ -209,6 +209,18 @@ def main():
         if not os.path.exists(os.path.join(SITE, "assets", "fonts", f)):
             fail("missing self-hosted font %s" % f)
 
+    # And nothing beyond that. Six retired Onest/Manrope files reappeared in
+    # static/fonts hours after the retype commit deleted them, byte-identical to
+    # the copies other projects keep, so something copied them back in. The build
+    # mirrored them straight into the deploy and every check here stayed green.
+    # A font no rule asks for is dead weight at best and the wrong brand at worst,
+    # so the shipped directory has to match the stylesheet in both directions.
+    got = set(f for f in os.listdir(os.path.join(SITE, "assets", "fonts"))
+              if f.endswith(".woff2"))
+    for f in sorted(got - wanted):
+        fail("%s ships but no rule in site.css asks for it"
+             " - delete it from static/fonts, then rebuild" % f)
+
     # Bulgarian needs U+045D, the grave-accent "и". Ruda, Golos Text and PT Sans all
     # draw every other Cyrillic letter and omit that one, so it renders as tofu in
     # ordinary prose and no screenshot of copy that happens not to use it will show

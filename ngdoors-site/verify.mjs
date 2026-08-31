@@ -71,5 +71,31 @@ const rHidden = await rp.evaluate(() => [...document.querySelectorAll('.reveal')
 console.log('reduced-motion: hidden reveals =', rHidden, rHidden ? ' <-- PROBLEM' : '');
 if (rHidden) bad++;
 await rp.close();
+
+// The canonical URL must point at a page that actually exists. It said
+// ngdoors-site.vercel.app on all 564 pages while the live alias was ngdoors.vercel.app,
+// a domain that 404s, and nothing caught it: offline, every canonical agreed with every
+// sitemap <loc> and both were wrong together, so they verified each other into a green.
+//
+// Fetching it is the test, not comparing hosts. A preview deployment is served from a
+// different host and its canonical still correctly names production, so host equality
+// would fail on every preview while still missing a canonical that resolves nowhere.
+{
+  const cp = await b.newPage();
+  await cp.goto(B + '/', { waitUntil: 'domcontentloaded' });
+  const canon = await cp.$eval('link[rel="canonical"]', el => el.href).catch(() => null);
+  if (!canon) { bad++; console.log('canonical: MISSING on the home page'); }
+  else if (/^https?:\/\/(127\.0\.0\.1|localhost)/.test(canon)) {
+    console.log('canonical:', canon, '(local, not fetched)');
+  } else {
+    const r = await cp.request.get(canon, { failOnStatusCode: false })
+      .catch(e => ({ status: () => 0, _e: String(e) }));
+    if (r.status() !== 200) {
+      bad++;
+      console.log(`canonical: ${canon} returns ${r.status()} -- it points nowhere`);
+    } else console.log('canonical resolves:', canon);
+  }
+  await cp.close();
+}
 await b.close();
 console.log(bad ? `\n${bad} PROBLEM(S)` : '\nALL GREEN');
