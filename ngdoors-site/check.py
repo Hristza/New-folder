@@ -336,17 +336,29 @@ def main():
     # A draft price with no notice beside it is a quote. Every priced door page must
     # say so, on the page, not only in the JSON.
     if prices.get("draft"):
-        missing = 0
-        for rec in doors:
-            if rec["price"] <= 0:
-                continue
+        # Doors are all drafted; floors are a mix, so only the drafted ones are
+        # required to carry the notice — and the ones on the supplier's own price
+        # must NOT, or a real price starts reading as a guess.
+        want = [r for r in doors if r["price"] > 0]
+        want += [r for r in build.FLOORS if r.get("draft_price") and r["price"] > 0]
+        must_not = [r for r in build.FLOORS if not r.get("draft_price") and r["price"] > 0]
+        missing = wrong = 0
+        for rec, need in [(r, True) for r in want] + [(r, False) for r in must_not]:
             page = os.path.join(SITE, rec["url"].strip("/"), "index.html")
             if not os.path.exists(page):
                 continue
-            if "price-note" not in io.open(page, encoding="utf-8").read():
+            has = "price-note" in io.open(page, encoding="utf-8").read()
+            if need and not has:
                 missing += 1
+            elif not need and has:
+                wrong += 1
+        print("draft prices: %d door + %d floor, %d supplier prices undisclaimed"
+              % (len([r for r in doors if r["price"] > 0]),
+                 len(want) - len([r for r in doors if r["price"] > 0]), len(must_not)))
         if missing:
-            fail("%d priced door page(s) carry a draft price with no draft notice" % missing)
+            fail("%d page(s) carry a draft price with no draft notice" % missing)
+        if wrong:
+            fail("%d page(s) label the supplier's own published price as a draft" % wrong)
 
     # ---- weight
     total = 0
