@@ -33,8 +33,9 @@ SITE_NAME = "NG Doors"
 # The Vercel project is called "ngdoors", so the alias is ngdoors.vercel.app.
 # This said ngdoors-site.vercel.app, which 404s: every canonical tag on all 564
 # pages and every <loc> in the sitemap pointed at a domain that does not exist.
-# It did no damage only because robots.txt still disallows everything. Verify
-# this against `vercel project ls` before changing it, never against memory.
+# It did no damage only because the site was closed to search at the time; it is
+# open now, so a wrong value here is live SEO damage. Verify it against
+# `vercel project ls` before changing it, never against memory.
 BASE_URL = "https://ngdoors.vercel.app"
 
 # ------------------------------------------------------------------ slugs
@@ -388,7 +389,6 @@ def shell(path, title, desc, body, cls=""):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(title)s</title>
 <meta name="description" content="%(desc)s">
-<meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="%(canonical)s">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NG Doors">
@@ -1222,7 +1222,11 @@ def main():
             f.write("<url><loc>%s%s</loc></url>\n" % (BASE_URL, u))
         f.write("</urlset>\n")
     with io.open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8") as f:
-        f.write("User-agent: *\nDisallow: /\n")
+        # Open to search since 2026-08-31: the supplier confirmed their catalogue photos
+        # and specs may be republished. Before that this wrote Disallow: / and every page
+        # carried a noindex meta. check.py still fails if only one of those two halves is
+        # ever thrown again, in either direction.
+        f.write("User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % BASE_URL)
 
     print("--- BUILD ---")
     print("pages        : %d" % STATS["pages"])
