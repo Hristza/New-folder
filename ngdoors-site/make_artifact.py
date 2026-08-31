@@ -22,7 +22,7 @@ js = io.open(os.path.join(SITE, "assets", "site.js"), encoding="utf-8").read()
 
 # fonts -> data URIs inside the stylesheet
 for name in os.listdir(os.path.join(SITE, "assets", "fonts")):
-    # site.css references them relatively ("fonts/onest-var-cyrillic.woff2"),
+    # site.css references them relatively ("fonts/bitter-var-cyrillic.woff2"),
     # not from the site root, so match that form.
     css = css.replace("fonts/" + name,
                       datauri(os.path.join(SITE, "assets", "fonts", name), "font/woff2"))
@@ -48,7 +48,7 @@ banner = """<div class="review-strip">
 extra = """
 .review-strip { background: var(--sage); color: var(--cream); padding: 12px 24px;
   display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap;
-  font-family: 'Manrope', system-ui, sans-serif; font-size: 13px; line-height: 1.5; }
+  font-family: 'Ubuntu Sans', system-ui, sans-serif; font-size: 13px; line-height: 1.5; }
 .review-strip strong { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; flex: none; }
 .review-strip span { color: #e8efe9; max-width: 78ch; }
 /* Dead links must not invite a click that goes nowhere. */

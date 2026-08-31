@@ -25,6 +25,10 @@ def fail(msg):
     fails.append(msg)
 
 
+def warn(msg):
+    warns.append(msg)
+
+
 def main():
     with io.open(os.path.join(HERE, "data.json"), encoding="utf-8") as f:
         data = json.load(f)
@@ -195,9 +199,37 @@ def main():
     css = io.open(os.path.join(SITE, "assets", "site.css"), encoding="utf-8").read()
     if "fonts.googleapis" in css or "fonts.gstatic" in css:
         fail("stylesheet links a font CDN")
-    for f in ("onest-var-cyrillic.woff2", "manrope-var-cyrillic.woff2"):
+    # Derived from the stylesheet, never hardcoded: this check used to name two
+    # files and a font swap deleted both, leaving the gate pointing at nothing and
+    # still green. Whatever site.css asks for is what has to be on disk.
+    wanted = set(re.findall(r"url\('fonts/([\w-]+\.woff2)'\)", css))
+    if not wanted:
+        fail("stylesheet declares no self-hosted fonts at all")
+    for f in sorted(wanted):
         if not os.path.exists(os.path.join(SITE, "assets", "fonts", f)):
             fail("missing self-hosted font %s" % f)
+
+    # Bulgarian needs U+045D, the grave-accent "и". Ruda, Golos Text and PT Sans all
+    # draw every other Cyrillic letter and omit that one, so it renders as tofu in
+    # ordinary prose and no screenshot of copy that happens not to use it will show
+    # the gap. Checked here so a future font swap cannot lose it quietly.
+    need = [chr(c) for c in range(0x0410, 0x0450)] + [chr(0x045D)]
+    try:
+        from fontTools.ttLib import TTFont
+    except ImportError:
+        warn("fontTools missing - Bulgarian glyph coverage not checked")
+    else:
+        for f in sorted(x for x in wanted if "cyrillic" in x):
+            fp = os.path.join(SITE, "assets", "fonts", f)
+            if not os.path.exists(fp):
+                continue
+            cmap = set()
+            for t in TTFont(fp)["cmap"].tables:
+                cmap |= set(t.cmap.keys())
+            gap = [c for c in need if ord(c) not in cmap]
+            if gap:
+                fail("%s cannot draw Bulgarian: missing %s" % (
+                    f, " ".join("U+%04X" % ord(c) for c in gap)))
     for page in list(pages.values())[:40]:
         if "fonts.googleapis" in io.open(page, encoding="utf-8").read():
             fail("a page links Google Fonts")

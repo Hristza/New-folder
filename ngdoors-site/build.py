@@ -391,8 +391,8 @@ def shell(path, title, desc, body, cls=""):
 <meta property="og:description" content="%(desc)s">
 <meta property="og:locale" content="bg_BG">
 <meta name="theme-color" content="#fff5e9">
-<link rel="preload" href="/assets/fonts/onest-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/manrope-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bitter-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ubuntusans-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 </head>
@@ -1164,8 +1164,9 @@ def main():
     # copied from a sibling project folder, which made the build depend on a
     # directory that does not exist in this repository.
     src_fonts = os.path.join(STATIC, "fonts")
-    for name in ("onest-var-cyrillic.woff2", "onest-var-latin.woff2", "onest-var-latin-ext.woff2",
-                 "manrope-var-cyrillic.woff2", "manrope-var-latin.woff2", "manrope-var-latin-ext.woff2"):
+    for name in ("bitter-var-cyrillic.woff2", "bitter-var-latin.woff2", "bitter-var-latin-ext.woff2",
+                 "ubuntusans-var-cyrillic.woff2", "ubuntusans-var-latin.woff2",
+                 "ubuntusans-var-latin-ext.woff2"):
         shutil.copy(os.path.join(src_fonts, name), os.path.join(fdir, name))
 
     page_home()
