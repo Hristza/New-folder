@@ -1,0 +1,3 @@
+# Copied into every new worktree (each gets its own). Literal paths only - no globs, no negation.
+ngdoors-site/package.json
+ngdoors-site/package-lock.json

@@ -1,0 +1,11 @@
+# Orca: what every new worktree of this repo needs.
+# shared = symlinked to the primary checkout. Must be a DIRECTORY, fully gitignored,
+# and already present. ngdoors-site/renders itself is tracked, so only its ignored
+# subdirectories can be shared; the loose renders/*.png are 3-4MB each, over the
+# 256KB .worktreeinclude copy budget, so they do not travel. Regenerate or copy by hand.
+worktree:
+  sharedDirectories:
+    - ngdoors-site/node_modules
+    - ngdoors-site/renders/raw
+    - ngdoors-site/renders/shots
+    - ngdoors-site/renders/vsrc
