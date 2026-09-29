@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "installCommand": "python3 -m pip install pillow==12.3.0 fonttools==4.63.0",
-  "buildCommand": "python3 test_admin_sync.py && python3 build.py && python3 check.py",
+  "installCommand": "python3 -m venv /tmp/venv && /tmp/venv/bin/pip install -q pillow==12.3.0 fonttools==4.63.0",
+  "buildCommand": "/tmp/venv/bin/python test_admin_sync.py && /tmp/venv/bin/python build.py && /tmp/venv/bin/python check.py",
   "outputDirectory": "site"
 }
