@@ -47,7 +47,7 @@
 </header>
 <main id="main">
 <section class="pagehead"><div class="wrap">
-<nav class="crumbs" aria-label="Пътека"><a href="/">Начало</a><span class="sep">/</span><span class="here">Контакти</span></nav><h1>Контакти</h1><p class="lede">Заповядайте в шоурума или ни пишете. Отговаряме в рамките на работния ден.</p>
+<nav class="crumbs" aria-label="Пътека"><a href="/">Начало</a><span class="sep">/</span><span class="here">Контакти</span></nav><h1>Контакти</h1><p class="lede">Заповядайте в шоурума или ни пишете. Отговаряме в рамките на работния ден.</p><div class="scene reveal"><img class="still" src="/assets/photos/kontakti-1200.webp" srcset="/assets/photos/kontakti-640.webp 640w, /assets/photos/kontakti-1200.webp 1200w" sizes="(max-width: 1320px) 100vw, 1320px" width="1200" height="800" alt="Отворена входна врата към светъл коридор" loading="lazy" decoding="async"></div>
 </div></section>
 <section class="section" style="padding-top:0"><div class="wrap">
   <div class="contact-grid">
@@ -67,8 +67,9 @@
     </div>
     <div>
       <h2 style="margin-bottom:16px">Запитване</h2>
-      <p class="lede" style="margin-bottom:22px">Попълнете и изпратете. Формата отваря имейл с готово съдържание, а телефонът остава най-бързият път.</p>
-      <form id="enquiry-form">
+      <p class="lede" style="margin-bottom:22px">Попълнете и изпратете. Отговаряме в рамките на работния ден, а телефонът остава най-бързият път.</p>
+      <form id="enquiry-form" data-sb-url="https://glrijbqwbykcinhgjeys.supabase.co" data-sb-key="sb_publishable_oRdluMv9f2JVCxswd4IxZA_GmZ7fmTZ" data-email="info@ngdoors.bg">
+        <label class="hp" aria-hidden="true">Не попълвайте<input name="website" tabindex="-1" autocomplete="off"></label>
         <label class="field"><span>Име</span><input name="name" required autocomplete="name"></label>
         <label class="field"><span>Телефон или имейл</span><input name="contact" required></label>
         <label class="field"><span>Какво търсите</span>
@@ -80,6 +81,7 @@
           </select></label>
         <label class="field"><span>Съобщение</span><textarea name="message" placeholder="Размери, модел, срок…"></textarea></label>
         <button class="btn btn-primary" type="submit">Изпратете запитване</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>

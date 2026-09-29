@@ -1,0 +1,14 @@
+Use your image generation tool to create EIGHT separate photographs, one generation each, and save each PNG into the current directory under the filename given (copy from wherever the tool saves it). Do nothing else: no code, no other files.
+
+LOOK (identical for every image; the attached reference shows it): warm cream matte plaster walls (#fff5e9), never cool grey; soft north-window morning light with gentle falloff, no lamps, no rim light; warm mid-oak wood tones; low-contrast, slightly warm, film-flat grade, no teal-orange; eye-level, ~35mm, straight-on or one-point perspective, no dutch tilt. A real, lived-in Bulgarian panel-block apartment or small house: 2.6 m ceilings, plain plaster, a plinth. NEVER in frame: people, faces, hands, readable text, numbers, logos, brand names, signage, prices. Doors are always plain flat leaves with a simple generic handle. Landscape 3:2 (1536x1024).
+
+1. obkov.png: close-up still life at a door edge: a plain oak interior door slightly open, a simple matte black lever handle and round rose in sharp focus, background softly blurred cream hallway.
+2. servizni.png: a narrow utility corridor with a plain white flat interior door half open onto a small laundry room; a washing machine glimpsed inside; light oak floor.
+3. banya.png: a plain white bathroom door ajar, seen from the hallway; inside, pale stone-look tiles and a towel on a hook are visible in soft light; oak floor in the hallway.
+4. pojaro.png: the ground-floor stairwell of a Bulgarian apartment block, clean and freshly painted cream, a heavy plain grey steel door with a closer at the top, concrete stairs with a simple metal rail at the side. No signs.
+5. dostavka.png: in a bright apartment hallway, two new door leaves wrapped in brown cardboard and clear protective film lean against the cream wall, a door frame kit bundled beside them on the oak floor.
+6. montazh.png: a newly fitted light oak door frame in a cream wall opening, a green spirit level resting on the frame head, a cordless drill and a small box of screws on a dust sheet on the floor. No person.
+7. mostri.png: a table top by a window with a fan of laminate floor sample boards in several oak and grey tones, and three small door veneer sample chips beside them; a tape measure lies next to them.
+8. kontakti.png: a plain cream apartment entrance hallway with the front door open onto a bright landing, a coat on a hook, a pair of shoes on a small mat: an inviting "come in" feeling.
+
+After all eight are saved, print each filename with its pixel size.

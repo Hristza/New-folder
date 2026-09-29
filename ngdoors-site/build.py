@@ -37,6 +37,7 @@ SITE_NAME = "NG Doors"
 # open now, so a wrong value here is live SEO damage. Verify it against
 # `vercel project ls` before changing it, never against memory.
 BASE_URL = "https://ngdoors.vercel.app"
+BGN_PER_EUR = 1.95583   # the fixed statutory conversion rate
 
 # ------------------------------------------------------------------ slugs
 TRANS = {
@@ -176,6 +177,30 @@ with io.open(os.path.join(HERE, "images.json"), encoding="utf-8") as f:
 MANIFEST = IMG["images"]
 GRID_W, FULL_W = IMG["grid_w"], IMG["full_w"]
 
+# Her edits from the admin panel. Uploaded photos land in the manifest like any
+# catalogue photo, so every function below treats them the same way.
+import admin_sync
+assert admin_sync.SIZES == (GRID_W, FULL_W), "admin photos must encode at the catalogue widths"
+ADMIN = admin_sync.load()
+MANIFEST.update(ADMIN["images"])
+ADMIN_CFG = admin_sync.config()
+
+
+def _setting(key, default, ok=None):
+    v = (ADMIN["settings"].get(key) or "").strip()
+    return v if v and (ok is None or re.match(ok, v)) else default
+
+
+# A setting that fails its pattern keeps the built-in value rather than printing
+# a broken phone link on 564 pages.
+PHONE_H = _setting("phone", PHONE_H, r"^\+?[\d ()-]{6,24}$")
+PHONE = "+" + re.sub(r"\D", "", PHONE_H) if PHONE_H.startswith("+") else re.sub(r"\D", "", PHONE_H)
+EMAIL = _setting("email", EMAIL, r"^[^@\s<>\"']+@[^@\s<>\"']+\.[a-z]{2,}$")
+VIBER = "viber://chat?number=%2B" + PHONE.lstrip("+")
+ADDRESS = _setting("address", ADDRESS)
+HOURS = esc(_setting("hours", HOURS))     # every template drops HOURS in unescaped
+ANNOUNCE = _setting("announcement", "")
+
 STATS = {"pages": 0, "cards": 0, "dropped_no_image": 0, "priced_doors": 0}
 
 # Hand-edited draft price list. See prices.json and pricing.py.
@@ -186,14 +211,20 @@ def have(url):
     return url in MANIFEST
 
 
+def _at(m, width):
+    """Where one size of an image lives: /assets/img for the catalogue, Supabase for hers."""
+    if "urls" in m:
+        return m["urls"][width]
+    return "/assets/img/%s-%d.webp" % (m["key"], width)
+
+
 def img_tag(url, alt, sizes="(max-width: 520px) 50vw, 300px", cls="", eager=False):
     """A card image. Never called for a URL that failed to encode."""
     m = MANIFEST[url]
-    k = m["key"]
-    src = "/assets/img/%s-%d.webp" % (k, GRID_W)
-    srcset = "/assets/img/%s-%d.webp %dw" % (k, GRID_W, min(GRID_W, m["w"]))
+    src = _at(m, GRID_W)
+    srcset = "%s %dw" % (src, min(GRID_W, m["w"]))
     if FULL_W in m["sizes"]:
-        srcset += ", /assets/img/%s-%d.webp %dw" % (k, FULL_W, min(FULL_W, m["w"]))
+        srcset += ", %s %dw" % (_at(m, FULL_W), min(FULL_W, m["w"]))
     return ('<img src="%s" srcset="%s" sizes="%s" width="%d" height="%d" alt="%s"%s%s>'
             % (src, srcset, sizes, m["w"], m["h"], esc(alt),
                ' class="%s"' % cls if cls else "",
@@ -202,8 +233,7 @@ def img_tag(url, alt, sizes="(max-width: 520px) 50vw, 300px", cls="", eager=Fals
 
 def full_src(url):
     m = MANIFEST[url]
-    w = FULL_W if FULL_W in m["sizes"] else GRID_W
-    return "/assets/img/%s-%d.webp" % (m["key"], w)
+    return _at(m, FULL_W if FULL_W in m["sizes"] else GRID_W)
 
 
 _CONTRAST = {}
@@ -228,6 +258,67 @@ def contrast(item):
         except Exception:
             _CONTRAST[key] = 0.0
     return _CONTRAST[key]
+
+
+# ------------------------------------------------------------------ admin edits
+# Every product the panel can edit, captured BEFORE her edits apply, so the panel
+# shows the catalogue value next to hers and can still find a product she hid.
+CATALOGUE = []
+BADGES = {"new": "Ново", "sale": "Промоция", "hit": "Топ продукт"}
+
+
+def apply_override(rec, key):
+    """Her price, strike-through price, badge and hide switch, laid over one product.
+
+    A price she typed is a confirmed price, so the "draft" disclaimer comes off it.
+    0 means she wants "По запитване" there instead of a number.
+    """
+    rec["key"] = key
+    rec["catalogue_price"] = rec["price"]
+    o = ADMIN["overrides"].get(key)
+    if not o:
+        return rec
+    if o.get("hidden"):
+        rec["hidden"] = True
+    if o.get("price") is not None:
+        # Her prices are euro. Converted unrounded, so money() prints her euro back
+        # exactly; the lev figure is the one that gets rounded, as the law intends.
+        new = float(o["price"]) * BGN_PER_EUR
+        # The size picker prices every option as base + surcharge, so the ladder
+        # moves with her base price instead of keeping the old absolute numbers.
+        for s in rec.get("size_opts") or []:
+            s["price"] = new + s["delta"]
+        rec["price"] = new
+        rec["confirmed"] = True
+        rec.pop("draft_price", None)
+    if o.get("old_price") and rec["price"] > 0 and float(o["old_price"]) * BGN_PER_EUR > rec["price"]:
+        rec["old_price"] = float(o["old_price"]) * BGN_PER_EUR
+    if o.get("badge") in BADGES:
+        rec["badge"] = o["badge"]
+    return rec
+
+
+def admin_rec(a, kind):
+    """A product she added, in the same shape as a scraped one. None if it has no photo."""
+    imgs = [u for u in a.get("images") or [] if have(u)]
+    if not imgs:
+        return None
+    sizes = [s.strip() for s in a.get("sizes") or [] if s and s.strip()]
+    rec = {
+        "kind": kind, "admin": True,
+        "id": "n" + a["id"].replace("-", "")[:10],
+        "name": " ".join((a.get("name") or "").split()),
+        "images": imgs, "desc": a.get("description") or "",
+        "specs": ([["Размери", ", ".join(sizes)]] if sizes else []),
+        "sizes": sizes, "size_opts": [], "size_tags": [], "base_size": "",
+        "price": float(a.get("price") or 0) * BGN_PER_EUR, "confirmed": True,     # euro in
+        "brand": a.get("brand") or "", "src": "",
+    }
+    if a.get("old_price") and rec["price"] > 0 and float(a["old_price"]) * BGN_PER_EUR > rec["price"]:
+        rec["old_price"] = float(a["old_price"]) * BGN_PER_EUR
+    if a.get("badge") in BADGES:
+        rec["badge"] = a["badge"]
+    return rec
 
 
 # ------------------------------------------------------------------ model
@@ -258,6 +349,23 @@ def build_catalogue():
         rec["url"] = "/produkt/%s-%s/" % (slug(rec["name"]), rec["id"])
         nodes.setdefault(p["category"], []).append(rec)
 
+    # Doors she added in the admin panel, hung on the category she picked.
+    for a in ADMIN["products"]:
+        if a["section"] != "door":
+            continue
+        rec = admin_rec(a, "door")
+        path = a.get("category") or ""
+        if not rec or path not in labels:
+            print("admin: skipped door %r (no photo or unknown category %r)" % (a.get("name"), path))
+            continue
+        segs = path.split("/")
+        rec["cat"] = path
+        rec["trail"] = [("/".join(segs[:i]), labels.get("/".join(segs[:i]), nice(segs[i - 1])))
+                        for i in range(1, len(segs) + 1)]
+        rec["brand"] = a.get("brand") or rec["trail"][0][1]
+        rec["url"] = "/produkt/%s-%s/" % (slug(rec["name"]), rec["id"])
+        nodes.setdefault(path, []).append(rec)
+
     # every ancestor path is a page too
     tree = {}
     for path in list(nodes) + list(labels):
@@ -283,15 +391,21 @@ def build_catalogue():
     # a series price can be resolved from the nearest declared ancestor path.
     for items in nodes.values():
         for rec in items:
-            res = pricing.resolve(rec, PRICES)
-            rec["price"] = res["price"]
-            rec["base_size"] = res["base_size"]
-            rec["size_opts"] = res["sizes"]
-            rec["size_tags"] = res["tags"]
-            rec["sizes"] = [s["size"] for s in res["sizes"]]
-            if res["price"] > 0:
+            if not rec.get("admin"):
+                res = pricing.resolve(rec, PRICES)
+                rec["price"] = res["price"]
+                rec["base_size"] = res["base_size"]
+                rec["size_opts"] = res["sizes"]
+                rec["size_tags"] = res["tags"]
+                rec["sizes"] = [s["size"] for s in res["sizes"]]
+            CATALOGUE.append(rec)
+            apply_override(rec, "door:" + rec["id"])
+            if rec["price"] > 0:
                 STATS["priced_doors"] += 1
 
+    # A hidden door leaves every listing, and its page is not written.
+    for path in tree:
+        tree[path]["own"] = [r for r in tree[path]["own"] if not r.get("hidden")]
     for path in tree:
         tree[path]["all"] = descend(path)
         tree[path]["url"] = "/vrati/%s/" % "/".join(slug(s) for s in path.split("/"))
@@ -341,12 +455,35 @@ def build_floors():
             if drafted > 0:
                 rec["price"] = drafted
                 rec["draft_price"] = True
+        CATALOGUE.append(rec)
+        apply_override(rec, "floor:" + rec["id"])
+        if not rec.get("hidden"):
+            out.append(rec)
+
+    for a in ADMIN["products"]:
+        if a["section"] not in ("nastilki", "granitogres", "parvazi"):
+            continue
+        rec = admin_rec(a, "floor")
+        if not rec:
+            print("admin: skipped floor item %r (no photo)" % a.get("name"))
+            continue
+        thick = re.search(r"(\d+(?:[.,]\d+)?)\s*mm", rec["name"], re.I)
+        ac = re.search(r"\bAC\s?(\d)\b", rec["name"], re.I)
+        rec.update({
+            "section": a["section"], "brand": rec["brand"] or "NG Doors",
+            "thick": (thick.group(1).replace(",", ".") + " mm") if thick else "",
+            "ac": ("AC" + ac.group(1)) if ac else "",
+            "url": "/nastilki/produkt/%s-%s/" % (slug(rec["name"]), rec["id"]),
+        })
+        rec["specs"] = [["Марка", rec["brand"]]] + rec["specs"]
         out.append(rec)
     return out
 
 
 TREE = build_catalogue()
 FLOORS = build_floors()
+if not any(TREE[p]["all"] for p in TREE):
+    sys.exit("build: every door is hidden. Refusing to publish a door shop with no doors.")
 ROOTS = sorted([p for p in TREE if "/" not in p],
                key=lambda p: -len(TREE[p]["all"]))
 ROOTS = [p for p in ROOTS if TREE[p]["all"]]
@@ -377,6 +514,16 @@ for key, urls in DATA["gallery"].items():
     if ok:
         ALBUMS.append({"key": key, "label": GALLERY_LABEL.get(key, nice(key.replace("-", " "))),
                        "photos": ok, "url": "/proekti/%s/" % slug(key)})
+# Her uploads go to the front of their album, newest first, because a job finished
+# last week is the best thing the page can show. An album name she typed that does
+# not exist yet becomes a new album.
+for ph in ADMIN["photos"]:          # oldest first, each pushed to the front
+    label = " ".join(ph["album"].split())
+    album = next((a for a in ALBUMS if a["label"].lower() == label.lower()), None)
+    if album is None:
+        album = {"key": label, "label": label, "photos": [], "url": "/proekti/%s/" % slug(label)}
+        ALBUMS.append(album)
+    album["photos"].insert(0, ph["url"])
 ALBUMS.sort(key=lambda a: -len(a["photos"]))
 
 
@@ -412,7 +559,7 @@ def shell(path, title, desc, body, cls=""):
 </head>
 <body%(cls)s>
 <a class="skip" href="#main">Към съдържанието</a>
-<div class="utility">
+%(announce)s<div class="utility">
   <div class="wrap">
     <span class="hours">%(hours)s</span>
     <span class="utility-right">
@@ -491,6 +638,7 @@ def shell(path, title, desc, body, cls=""):
         "title": esc(title), "desc": esc(desc), "canonical": esc(canonical),
         "body": body,
         "cls": ' class="%s"' % cls if cls else "", "nav": nav,
+        "announce": ('<div class="announce"><div class="wrap">%s</div></div>\n' % esc(ANNOUNCE)) if ANNOUNCE else "",
         "phone": PHONE, "phone_h": PHONE_H, "email": EMAIL, "viber": VIBER,
         "address": esc(ADDRESS), "hours": HOURS,
         "foot_doors": "".join('<li><a href="%s">%s</a></li>' % (TREE[p]["url"], esc(TREE[p]["label"]))
@@ -508,7 +656,7 @@ def write(path, html):
 
 
 # ------------------------------------------------------------------ pieces
-BGN_PER_EUR = 1.95583   # the fixed statutory conversion rate
+# BGN_PER_EUR is defined at the top: the catalogue build needs it before this point.
 
 
 def money(bgn):
@@ -575,7 +723,12 @@ def price_html(rec, big=False):
     if rec["price"] > 0:
         # data-bgn is what the size picker recomputes from. It never parses the
         # rendered string: "1 090,00 лв." is a display format, not a number.
-        return '<div class="%s" data-bgn="%.2f">%s</div>' % (cls, rec["price"], money(rec["price"]))
+        was = ""
+        if rec.get("old_price"):
+            eur = ("%.2f" % (rec["old_price"] / BGN_PER_EUR)).replace(".", ",")
+            was = ' <s class="was" aria-label="Стара цена">%s €</s>' % eur
+        old = ' data-old-bgn="%.4f"' % rec["old_price"] if rec.get("old_price") else ""
+        return '<div class="%s" data-bgn="%.2f"%s>%s%s</div>' % (cls, rec["price"], old, money(rec["price"]), was)
     return '<div class="%s ask">По запитване</div>' % cls
 
 
@@ -639,7 +792,7 @@ def sticky_buy(rec):
 
 def price_note_html(rec):
     """Says out loud that the figure is a draft, wherever a draft figure appears."""
-    if rec.get("price", 0) <= 0 or not PRICES.get("draft"):
+    if rec.get("price", 0) <= 0 or not PRICES.get("draft") or rec.get("confirmed"):
         return ""
     if rec.get("kind") == "door":
         lead = PRICES.get("note_bg", "")
@@ -655,13 +808,15 @@ def price_note_html(rec):
 def card(rec, kicker=None):
     STATS["cards"] += 1
     k = kicker if kicker is not None else (rec.get("brand") or "")
+    badge = ('<span class="badge badge-%s">%s</span>' % (rec["badge"], BADGES[rec["badge"]])
+             if rec.get("badge") in BADGES else "")
     return """<a class="card reveal" href="%s">
-  <div class="shot">%s</div>
+  <div class="shot">%s%s</div>
   <div class="card-body">
     %s<div class="title">%s</div>
     %s
   </div>
-</a>""" % (rec["url"], img_tag(rec["images"][0], rec["name"]),
+</a>""" % (rec["url"], badge, img_tag(rec["images"][0], rec["name"]),
            '<div class="kicker">%s</div>' % esc(k) if k else "",
            esc(rec["name"]), price_html(rec))
 
@@ -713,12 +868,37 @@ def film(name, alt, w, h, cls, eager=False):
                                  esc(alt), name, name)
 
 
+# Still photographs for the sections that have no film. Generated in the same look
+# (LOOK-LOCK.md, "2026-09-29 stills"), and like the films they show a room, never
+# a product: the door in each one is a plain generic leaf.
+STILLS = {
+    "/vrati/aluminievi-vrati/":                ("aluminievi", "Алуминиева остъклена врата към балкон"),
+    "/vrati/obkov-i-aksesoari/":               ("obkov", "Черна дръжка на дъбова интериорна врата"),
+    "/vrati/vrati-za-servizni-pomeshteniya/":  ("servizni", "Врата към перално помещение"),
+    "/vrati/pvts-vrati-za-banya/":             ("banya", "Открехната врата на баня"),
+    "/vrati/pozharoustoychivi-vrati/":         ("pojaro", "Метална врата във входа на жилищен блок"),
+    "/kontakti/":                              ("kontakti", "Отворена входна врата към светъл коридор"),
+}
+
+
+def photo(name, alt, sizes, cls="", eager=False):
+    """One of the generated stills in static/photos, as a responsive img."""
+    return ('<img%s src="/assets/photos/%s-1200.webp" srcset="/assets/photos/%s-640.webp 640w, '
+            '/assets/photos/%s-1200.webp 1200w" sizes="%s" width="1200" height="800" alt="%s"%s>'
+            % (' class="%s"' % cls if cls else "", name, name, name, sizes, esc(alt),
+               ' fetchpriority="high"' if eager else ' loading="lazy" decoding="async"'))
+
+
 def scene_band(path):
     got = SCENES.get(path)
-    if not got:
-        return ""
-    name, alt = got
-    return film(name, alt, 1120, 630, "scene reveal")
+    if got:
+        name, alt = got
+        return film(name, alt, 1120, 630, "scene reveal")
+    got = STILLS.get(path)
+    if got:
+        return '<div class="scene reveal">%s</div>' % photo(
+            got[0], got[1], "(max-width: 1320px) 100vw, 1320px", "still")
+    return ""
 
 
 def pagehead(title, lede="", crumb=None, note="", scene=None):
@@ -748,6 +928,9 @@ ENQUIRY = """<section class="section"><div class="wrap">
 
 
 # ------------------------------------------------------------------ pages
+TRUST_SIZES = "(max-width: 760px) 100vw, 430px"
+
+
 def page_home():
     hero_a = hero_b = None
     for p in ROOTS:
@@ -761,7 +944,8 @@ def page_home():
         if f["price"] > 0:
             hero_b = f
             break
-    hero_b = hero_b or (FLOORS[0] if FLOORS else None)
+    hero_b = hero_b or (FLOORS[0] if FLOORS else ALL_DOORS[min(1, len(ALL_DOORS) - 1)])
+    floor_face = (SECTION_OF["nastilki"] or FLOORS or ALL_DOORS)[0]
 
     rail = "".join("""<a class="rail-item" href="%s">
   <div class="shot">%s</div>
@@ -801,7 +985,7 @@ def page_home():
         plural(len(big["all"]), "модел", "модела"), esc(big["label"]),
         small1["url"], img_tag(small1["all"][0]["images"][0], small1["label"], "(max-width: 860px) 100vw, 480px"),
         plural(len(small1["all"]), "модел", "модела"), esc(small1["label"]),
-        img_tag(SECTION_OF["nastilki"][0]["images"][0], "Настилки", "(max-width: 860px) 100vw, 480px"),
+        img_tag(floor_face["images"][0], "Настилки", "(max-width: 860px) 100vw, 480px"),
         plural(len(SECTION_OF["nastilki"]), "артикул", "артикула"))
 
     # Each of these appears in the scraped category labels or Shopify vendor field —
@@ -834,6 +1018,7 @@ def page_home():
             seen_title.add(f["name"])
             featured.append(f)
     feat_cards = "".join(card(f) for f in featured)
+    feat_hide = "" if featured else " hidden"     # every priced floor hidden: drop the panel
 
     body = """<section class="hero"><div class="wrap">
   <div class="hero-grid">
@@ -870,7 +1055,7 @@ def page_home():
 
 <section class="brandstrip"><div class="wrap">%s</div></section>
 
-<section class="section"><div class="wrap">
+<section class="section"%s><div class="wrap">
   <div class="panel-sage">
     <div class="section-head">
       <div><p class="eyebrow">С обявена цена</p><h2>Настилки с цена онлайн</h2></div>
@@ -882,9 +1067,9 @@ def page_home():
 
 <section class="section" style="padding-top:0"><div class="wrap">
   <div class="trust">
-    <div><h3>Доставка в цялата страна</h3><p>Изпращаме до всеки адрес в България, с уговорен ден за получаване.</p></div>
-    <div><h3>Монтаж от наши екипи</h3><p>Заявява се заедно с поръчката. Замерваме на място преди производство.</p></div>
-    <div><h3>Шоурум в Божурище</h3><p>Елате и вижте моделите на живо, преди да решите. %s</p></div>
+    <div>%s<h3>Доставка в цялата страна</h3><p>Изпращаме до всеки адрес в България, с уговорен ден за получаване.</p></div>
+    <div>%s<h3>Монтаж от наши екипи</h3><p>Заявява се заедно с поръчката. Замерваме на място преди производство.</p></div>
+    <div>%s<h3>Шоурум в Божурище</h3><p>Елате и вижте моделите и мострите на живо, преди да решите. %s</p></div>
   </div>
 </div></section>
 %s""" % (
@@ -893,7 +1078,11 @@ def page_home():
         film("hero", "Коридор с интериорна врата и ламиниран под", 834, 1112,
              "hero-tall", eager=True),
         img_tag(hero_b["images"][0], hero_b["name"], "(max-width: 900px) 40vw, 300px", eager=True),
-        rail, bento, strip, feat_cards, HOURS, ENQUIRY)
+        rail, bento, strip, feat_hide, feat_cards,
+        photo("dostavka", "Нови врати в защитна опаковка, готови за монтаж", TRUST_SIZES, "trust-img"),
+        photo("montazh", "Нова каса с нивелир, поставена в отвор на стена", TRUST_SIZES, "trust-img"),
+        photo("mostri", "Мостри на ламинат и фурнир върху маса", TRUST_SIZES, "trust-img"),
+        HOURS, ENQUIRY)
 
     write("/", shell("/", "NG Doors — входни и интериорни врати, ламинат и гранитогрес",
                      "Входни и интериорни врати, алуминиеви врати, ламинат, SPC настилки и гранитогрес. "
@@ -959,7 +1148,8 @@ def page_category(path):
         # the parent name is already the page title and the breadcrumb; repeating it
         # on all 16 cards was noise
         grid = "".join(card(r, kicker="") for r in items)
-        body = pagehead(node["label"], "", trail, plural(len(items), "модел", "модела")) + \
+        body = pagehead(node["label"], "", trail, plural(len(items), "модел", "модела"),
+                        scene=node["url"]) + \
             '<section class="section" style="padding-top:0"><div class="wrap"><div class="grid">%s</div></div></section>%s' % (grid, ENQUIRY)
 
     # 'Серия Nature' exists under two different parents; the label alone is not a
@@ -1031,7 +1221,7 @@ def page_product(rec):
       <a class="btn btn-ghost" href="tel:%s">%s</a>
       <a class="btn btn-ghost" href="%s">Viber</a>
     </div>
-    <p class="source-note">Каталожна информация от %s. Наличността и срокът се потвърждават при запитване.</p>
+    <p class="source-note">%s</p>
   </div>
 </div>
 </section>
@@ -1039,12 +1229,16 @@ def page_product(rec):
 %s
 """ % (crumbs(trail), esc(lb),
        img_tag(main, rec["name"], "(max-width: 860px) 100vw, 620px", eager=True), thumbs,
-       '<p class="eyebrow">%s</p>' % esc(rec["brand"]) if rec["brand"] else "",
+       ('<span class="badge badge-%s">%s</span>' % (rec["badge"], BADGES[rec["badge"]])
+        if rec.get("badge") in BADGES else "") +
+       ('<p class="eyebrow">%s</p>' % esc(rec["brand"]) if rec["brand"] else ""),
        esc(rec["name"]), price_html(rec, big=True), price_note_html(rec),
        '<div class="desc">%s</div>' % esc(clean_desc(rec)) if clean_desc(rec) else "",
        sizes, addons_html(rec), spec,
        EMAIL, esc(subject).replace(" ", "%20"), PHONE, PHONE_H, VIBER,
-       "ngdoors.bg" if rec["kind"] == "door" else "darnox.com",
+       ("Наличността и срокът се потвърждават при запитване." if rec.get("admin") else
+        "Каталожна информация от %s. Наличността и срокът се потвърждават при запитване."
+        % ("ngdoors.bg" if rec["kind"] == "door" else "darnox.com")),
        trail[-2][0] or section_url, sticky_buy(rec))
     write(rec["url"], shell(rec["url"], page_title(rec), meta_desc(rec), body))
 
@@ -1109,7 +1303,7 @@ def page_album(a):
 
 def page_contact():
     body = pagehead("Контакти", "Заповядайте в шоурума или ни пишете. Отговаряме в рамките на работния ден.",
-                    [("/", "Начало"), (None, "Контакти")]) + """
+                    [("/", "Начало"), (None, "Контакти")], scene="/kontakti/") + """
 <section class="section" style="padding-top:0"><div class="wrap">
   <div class="contact-grid">
     <div>
@@ -1128,8 +1322,9 @@ def page_contact():
     </div>
     <div>
       <h2 style="margin-bottom:16px">Запитване</h2>
-      <p class="lede" style="margin-bottom:22px">Попълнете и изпратете. Формата отваря имейл с готово съдържание, а телефонът остава най-бързият път.</p>
-      <form id="enquiry-form">
+      <p class="lede" style="margin-bottom:22px">Попълнете и изпратете. Отговаряме в рамките на работния ден, а телефонът остава най-бързият път.</p>
+      <form id="enquiry-form"%s>
+        <label class="hp" aria-hidden="true">Не попълвайте<input name="website" tabindex="-1" autocomplete="off"></label>
         <label class="field"><span>Име</span><input name="name" required autocomplete="name"></label>
         <label class="field"><span>Телефон или имейл</span><input name="contact" required></label>
         <label class="field"><span>Какво търсите</span>
@@ -1141,11 +1336,16 @@ def page_contact():
           </select></label>
         <label class="field"><span>Съобщение</span><textarea name="message" placeholder="Размери, модел, срок…"></textarea></label>
         <button class="btn btn-primary" type="submit">Изпратете запитване</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
 </div></section>""" % (PHONE, PHONE_H, VIBER, PHONE_H, EMAIL, EMAIL, esc(ADDRESS), HOURS,
-                        urllib.parse.quote("NG Doors, " + ADDRESS))
+                        urllib.parse.quote("NG Doors, " + ADDRESS),
+                        # Without a backend the form still works: it opens an email.
+                        (' data-sb-url="%s" data-sb-key="%s" data-email="%s"'
+                         % (esc(ADMIN_CFG["url"]), esc(ADMIN_CFG["key"]), EMAIL)) if ADMIN_CFG
+                        else ' data-email="%s"' % EMAIL)
     write("/kontakti/", shell("/kontakti/", "Контакти — NG Doors",
                               "NG Doors, %s. Телефон %s, имейл %s." % (ADDRESS, PHONE_H, EMAIL), body))
 
@@ -1176,6 +1376,41 @@ def mirror(src, dst):
         print("  removed stale asset %s/%s" % (os.path.basename(dst), name))
 
 
+def write_admin_catalogue():
+    """Everything the panel needs to list and edit, in one file it fetches on login.
+
+    Prices are the CATALOGUE values, before her edits, so the panel can show both and
+    "reset" means going back to exactly this. Categories are the door tree, so a door
+    she adds can only land on a page that exists.
+    """
+    def thumb(r):
+        return _at(MANIFEST[r["images"][0]], GRID_W)
+    items = []
+    for r in CATALOGUE:
+        if r.get("admin"):
+            continue
+        where = (r["trail"][-1][1] if r["kind"] == "door" and r["trail"] else
+                 {"nastilki": "Настилки", "granitogres": "Гранитогрес",
+                  "parvazi": "Первази"}.get(r.get("section"), ""))
+        items.append({"key": r["key"], "name": fix_script(r["name"]), "where": fix_script(where),
+                      "brand": r.get("brand") or "", "price": r["catalogue_price"],
+                      "draft": bool(r.get("draft_price") or (r["kind"] == "door" and PRICES.get("draft"))),
+                      "thumb": thumb(r), "url": r["url"]})
+    cats = []
+    for p in TREE:
+        segs = p.split("/")
+        chain = ["/".join(segs[:i]) for i in range(1, len(segs) + 1)]
+        cats.append({"path": p, "label": " / ".join(TREE[a]["label"] for a in chain)})
+    cats.sort(key=lambda c: c["label"])
+    os.makedirs(os.path.join(SITE, "admin"), exist_ok=True)
+    with io.open(os.path.join(SITE, "admin", "catalogue.json"), "w", encoding="utf-8") as f:
+        json.dump({"items": items, "categories": cats, "albums": [a["label"] for a in ALBUMS],
+                   "bgn_per_eur": BGN_PER_EUR,
+                   "supabase_url": ADMIN_CFG["url"] if ADMIN_CFG else "",
+                   "supabase_key": ADMIN_CFG["key"] if ADMIN_CFG else ""},
+                  f, ensure_ascii=False, separators=(",", ":"))
+
+
 def main():
     if os.path.isdir(SITE):
         for entry in os.listdir(SITE):
@@ -1198,6 +1433,11 @@ def main():
     # copied from a sibling project folder, which made the build depend on a
     # directory that does not exist in this repository.
     mirror(os.path.join(STATIC, "fonts"), os.path.join(SITE, "assets", "fonts"))
+    mirror(os.path.join(STATIC, "photos"), os.path.join(SITE, "assets", "photos"))
+    # The admin panel. Static files; everything it does goes through Supabase with
+    # her login, so the page itself holds nothing secret.
+    mirror(os.path.join(STATIC, "admin"), os.path.join(SITE, "admin"))
+    write_admin_catalogue()
 
     page_home()
     page_doors_index()
@@ -1231,7 +1471,8 @@ def main():
             if fn == "index.html":
                 rel = os.path.relpath(os.path.join(root, fn), SITE).replace("\\", "/")
                 rel = "/" + rel[:-len("index.html")]
-                urls.append(rel)
+                if not rel.startswith("/admin/"):
+                    urls.append(rel)
     with io.open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for u in sorted(urls):
@@ -1242,7 +1483,7 @@ def main():
         # and specs may be republished. Before that this wrote Disallow: / and every page
         # carried a noindex meta. check.py still fails if only one of those two halves is
         # ever thrown again, in either direction.
-        f.write("User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % BASE_URL)
+        f.write("User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: %s/sitemap.xml\n" % BASE_URL)
 
     print("--- BUILD ---")
     print("pages        : %d" % STATS["pages"])

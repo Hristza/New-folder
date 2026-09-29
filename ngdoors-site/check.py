@@ -35,15 +35,34 @@ def main():
     with io.open(os.path.join(HERE, "images.json"), encoding="utf-8") as f:
         images = json.load(f)
 
+    # Her uploaded photos are linked straight from Supabase storage. Those are the
+    # only remote images allowed; anything else absolute is a hotlink and fails.
+    import admin_sync
+    _cfg = admin_sync.config()
+    remote_ok = (_cfg["url"] + "/storage/v1/object/public/media/") if _cfg else None
+
+    def img_missing(u):
+        if u.startswith("/"):
+            return not os.path.exists(os.path.join(SITE, u.lstrip("/")))
+        return not (remote_ok and u.startswith(remote_ok))
+
     pages = {}
     for root, _d, files in os.walk(SITE):
         for fn in files:
             if fn == "index.html":
                 p = os.path.relpath(os.path.join(root, fn), SITE).replace("\\", "/")
+                if p.startswith("admin/"):
+                    continue      # the private panel, checked by its own test
                 pages["/" + p[:-len("index.html")]] = os.path.join(root, fn)
     print("pages on disk: %d" % len(pages))
-    if len(pages) < 500:
-        fail("only %d pages built, expected 500+" % len(pages))
+    # She can hide products, so the right number of pages is whatever the build
+    # says it made, not a fixed 500. Exact, so a page that failed to write still fails.
+    import build
+    expected_products = len(build.ALL_DOORS) + len(build.FLOORS)
+    if expected_products < 100:
+        fail("only %d products survived the build; is the catalogue gone?" % expected_products)
+    if len(pages) < expected_products:
+        fail("only %d pages built for %d products" % (len(pages), expected_products))
 
     # ---- source counts still match what the builder claimed
     n_doors = len([p for p in data["products"].values() if any(u in images["images"] for u in p["images"])])
@@ -97,12 +116,12 @@ def main():
             empty_counter.append(url)
 
         for src in re.findall(r'<img[^>]+src="([^"]+)"', html):
-            if src.startswith("/") and not os.path.exists(os.path.join(SITE, src.lstrip("/"))):
+            if img_missing(src):
                 missing_img.add(src)
         for src in re.findall(r'srcset="([^"]+)"', html):
             for part in src.split(","):
                 u = part.strip().split(" ")[0]
-                if u.startswith("/") and not os.path.exists(os.path.join(SITE, u.lstrip("/"))):
+                if img_missing(u):
                     missing_img.add(u)
         for tag in re.findall(r"<img[^>]*>", html):
             if 'alt="' not in tag:
@@ -118,14 +137,14 @@ def main():
         for blob in re.findall(r"data-gallery='(\[.*?\])'", html, re.S):
             try:
                 for u in json.loads(blob.replace("&quot;", '"').replace("&amp;", "&")):
-                    if not os.path.exists(os.path.join(SITE, u.lstrip("/"))):
+                    if img_missing(u):
                         missing_img.add(u)
             except ValueError:
                 fail("unparsable data-gallery on %s" % url)
 
     print("product pages: %d" % product_pages)
-    if product_pages < 480:
-        fail("only %d product pages, expected ~492" % product_pages)
+    if product_pages != expected_products:
+        fail("%d product pages on disk, the build made %d products" % (product_pages, expected_products))
     if missing_img:
         fail("%d image srcs resolve to nothing, e.g. %s" % (len(missing_img), sorted(missing_img)[:3]))
     if missing_link:
@@ -171,7 +190,10 @@ def main():
     robots = io.open(os.path.join(SITE, "robots.txt"), encoding="utf-8").read()
     noindexed = sum(1 for p in pages.values()
                     if 'content="noindex' in io.open(p, encoding="utf-8").read())
-    blocked = "Disallow: /" in robots
+    # "Disallow: /admin/" closes only the panel; the switch is a bare "Disallow: /".
+    blocked = bool(re.search(r"^Disallow: /\s*$", robots, re.M))
+    if not re.search(r"^Disallow: /admin/\s*$", robots, re.M):
+        fail("robots.txt does not keep crawlers out of /admin/")
     print("noindex pages: %d/%d | robots.txt blocks: %s" % (noindexed, len(pages), blocked))
     if noindexed and not blocked:
         fail("pages say noindex but robots.txt does not block — the switch is half-thrown")
@@ -260,7 +282,8 @@ def main():
         warns.append("prices.json is no longer marked draft — confirm the numbers are real")
 
     doors = [r for r in build.ALL_DOORS if r["kind"] == "door"]
-    unpriced = [r["name"] for r in doors if r["price"] <= 0]
+    # A door she set to "По запитване" in the panel is unpriced on purpose.
+    unpriced = [r["name"] for r in doors if r["price"] <= 0 and not r.get("confirmed")]
     picker = [r for r in doors if len(r.get("size_opts") or []) > 1]
     print("doors priced: %d/%d | with a size picker: %d" % (len(doors) - len(unpriced), len(doors), len(picker)))
     if unpriced:
@@ -339,9 +362,11 @@ def main():
         # Doors are all drafted; floors are a mix, so only the drafted ones are
         # required to carry the notice — and the ones on the supplier's own price
         # must NOT, or a real price starts reading as a guess.
-        want = [r for r in doors if r["price"] > 0]
+        # A price she confirmed in the panel is real, so it must lose the notice.
+        want = [r for r in doors if r["price"] > 0 and not r.get("confirmed")]
         want += [r for r in build.FLOORS if r.get("draft_price") and r["price"] > 0]
         must_not = [r for r in build.FLOORS if not r.get("draft_price") and r["price"] > 0]
+        must_not += [r for r in doors if r["price"] > 0 and r.get("confirmed")]
         missing = wrong = 0
         for rec, need in [(r, True) for r in want] + [(r, False) for r in must_not]:
             page = os.path.join(SITE, rec["url"].strip("/"), "index.html")
@@ -361,12 +386,21 @@ def main():
             fail("%d page(s) label the supplier's own published price as a draft" % wrong)
 
     # ---- weight
-    total = 0
+    # The 70 MB budget is for the public site (see the ledger in assets.py). The
+    # private panel under /admin/ is weighed on its own so it cannot eat that budget.
+    total = admin_bytes = 0
     for root, _d, files in os.walk(SITE):
+        in_admin = os.path.relpath(root, SITE).replace("\\", "/").split("/")[0] == "admin"
         for fn in files:
-            total += os.path.getsize(os.path.join(root, fn))
+            n = os.path.getsize(os.path.join(root, fn))
+            if in_admin:
+                admin_bytes += n
+            else:
+                total += n
     mb = total / 1048576.0
-    print("site weight: %.1f MB" % mb)
+    print("site weight: %.1f MB public + %.2f MB admin panel" % (mb, admin_bytes / 1048576.0))
+    if admin_bytes > 2 * 1048576:
+        fail("admin panel is %.2f MB, expected well under 2 MB" % (admin_bytes / 1048576.0))
     if mb > 70:
         fail("site is %.1f MB, over the 70 MB hard ceiling" % mb)
     elif mb > 60:

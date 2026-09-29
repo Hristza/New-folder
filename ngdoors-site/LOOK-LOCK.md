@@ -91,3 +91,28 @@ with a door hanging in it; at 72% the floor survived as six pixels.
 Every clip ships as a ping-pong loop -- forward, then reversed with one frame dropped at each
 turn. All of these are one-way camera moves, so a plain `loop` snaps back visibly. Measured seam
 delta after the ping-pong: 1.55-2.34 out of 255, under 1%.
+
+## Ledger -- 2026-09-29 stills (ChatGPT image model via Codex CLI)
+
+Nine stills for the places that had no picture: five door sections without a film, the three
+home-page promises, and /kontakti/. Made with `codex exec` + image generation, with
+`static/scenes/hero-poster.webp` attached as the look reference and this file's rules pasted
+into the prompt (prompts in `renders/gpt/batch1.txt`). Sources in `renders/gpt/*.png`,
+shipped as `static/photos/<name>-640.webp` and `-1200.webp`, 519 KB for all nine.
+
+| Slot | File | Gens |
+|---|---|---|
+| /vrati/aluminievi-vrati/ | aluminievi | 1 |
+| /vrati/obkov-i-aksesoari/ | obkov | 1 |
+| /vrati/vrati-za-servizni-pomeshteniya/ | servizni | 1 |
+| /vrati/pvts-vrati-za-banya/ | banya | 1 |
+| /vrati/pozharoustoychivi-vrati/ | pojaro | 1 |
+| home, "Доставка" | dostavka | 1 |
+| home, "Монтаж" | montazh | 1 |
+| home, "Шоурум" | mostri (samples on a table, NOT her showroom) | 1 |
+| /kontakti/ | kontakti | 1 |
+
+**9 generations, no retakes.** The showroom card deliberately shows sample boards, not a room
+that pretends to be her shop: a generated "showroom" beside her real address would be a false
+photo of a real place. Same rule as before: a room or a still life, never a product with a price.
+Stills crop into the band with `object-position: 50% 62%` (3:2 source into a 3.6:1 band).

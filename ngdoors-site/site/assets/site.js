@@ -144,15 +144,50 @@
   /* ---------------------------------------------------------- enquiry form */
   var form = document.getElementById('enquiry-form');
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var d = new FormData(form);
+    /* The inquiry goes into her admin panel. If that is not set up, or the save
+       fails, the old path takes over: an email with everything already filled in,
+       so no visitor ever loses what they typed. */
+    var note = document.getElementById('form-note');
+    var btn = form.querySelector('button[type="submit"]');
+    var say = function (state, text) {
+      if (!note) return;
+      note.setAttribute('data-state', state);
+      note.textContent = text;
+    };
+    var mailto = function (d) {
       var body = 'Име: ' + (d.get('name') || '') +
         '\nЗа връзка: ' + (d.get('contact') || '') +
         '\nИнтерес: ' + (d.get('topic') || '') +
         '\n\n' + (d.get('message') || '');
-      window.location.href = 'mailto:info@ngdoors.bg?subject=' +
-        encodeURIComponent('Запитване от сайта') + '&body=' + encodeURIComponent(body);
+      window.location.href = 'mailto:' + (form.getAttribute('data-email') || 'info@ngdoors.bg') +
+        '?subject=' + encodeURIComponent('Запитване от сайта') + '&body=' + encodeURIComponent(body);
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = new FormData(form);
+      if (d.get('website')) { say('ok', 'Благодарим! Ще се свържем с вас.'); return; }   // bot
+      var url = form.getAttribute('data-sb-url'), key = form.getAttribute('data-sb-key');
+      if (!url || !key || !window.fetch) { mailto(d); return; }
+      btn.disabled = true;
+      say('', 'Изпращане…');
+      fetch(url + '/rest/v1/inquiries', {
+        method: 'POST',
+        headers: { 'apikey': key, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+        body: JSON.stringify({
+          name: String(d.get('name') || '').trim().slice(0, 120),
+          contact: String(d.get('contact') || '').trim().slice(0, 160),
+          topic: String(d.get('topic') || '').slice(0, 80),
+          message: String(d.get('message') || '').slice(0, 4000),
+          page: location.pathname.slice(0, 300)
+        })
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        say('ok', 'Благодарим! Получихме запитването и ще се свържем с вас в работно време.');
+      }).catch(function () {
+        say('err', 'Не успяхме да изпратим формата. Отваряме имейл с попълнения текст.');
+        mailto(d);
+      }).then(function () { btn.disabled = false; });
     });
   }
 
@@ -169,11 +204,16 @@
     return '<span class="eur">' + eur + ' €</span> <span class="bgn">(' + lev + ' лв.)</span>';
   }
 
+  /* The picker works with or without a number: on a "По запитване" page there is no
+     price to recompute, but the chosen size still has to be selectable and still
+     has to reach the enquiry. A sale price moves with the size, and so does the
+     struck-through price next to it (data-old-bgn), or the sale would vanish. */
   var group = document.querySelector('.sizes[role="radiogroup"]');
   var priceEl = document.querySelector('.price-big[data-bgn]');
-  if (group && priceEl) {
+  if (group) {
     var pills = [].slice.call(group.querySelectorAll('.size-pill'));
-    var base = parseFloat(priceEl.getAttribute('data-bgn'));
+    var base = priceEl ? parseFloat(priceEl.getAttribute('data-bgn')) : NaN;
+    var oldBase = priceEl ? parseFloat(priceEl.getAttribute('data-old-bgn')) : NaN;
     var cta = document.querySelector('.product-cta a[href^="mailto:"]');
     var ctaHref = cta ? cta.getAttribute('href') : null;
 
@@ -183,12 +223,19 @@
         p.setAttribute('aria-checked', on ? 'true' : 'false');
         p.tabIndex = on ? 0 : -1;
       });
-      var total = base + parseFloat(pill.getAttribute('data-delta') || '0');
-      priceEl.innerHTML = money(total);
-      /* Re-trigger the value-change transition without animating layout. */
-      priceEl.classList.remove('price-bump');
-      void priceEl.offsetWidth;
-      priceEl.classList.add('price-bump');
+      if (priceEl && !isNaN(base)) {
+        var delta = parseFloat(pill.getAttribute('data-delta') || '0');
+        var html = money(base + delta);
+        if (!isNaN(oldBase)) {
+          html += ' <s class="was" aria-label="Стара цена">' +
+            ((oldBase + delta) / BGN_PER_EUR).toFixed(2).replace('.', ',') + ' €</s>';
+        }
+        priceEl.innerHTML = html;
+        /* Re-trigger the value-change transition without animating layout. */
+        priceEl.classList.remove('price-bump');
+        void priceEl.offsetWidth;
+        priceEl.classList.add('price-bump');
+      }
       /* The enquiry should say which size she is being asked about. */
       if (cta && ctaHref) {
         cta.setAttribute('href', ctaHref + '%20—%20' +

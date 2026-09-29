@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Управление — NG Doors</title>
+<meta name="theme-color" content="#fff5e9">
+<link rel="preload" href="/assets/fonts/bitter-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ubuntusans-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/admin/admin.css">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- ------------------------------------------------------------ sign in -->
+<section class="gate" id="gate" hidden>
+  <div class="gate-art" aria-hidden="true"></div>
+  <div class="gate-box">
+    <a class="brand" href="/">NG<span>&nbsp;Doors</span></a>
+    <h1>Управление на сайта</h1>
+
+    <form id="login" class="stack" autocomplete="on">
+      <label class="field"><span>Имейл</span><input type="email" name="email" required autocomplete="username"></label>
+      <label class="field"><span>Парола</span><input type="password" name="password" required autocomplete="current-password"></label>
+      <button class="btn btn-primary" type="submit">Вход</button>
+      <button class="linkish" type="button" id="forgot">Забравена парола</button>
+    </form>
+
+    <form id="newpass" class="stack" hidden>
+      <p>Изберете нова парола. Поне 10 знака.</p>
+      <label class="field"><span>Нова парола</span><input type="password" name="password" minlength="10" required autocomplete="new-password"></label>
+      <button class="btn btn-primary" type="submit">Запази паролата</button>
+    </form>
+
+    <p class="msg" id="gate-msg" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- ------------------------------------------------------------ panel -->
+<div class="app" id="app" hidden>
+  <header class="top">
+    <a class="brand" href="/" target="_blank" rel="noopener">NG<span>&nbsp;Doors</span></a>
+    <div class="top-right">
+      <button class="btn btn-primary" id="publish" type="button">Публикувай промените</button>
+      <button class="btn btn-ghost btn-sm" id="logout" type="button">Изход</button>
+    </div>
+  </header>
+  <div class="publish-bar" id="publish-bar" role="status" aria-live="polite"></div>
+
+  <nav class="tabs" role="tablist" aria-label="Раздели">
+    <button role="tab" data-tab="home" aria-selected="true">Начало</button>
+    <button role="tab" data-tab="catalogue" aria-selected="false">Цени и наличност</button>
+    <button role="tab" data-tab="mine" aria-selected="false">Мои продукти</button>
+    <button role="tab" data-tab="projects" aria-selected="false">Проекти</button>
+    <button role="tab" data-tab="inbox" aria-selected="false">Запитвания <span class="count" id="inbox-count" hidden></span></button>
+    <button role="tab" data-tab="settings" aria-selected="false">Настройки</button>
+  </nav>
+
+  <main class="wrap">
+    <!-- home -->
+    <section class="panel" data-panel="home">
+      <h1 id="hello">Добре дошли</h1>
+      <div class="stats" id="stats"></div>
+      <div class="howto">
+        <h2>Как работи</h2>
+        <ol>
+          <li>Променете цени, скрийте изчерпани модели, добавете продукти или снимки от обекти.</li>
+          <li>Промените се пазят веднага, но сайтът още не ги показва.</li>
+          <li>Натиснете <strong>Публикувай промените</strong>. След около 3 минути сайтът е обновен.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- catalogue prices and visibility -->
+    <section class="panel" data-panel="catalogue" hidden>
+      <h1>Цени и наличност</h1>
+      <p class="lede">Цената е в евро. Празно поле значи каталожната цена. 0 значи „По запитване“. Скрит модел изчезва от сайта, докато не го покажете отново.</p>
+      <div class="filters">
+        <label class="field grow"><span>Търсене</span><input type="search" id="q" placeholder="Име, серия или марка"></label>
+        <label class="field"><span>Покажи</span>
+          <select id="qf">
+            <option value="all">Всички</option>
+            <option value="changed">С мои промени</option>
+            <option value="hidden">Скритите</option>
+            <option value="draft">С ориентировъчна цена</option>
+          </select></label>
+      </div>
+      <p class="muted" id="qcount"></p>
+      <div class="rows" id="rows"></div>
+      <button class="btn btn-ghost" id="more" type="button" hidden>Покажи още</button>
+    </section>
+
+    <!-- her own products -->
+    <section class="panel" data-panel="mine" hidden>
+      <h1>Мои продукти</h1>
+      <p class="lede">Продукти, които не са в каталога на доставчика. Всеки има нужда от поне една снимка.</p>
+      <button class="btn btn-primary" id="add-product" type="button">Добави продукт</button>
+      <form id="pform" class="card-form stack" hidden>
+        <h2 id="pform-title">Нов продукт</h2>
+        <div class="grid2">
+          <label class="field"><span>Раздел</span>
+            <select name="section" required>
+              <option value="door">Врати</option>
+              <option value="nastilki">Настилки</option>
+              <option value="granitogres">Гранитогрес</option>
+              <option value="parvazi">Первази</option>
+            </select></label>
+          <label class="field" id="pcat-wrap"><span>Категория</span><select name="category"></select></label>
+        </div>
+        <label class="field"><span>Име</span><input name="name" required minlength="2" maxlength="160"></label>
+        <div class="grid3">
+          <label class="field"><span>Марка</span><input name="brand" maxlength="80"></label>
+          <label class="field"><span>Цена, €</span><input name="price" inputmode="decimal" placeholder="0 = По запитване"></label>
+          <label class="field"><span>Стара цена, € (промоция)</span><input name="old_price" inputmode="decimal"></label>
+        </div>
+        <div class="grid2">
+          <label class="field"><span>Размери, със запетая</span><input name="sizes" placeholder="80/200, 90/200"></label>
+          <label class="field"><span>Етикет</span>
+            <select name="badge"><option value="">Без</option><option value="new">Ново</option><option value="sale">Промоция</option><option value="hit">Топ продукт</option></select></label>
+        </div>
+        <label class="field"><span>Описание</span><textarea name="description" maxlength="4000"></textarea></label>
+        <div class="field"><span>Снимки</span>
+          <div class="thumbs-edit" id="pthumbs"></div>
+          <label class="btn btn-ghost file-btn">Добави снимки<input type="file" id="pfiles" accept="image/*" multiple></label>
+        </div>
+        <div class="row-actions">
+          <button class="btn btn-primary" type="submit">Запази</button>
+          <button class="btn btn-ghost" type="button" id="pcancel">Отказ</button>
+          <button class="btn btn-danger" type="button" id="pdelete" hidden>Изтрий продукта</button>
+        </div>
+        <p class="msg" id="pmsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="rows" id="mine-rows"></div>
+    </section>
+
+    <!-- project photos -->
+    <section class="panel" data-panel="projects" hidden>
+      <h1>Реализирани проекти</h1>
+      <p class="lede">Снимки от монтирани врати и настилки. Новите излизат първи в албума. Снимките се смаляват автоматично преди качване.</p>
+      <form id="upform" class="card-form stack">
+        <div class="grid2">
+          <label class="field"><span>Албум</span><select id="album"></select></label>
+          <label class="field" id="newalbum-wrap" hidden><span>Име на новия албум</span><input id="newalbum" maxlength="60"></label>
+        </div>
+        <label class="btn btn-primary file-btn">Избери снимки<input type="file" id="upfiles" accept="image/*" multiple></label>
+        <p class="msg" id="upmsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="photo-grid" id="photos"></div>
+    </section>
+
+    <!-- inquiries -->
+    <section class="panel" data-panel="inbox" hidden>
+      <h1>Запитвания</h1>
+      <p class="lede">Всичко, изпратено през формата на сайта. Отбележете „Готово“, когато сте отговорили.</p>
+      <div class="rows" id="inbox"></div>
+    </section>
+
+    <!-- settings -->
+    <section class="panel" data-panel="settings" hidden>
+      <h1>Настройки</h1>
+      <p class="lede">Показват се на всяка страница. Празно поле връща стойността по подразбиране.</p>
+      <form id="sform" class="card-form stack">
+        <label class="field"><span>Телефон</span><input name="phone" placeholder="+359 898 441 552" maxlength="24"></label>
+        <label class="field"><span>Имейл</span><input name="email" type="email" placeholder="info@ngdoors.bg"></label>
+        <label class="field"><span>Работно време</span><input name="hours" placeholder="Понеделник – петък, 9:00 – 18:00" maxlength="120"></label>
+        <label class="field"><span>Адрес</span><input name="address" placeholder="бул. Европа 115, 2227 Божурище" maxlength="160"></label>
+        <label class="field"><span>Съобщение най-горе на сайта</span><input name="announcement" maxlength="200" placeholder="Напр. -10% на всички интериорни врати до края на месеца"></label>
+        <button class="btn btn-primary" type="submit">Запази</button>
+        <p class="msg" id="smsg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+</div>
+
+<p class="boot" id="boot">Зареждане…</p>
+
+<script src="/admin/supabase.js"></script>
+<script src="/admin/admin.js"></script>
+</body>
+</html>
