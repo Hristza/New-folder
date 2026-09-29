@@ -88,9 +88,22 @@ await rp.close();
   else if (/^https?:\/\/(127\.0\.0\.1|localhost)/.test(canon)) {
     console.log('canonical:', canon, '(local, not fetched)');
   } else {
-    const r = await cp.request.get(canon, { failOnStatusCode: false })
-      .catch(e => ({ status: () => 0, _e: String(e) }));
-    if (r.status() !== 200) {
+    // Reach a control host first. Some environments allow only an allowlist out
+    // (this one refuses example.com and vercel.com alike with a proxy 403), and
+    // there the fetch below fails for every canonical, right or wrong. Calling
+    // that "it points nowhere" is a harness fault wearing the costume of the
+    // exact defect this check exists to catch -- and a check that can never be
+    // green is one people learn to ignore. So: no outbound network, no verdict.
+    const control = await cp.request.get('https://example.com/', { failOnStatusCode: false })
+      .catch(() => ({ status: () => 0 }));
+    const online = control.status() === 200;
+    const r = online
+      ? await cp.request.get(canon, { failOnStatusCode: false })
+          .catch(e => ({ status: () => 0, _e: String(e) }))
+      : null;
+    if (!online) {
+      console.log(`canonical: ${canon} (SKIPPED -- no outbound network from here)`);
+    } else if (r.status() !== 200) {
       bad++;
       console.log(`canonical: ${canon} returns ${r.status()} -- it points nowhere`);
     } else console.log('canonical resolves:', canon);

@@ -332,6 +332,15 @@ def build_floors():
         if rec["ac"]:
             specs.append(["Клас на износване", rec["ac"]])
         rec["specs"] = specs
+        # 124 of the 171 supplier items publish no price. Rather than leave two
+        # thirds of the flooring saying "По запитване", a draft price is derived
+        # from the ones that DO publish — never overwriting a real price, and
+        # flagged so the same notice that guards the door prices guards these too.
+        if rec["price"] <= 0:
+            drafted = pricing.floor_price(rec, PRICES)
+            if drafted > 0:
+                rec["price"] = drafted
+                rec["draft_price"] = True
         out.append(rec)
     return out
 
@@ -630,10 +639,17 @@ def sticky_buy(rec):
 
 def price_note_html(rec):
     """Says out loud that the figure is a draft, wherever a draft figure appears."""
-    if rec.get("kind") != "door" or rec.get("price", 0) <= 0 or not PRICES.get("draft"):
+    if rec.get("price", 0) <= 0 or not PRICES.get("draft"):
         return ""
-    return '<p class="price-note">%s <strong>Цените са ориентировъчни и подлежат на потвърждение.</strong></p>' % esc(
-        PRICES.get("note_bg", ""))
+    if rec.get("kind") == "door":
+        lead = PRICES.get("note_bg", "")
+    elif rec.get("draft_price"):
+        # A drafted floor price, next to siblings carrying the supplier's own.
+        # Say which kind this is rather than letting the two look alike.
+        lead = "Ориентировъчна цена на кв.м, изведена от обявените цени в каталога."
+    else:
+        return ""      # a real supplier price needs no disclaimer
+    return '<p class="price-note">%s <strong>Цените са ориентировъчни и подлежат на потвърждение.</strong></p>' % esc(lead)
 
 
 def card(rec, kicker=None):

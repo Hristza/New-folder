@@ -150,3 +150,48 @@ def resolve(rec, prices):
 
     return {"price": round(base_price, 2), "base_size": base_size, "sizes": sizes,
             "tags": tags, "addons": prices.get("addons", [])}
+
+
+# ------------------------------------------------------------------ floors
+_MM = re.compile(r"(\d+(?:[.,]\d+)?)\s*mm", re.I)
+_AC = re.compile(r"\bAC\s?(\d)\b", re.I)
+
+
+def floor_specs(title):
+    """Thickness in mm and wear class, read off the supplier's own title."""
+    mm = _MM.search(title or "")
+    ac = _AC.search(title or "")
+    return (mm.group(1).replace(",", ".") if mm else None,
+            ("AC" + ac.group(1)) if ac else None)
+
+
+def floor_price(rec, prices):
+    """A draft price for a floor item the supplier published none for.
+
+    Derived, not invented. The catalogue itself prices Home Decor 2022 laminate at
+    15.59 (AC3) and 18.19 (AC4) per m², both 8 mm, and that measured 2.60 step
+    between wear classes is what carries the rest. Boards under 6 mm are rigid SPC
+    vinyl rather than laminate and are priced in their own right.
+
+    Returns 0.0 when there is nothing to go on, so the page keeps saying
+    "По запитване" instead of showing a number with no basis.
+    """
+    cfg = prices.get("floors") or {}
+    if not cfg:
+        return 0.0
+    section = rec.get("section")
+    if section == "granitogres":
+        return float((cfg.get("granitogres") or {}).get("price") or 0.0)
+
+    mm, ac = floor_specs(rec.get("name") or rec.get("title") or "")
+    spc = cfg.get("spc") or {}
+    if mm and mm.split(".")[0] in spc:
+        return float(spc[mm.split(".")[0]])
+
+    lam = cfg.get("laminate") or {}
+    base = (lam.get("base_8mm") or {}).get(ac or "")
+    if base is None:
+        return float(cfg.get("fallback") or 0.0)
+    delta = (lam.get("thickness_delta") or {}).get((mm or "8").split(".")[0], 0.0)
+    mult = (lam.get("vendor_multiplier") or {}).get(rec.get("brand") or "", 1.0)
+    return round((float(base) + float(delta)) * float(mult), 2)
