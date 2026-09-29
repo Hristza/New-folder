@@ -1265,8 +1265,12 @@ def floor_section(path, title, lede, items, brands=None):
     grid = "".join(
         '<div data-t="%s" data-a="%s">%s</div>' % (esc(f["thick"]), esc(f["ac"]), card(f))
         for f in items)
+    # darnox dropped all granite tiles in Sep 2026: an empty section says so plainly
+    # instead of shipping "0 артикула" over a blank grid.
+    if not items:
+        grid = '<p class="empty-note" style="grid-column:1/-1;margin:1rem 0">В момента няма модели онлайн. Обадете се и ще проверим наличността.</p>'
     body = pagehead(title, lede, [("/", "Начало"), (None, title)],
-                    count_note(items), scene=path) + \
+                    count_note(items) if items else "", scene=path) + \
         '<section class="section" style="padding-top:0"><div class="wrap">%s%s<div class="grid" id="filtergrid">%s</div></div></section>%s' % (
             brand_nav, chips, grid, ENQUIRY)
     write(path, shell(path, "%s — NG Doors" % title, lede or title, body))

@@ -2,7 +2,7 @@
 """Scrape ngdoors.bg (catalogue + gallery) and darnox.com (Shopify) into data.json.
 
 Cached: every fetched page lands in cache/ so re-runs are free and offline.
-Run:  python scrape.py [--refresh]
+Run:  python scrape.py [--refresh] [--darnox-only]
 """
 import hashlib
 import html
@@ -48,6 +48,7 @@ def fetch(url, binary=False):
                 return None
             time.sleep(2 * (attempt + 1))
     data = raw if binary else raw.decode("utf-8", "replace")
+    os.makedirs(CACHE, exist_ok=True)  # a fresh checkout has no cache/ (it is gitignored)
     mode = "wb" if binary else "w"
     with io.open(path, mode, **({} if binary else {"encoding": "utf-8"})) as f:
         f.write(data)
@@ -224,23 +225,36 @@ def scrape_gallery():
 DARNOX = "https://darnox.com"
 
 
-def scrape_darnox():
-    raw = fetch(DARNOX + "/collections/all/products.json?limit=250")
-    data = json.loads(raw)["products"]
+def darnox_paged(path, key):
+    """Every page of a Shopify list. A single ?limit=250 call silently stopped at 250;
+    darnox had 658 products on 2026-09-30. A failed page raises: a short catalogue
+    must never be written as if it were the whole one."""
+    items = []
+    for page in range(1, 200):
+        time.sleep(0.5)  # one request at a time, gently: darnox answered 429 to a burst on 2026-09-30
+        raw = fetch("%s%s?limit=250&page=%d" % (DARNOX, path, page))
+        if raw is None:
+            raise RuntimeError("darnox page failed: %s page %d" % (path, page))
+        got = json.loads(raw)[key]
+        items.extend(got)
+        if len(got) < 250:
+            return items
+    raise RuntimeError("darnox %s: over 200 pages, stopping" % path)
 
-    # product_type is blank on 95/171, so the section a product belongs to comes
-    # from its collections, not from the product record.
-    cols = json.loads(fetch(DARNOX + "/collections.json?limit=250"))["collections"]
+
+def scrape_darnox():
+    data = darnox_paged("/products.json", "products")
+
+    # product_type is blank on many products, so the section a product belongs to
+    # comes from its collections, not from the product record.
+    cols = darnox_paged("/collections.json", "collections")
     member = {}
     for c in cols:
         if not c.get("products_count"):
             continue
-        cr = fetch("%s/collections/%s/products.json?limit=250" % (DARNOX, c["handle"]))
-        if not cr:
-            continue
-        for p in json.loads(cr)["products"]:
+        for p in darnox_paged("/collections/%s/products.json" % c["handle"], "products"):
             member.setdefault(str(p["id"]), []).append(c["handle"])
-    print("  collections walked: %d" % len(cols))
+    print("  products: %d, collections walked: %d" % (len(data), len(cols)))
 
     def section(pid):
         h = member.get(pid, [])
@@ -280,6 +294,21 @@ def scrape_darnox():
 
 
 def main():
+    if "--darnox-only" in sys.argv:
+        # Refresh the supplier catalogue alone; the door catalogue and gallery stay as they are.
+        path = os.path.join(HERE, "data.json")
+        with io.open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        print("== darnox ==")
+        data["darnox"] = scrape_darnox()
+        with io.open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=1)
+        sec = {}
+        for d in data["darnox"]:
+            sec[d["section"]] = sec.get(d["section"], 0) + 1
+        print("darnox        : %d (priced %d) sections %s"
+              % (len(data["darnox"]), sum(1 for d in data["darnox"] if d["price"] > 0), sec))
+        return
     print("== ngdoors catalogue ==")
     cats, cat_labels, products = scrape_catalogue()
     print("== ngdoors gallery ==")

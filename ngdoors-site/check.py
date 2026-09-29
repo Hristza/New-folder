@@ -70,8 +70,13 @@ def main():
     n_photo = sum(len([u for u in v if u in images["images"]]) for v in data["gallery"].values())
     n_priced = len([d for d in data["darnox"] if d["price"] > 0])
     print("doors %d | floors %d (priced %d) | gallery %d" % (n_doors, n_floor, n_priced, n_photo))
-    if len(data["darnox"]) != 171:
-        fail("darnox is %d, expected 171 (подложки must be excluded)" % len(data["darnox"]))
+    # darnox grows and shrinks (171 in Aug 2026, 639 on 2026-09-30), so the guard is the
+    # rule the old fixed count stood for: underlays excluded, catalogue not collapsed.
+    underlay = [d["title"] for d in data["darnox"] if any("подложк" in t.lower() for t in d["tags"])]
+    if underlay:
+        fail("darnox has %d underlays (подложки must be excluded): %s" % (len(underlay), underlay[:3]))
+    if len(data["darnox"]) < 150:
+        fail("darnox is %d products; the supplier pull probably stopped early" % len(data["darnox"]))
     if sum(len(v) for v in data["gallery"].values()) != 357:
         fail("gallery is %d photos, expected 357" % sum(len(v) for v in data["gallery"].values()))
     if len(data["products"]) != 323:

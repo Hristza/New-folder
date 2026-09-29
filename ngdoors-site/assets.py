@@ -45,6 +45,8 @@ Q_FULL = 60
 # *is* the full-size file and a second tier would be a byte-identical duplicate.
 # 367 of 1064 sources measured <=600px wide; emitting both doubled them for nothing.
 FULL_MIN_SRC = 760
+Q_SUPPLIER = 70   # darnox photos: grid tier only, see main()
+DARNOX = set()
 REFRESH = "--refresh" in sys.argv
 QUALITY = 78
 if "--quality" in sys.argv:
@@ -103,41 +105,45 @@ def main():
 
     urls = collect(data)
     print("unique source images: %d" % len(urls))
+    # The full darnox catalog (639 items, ~1,200 photos) at both tiers is 78 MB alone,
+    # so supplier photos get the grid tier only, one notch lower. The lightbox then opens
+    # the 600px file. Doors and gallery, the site's own photos, keep both tiers.
+    DARNOX.update(u for d in data["darnox"] for u in d["images"])
+
+    # An image already encoded at every size is not downloaded again: cache/ is
+    # gitignored, so a fresh checkout would otherwise re-fetch all ~1,000 sources.
+    try:
+        with io.open(os.path.join(HERE, "images.json"), encoding="utf-8") as f:
+            old = json.load(f)["images"]
+    except (OSError, ValueError, KeyError):
+        old = {}
 
     manifest, failures = {}, {}
-    for i, url in enumerate(urls, 1):
-        if i % 100 == 0:
-            print("  ...%d/%d  (ok %d, failed %d)" % (i, len(urls), len(manifest), len(failures)))
+    reused = 0
+    todo = []
+    for url in urls:
         k = key_of(url)
-        got = download(url)
-        if isinstance(got, tuple):
-            failures[url] = got[1]
-            continue
-        try:
-            with Image.open(got) as im:
-                im.load()
-                if im.mode in ("P", "LA", "RGBA"):
-                    bg = Image.new("RGB", im.size, (255, 255, 255))
-                    conv = im.convert("RGBA")
-                    bg.paste(conv, mask=conv.split()[-1])
-                    im = bg
-                else:
-                    im = im.convert("RGB")
-                ow, oh = im.size
-                widths = [GRID_W] + ([FULL_W] if ow > FULL_MIN_SRC else [])
-                for w in widths:
-                    dest = os.path.join(OUT, "%s-%d.webp" % (k, w))
-                    if os.path.exists(dest) and not REFRESH:
-                        continue
-                    tw = min(w, ow)
-                    th = max(1, round(oh * tw / ow))
-                    im.resize((tw, th), Image.LANCZOS).save(
-                        dest, "WEBP", quality=(QUALITY if w == GRID_W else Q_FULL),
-                        method=5
-                    )
-            manifest[url] = {"key": k, "w": ow, "h": oh, "sizes": widths}
-        except Exception as e:
-            failures[url] = "decode: %s: %s" % (type(e).__name__, e)
+        prev = old.get(url)
+        if prev and not REFRESH and prev.get("key") == k and all(
+                os.path.exists(os.path.join(OUT, "%s-%d.webp" % (k, w))) for w in prev["sizes"]):
+            manifest[url] = prev
+            reused += 1
+        else:
+            todo.append(url)
+    print("reused %d, to encode %d" % (reused, len(todo)))
+
+    # Encoding is the slow part (~4 s per large source at method=5), so 8 run at once.
+    # ponytail: threads, because Pillow releases the GIL in resize/save; processes if it ever is not enough.
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(8) as pool:
+        for i, (url, entry, err) in enumerate(pool.map(encode_one, todo), 1):
+            if entry:
+                manifest[url] = entry
+            else:
+                failures[url] = err
+            if i % 100 == 0:
+                print("  ...%d/%d  (ok %d, failed %d)" % (i, len(todo), len(manifest) - reused, len(failures)))
+    manifest = {u: manifest[u] for u in urls if u in manifest}  # stable order, as before
 
     with io.open(os.path.join(HERE, "images.json"), "w", encoding="utf-8") as f:
         json.dump({"images": manifest, "failures": failures,
@@ -146,11 +152,46 @@ def main():
 
     total = sum(os.path.getsize(os.path.join(OUT, x)) for x in os.listdir(OUT))
     print("\n--- ASSETS ---")
-    print("encoded : %d  (%d webp files)" % (len(manifest), len(os.listdir(OUT))))
+    print("encoded : %d  (%d reused, %d webp files)" % (len(manifest), reused, len(os.listdir(OUT))))
     print("failed  : %d" % len(failures))
     for u, why in list(failures.items())[:10]:
         print("   %s  <- %s" % (why, u))
     print("weight  : %.1f MB at quality %d" % (total / 1048576.0, QUALITY))
+
+
+def encode_one(url):
+    """Download and encode one source. Returns (url, manifest entry or None, error or None)."""
+    k = key_of(url)
+    got = download(url)
+    if isinstance(got, tuple):
+        return url, None, got[1]
+    try:
+        with Image.open(got) as im:
+            im.load()
+            if im.mode in ("P", "LA", "RGBA"):
+                bg = Image.new("RGB", im.size, (255, 255, 255))
+                conv = im.convert("RGBA")
+                bg.paste(conv, mask=conv.split()[-1])
+                im = bg
+            else:
+                im = im.convert("RGB")
+            ow, oh = im.size
+            supplier = url in DARNOX
+            widths = [GRID_W] + ([FULL_W] if ow > FULL_MIN_SRC and not supplier else [])
+            for w in widths:
+                dest = os.path.join(OUT, "%s-%d.webp" % (k, w))
+                if os.path.exists(dest) and not REFRESH:
+                    continue
+                tw = min(w, ow)
+                th = max(1, round(oh * tw / ow))
+                q = Q_SUPPLIER if supplier else (QUALITY if w == GRID_W else Q_FULL)
+                im.resize((tw, th), Image.LANCZOS).save(
+                    dest, "WEBP", quality=q,
+                    method=5
+                )
+        return url, {"key": k, "w": ow, "h": oh, "sizes": widths}, None
+    except Exception as e:
+        return url, None, "decode: %s: %s" % (type(e).__name__, e)
 
 
 if __name__ == "__main__":
