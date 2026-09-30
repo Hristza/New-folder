@@ -1512,6 +1512,8 @@ def main():
         for u in sorted(urls):
             f.write("<url><loc>%s%s</loc></url>\n" % (BASE_URL, u))
         f.write("</urlset>\n")
+    # Cloudflare Pages reads redirects from site/_redirects (vercel.json is ignored there).
+    shutil.copy(os.path.join(HERE, "redirects.txt"), os.path.join(SITE, "_redirects"))
     with io.open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8") as f:
         # Open to search since 2026-08-31: the supplier confirmed their catalogue photos
         # and specs may be republished. Before that this wrote Disallow: / and every page
