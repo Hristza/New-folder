@@ -420,7 +420,7 @@ def build_floors():
             STATS["dropped_no_image"] += 1
             continue
         t = d["title"]
-        thick = re.search(r"(\d+(?:[.,]\d+)?)\s*mm", t, re.I)
+        thick = re.search(r"(\d+(?:[.,]\d+)?)\s*(?:mm|мм)", t, re.I)
         ac = re.search(r"\bAC\s?(\d)\b", t, re.I)
         rec = {
             "kind": "floor",
@@ -533,10 +533,11 @@ NAV = [("/vrati/", "Врати"), ("/nastilki/", "Настилки"),
        ("/proekti/", "Проекти"), ("/kontakti/", "Контакти")]
 
 
-def shell(path, title, desc, body, cls=""):
+def shell(path, title, desc, body, cls="", nav_as=None):
     canonical = BASE_URL + path
+    here = nav_as or path
     nav = "".join(
-        '<a href="%s"%s>%s</a>' % (u, ' aria-current="page"' if path.startswith(u) and u != "/" else "", t)
+        '<a href="%s"%s>%s</a>' % (u, ' aria-current="page"' if here.startswith(u) and u != "/" else "", t)
         for u, t in NAV)
     return """<!doctype html>
 <html lang="bg">
@@ -1240,20 +1241,42 @@ def page_product(rec):
         "Каталожна информация от %s. Наличността и срокът се потвърждават при запитване."
         % ("ngdoors.bg" if rec["kind"] == "door" else "darnox.com")),
        trail[-2][0] or section_url, sticky_buy(rec))
-    write(rec["url"], shell(rec["url"], page_title(rec), meta_desc(rec), body))
+    # Every floor item lives under /nastilki/produkt/, so the URL alone would light
+    # "Настилки" on a skirting board; the menu follows the section instead.
+    write(rec["url"], shell(rec["url"], page_title(rec), meta_desc(rec), body, nav_as=section_url))
+
+
+# The full darnox catalog puts 468 items on /parvazi/ and only 54 are skirting
+# boards; the rest are corners, caps and floor strips. Group by the title's first word.
+PARVAZ_KINDS = [("Первази", ("пвц", "перваз")),
+                ("Ъгли, тапи и снадки", ("вътрешен", "външен", "тапа", "снадка")),
+                ("Лайсни за под", ("алуминиева", "алуминиево", "преходна"))]
+
+
+def parvaz_kind(f):
+    first = f["name"].split()[0].lower() if f["name"] else ""
+    for i, (label, words) in enumerate(PARVAZ_KINDS):
+        if first in words:
+            return i, label
+    return len(PARVAZ_KINDS), "Други"
 
 
 def floor_section(path, title, lede, items, brands=None):
     chips = ""
+    kinds = []
+    if path == "/parvazi/":
+        items = sorted(items, key=lambda f: parvaz_kind(f)[0])  # stable: keeps feed order inside a group
+        kinds = sorted({parvaz_kind(f) for f in items})
     facets = sorted({f["thick"] for f in items if f["thick"]},
                     key=lambda s: float(s.split()[0]))
     acs = sorted({f["ac"] for f in items if f["ac"]})
     # Two rows of pills that look identical but behave differently is the defect:
     # the brand row navigates to another page, the facet row filters in place.
     # Each row is labelled and the link pills carry their own style.
-    if facets or acs:
+    if facets or acs or kinds:
         chips = ('<div class="facet-row"><span class="facet-label">Филтър</span>'
-                 '<div class="chips" id="facets"><button class="chip" type="button" data-f="*" aria-pressed="true">Всички</button>%s%s</div></div>') % (
+                 '<div class="chips" id="facets"><button class="chip" type="button" data-f="*" aria-pressed="true">Всички</button>%s%s%s</div></div>') % (
+            "".join('<button class="chip" type="button" data-f="k:%d" aria-pressed="false">%s</button>' % (i, esc(k)) for i, k in kinds),
             "".join('<button class="chip" type="button" data-f="t:%s" aria-pressed="false">%s</button>' % (esc(t), esc(t)) for t in facets),
             "".join('<button class="chip" type="button" data-f="a:%s" aria-pressed="false">%s</button>' % (esc(a), esc(a)) for a in acs))
     brand_nav = ""
@@ -1263,7 +1286,8 @@ def floor_section(path, title, lede, items, brands=None):
             '<a class="chip chip-link" href="/nastilki/%s/">%s <span class="chip-n">%d</span></a>' % (slug(b), esc(b), len(v))
             for b, v in sorted(brands.items(), key=lambda kv: -len(kv[1])))
     grid = "".join(
-        '<div data-t="%s" data-a="%s">%s</div>' % (esc(f["thick"]), esc(f["ac"]), card(f))
+        '<div data-t="%s" data-a="%s" data-k="%s">%s</div>' % (
+            esc(f["thick"]), esc(f["ac"]), parvaz_kind(f)[0] if kinds else "", card(f))
         for f in items)
     # darnox dropped all granite tiles in Sep 2026: an empty section says so plainly
     # instead of shipping "0 артикула" over a blank grid.
@@ -1463,6 +1487,15 @@ def main():
                   "PVC первази в цвят на настилката.", SECTION_OF["parvazi"])
     for rec in FLOORS:
         page_product(rec)
+    # Supplier items come and go with every darnox pull, so an old link must land
+    # somewhere useful. Vercel serves site/404.html with a real 404 status.
+    with io.open(os.path.join(SITE, "404.html"), "w", encoding="utf-8") as f:
+        f.write(shell("/404.html", "Страницата не е намерена — NG Doors",
+                      "Този продукт вече не се предлага.",
+                      '<section class="section"><div class="wrap"><h1>Страницата не е намерена</h1>'
+                      '<p style="margin:1rem 0 1.5rem">Този модел вероятно вече не се предлага. '
+                      'Разгледайте актуалните или ни се обадете.</p><div class="chips">%s</div></div></section>%s' % (
+                          "".join('<a class="chip chip-link" href="%s">%s</a>' % (u, t) for u, t in NAV), ENQUIRY)))
 
     page_gallery_index()
     for a in ALBUMS:

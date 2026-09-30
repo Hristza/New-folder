@@ -132,7 +132,8 @@
       Array.prototype.forEach.call(fgrid.children, function (cell) {
         var ok = f === '*' ||
           (f.charAt(0) === 't' && cell.getAttribute('data-t') === f.slice(2)) ||
-          (f.charAt(0) === 'a' && cell.getAttribute('data-a') === f.slice(2));
+          (f.charAt(0) === 'a' && cell.getAttribute('data-a') === f.slice(2)) ||
+          (f.charAt(0) === 'k' && cell.getAttribute('data-k') === f.slice(2));
         cell.hidden = !ok;
         if (ok) shown++;
       });
