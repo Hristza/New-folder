@@ -9,4 +9,4 @@ send_email = [{ name = "MAIL" }]
 
 [vars]
 FROM = "notify@hristoforstudio.com"
-TO = "hrisodim0@gmail.com"   # comma list; add ngbuildings@abv.bg once she clicks Cloudflare's verify link
+TO = "hrisodim0@gmail.com,ngbuildings@abv.bg"   # comma list; each must be a verified Email Routing destination

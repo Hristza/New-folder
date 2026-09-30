@@ -38,11 +38,12 @@ export default {
       return new Response("forbidden", { status: 403 });
     const { record: r } = await req.json().catch(() => ({}));
     if (!r?.name || !r?.contact) return new Response("no record", { status: 400 });
-    const sent = [];
+    const sent = [], failed = [];
     for (const to of env.TO.split(",").map((s) => s.trim()).filter(Boolean)) {
-      await env.MAIL.send(new EmailMessage(env.FROM, to, mime(env.FROM, to, r)));
-      sent.push(to);
+      // ponytail: an unverified destination throws; skip it so the others still get the mail
+      try { await env.MAIL.send(new EmailMessage(env.FROM, to, mime(env.FROM, to, r))); sent.push(to); }
+      catch (e) { failed.push(to + ": " + String(e).slice(0, 120)); }
     }
-    return Response.json({ ok: true, sent });
+    return Response.json({ ok: sent.length > 0, sent, failed });
   },
 };
