@@ -30,13 +30,10 @@ VIBER = "viber://chat?number=%2B" + PHONE.lstrip("+")
 ADDRESS = "бул. Европа 115, 2227 Божурище"
 HOURS = "Понеделник – петък, 9:00 – 18:00"
 SITE_NAME = "NG Doors"
-# The Vercel project is called "ngdoors", so the alias is ngdoors.vercel.app.
-# This said ngdoors-site.vercel.app, which 404s: every canonical tag on all 564
-# pages and every <loc> in the sitemap pointed at a domain that does not exist.
-# It did no damage only because the site was closed to search at the time; it is
-# open now, so a wrong value here is live SEO damage. Verify it against
-# `vercel project ls` before changing it, never against memory.
-BASE_URL = "https://ngdoors.vercel.app"
+# Cloudflare Pages project "ngdoors" -> ngdoors.pages.dev (moved off Vercel 2026-09-30:
+# Hobby forbids commercial sites). A wrong value here is live SEO damage: every canonical
+# and sitemap <loc> uses it. Verify with `wrangler pages project list`, never from memory.
+BASE_URL = "https://ngdoors.pages.dev"
 BGN_PER_EUR = 1.95583   # the fixed statutory conversion rate
 
 # ------------------------------------------------------------------ slugs

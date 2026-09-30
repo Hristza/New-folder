@@ -1,13 +1,13 @@
 // "Публикувай промените": rebuild and redeploy the public site from what she saved.
 //
 // Only an admin can trigger it. The function holds the one secret the browser must
-// never see (a Vercel deploy hook URL), checks the caller is in public.admins,
+// never see (a Cloudflare Pages deploy hook URL), checks the caller is in public.admins,
 // throttles to one publish a minute, and calls the hook. Vercel then pulls the repo,
 // runs build.py + check.py and deploys. A failed build leaves the old site up.
 //
 // Secrets (supabase secrets set ...):
-//   DEPLOY_HOOK  Vercel deploy hook URL for the production branch
-//   SITE_ORIGINS comma list of origins allowed to call this, e.g. https://ngdoors.vercel.app
+//   DEPLOY_HOOK  Cloudflare Pages deploy hook URL for the production branch
+//   SITE_ORIGINS comma list of origins allowed to call this, e.g. https://ngdoors.pages.dev
 import { createClient } from "npm:@supabase/supabase-js@2.117.2";
 
 const env = (k: string) => Deno.env.get(k) ?? "";
@@ -59,9 +59,9 @@ Deno.serve(async (req) => {
   try {
     const r = await fetch(env("DEPLOY_HOOK"), { method: "POST" });
     ok = r.status >= 200 && r.status < 300;
-    detail = ok ? "started" : `vercel ${r.status}: ${(await r.text()).slice(0, 300)}`;
+    detail = ok ? "started" : `deploy hook ${r.status}: ${(await r.text()).slice(0, 300)}`;
   } catch (e) {
-    detail = "vercel unreachable: " + String(e).slice(0, 300);
+    detail = "deploy hook unreachable: " + String(e).slice(0, 300);
   }
   await sb.from("publish_log").insert({ ok, detail });
   return ok

@@ -1,0 +1,12 @@
+# Emails a new site enquiry to the owner. Supabase calls it from a trigger on public.inquiries.
+name = "ngdoors-notify"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Email Routing only delivers to verified destination addresses (Cloudflare dash > Email > Destination addresses).
+send_email = [{ name = "MAIL" }]
+
+[vars]
+FROM = "notify@hristoforstudio.com"
+TO = "hrisodim0@gmail.com"   # comma list; add ngbuildings@abv.bg once she clicks Cloudflare's verify link
