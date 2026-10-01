@@ -60,6 +60,7 @@
       say($('#gate-msg'), 'err', 'Панелът още не е свързан със сървъра.');
       return;
     }
+    var recovering = location.hash.indexOf('type=recovery') >= 0;   // read before the library clears the hash
     sb = window.supabase.createClient(c.supabase_url, c.supabase_key, {
       auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
     });
@@ -68,7 +69,7 @@
       if (ev === 'SIGNED_OUT') showGate('login');
     });
     sb.auth.getSession().then(function (r) {
-      if (location.hash.indexOf('type=recovery') >= 0) return;   // the recovery event handles it
+      if (recovering) { showGate('newpass'); return; }   // email link: choose a password first
       if (r.data.session) enter(r.data.session); else showGate('login');
     });
   }).catch(function () {
@@ -95,7 +96,7 @@
     var email = $('#login').email.value.trim(), msg = $('#gate-msg');
     if (!email) { say(msg, 'err', 'Първо напишете имейла си горе.'); return; }
     sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + '/admin/' }).then(function () {
-      say(msg, 'ok', 'Ако имейлът е регистриран, ще получите връзка за нова парола.');
+      say(msg, 'ok', 'Проверете пощата си. Отворете връзката от писмото и изберете парола.');
     });
   });
   $('#newpass').addEventListener('submit', function (e) {
