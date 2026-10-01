@@ -223,7 +223,7 @@
           o.product_key ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: reset }, 'Върни каталожните') : null,
           msg),
         h('div.actions', null,
-          h('label.btn.btn-ghost.btn-sm.file-btn', null, mine.length ? 'Смени снимката' : 'Сложи моя снимка', files),
+          h('label.btn.btn-ghost.btn-sm.file-btn', null, 'Смени снимката', files),
           mine.length ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () { setPhotos([]); } }, 'Върни снимката на доставчика') : null)));
     // Her photos replace the supplier's on the site. Only the images column is sent,
     // so her price, hide and label on this product stay as they are.
