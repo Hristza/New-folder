@@ -81,22 +81,16 @@
     $('#login').hidden = which !== 'login'; $('#newpass').hidden = which !== 'newpass';
   }
 
+  // ponytail: login by email link only, no password to remember. shouldCreateUser:false so strangers get no account.
   $('#login').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target, btn = $('button[type=submit]', f), msg = $('#gate-msg');
-    btn.disabled = true; say(msg, '', 'Влизане…');
-    sb.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value }).then(function (r) {
+    btn.disabled = true; say(msg, '', 'Изпращане…');
+    sb.auth.signInWithOtp({ email: f.email.value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + '/admin/' } }).then(function (r) {
       btn.disabled = false;
-      if (r.error) { say(msg, 'err', 'Грешен имейл или парола.'); return; }
-      say(msg, '', ''); f.password.value = '';
-      enter(r.data.session);
-    });
-  });
-  $('#forgot').addEventListener('click', function () {
-    var email = $('#login').email.value.trim(), msg = $('#gate-msg');
-    if (!email) { say(msg, 'err', 'Първо напишете имейла си горе.'); return; }
-    sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + '/admin/' }).then(function () {
-      say(msg, 'ok', 'Проверете пощата си. Отворете връзката от писмото и изберете парола.');
+      if (r.error && /signups not allowed|not found/i.test(r.error.message)) { say(msg, 'err', 'Този имейл няма достъп до панела.'); return; }
+      if (r.error) { say(msg, 'err', 'Писмото не беше изпратено. Опитайте пак след минута.'); return; }
+      say(msg, 'ok', 'Готово. Проверете пощата си и отворете връзката от писмото.');
     });
   });
   $('#newpass').addEventListener('submit', function (e) {
