@@ -59,6 +59,10 @@ create or replace function public.valid_photos(j jsonb) returns boolean
 as $$ select jsonb_typeof(j) = 'array' and jsonb_array_length(j) <= 20
          and not exists (select 1 from jsonb_array_elements(j) e where public.valid_photo(e) is not true) $$;
 
+-- Her own photo for a catalogue product (2026-10-02). Empty = the supplier's photos.
+alter table public.product_overrides add column if not exists images jsonb not null default '[]'
+  check (public.valid_photos(images));
+
 -- Products she adds herself.
 create table if not exists public.products (
   id          uuid primary key default gen_random_uuid(),
@@ -180,6 +184,11 @@ create policy "media admin insert" on storage.objects for insert to authenticate
   with check (bucket_id = 'media' and (select public.is_admin()));
 drop policy if exists "media admin update" on storage.objects;
 create policy "media admin update" on storage.objects for update to authenticated
+  using (bucket_id = 'media' and (select public.is_admin()));
+-- Storage deletes return rows, so they need SELECT too. Without this policy
+-- remove() reported success and deleted nothing (found 2026-10-02).
+drop policy if exists "media admin select" on storage.objects;
+create policy "media admin select" on storage.objects for select to authenticated
   using (bucket_id = 'media' and (select public.is_admin()));
 drop policy if exists "media admin delete" on storage.objects;
 create policy "media admin delete" on storage.objects for delete to authenticated

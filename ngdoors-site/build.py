@@ -277,6 +277,9 @@ def apply_override(rec, key):
         return rec
     if o.get("hidden"):
         rec["hidden"] = True
+    mine = [u for u in o.get("images") or [] if have(u)]
+    if mine:
+        rec["images"] = mine
     if o.get("price") is not None:
         # Her prices are euro. Converted unrounded, so money() prints her euro back
         # exactly; the lev figure is the one that gets rounded, as the law intends.

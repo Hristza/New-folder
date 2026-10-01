@@ -139,6 +139,13 @@ def load():
             images[url] = row
             urls.append(url)
         pr["images"] = urls
+    for o in ov:
+        urls = []
+        for ph in o.get("images") or []:
+            url, row = manifest_row(cfg, ph)
+            images[url] = row
+            urls.append(url)
+        o["images"] = urls
     for ph in photos:
         ph["url"], row = manifest_row(cfg, ph["photo"])
         images[ph["url"]] = row

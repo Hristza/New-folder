@@ -27,6 +27,7 @@ root_cat = sorted(DATA["cat_labels"])[0]
 album = "Входни врати"
 SB = "https://fake.supabase.co"
 PH = {"s": "products/x-600.webp", "l": "products/x-1200.webp", "w": 1200, "h": 900}
+OV = {"s": "catalogue/z-600.webp", "l": "catalogue/z-1200.webp", "w": 1200, "h": 1500}
 PJ = {"s": "projects/y-600.webp", "l": "projects/y-1200.webp", "w": 1200, "h": 1600}
 
 
@@ -35,7 +36,8 @@ def fake_load():
     fix = {
         "overrides": {
             "door:" + PRICED["id"]: {"product_key": "door:" + PRICED["id"], "price": 460.5,
-                                     "old_price": 562.0, "hidden": False, "badge": "sale"},
+                                     "old_price": 562.0, "hidden": False, "badge": "sale",
+                                     "images": [OV]},
             "door:" + HIDDEN["id"]: {"product_key": "door:" + HIDDEN["id"], "price": None,
                                      "old_price": None, "hidden": True, "badge": None},
             "door:" + ASK["id"]: {"product_key": "door:" + ASK["id"], "price": 0.0,
@@ -64,6 +66,13 @@ def fake_load():
             images[url] = row
             urls.append(url)
         pr["images"] = urls
+    for o in fix["overrides"].values():
+        urls = []
+        for ph in o.get("images") or []:
+            url, row = admin_sync.manifest_row(cfg, ph)
+            images[url] = row
+            urls.append(url)
+        o["images"] = urls
     for ph in fix["photos"]:
         ph["url"], row = admin_sync.manifest_row(cfg, ph["photo"])
         images[ph["url"]] = row
@@ -96,6 +105,7 @@ expect(html and "460,50 €" in html and "(900,66 лв.)" in html, "her euro pri
 expect(html and 'class="was"' in html and "562,00 €" in html, "old price not struck through")
 expect(html and "badge-sale" in html, "sale badge missing on product page")
 expect(html and "price-note" not in html, "confirmed price still carries the draft notice")
+expect(html and SB + "/storage/v1/object/public/media/catalogue/z-1200.webp" in html, "her photo did not replace the supplier photo")
 # size ladder moved with the base price
 if rec[PRICED["id"]].get("size_opts"):
     expect(all(abs(s["price"] - (460.5 * build.BGN_PER_EUR + s["delta"])) < 0.01 for s in rec[PRICED["id"]]["size_opts"]),
