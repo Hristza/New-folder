@@ -117,6 +117,8 @@ img { display: block; max-width: 100%; }
 .row-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .thumbs-edit { display: flex; flex-wrap: wrap; gap: 8px; }
 .thumbs-edit figure { margin: 0; position: relative; }
+.row .thumbs-edit { grid-column: 1 / -1; }
+.thumbs-edit figcaption { text-align: center; }
 .thumbs-edit img { width: 84px; height: 84px; object-fit: cover; border-radius: 6px; }
 .thumbs-edit button { position: absolute; top: 4px; right: 4px; width: 28px; height: 28px; border-radius: 50%;
   border: 0; background: #292929cc; color: #fff; cursor: pointer; font-size: 16px; line-height: 1; }

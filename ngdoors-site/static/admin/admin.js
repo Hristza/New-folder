@@ -81,11 +81,22 @@
     $('#login').hidden = which !== 'login'; $('#newpass').hidden = which !== 'newpass';
   }
 
-  // ponytail: login by email link only, no password to remember. shouldCreateUser:false so strangers get no account.
+  // Password if she set one in Settings, else an email link. The link alone hit the 2-emails-an-hour cap.
+  // shouldCreateUser:false so strangers get no account.
   $('#login').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target, btn = $('button[type=submit]', f), msg = $('#gate-msg');
-    btn.disabled = true; say(msg, '', 'Изпращане…');
+    btn.disabled = true;
+    if (f.password.value) {
+      say(msg, '', 'Влизане…');
+      sb.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value }).then(function (r) {
+        btn.disabled = false;
+        if (r.error) { say(msg, 'err', 'Грешен имейл или парола. Нямате парола? Оставете полето празно.'); return; }
+        say(msg, '', ''); enter(r.data.session);
+      });
+      return;
+    }
+    say(msg, '', 'Изпращане…');
     sb.auth.signInWithOtp({ email: f.email.value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + '/admin/' } }).then(function (r) {
       btn.disabled = false;
       if (r.error && /signups not allowed|not found/i.test(r.error.message)) { say(msg, 'err', 'Този имейл няма достъп до панела.'); return; }
@@ -104,6 +115,15 @@
     });
   });
   $('#logout').addEventListener('click', function () { sb.auth.signOut(); });
+  $('#myform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, msg = $('#mymsg');
+    say(msg, '', 'Запазване…');
+    sb.auth.updateUser({ password: f.password.value }).then(function (r) {
+      if (r.error) { say(msg, 'err', 'Паролата не е запазена: ' + r.error.message); return; }
+      f.reset(); say(msg, 'ok', 'Паролата е запазена. Следващия път влезте с имейл и парола.');
+    });
+  });
 
   function enter(session) {
     // RLS lets a user read only their own admins row, so this is "am I an admin?".
@@ -222,27 +242,33 @@
           h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: save }, 'Запази'),
           o.product_key ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: reset }, 'Върни каталожните') : null,
           msg),
+        h('div.thumbs-edit', null, mine.length ? mine.map(function (im, i) {
+          return h('figure', null, h('img', { src: mediaUrl(im.s), alt: 'Снимка ' + (i + 1) }),
+            h('button', { type: 'button', 'aria-label': 'Махни снимка ' + (i + 1), title: 'Махни снимката',
+              onclick: function () { setPhotos(mine.filter(function (x) { return x !== im; })); } }, '×'));
+        }) : h('figure', null, h('img', { src: it.thumb, alt: 'Снимка от доставчика' }), h('figcaption.sub', null, 'от доставчика'))),
         h('div.actions', null,
-          h('label.btn.btn-ghost.btn-sm.file-btn', null, 'Смени снимката', files),
-          mine.length ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () { setPhotos([]); } }, 'Върни снимката на доставчика') : null)));
+          h('label.btn.btn-ghost.btn-sm.file-btn', null, '+ Добави снимки', files),
+          mine.length ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () { setPhotos([]); } }, 'Махни моите, върни снимката на доставчика') : null)));
     // Her photos replace the supplier's on the site. Only the images column is sent,
     // so her price, hide and label on this product stay as they are.
     function setPhotos(next) {
       say(msg, '', 'Запазване…');
       return all(sb.from('product_overrides').upsert({ product_key: it.key, images: next }).select()).then(function (d) {
-        removeFiles(mine);                       // ponytail: an orphan file on failure is harmless
+        removeFiles(mine.filter(function (x) { return next.indexOf(x) < 0; }));   // ponytail: an orphan file on failure is harmless
         state.overrides[it.key] = d[0];
         var fresh = catRow(it); row.replaceWith(fresh);
-        say($('.msg', fresh), 'ok', next.length ? 'Снимката е сменена. Натиснете „Публикувай“.' : 'Върната е снимката на доставчика. Натиснете „Публикувай“.');
+        say($('.msg', fresh), 'ok', next.length ? 'Снимките са запазени. Натиснете „Публикувай промените“.' : 'Върната е снимката на доставчика. Натиснете „Публикувай промените“.');
         renderHome();
       }).catch(function (e) { removeFiles(next.filter(function (x) { return mine.indexOf(x) < 0; })); say(msg, 'err', 'Не е запазено: ' + e.message); });
     }
     function swapPhotos() {
-      var list = Array.prototype.slice.call(files.files, 0, 20);
-      if (!list.length) return;
+      var list = Array.prototype.slice.call(files.files, 0, 20 - mine.length);
+      files.value = '';
+      if (!list.length) { say(msg, 'err', 'До 20 снимки на продукт.'); return; }
       say(msg, '', 'Качване на ' + list.length + (list.length === 1 ? ' снимка…' : ' снимки…'));
       Promise.all(list.map(function (f) { return uploadPhoto(f, 'catalogue'); }))
-        .then(setPhotos)
+        .then(function (up) { return setPhotos(mine.concat(up)); })
         .catch(function (e) { say(msg, 'err', 'Снимката не е качена: ' + e.message); });
     }
     function save() {
