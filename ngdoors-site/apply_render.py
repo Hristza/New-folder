@@ -1,7 +1,7 @@
 """Record an inspected ChatGPT render and encode the two existing website sizes.
 
 Run with --product door:1527 --image <generated PNG>. --index selects another
-photo of that product. --init records the remaining source photos without editing.
+photo of that product. --init initializes the queue and applies exact duplicate reuse.
 This only converts the generated file to WebP; it does not generate or retouch it.
 """
 import argparse
@@ -25,6 +25,8 @@ manifest = json.loads((ROOT / "images.json").read_text(encoding="utf-8"))
 products = {"door:" + p["id"]: p for p in data["products"].values()}
 products.update({"floor:" + p["id"]: p for p in data["darnox"]})
 ledger = json.loads(LEDGER.read_text(encoding="utf-8")) if LEDGER.exists() else {}
+assets = ROOT / "site" / "assets" / "img"
+backup = ROOT / "renders" / "originals"
 for key, product in products.items():
     for url in product["images"]:
         if url not in manifest["images"]:
@@ -32,6 +34,19 @@ for key, product in products.items():
         row = ledger.setdefault(url, {"state": "pending", "source": manifest["images"][url], "products": []})
         if key not in row["products"]:
             row["products"].append(key)
+for row in ledger.values():
+    if "reference_sha256" not in row:
+        source = row["source"]
+        hashes = []
+        for width in source["sizes"]:
+            path = assets / (source["key"] + "-" + str(width) + ".webp")
+            if not path.exists():
+                path = backup / path.name
+            if not path.exists():
+                raise FileNotFoundError("Missing original reference: " + str(path))
+            hashes.append((width, hashlib.sha256(path.read_bytes()).hexdigest()))
+        row["reference_sha256"] = hashlib.sha256(json.dumps([source["w"], source["h"], hashes]).encode()).hexdigest()
+old_keys = set()
 if not args.init:
     if not args.image or args.product not in products:
         parser.error("supply a valid --product and the inspected --image")
@@ -42,8 +57,6 @@ if not args.init:
         raise ValueError("unexpected source asset key")
     raw = args.image.read_bytes()
     key = source_key + "-gpt-" + hashlib.sha256(raw).hexdigest()[:12]
-    assets = ROOT / "site" / "assets" / "img"
-    backup = ROOT / "renders" / "originals"
     backup.mkdir(parents=True, exist_ok=True)
     masters = pathlib.Path("C:/Users/Win11/Desktop/Claudes Workspace/Outputs/ngdoors-product-renders")
     masters.mkdir(parents=True, exist_ok=True)
@@ -51,19 +64,76 @@ if not args.init:
     with Image.open(args.image) as generated:
         generated = generated.convert("RGB")
         w, h = generated.size
-        for width in (manifest["grid_w"], manifest["full_w"]):
+        for width in row["source"]["sizes"]:
             size = min(width, w)
             generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS).save(
                 assets / (key + "-" + str(width) + ".webp"), quality=82, method=6)
-    manifest["images"][url] = {"key": key, "w": w, "h": h, "sizes": [manifest["grid_w"], manifest["full_w"]]}
+    old_keys.add(manifest["images"][url]["key"])
+    old_keys.add(source_key)
+    manifest["images"][url] = {"key": key, "w": w, "h": h, "sizes": row["source"]["sizes"]}
     row.update(state="accepted", generated=manifest["images"][url], master=str(masters / (key + ".png")))
-    # Preserve the reference outside the deploy, then remove only proven unused copies.
-    used = {r["key"] for r in manifest["images"].values()}
-    for old in assets.glob(source_key + "-*.webp"):
-        if source_key not in used and "-gpt-" not in old.name:
+# Exact same generated PNGs share one website asset. Reusing a render on a
+# different reference is allowed only after it was explicitly accepted above.
+rendered = {}
+for url, row in ledger.items():
+    if row["state"] != "accepted":
+        continue
+    sha = row["generated"]["key"].split("-gpt-", 1)[1]
+    canonical = rendered.setdefault(sha, row)
+    if row is not canonical:
+        old_keys.add(row["generated"]["key"])
+        row.update(generated=canonical["generated"], master=canonical["master"])
+        manifest["images"][url] = canonical["generated"]
+# Exact original-image duplicates (including every available resolution and
+# original dimensions) can reuse an accepted render without another generation.
+accepted = {row["reference_sha256"]: (url, row) for url, row in ledger.items() if row["state"] == "accepted"}
+for url, row in ledger.items():
+    match = accepted.get(row["reference_sha256"])
+    if row["state"] == "pending" and match:
+        original_url, canonical = match
+        old_keys.add(row["source"]["key"])
+        row.update(state="accepted", generated=canonical["generated"], master=canonical["master"], duplicate_of=original_url)
+        manifest["images"][url] = canonical["generated"]
+# Keep the catalogue's existing resolution choices. A shared asset uses the
+# union required by its source references; full native PNGs remain in masters.
+groups = {}
+for row in ledger.values():
+    if row["state"] == "accepted":
+        groups.setdefault(row["generated"]["key"], []).append(row)
+for key, rows in groups.items():
+    widths = sorted({width for row in rows for width in row["source"]["sizes"]})
+    rows[0]["generated"]["sizes"] = widths
+    missing = [width for width in widths if not (assets / (key + "-" + str(width) + ".webp")).exists()]
+    if missing:
+        with Image.open(rows[0]["master"]) as generated:
+            generated = generated.convert("RGB")
+            w, h = generated.size
+            for width in missing:
+                path = assets / (key + "-" + str(width) + ".webp")
+                size = min(width, w)
+                generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS).save(path, quality=82, method=6)
+    for row in rows:
+        row["generated"] = rows[0]["generated"]
+    for path in assets.glob(key + "-*.webp"):
+        if int(path.stem.rsplit("-", 1)[1]) not in widths:
+            path.unlink()
+for url, row in ledger.items():
+    if row["state"] == "accepted":
+        manifest["images"][url] = row["generated"]
+used = {row["key"] for row in manifest["images"].values()}
+backup.mkdir(parents=True, exist_ok=True)
+for old_key in old_keys - used:
+    for old in assets.glob(old_key + "-*.webp"):
+        if old.stem.rsplit("-", 1)[0] != old_key:
+            continue
+        if "-gpt-" not in old.name:
             shutil.copy2(old, backup / old.name)
-            old.unlink()
-    (ROOT / "images.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\r\n")
+        old.unlink()
+for row in ledger.values():
+    if row["state"] == "accepted":
+        for width in row["generated"]["sizes"]:
+            assert (assets / (row["generated"]["key"] + "-" + str(width) + ".webp")).exists(), "Missing rendered asset"
+(ROOT / "images.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\r\n")
 LEDGER.parent.mkdir(parents=True, exist_ok=True)
 LEDGER.write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 done = sum(r["state"] == "accepted" for r in ledger.values())
