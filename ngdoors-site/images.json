@@ -1999,132 +1999,148 @@
    "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60be10686d343_584737d9aef45.png": {
-   "key": "6c54c01a78f8684d",
-   "w": 328,
-   "h": 651,
+   "key": "6c54c01a78f8684d-gpt-7d453ff78f1a-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60be109309f55_b6ba8228f131d.png": {
-   "key": "d86b4d29788f38da",
-   "w": 328,
-   "h": 651,
+   "key": "d86b4d29788f38da-gpt-504189b8211f-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c08f60bdd1e_845255fc2daec.jpg": {
-   "key": "c340c7946dc7cc31",
-   "w": 383,
-   "h": 794,
+   "key": "c340c7946dc7cc31-gpt-9a7f6f4c1803-avif-q55",
+   "w": 870,
+   "h": 1808,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c08f2adadf9_7959709c69b4d.jpg": {
-   "key": "5e91779d880679c6",
-   "w": 383,
-   "h": 794,
+   "key": "5e91779d880679c6-gpt-ec7433e2273c-avif-q55",
+   "w": 870,
+   "h": 1807,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c090035a6bf_496b3a59307a8.jpg": {
-   "key": "2ad62d70d27bd0b1",
-   "w": 383,
-   "h": 794,
+   "key": "2ad62d70d27bd0b1-gpt-40bda60151bb-avif-q55",
+   "w": 870,
+   "h": 1808,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c0955cc4c91_d0470e6c7d2dd.jpg": {
-   "key": "2501c3a427cf89e5",
-   "w": 383,
-   "h": 794,
+   "key": "2501c3a427cf89e5-gpt-805aa3350eba-avif-q55",
+   "w": 870,
+   "h": 1808,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c095b3d5574_806965a4a318d.jpg": {
-   "key": "31246d43aeff7dc1",
-   "w": 383,
-   "h": 794,
+   "key": "31246d43aeff7dc1-gpt-005c5616ade3-avif-q55",
+   "w": 870,
+   "h": 1807,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c091a66355e_b9919b1dd38e2.jpg": {
-   "key": "74efb9ced2fefbe0",
-   "w": 383,
-   "h": 794,
+   "key": "74efb9ced2fefbe0-gpt-0f3d4232cfda-avif-q55",
+   "w": 870,
+   "h": 1808,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c095ecd2173_036b8e9744dab.jpg": {
-   "key": "c208cde7c8012a6f",
-   "w": 383,
-   "h": 794,
+   "key": "c208cde7c8012a6f-gpt-e5b2495c182a-avif-q55",
+   "w": 870,
+   "h": 1808,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6131e2eb07cd5_2ce29d6667cf3.png": {
-   "key": "5ff41f2beea6a9cb",
-   "w": 383,
-   "h": 794,
+   "key": "5ff41f2beea6a9cb-gpt-0dafe1e2ec60-avif-q55",
+   "w": 870,
+   "h": 1808,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6130fd17bd610_c96690123a733.png": {
-   "key": "6ff323bdd2225d86",
-   "w": 383,
-   "h": 794,
+   "key": "6ff323bdd2225d86-gpt-18b84a37ebc8-avif-q55",
+   "w": 870,
+   "h": 1807,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6130fd9c61481_922cbceb8ef43.png": {
-   "key": "6ce676d732d6ebb6",
-   "w": 383,
-   "h": 794,
+   "key": "6ce676d732d6ebb6-gpt-5f1f08494c1d-avif-q55",
+   "w": 870,
+   "h": 1807,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6130fe3c607be_b1a6575c3f3a4.png": {
-   "key": "a86ea13072288b12",
-   "w": 383,
-   "h": 794,
+   "key": "a86ea13072288b12-gpt-68cf463ff708-avif-q55",
+   "w": 870,
+   "h": 1808,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_632312c2affe0_7bdd6ee2d6714.jpg": {
-   "key": "28630c98d1b32606",
-   "w": 640,
-   "h": 1291,
+   "key": "28630c98d1b32606-gpt-5da9a3cae47e-avif-q55",
+   "w": 883,
+   "h": 1781,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6130fe96e9ad1_88862d3aefdff.png": {
-   "key": "93a0690fee56246f",
-   "w": 383,
-   "h": 794,
+   "key": "93a0690fee56246f-gpt-c29441c2e39f-avif-q55",
+   "w": 870,
+   "h": 1808,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6130fec9b26ea_7d476ab3e0638.png": {
-   "key": "63b661516dd34a69",
-   "w": 383,
-   "h": 794,
+   "key": "63b661516dd34a69-gpt-74ed8807ec06-avif-q55",
+   "w": 870,
+   "h": 1807,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60ddbd6c78671_fc2561a564e11.jpg": {
    "key": "bff53087ef300351",
@@ -10144,12 +10160,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654236258652-001_36748501-c6e6-4f8e-bbd8-48dbf907a035.jpg?v=1789119134": {
-   "key": "cbbf05ac45c83575",
-   "w": 800,
-   "h": 1200,
+   "key": "cbbf05ac45c83575-gpt-1385b6f0b1fe-avif-q55",
+   "w": 1024,
+   "h": 1536,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654236258652-002_fbcce6d7-6668-4104-a9be-35682f9f4d7c.jpg?v=1789119134": {
    "key": "82e9eeb9969dcb10",
@@ -11528,12 +11545,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654363922780-001.jpg?v=1788300264": {
-   "key": "2f5578b7ca8a7c04",
-   "w": 1000,
-   "h": 1074,
+   "key": "2f5578b7ca8a7c04-gpt-0bb010bf62a5-avif-q55",
+   "w": 1211,
+   "h": 1299,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654363922780-002.jpg?v=1788300264": {
    "key": "6dbbf029ed90b574",
@@ -11544,12 +11562,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717893734781-001.jpg?v=1788286445": {
-   "key": "fc720b73c6dd314b",
-   "w": 1000,
-   "h": 1000,
+   "key": "fc720b73c6dd314b-gpt-300490dc96ff-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717893734781-002.jpg?v=1788286445": {
    "key": "a8945d6b37d2a9fc",
@@ -12168,12 +12187,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15694031683932-001.jpg?v=1788299422": {
-   "key": "6521b39149362e61",
-   "w": 499,
-   "h": 759,
+   "key": "6521b39149362e61-gpt-c4d7dc05ba2d-avif-q55",
+   "w": 1017,
+   "h": 1547,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15694031683932-002.jpg?v=1788299423": {
    "key": "334ac085b075a6e6",
@@ -14888,12 +14908,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219325821-001.jpg?v=1788286959": {
-   "key": "7a9db0abf4093996",
-   "w": 788,
-   "h": 788,
+   "key": "7a9db0abf4093996-gpt-ec490a47fb95-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219325821-002.png?v=1788286960": {
    "key": "ea825b60f61e89b3",
@@ -15248,12 +15269,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218932605-001.jpg?v=1788287041": {
-   "key": "97df6087dcf129cb",
-   "w": 788,
-   "h": 788,
+   "key": "97df6087dcf129cb-gpt-e4edf9804f64-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218932605-002.png?v=1788287042": {
    "key": "3d4994d463e32850",
@@ -15288,12 +15310,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218867069-001.jpg?v=1788287056": {
-   "key": "eebfc22fafbdd00f",
-   "w": 1000,
-   "h": 1000,
+   "key": "eebfc22fafbdd00f-gpt-df123c227f3e-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218867069-002.jpg?v=1788287056": {
    "key": "f01e997c6e2696b3",
@@ -15728,12 +15751,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217359741-001.jpg?v=1788287225": {
-   "key": "de7063b5f78de4cb",
-   "w": 1400,
-   "h": 1400,
+   "key": "de7063b5f78de4cb-gpt-20984430f420-avif-q55",
+   "w": 1086,
+   "h": 1448,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217359741-002.jpg?v=1788287225": {
    "key": "f93c82c8a10dd588",
