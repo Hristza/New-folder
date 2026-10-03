@@ -9,7 +9,7 @@ Scope: per-product size labels and individual EUR prices, catalogue and owner-ad
 - Fixtures cover arbitrary size labels, distinct cent-accurate prices, one size, empty sizes, inherited catalogue prices, zero-price quotes, duplicate rejection, saved reload, owner-added products, wrong-password refusal, and retaining unsaved size edits across a photo upload.
 - Live Supabase migration `owner_door_size_prices`, version `20261003191547`, applied successfully. Product and override row counts and content fingerprints were identical before and after (both tables currently empty). Existing RLS policies remain in place.
 - A final build using live Supabase data produced 1,037 pages and 961 product pages. `check.py` passed; public files weigh 67.6 MB (initial six-photo build), above the approximate 60 MB target and below the 70 MB ceiling.
-- Fifty-seven of 1,638 product source-photo URLs have been replaced with inspected native ChatGPT renders. The initial aluminium range, a second honey-oak M00, MZ-2, S1, Multi Super, the D entrance series the complete O and Z entrance series and initial T front/back views are replaced. Fifty-five native renders cover these fifty-seven URLs; the original M05/M06/M07 references depict the same door views, and M05/M07 are exact image duplicates. Reference hardware, finish, panel design and frame were compared before acceptance. Real installation gallery photos are unchanged. Remaining images are recorded as pending in `renders/manifest.json`; the ledger is not an automatic rendering worker.
+- 73 of 1,638 product source-photo URLs now use inspected native ChatGPT renders. Seventy-one native masters cover these URLs, including the initial aluminium, D, O, Z, T, KL, LCR and PVC entrance ranges. The M05/M06/M07 reference views share one accepted render after comparison; M05/M07 are exact image duplicates. Hardware, finish, panel design and frame were compared before acceptance. The 357 non-product image entries are unchanged. The pending ledger does not generate images automatically.
 
 ## Production acceptance
 
@@ -23,10 +23,13 @@ Scope: per-product size labels and individual EUR prices, catalogue and owner-ad
 
 - The forty-one-photo checkpoint, commit `f075b1e8b13aa10e46efed3bf41fa0056a1c79d4`, deployed successfully as `1f528d34-400e-4dac-9bea-ef4c15330c5b`, finished 20:47:03 UTC. All sixteen new assets match production byte for byte.
 
+- The fifty-seven-photo checkpoint, commit `6bef4f231212ac298c4b4ba05cadd4c620f22f52`, deployed as `d21b0c9f-0114-4f41-97ff-d20c0f259746`, finished 20:58:14 UTC. All sixteen new assets match production byte for byte.
+- The live T 901 product page passed real headless Brave checks: both generated front/back images loaded, thumbnail selection switched the main image, and desktop/mobile screenshots were inspected. No horizontal overflow or page errors were observed.
+
 ## Remaining work
 
-Publish the next accepted images and finish replacing the remaining product reference URLs (1,581 pending at this checkpoint). The replacement queue contains 1,638 URLs with 1,103 distinct references when grouped by original dimensions and 600px bytes; the automatic reuse rule additionally requires every available reference resolution to match. The queue is not a background rendering worker. Magic-link inbox delivery has not been verified; the tested direct password route provides immediate access.
+Publish the next accepted images and finish replacing the remaining product reference URLs (1,565 pending at this checkpoint). The replacement queue contains 1,638 URLs with 1,103 distinct references when grouped by original dimensions and 600px bytes; the automatic reuse rule additionally requires every available reference resolution to match. The queue is not a background rendering worker. Magic-link inbox delivery has not been verified; the tested direct password route provides immediate access.
 
-Photo batch validation: final build and check pass at 68.0 MB public, with all 57 replacement references resolvable. All 357 non-product image entries are unchanged from the original manifest. Reapplying the last image preserves its files after the source-key cleanup regression fix. Published sizes follow the existing catalogue resolution choices; native PNG masters remain available separately.
+Photo batch validation: final build and check pass at 68.4 MB public, with all 73 replacement references resolvable. All 357 non-product image entries are unchanged from the original manifest. Reapplying the last image preserves its files after the source-key cleanup regression fix. Published sizes follow the existing catalogue resolution choices; native PNG masters remain available separately.
 
 One Z-02 candidate was rejected because it invented a large pull handle. A corrected native render was inspected and accepted with the original fittings.
