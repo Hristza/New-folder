@@ -18,6 +18,8 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--product")
 parser.add_argument("--index", type=int, default=0)
 parser.add_argument("--image", type=pathlib.Path)
+parser.add_argument("--quality", type=int, choices=range(60, 96), default=82,
+                    help="WebP encoding quality; the full native PNG is preserved")
 parser.add_argument("--init", action="store_true")
 args = parser.parse_args()
 data = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
@@ -57,6 +59,8 @@ if not args.init:
         raise ValueError("unexpected source asset key")
     raw = args.image.read_bytes()
     key = source_key + "-gpt-" + hashlib.sha256(raw).hexdigest()[:12]
+    if args.quality != 82:
+        key += "-q" + str(args.quality)
     backup.mkdir(parents=True, exist_ok=True)
     masters = pathlib.Path("C:/Users/Win11/Desktop/Claudes Workspace/Outputs/ngdoors-product-renders")
     masters.mkdir(parents=True, exist_ok=True)
@@ -67,11 +71,11 @@ if not args.init:
         for width in row["source"]["sizes"]:
             size = min(width, w)
             generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS).save(
-                assets / (key + "-" + str(width) + ".webp"), quality=82, method=6)
+                assets / (key + "-" + str(width) + ".webp"), quality=args.quality, method=6)
     old_keys.add(manifest["images"][url]["key"])
     old_keys.add(source_key)
     manifest["images"][url] = {"key": key, "w": w, "h": h, "sizes": row["source"]["sizes"]}
-    row.update(state="accepted", generated=manifest["images"][url], master=str(masters / (key + ".png")))
+    row.update(state="accepted", generated=manifest["images"][url], master=str(masters / (key + ".png")), encoding_quality=args.quality)
 # Exact same generated PNGs share one website asset. Reusing a render on a
 # different reference is allowed only after it was explicitly accepted above.
 rendered = {}
@@ -111,7 +115,8 @@ for key, rows in groups.items():
             for width in missing:
                 path = assets / (key + "-" + str(width) + ".webp")
                 size = min(width, w)
-                generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS).save(path, quality=82, method=6)
+                generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS).save(
+                    path, quality=rows[0].get("encoding_quality", 82), method=6)
     for row in rows:
         row["generated"] = rows[0]["generated"]
     for path in assets.glob(key + "-*.webp"):
