@@ -50,6 +50,52 @@
   }
   function fmtEur(bgn) { return bgn > 0 ? toEur(bgn) + ' €' : 'По запитване'; }
 
+  // The same size editor serves catalogue doors and her own products.
+  function sizeEditor(rows, inherit, defaults) {
+    var inherited = inherit, list = h('div.size-rows'), add;
+    var box = h('details.size-editor', null,
+      h('summary', null, 'Размери и цени'),
+      h('p.sub', null, 'Всеки размер има своя цена в евро. Сайтът показва цената на избрания размер. 0 = По запитване. До 30 размера.'), list);
+    function draw(values) {
+      list.replaceChildren();
+      values.forEach(function (v) { append(v); });
+      if (add) add.disabled = list.children.length >= 30;
+    }
+    function append(v) {
+      var size = h('input', { value: v.size || '', maxlength: 80, 'aria-label': 'Размер', placeholder: '90 × 210 см' });
+      var price = h('input', { value: v.price == null ? '' : eur(v.price), inputmode: 'decimal', 'aria-label': 'Цена за размера в евро', placeholder: '245,50' });
+      var row = h('div.size-row', null,
+        h('label.field', null, h('span', null, 'Размер'), size),
+        h('label.field', null, h('span', null, 'Цена, €'), price),
+        h('button.btn.btn-ghost.btn-sm', { type: 'button', 'aria-label': 'Махни размера', onclick: function () {
+          inherited = false; row.remove(); add.disabled = false;
+        } }, '×'));
+      [size, price].forEach(function (input) { input.addEventListener('input', function () { inherited = false; }); });
+      list.appendChild(row);
+    }
+    add = h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () {
+      if (list.children.length >= 30) return;
+      inherited = false; append({}); add.disabled = list.children.length >= 30;
+      $('input', list.lastElementChild).focus();
+    } }, '+ Добави размер');
+    box.appendChild(h('div.actions', null, add, defaults ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () {
+      inherited = true; draw(defaults());
+    } }, 'Върни каталожните размери') : null));
+    draw(rows || []);
+    return { element: box, refresh: function (values) { if (inherited) draw(values); }, value: function () {
+      if (inherited) return null;
+      var seen = [], values = [];
+      $$('.size-row', list).forEach(function (row) {
+        var inputs = $$('input', row), size = inputs[0].value.trim(), amount = parseEur(inputs[1].value);
+        if (!size || size.length > 80 || /[\x00-\x1f\x7f]/.test(size)) throw new Error('Напишете размер на всеки ред.');
+        if (seen.indexOf(size.toLowerCase()) >= 0) throw new Error('Всеки размер трябва да е различен.');
+        if (amount == null || Number.isNaN(amount)) throw new Error('Напишете цена за всеки размер, напр. 245,50.');
+        seen.push(size.toLowerCase()); values.push({ size: size, price: amount });
+      });
+      return values;
+    } };
+  }
+
   /* ---------------------------------------------------------------- boot */
   fetch('/admin/catalogue.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (c) {
     CAT = c; RATE = c.bgn_per_eur || RATE;
@@ -81,11 +127,22 @@
     $('#login').hidden = which !== 'login'; $('#newpass').hidden = which !== 'newpass';
   }
 
-  // ponytail: login by email link only, no password to remember. shouldCreateUser:false so strangers get no account.
+  // Password if she set one in Settings, else an email link. The link alone hit the 2-emails-an-hour cap.
+  // shouldCreateUser:false so strangers get no account.
   $('#login').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target, btn = $('button[type=submit]', f), msg = $('#gate-msg');
-    btn.disabled = true; say(msg, '', 'Изпращане…');
+    btn.disabled = true;
+    if (f.password.value) {
+      say(msg, '', 'Влизане…');
+      sb.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value }).then(function (r) {
+        btn.disabled = false;
+        if (r.error) { say(msg, 'err', 'Грешен имейл или парола. Нямате парола? Оставете полето празно.'); return; }
+        say(msg, '', ''); enter(r.data.session);
+      });
+      return;
+    }
+    say(msg, '', 'Изпращане…');
     sb.auth.signInWithOtp({ email: f.email.value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + '/admin/' } }).then(function (r) {
       btn.disabled = false;
       if (r.error && /signups not allowed|not found/i.test(r.error.message)) { say(msg, 'err', 'Този имейл няма достъп до панела.'); return; }
@@ -104,6 +161,15 @@
     });
   });
   $('#logout').addEventListener('click', function () { sb.auth.signOut(); });
+  $('#myform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, msg = $('#mymsg');
+    say(msg, '', 'Запазване…');
+    sb.auth.updateUser({ password: f.password.value }).then(function (r) {
+      if (r.error) { say(msg, 'err', 'Паролата не е запазена: ' + r.error.message); return; }
+      f.reset(); say(msg, 'ok', 'Паролата е запазена. Следващия път влезте с имейл и парола.');
+    });
+  });
 
   function enter(session) {
     // RLS lets a user read only their own admins row, so this is "am I an admin?".
@@ -158,7 +224,7 @@
     var stat = function (n, one, many) { return h('div.stat', null, h('b', null, String(n)), h('span', null, n === 1 ? one : many)); };
     $('#stats').replaceChildren(
       stat(fresh, 'ново запитване', 'нови запитвания'),
-      stat(ov.filter(function (o) { return o.price != null; }).length, 'променена цена', 'променени цени'),
+      stat(ov.filter(function (o) { return o.price != null || o.size_prices != null; }).length, 'променена цена', 'променени цени'),
       stat(ov.filter(function (o) { return o.hidden; }).length, 'скрит модел', 'скрити модела'),
       stat(state.products.length, 'мой продукт', 'мои продукта'),
       stat(state.photos.length, 'снимка от обект', 'снимки от обекти'));
@@ -182,7 +248,7 @@
         var o = state.overrides[it.key];
         if (f === 'changed' && !o) return false;
         if (f === 'hidden' && !(o && o.hidden)) return false;
-        if (f === 'draft' && !(it.draft && !(o && o.price != null))) return false;
+        if (f === 'draft' && !(it.draft && !(o && (o.price != null || o.size_prices != null)))) return false;
         var hay = norm(it.name + ' ' + it.where + ' ' + it.brand);
         return q.every(function (w) { return hay.indexOf(w) >= 0; });
       });
@@ -205,8 +271,22 @@
       }));
     var hide = h('input', { type: 'checkbox', checked: !!o.hidden });
     var msg = h('span.msg', { role: 'status' });
+    function defaults() {
+      return (it.size_prices || []).map(function (s) {
+        var p = parseEur(price.value);
+        return { size: s.size, price: p == null || Number.isNaN(p) ? s.price : p + s.price - it.price / RATE };
+      });
+    }
+    var sizes = it.key.indexOf('door:') === 0 ? sizeEditor(o.size_prices == null ? defaults() : o.size_prices, o.size_prices == null, defaults) : null;
+    if (sizes) price.addEventListener('input', function () { sizes.refresh(defaults()); });
+    var mine = o.images || [];
+    var cover = h('img', { src: mine.length ? mediaUrl(mine[0].s) : it.thumb, alt: '', loading: 'lazy', width: 64, height: 64 });
+    var photos = h('div.thumbs-edit');
+    var restorePhotos = h('button.btn.btn-ghost.btn-sm', { type: 'button', hidden: !mine.length, onclick: function () { setPhotos([]); } }, 'Върни каталожните снимки');
+    var resetButton = h('button.btn.btn-ghost.btn-sm', { type: 'button', hidden: !o.product_key, onclick: reset }, 'Върни каталожните');
+    var files = h('input', { type: 'file', accept: 'image/*', multiple: true, onchange: swapPhotos });
     var row = h('div.row' + (o.hidden ? '.is-hidden' : '') + (o.product_key ? '.is-changed' : ''), null,
-      h('img', { src: it.thumb, alt: '', loading: 'lazy', width: 64, height: 64 }),
+      cover,
       h('div', null,
         h('div.name', null, it.name),
         h('div.sub', null, it.where + ' · каталог: ' + fmtEur(it.price) + (it.draft ? ' (ориентировъчна)' : '')),
@@ -215,20 +295,62 @@
         h('label.field', null, h('span', null, 'Моята цена, €'), price),
         h('label.field', null, h('span', null, 'Стара цена, €'), old),
         h('label.field', null, h('span', null, 'Етикет'), badge),
+        sizes ? sizes.element : null,
         h('div.actions', null,
           h('label.toggle', null, hide, 'Скрий от сайта'),
           h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: save }, 'Запази'),
-          o.product_key ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: reset }, 'Върни каталожните') : null,
-          msg)));
+          resetButton,
+          msg),
+        photos,
+        h('div.actions', null,
+          h('label.btn.btn-ghost.btn-sm.file-btn', null, '+ Добави снимки', files), restorePhotos)));
+    function drawPhotos() {
+      restorePhotos.hidden = !mine.length;
+      photos.replaceChildren.apply(photos, mine.length ? mine.map(function (im, i) {
+          return h('figure', null, h('img', { src: mediaUrl(im.s), alt: 'Снимка ' + (i + 1) }),
+            h('button', { type: 'button', 'aria-label': 'Махни снимка ' + (i + 1), title: 'Махни снимката',
+              onclick: function () { setPhotos(mine.filter(function (x) { return x !== im; })); } }, '×'));
+        }) : [h('figure', null, h('img', { src: it.thumb, alt: 'Каталожна снимка' }), h('figcaption.sub', null, 'от каталога'))]);
+    }
+    drawPhotos();
+    // Her photos replace the supplier's on the site. Only the images column is sent,
+    // so her price, hide and label on this product stay as they are.
+    function setPhotos(next) {
+      say(msg, '', 'Запазване…');
+      return all(sb.from('product_overrides').upsert({ product_key: it.key, images: next }).select()).then(function (d) {
+        removeFiles(mine.filter(function (x) { return next.indexOf(x) < 0; }));   // ponytail: an orphan file on failure is harmless
+        state.overrides[it.key] = d[0];
+        mine = d[0].images || [];
+        resetButton.hidden = false;
+        cover.src = mine.length ? mediaUrl(mine[0].s) : it.thumb;
+        drawPhotos(); row.classList.add('is-changed');
+        say(msg, 'ok', next.length ? 'Снимките са запазени. Натиснете „Публикувай промените“.' : 'Върната е каталожната снимка. Натиснете „Публикувай промените“.');
+        renderHome();
+      }).catch(function (e) { removeFiles(next.filter(function (x) { return mine.indexOf(x) < 0; })); say(msg, 'err', 'Не е запазено: ' + e.message); });
+    }
+    function swapPhotos() {
+      var list = Array.prototype.slice.call(files.files, 0, 20 - mine.length);
+      files.value = '';
+      if (!list.length) { say(msg, 'err', 'До 20 снимки на продукт.'); return; }
+      say(msg, '', 'Качване на ' + list.length + (list.length === 1 ? ' снимка…' : ' снимки…'));
+      Promise.all(list.map(function (f) { return uploadPhoto(f, 'catalogue'); }))
+        .then(function (up) { return setPhotos(mine.concat(up)); })
+        .catch(function (e) { say(msg, 'err', 'Снимката не е качена: ' + e.message); });
+    }
     function save() {
       var p = parseEur(price.value), op = parseEur(old.value);
       if (Number.isNaN(p) || Number.isNaN(op)) { say(msg, 'err', 'Цената трябва да е число, напр. 245,50'); return; }
-      var eff = p != null ? p : (it.price / RATE);
+      var sizePrices;
+      try { sizePrices = sizes ? sizes.value() : null; }
+      catch (e) { say(msg, 'err', e.message); return; }
+      var eff = sizePrices && sizePrices.length ? Math.min.apply(null, sizePrices.map(function (s) { return s.price; })) : (p != null ? p : it.price / RATE);
       if (op != null && !(op > eff)) { say(msg, 'err', 'Старата цена трябва да е по-висока от новата.'); return; }
       var rec = { product_key: it.key, price: p, old_price: op, hidden: hide.checked, badge: badge.value || null };
+      if (sizes) rec.size_prices = sizePrices;
       say(msg, '', 'Запазване…');
       all(sb.from('product_overrides').upsert(rec).select()).then(function (d) {
         state.overrides[it.key] = d[0];
+        resetButton.hidden = false;
         say(msg, 'ok', 'Запазено. Натиснете „Публикувай“.');
         row.classList.toggle('is-hidden', rec.hidden); row.classList.add('is-changed');
         renderHome();
@@ -236,6 +358,7 @@
     }
     function reset() {
       all(sb.from('product_overrides').delete().eq('product_key', it.key)).then(function () {
+        removeFiles(mine);
         delete state.overrides[it.key];
         row.replaceWith(catRow(it)); renderHome();
       }).catch(function (e) { say(msg, 'err', 'Грешка: ' + e.message); });
@@ -256,8 +379,8 @@
   function viaImg(file) {
     return new Promise(function (ok, bad) {
       var img = new Image(), url = URL.createObjectURL(file);
-      img.onload = function () { ok(img); };
-      img.onerror = function () { bad(new Error('Файлът не е снимка, която браузърът може да отвори.')); };
+      img.onload = function () { URL.revokeObjectURL(url); ok(img); };
+      img.onerror = function () { URL.revokeObjectURL(url); bad(new Error('Файлът не е снимка, която браузърът може да отвори.')); };
       img.src = url;
     });
   }
@@ -297,7 +420,7 @@
   }
 
   /* ---------------------------------------------------------------- her products */
-  var editing = null, pImages = [];
+  var editing = null, pImages = [], pSizes = null;
   var pf = $('#pform');
   CAT_READY();
   function CAT_READY() {
@@ -317,8 +440,13 @@
       pf.section.value = p.section; pf.category.value = p.category || '';
       pf.name.value = p.name; pf.brand.value = p.brand || '';
       pf.price.value = p.price ? eur(p.price) : '0'; pf.old_price.value = p.old_price ? eur(p.old_price) : '';
-      pf.sizes.value = (p.sizes || []).join(', '); pf.badge.value = p.badge || ''; pf.description.value = p.description || '';
+      pf.badge.value = p.badge || ''; pf.description.value = p.description || '';
     }
+    var values = p ? (p.size_prices == null ? (p.sizes || []).map(function (s) { return { size: s, price: p.price || 0 }; }) : p.size_prices) : [];
+    pSizes = sizeEditor(values, false);
+    pSizes.element.open = true;
+    $('#psizes').replaceChildren(pSizes.element);
+    $('#pdelete').removeAttribute('data-confirm'); $('#pdelete').textContent = 'Изтрий продукта';
     $('#pcat-wrap').hidden = pf.section.value !== 'door';
     $('#pdelete').hidden = !p;
     say($('#pmsg'), '', '');
@@ -351,12 +479,16 @@
     if (!pImages.length) { say(msg, 'err', 'Добавете поне една снимка.'); return; }
     if (pf.section.value === 'door' && !pf.category.value) { say(msg, 'err', 'Изберете категория за вратата.'); return; }
     if (Number.isNaN(p) || Number.isNaN(op)) { say(msg, 'err', 'Цената трябва да е число, напр. 245,50'); return; }
-    if (op != null && !(op > (p || 0))) { say(msg, 'err', 'Старата цена трябва да е по-висока от новата.'); return; }
+    var sizePrices;
+    try { sizePrices = pSizes.value(); }
+    catch (err) { say(msg, 'err', err.message); return; }
+    var eff = sizePrices.length ? Math.min.apply(null, sizePrices.map(function (s) { return s.price; })) : (p || 0);
+    if (op != null && !(op > eff)) { say(msg, 'err', 'Старата цена трябва да е по-висока от новата.'); return; }
     var rec = {
       section: pf.section.value, category: pf.section.value === 'door' ? pf.category.value : null,
       name: pf.name.value.trim(), brand: pf.brand.value.trim() || null,
       price: p == null ? 0 : p, old_price: op,
-      sizes: pf.sizes.value.split(',').map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 30),
+      sizes: sizePrices.map(function (s) { return s.size; }), size_prices: sizePrices,
       badge: pf.badge.value || null, description: pf.description.value.trim() || null, images: pImages
     };
     var dropped = editing ? (editing.images || []).filter(function (a) { return !pImages.some(function (b) { return b.s === a.s; }); }) : [];

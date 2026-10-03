@@ -215,8 +215,8 @@
     var pills = [].slice.call(group.querySelectorAll('.size-pill'));
     var base = priceEl ? parseFloat(priceEl.getAttribute('data-bgn')) : NaN;
     var oldBase = priceEl ? parseFloat(priceEl.getAttribute('data-old-bgn')) : NaN;
-    var cta = document.querySelector('.product-cta a[href^="mailto:"]');
-    var ctaHref = cta ? cta.getAttribute('href') : null;
+    var ctas = [].slice.call(document.querySelectorAll('.product-cta a[href^="mailto:"], .stickybuy a[href^="mailto:"]'));
+    var ctaHrefs = ctas.map(function (a) { return a.getAttribute('href'); });
 
     function select(pill, focus) {
       pills.forEach(function (p) {
@@ -226,22 +226,26 @@
       });
       if (priceEl && !isNaN(base)) {
         var delta = parseFloat(pill.getAttribute('data-delta') || '0');
-        var html = money(base + delta);
-        if (!isNaN(oldBase)) {
+        var amount = parseFloat(pill.getAttribute('data-price'));
+        if (isNaN(amount)) amount = base + delta;
+        var html = amount > 0 ? money(amount) : 'По запитване';
+        var previous = group.getAttribute('data-custom') === 'true' ? oldBase : oldBase + delta;
+        if (amount > 0 && !isNaN(previous) && previous > amount) {
           html += ' <s class="was" aria-label="Стара цена">' +
-            ((oldBase + delta) / BGN_PER_EUR).toFixed(2).replace('.', ',') + ' €</s>';
+            (previous / BGN_PER_EUR).toFixed(2).replace('.', ',') + ' €</s>';
         }
         priceEl.innerHTML = html;
+        priceEl.classList.toggle('ask', amount <= 0);
         /* Re-trigger the value-change transition without animating layout. */
         priceEl.classList.remove('price-bump');
         void priceEl.offsetWidth;
         priceEl.classList.add('price-bump');
       }
       /* The enquiry should say which size she is being asked about. */
-      if (cta && ctaHref) {
-        cta.setAttribute('href', ctaHref + '%20—%20' +
+      ctas.forEach(function (cta, i) {
+        cta.setAttribute('href', ctaHrefs[i] + '%20—%20' +
           encodeURIComponent(pill.getAttribute('data-size')));
-      }
+      });
       if (focus) pill.focus();
     }
 
@@ -259,6 +263,8 @@
       else if (e.key === ' ' || e.key === 'Enter') next = pills[i];
       if (next) { e.preventDefault(); select(next, true); }
     });
+    var initial = pills.filter(function (p) { return p.getAttribute('aria-checked') === 'true'; })[0];
+    if (initial) select(initial, false);
   }
 
   /* ---------------------------------------------------------- scroll reveal */

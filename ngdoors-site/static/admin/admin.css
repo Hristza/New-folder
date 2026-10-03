@@ -16,6 +16,12 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
+.size-editor { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 12px; }
+.size-editor summary { cursor: pointer; font-weight: 600; padding: 8px 0; }
+.size-rows { display: grid; gap: 10px; margin: 12px 0; }
+.size-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 8px; align-items: end; }
+.size-row input { min-width: 0; width: 100%; }
+.size-row button { min-height: 44px; min-width: 44px; }
 body { margin: 0; background: var(--cream); color: var(--ink);
   font: 15px/1.5 'Ubuntu Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
 h1, h2 { font-family: 'Bitter', Georgia, serif; font-weight: 600; line-height: 1.15; margin: 0 0 10px; }

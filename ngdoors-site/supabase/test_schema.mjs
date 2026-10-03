@@ -70,6 +70,17 @@ ok((await as("authenticated", OTHER, "insert into storage.objects (bucket_id, na
 // ---- admin
 ok((await as("authenticated", ADMIN, "select public.is_admin() as a")).rows?.[0]?.a === true, "admin is admin");
 ok(!(await as("authenticated", ADMIN, "insert into product_overrides (product_key, price, hidden, badge) values ('door:12345', 390.00, false, 'sale')")).err, "admin writes an override");
+ok(!(await as("authenticated", ADMIN, `update product_overrides set size_prices='[{"size":"91 × 213","price":245.50},{"size":"101 × 223","price":307.01}]' where product_key='door:12345'`)).err, "admin saves independent size prices");
+for (const invalid of [null, {}, "sizes", [{size:"",price:10}], [{size:"80/200"}],
+  [{size:"80/200",price:"20"}], [{size:"80/200",price:-1}], [{size:"80/200",price:1.001}],
+  [{size:"80/200",price:1000000}], [{size:"A",price:1},{size:"a",price:2}],
+  Array.from({length:31}, (_,i)=>({size:String(i),price:1}))]) {
+  const json = JSON.stringify(invalid).replaceAll("'", "''");
+  ok((await as("authenticated", ADMIN, `update product_overrides set size_prices='${json}' where product_key='door:12345'`)).err, "malformed size price rejected: " + json);
+}
+ok(!(await as("authenticated", ADMIN, `update product_overrides set size_prices='[]' where product_key='door:12345'`)).err, "explicit empty size list accepted");
+ok(!(await as("authenticated", ADMIN, `update product_overrides set size_prices=null where product_key='door:12345'`)).err, "inherit sizes accepted");
+ok((await as("anon", null, `update product_overrides set size_prices='[]' where product_key='door:12345' returning *`)).rows?.length === 0, "anon cannot change size prices");
 ok(!(await as("authenticated", ADMIN, "insert into product_overrides (product_key, price) values ('floor:abc_9-x', 0) on conflict (product_key) do update set price = 0")).err, "admin upserts a floor override");
 ok((await as("authenticated", ADMIN, "insert into product_overrides (product_key) values ('../etc')")).err, "bad product key rejected");
 ok((await as("authenticated", ADMIN, "insert into product_overrides (product_key, badge) values ('door:9', 'free')")).err, "unknown badge rejected");

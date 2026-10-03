@@ -77,7 +77,7 @@
     <section class="panel" data-panel="catalogue" hidden>
       <h1>Цени и снимки на вратите</h1>
       <p class="lede"><strong>Нова снимка на врата:</strong> намерете вратата и натиснете „+ Добави снимки“. С × махате снимка. После натиснете „Публикувай промените“.</p>
-      <p class="lede">Цената е в евро. Празно поле значи каталожната цена. 0 значи „По запитване“. Скрит модел изчезва от сайта, докато не го покажете отново.</p>
+      <p class="lede">В „Размери и цени“ добавяте свои размери и отделна цена за всеки. Цените са в евро. 0 значи „По запитване“. Празна основна цена запазва каталожната.</p>
       <div class="filters">
         <label class="field grow"><span>Търсене</span><input type="search" id="q" placeholder="Име, серия или марка"></label>
         <label class="field"><span>Покажи</span>
@@ -117,7 +117,7 @@
           <label class="field"><span>Стара цена, € (промоция)</span><input name="old_price" inputmode="decimal"></label>
         </div>
         <div class="grid2">
-          <label class="field"><span>Размери, със запетая</span><input name="sizes" placeholder="80/200, 90/200"></label>
+          <div id="psizes"></div>
           <label class="field"><span>Етикет</span>
             <select name="badge"><option value="">Без</option><option value="new">Ново</option><option value="sale">Промоция</option><option value="hit">Топ продукт</option></select></label>
         </div>

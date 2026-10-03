@@ -116,3 +116,15 @@ shipped as `static/photos/<name>-640.webp` and `-1200.webp`, 519 KB for all nine
 that pretends to be her shop: a generated "showroom" beside her real address would be a false
 photo of a real place. Same rule as before: a room or a still life, never a product with a price.
 Stills crop into the band with `object-position: 50% 62%` (3:2 source into a 3.6:1 band).
+
+## Product photo update — 2026-10-03
+
+The owner explicitly requested ChatGPT renders of the product catalogue. This overrides
+the earlier rule that generated images may show only generic rooms. Each render uses the
+original product image as a reference and must preserve its model, finish, panel design,
+frame and hardware. Generated project photos must not replace the real installation gallery.
+
+The accepted and pending source photos are recorded in `renders/manifest.json`. Original
+references remain in `renders/originals/` and Git history. Generated masters are kept in
+`Outputs/ngdoors-product-renders/`; the website receives the existing 600/1200 WebP sizes.
+`apply_render.py` records an image only after it has been visually inspected.

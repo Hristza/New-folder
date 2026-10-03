@@ -12,7 +12,9 @@
       { id: 'q2', name: 'Петър <script>alert(1)</script>', contact: 'petar@example.com', topic: 'Друго', message: '<img src=x onerror=alert(2)>', page: '/', status: 'done', created_at: '2026-09-28T08:00:00Z' }
     ]
   };
-  var calls = window.__calls = [];
+  var saved = sessionStorage.getItem('ngdoors-test-db');
+  if (saved) Object.assign(db, JSON.parse(saved));
+  var calls = window.__calls = [], authChanged;
   var n = 0;
   function Q(table) { this.t = table; this.op = 'select'; this.f = []; this.payload = null; this.single = false; }
   Q.prototype.select = function () { return this; };
@@ -40,14 +42,21 @@
     } else if (this.op === 'update') {
       out = rows.filter(match); var p = this.payload; out.forEach(function (r) { Object.assign(r, p); });
     } else { out = rows.filter(match); db[t] = rows.filter(function (r) { return !match(r); }); }
+    sessionStorage.setItem('ngdoors-test-db', JSON.stringify(db));
     return Promise.resolve({ data: this.single ? (out[0] || null) : out, error: null }).then(ok, bad);
   };
   var client = {
     auth: {
-      onAuthStateChange: function () {},
-      getSession: function () { return Promise.resolve({ data: { session: { user: { id: 'u1' } } } }); },
-      signOut: function () { calls.push({ op: 'signOut' }); return Promise.resolve({}); },
-      signInWithPassword: function () { return Promise.resolve({ data: { session: { user: { id: 'u1' } } } }); }
+      onAuthStateChange: function (fn) { authChanged = fn; },
+      getSession: function () { return Promise.resolve({ data: { session: window.__signedOut ? null : { user: { id: 'u1' } } } }); },
+      signOut: function () { calls.push({ op: 'signOut' }); window.__signedOut = true; if (authChanged) authChanged('SIGNED_OUT'); return Promise.resolve({}); },
+      signInWithOtp: function (p) { calls.push({ op: 'signInWithOtp', options: p.options }); return Promise.resolve({ error: null }); },
+      updateUser: function () { calls.push({ op: 'updateUser' }); return Promise.resolve({ error: null }); },
+      signInWithPassword: function (p) {
+        if (p.password !== 'test-password-only') return Promise.resolve({ error: { message: 'wrong password' } });
+        window.__signedOut = false;
+        return Promise.resolve({ data: { session: { user: { id: 'u1' } } } });
+      }
     },
     from: function (t) { return new Q(t); },
     storage: { from: function () { return {

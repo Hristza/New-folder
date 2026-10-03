@@ -8,6 +8,7 @@ a count that drifted from the scrape.
 Run:  python check.py
 """
 import io
+import html as html_utils
 import json
 import os
 import re
@@ -289,7 +290,7 @@ def main():
     doors = [r for r in build.ALL_DOORS if r["kind"] == "door"]
     # A door she set to "По запитване" in the panel is unpriced on purpose.
     unpriced = [r["name"] for r in doors if r["price"] <= 0 and not r.get("confirmed")]
-    picker = [r for r in doors if len(r.get("size_opts") or []) > 1]
+    picker = [r for r in doors if r.get("size_opts")]
     print("doors priced: %d/%d | with a size picker: %d" % (len(doors) - len(unpriced), len(doors), len(picker)))
     if unpriced:
         fail("%d door(s) still have no price, first: %s" % (len(unpriced), unpriced[0]))
@@ -301,6 +302,7 @@ def main():
     pill_re = re.compile(r'<button class="size-pill"[^>]*>')
     size_re = re.compile(r'data-size="([^"]*)"')
     delta_re = re.compile(r'data-delta="(-?[\d.]+)"')
+    price_re = re.compile(r'data-price="([\d.]+)"')
     checked = pills = 0
     for rec in picker:
         page = os.path.join(SITE, rec["url"].strip("/"), "index.html")
@@ -315,15 +317,22 @@ def main():
             fail("%s: %d size pills rendered for %d options"
                  % (rec["name"], len(found), len(rec["size_opts"])))
             break
-        for tag in found:
+        for tag, option in zip(found, rec["size_opts"]):
             pills += 1
             m, d = size_re.search(tag), delta_re.search(tag)
-            if not m or not re.match(r"^\d{2,3}/\d{2,3}$", m.group(1)):
+            if not m or html_utils.unescape(m.group(1)) != build.fix_script(option["size"]):
+                fail("%s: size label differs from its saved value" % rec["name"])
+                break
+            if not rec.get("custom_sizes") and not re.match(r"^\d{2,3}/\d{2,3}$", m.group(1)):
                 fail("%s: rendered size %r is not a WIDTH/HEIGHT pair"
                      % (rec["name"], m.group(1) if m else None))
                 break
             if not d:
                 fail("%s: size pill %s carries no surcharge" % (rec["name"], m.group(1)))
+                break
+            amount = price_re.search(tag)
+            if not amount or abs(float(amount.group(1)) - option["price"]) > 0.000001:
+                fail("%s: size pill price differs from its saved value" % rec["name"])
                 break
         if html.count('aria-checked="true"') < 1:
             fail("%s: no size is selected on load" % rec["name"])

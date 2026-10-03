@@ -22,8 +22,9 @@
 
     <form id="login" class="stack" autocomplete="on">
       <label class="field"><span>Имейл</span><input type="email" name="email" required autocomplete="username"></label>
-      <p>Напишете имейла си. Ще получите писмо с връзка за вход. Не ви трябва парола.</p>
-      <button class="btn btn-primary" type="submit">Изпрати ми връзка за вход</button>
+      <label class="field"><span>Парола</span><input type="password" name="password" autocomplete="current-password"></label>
+      <p>Нямате парола? Оставете полето празно. Ще получите писмо с връзка за вход. После си сложете парола в „Настройки“.</p>
+      <button class="btn btn-primary" type="submit">Влез</button>
     </form>
 
     <form id="newpass" class="stack" hidden>
@@ -49,7 +50,7 @@
 
   <nav class="tabs" role="tablist" aria-label="Раздели">
     <button role="tab" data-tab="home" aria-selected="true">Начало</button>
-    <button role="tab" data-tab="catalogue" aria-selected="false">Цени и наличност</button>
+    <button role="tab" data-tab="catalogue" aria-selected="false">Цени и снимки на вратите</button>
     <button role="tab" data-tab="mine" aria-selected="false">Мои продукти</button>
     <button role="tab" data-tab="projects" aria-selected="false">Проекти</button>
     <button role="tab" data-tab="inbox" aria-selected="false">Запитвания <span class="count" id="inbox-count" hidden></span></button>
@@ -64,7 +65,8 @@
       <div class="howto">
         <h2>Как работи</h2>
         <ol>
-          <li>Променете цени, скрийте изчерпани модели, добавете продукти или снимки от обекти.</li>
+          <li>Цени и снимки на вратите: отворете раздела „Цени и снимки на вратите“. Там всяка врата има „+ Добави снимки“, а всяка ваша снимка има × за махане.</li>
+          <li>Нов продукт: раздел „Мои продукти“. Снимки от обекти: раздел „Проекти“.</li>
           <li>Промените се пазят веднага, но сайтът още не ги показва.</li>
           <li>Натиснете <strong>Публикувай промените</strong>. След около 3 минути сайтът е обновен.</li>
         </ol>
@@ -73,8 +75,9 @@
 
     <!-- catalogue prices and visibility -->
     <section class="panel" data-panel="catalogue" hidden>
-      <h1>Цени и наличност</h1>
-      <p class="lede">Цената е в евро. Празно поле значи каталожната цена. 0 значи „По запитване“. Скрит модел изчезва от сайта, докато не го покажете отново.</p>
+      <h1>Цени и снимки на вратите</h1>
+      <p class="lede"><strong>Нова снимка на врата:</strong> намерете вратата и натиснете „+ Добави снимки“. С × махате снимка. После натиснете „Публикувай промените“.</p>
+      <p class="lede">В „Размери и цени“ добавяте свои размери и отделна цена за всеки. Цените са в евро. 0 значи „По запитване“. Празна основна цена запазва каталожната.</p>
       <div class="filters">
         <label class="field grow"><span>Търсене</span><input type="search" id="q" placeholder="Име, серия или марка"></label>
         <label class="field"><span>Покажи</span>
@@ -114,7 +117,7 @@
           <label class="field"><span>Стара цена, € (промоция)</span><input name="old_price" inputmode="decimal"></label>
         </div>
         <div class="grid2">
-          <label class="field"><span>Размери, със запетая</span><input name="sizes" placeholder="80/200, 90/200"></label>
+          <div id="psizes"></div>
           <label class="field"><span>Етикет</span>
             <select name="badge"><option value="">Без</option><option value="new">Ново</option><option value="sale">Промоция</option><option value="hit">Топ продукт</option></select></label>
         </div>
@@ -167,6 +170,13 @@
         <label class="field"><span>Съобщение най-горе на сайта</span><input name="announcement" maxlength="200" placeholder="Напр. -10% на всички интериорни врати до края на месеца"></label>
         <button class="btn btn-primary" type="submit">Запази</button>
         <p class="msg" id="smsg" role="status" aria-live="polite"></p>
+      </form>
+      <form id="myform" class="card-form stack">
+        <h2>Моята парола</h2>
+        <p>С нея влизате без писмо. Поне 10 знака.</p>
+        <label class="field"><span>Нова парола</span><input type="password" name="password" minlength="10" required autocomplete="new-password"></label>
+        <button class="btn btn-primary" type="submit">Запази паролата</button>
+        <p class="msg" id="mymsg" role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>

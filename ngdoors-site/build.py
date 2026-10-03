@@ -8,6 +8,7 @@ Run:  python build.py
 """
 import io
 import json
+import math
 import os
 import re
 import shutil
@@ -264,6 +265,41 @@ CATALOGUE = []
 BADGES = {"new": "Ново", "sale": "Промоция", "hit": "Топ продукт"}
 
 
+def set_size_prices(rec, rows):
+    """Apply her complete size list. Zero is a quote; None keeps the supplier list."""
+    if rows is None:
+        return
+    if not isinstance(rows, list) or len(rows) > 30:
+        raise ValueError("invalid size prices for " + rec["name"])
+    seen, opts = set(), []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError("invalid size price for " + rec["name"])
+        size, amount = row.get("size"), row.get("price")
+        if (not isinstance(size, str) or not 1 <= len(size) <= 80 or size != size.strip()
+                or any(ord(c) < 32 for c in size) or size.lower() in seen
+                or isinstance(amount, bool) or not isinstance(amount, (int, float))
+                or not math.isfinite(amount) or not 0 <= amount < 1000000 or round(amount, 2) != amount):
+            raise ValueError("invalid size price for " + rec["name"])
+        seen.add(size.lower())
+        opts.append({"size": size, "note": "", "price": amount * BGN_PER_EUR})
+    rec["custom_sizes"] = True
+    rec["sizes"] = [s["size"] for s in opts]
+    rec["size_opts"] = opts
+    rec["specs"] = [s for s in rec["specs"] if not s[0].strip().lower().startswith(("размер", "ширина", "височина"))]
+    if opts:
+        rec["specs"].append(["Размери", ", ".join(rec["sizes"])])
+        anchor = min(opts, key=lambda s: s["price"])
+        rec["price"], rec["base_size"] = anchor["price"], anchor["size"]
+        for s in opts:
+            s["delta"] = s["price"] - anchor["price"]
+    else:
+        rec["base_size"] = ""
+    if opts:
+        rec["confirmed"] = True
+        rec.pop("draft_price", None)
+
+
 def apply_override(rec, key):
     """Her price, strike-through price, badge and hide switch, laid over one product.
 
@@ -272,6 +308,8 @@ def apply_override(rec, key):
     """
     rec["key"] = key
     rec["catalogue_price"] = rec["price"]
+    rec["catalogue_sizes"] = [dict(s) for s in rec.get("size_opts") or []]
+    rec["catalogue_images"] = rec["images"][:]
     o = ADMIN["overrides"].get(key)
     if not o:
         return rec
@@ -291,7 +329,8 @@ def apply_override(rec, key):
         rec["price"] = new
         rec["confirmed"] = True
         rec.pop("draft_price", None)
-    if o.get("old_price") and rec["price"] > 0 and float(o["old_price"]) * BGN_PER_EUR > rec["price"]:
+    set_size_prices(rec, o.get("size_prices"))
+    if o.get("old_price") and (rec.get("custom_sizes") or (rec["price"] > 0 and float(o["old_price"]) * BGN_PER_EUR > rec["price"])):
         rec["old_price"] = float(o["old_price"]) * BGN_PER_EUR
     if o.get("badge") in BADGES:
         rec["badge"] = o["badge"]
@@ -314,7 +353,12 @@ def admin_rec(a, kind):
         "price": float(a.get("price") or 0) * BGN_PER_EUR, "confirmed": True,     # euro in
         "brand": a.get("brand") or "", "src": "",
     }
-    if a.get("old_price") and rec["price"] > 0 and float(a["old_price"]) * BGN_PER_EUR > rec["price"]:
+    # Older products have labels with one shared price; make those selectable too.
+    rows = a.get("size_prices")
+    if rows is None and sizes:
+        rows = [{"size": s, "price": float(a.get("price") or 0)} for s in sizes]
+    set_size_prices(rec, rows)
+    if a.get("old_price") and (rec.get("custom_sizes") or (rec["price"] > 0 and float(a["old_price"]) * BGN_PER_EUR > rec["price"])):
         rec["old_price"] = float(a["old_price"]) * BGN_PER_EUR
     if a.get("badge") in BADGES:
         rec["badge"] = a["badge"]
@@ -721,15 +765,17 @@ def meta_desc(rec):
 
 def price_html(rec, big=False):
     cls = "price-big" if big else "price"
-    if rec["price"] > 0:
+    if rec["price"] > 0 or (big and rec.get("size_opts")):
         # data-bgn is what the size picker recomputes from. It never parses the
         # rendered string: "1 090,00 лв." is a display format, not a number.
         was = ""
-        if rec.get("old_price"):
+        if rec.get("old_price") and rec["price"] > 0 and rec["old_price"] > rec["price"]:
             eur = ("%.2f" % (rec["old_price"] / BGN_PER_EUR)).replace(".", ",")
             was = ' <s class="was" aria-label="Стара цена">%s €</s>' % eur
-        old = ' data-old-bgn="%.4f"' % rec["old_price"] if rec.get("old_price") else ""
-        return '<div class="%s" data-bgn="%.2f"%s>%s%s</div>' % (cls, rec["price"], old, money(rec["price"]), was)
+        old = ' data-old-bgn="%.6f"' % rec["old_price"] if rec.get("old_price") else ""
+        return '<div class="%s%s" data-bgn="%.6f"%s>%s%s</div>' % (
+            cls, " ask" if rec["price"] <= 0 else "", rec["price"], old,
+            money(rec["price"]) if rec["price"] > 0 else "По запитване", was)
     return '<div class="%s ask">По запитване</div>' % cls
 
 
@@ -741,20 +787,20 @@ def size_picker(rec):
     clause the source ships with the size ("зид до 34 см") stays with its option.
     """
     opts = rec.get("size_opts") or []
-    if len(opts) < 2:
+    if not opts:
         return ""
     out = []
     for i, s in enumerate(opts):
         sel = "true" if s["size"] == rec.get("base_size") else "false"
         note = ' <span class="size-note">%s</span>' % esc(s["note"]) if s["note"] else ""
         out.append('<button class="size-pill" type="button" role="radio" aria-checked="%s"'
-                   ' tabindex="%d" data-size="%s" data-delta="%.2f">%s%s</button>'
-                   % (sel, 0 if sel == "true" else -1, esc(s["size"]), s["delta"],
+                   ' tabindex="%d" data-size="%s" data-delta="%.6f" data-price="%.6f">%s%s</button>'
+                   % (sel, 0 if sel == "true" else -1, esc(s["size"]), s["delta"], s["price"],
                       esc(s["size"]), note))
     return ('<div class="sizes-block">'
             '<div class="sizes-label" id="szlab">Размер (ш/в, см)</div>'
-            '<div class="sizes" role="radiogroup" aria-labelledby="szlab">%s</div>'
-            '</div>' % "".join(out))
+            '<div class="sizes" role="radiogroup" aria-labelledby="szlab" data-custom="%s">%s</div>'
+            '</div>' % ("true" if rec.get("custom_sizes") else "false", "".join(out)))
 
 
 def addons_html(rec):
@@ -1412,7 +1458,7 @@ def write_admin_catalogue():
     she adds can only land on a page that exists.
     """
     def thumb(r):
-        return _at(MANIFEST[r["images"][0]], GRID_W)
+        return _at(MANIFEST[r["catalogue_images"][0]], GRID_W)
     items = []
     for r in CATALOGUE:
         if r.get("admin"):
@@ -1422,6 +1468,8 @@ def write_admin_catalogue():
                   "parvazi": "Первази"}.get(r.get("section"), ""))
         items.append({"key": r["key"], "name": fix_script(r["name"]), "where": fix_script(where),
                       "brand": r.get("brand") or "", "price": r["catalogue_price"],
+                      "size_prices": [{"size": s["size"], "price": s["price"] / BGN_PER_EUR}
+                                      for s in r.get("catalogue_sizes") or []],
                       "draft": bool(r.get("draft_price") or (r["kind"] == "door" and PRICES.get("draft"))),
                       "thumb": thumb(r), "url": r["url"]})
     cats = []

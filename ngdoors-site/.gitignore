@@ -10,3 +10,7 @@ renders/gpt/*.png
 renders/gpt/*.log
 _shot*.mjs
 supabase/.temp/
+node_modules/
+supabase/node_modules/
+renders/originals/
+verification/*.png

@@ -22,6 +22,7 @@ IMG = json.load(io.open(os.path.join(HERE, "images.json"), encoding="utf-8"))["i
 doors = [p for p in DATA["products"].values() if any(u in IMG for u in p["images"])]
 floors = [f for f in DATA["darnox"] if any(u in IMG for u in f["images"])]
 PRICED, HIDDEN, ASK = doors[0], doors[1], doors[2]
+CUSTOM, SINGLE, NO_SIZES = doors[3:6]
 FLOOR_HIDE = floors[0]
 root_cat = sorted(DATA["cat_labels"])[0]
 album = "Входни врати"
@@ -42,6 +43,12 @@ def fake_load():
                                      "old_price": None, "hidden": True, "badge": None},
             "door:" + ASK["id"]: {"product_key": "door:" + ASK["id"], "price": 0.0,
                                   "old_price": None, "hidden": False, "badge": None},
+            "door:" + CUSTOM["id"]: {"size_prices": [
+                {"size": "91 × 213", "price": 245.50},
+                {"size": "101 × 223", "price": 307.01},
+                {"size": "По размер на клиента", "price": 0}], "old_price": 300},
+            "door:" + SINGLE["id"]: {"size_prices": [{"size": "88/211", "price": 0.01}]},
+            "door:" + NO_SIZES["id"]: {"size_prices": []},
             "floor:" + FLOOR_HIDE["id"]: {"product_key": "floor:" + FLOOR_HIDE["id"], "price": None,
                                           "old_price": None, "hidden": True, "badge": None},
         },
@@ -49,6 +56,7 @@ def fake_load():
             {"id": "0f0f0f0f-aaaa-bbbb-cccc-000000000001", "section": "door", "category": root_cat,
              "name": "Тестова врата Сигма", "brand": None, "description": "Ръчно добавена.",
              "price": 249.0, "old_price": None, "sizes": ["80/200", "90/200"], "images": [PH],
+             "size_prices": [{"size": "80/200", "price": 249}, {"size": "90/200", "price": 281.01}],
              "badge": "new", "hidden": False},
             {"id": "0f0f0f0f-aaaa-bbbb-cccc-000000000002", "section": "nastilki", "category": None,
              "name": "Тестов ламинат Омега 8mm AC4", "brand": "Kronotex", "description": None,
@@ -121,6 +129,15 @@ html = page(rec[ASK["id"]]["url"])
 expect(html and "По запитване" in html and "price-note" not in html, "price 0 did not become По запитване")
 # 4. hidden floor gone
 expect(page(rec[FLOOR_HIDE["id"]]["url"]) is None, "hidden floor still has a page")
+# Her custom labels and prices replace the supplier ladder, including quote and one-size cases.
+custom = rec[CUSTOM["id"]]
+expect(custom["sizes"] == ["91 × 213", "101 × 223", "По размер на клиента"], "custom sizes not authoritative")
+expect([round(s["price"] / build.BGN_PER_EUR, 2) for s in custom["size_opts"]] == [245.50, 307.01, 0], "custom prices altered")
+html = page(custom["url"])
+expect(html and 'data-price="600.459368"' in html and 'data-price="0.000000"' in html, "absolute size prices missing")
+expect(html and 'data-bgn="0.000000"' in html, "quote price cannot update to a priced size")
+expect('role="radio"' in (page(rec[SINGLE["id"]]["url"]) or ''), "single custom size hidden")
+expect(not rec[NO_SIZES["id"]]["size_opts"], "empty size list fell back to supplier sizes")
 # 5. her door + floor products
 mine_door = [r for r in build.ALL_DOORS if r.get("admin")]
 expect(len(mine_door) == 1, "her door not in the catalogue")
@@ -149,6 +166,10 @@ cat = json.load(io.open(os.path.join(SITE, "admin", "catalogue.json"), encoding=
 expect(len(cat["items"]) >= 490 and cat["supabase_url"] == SB, "admin catalogue incomplete")
 expect(any(i["key"] == "door:" + HIDDEN["id"] for i in cat["items"]), "hidden door missing from the panel (she could not unhide it)")
 expect(all(not i["key"].startswith("door:n") for i in cat["items"]), "her own products leaked into the override list")
+expect(all("size_prices" in i for i in cat["items"] if i["key"].startswith("door:")), "panel lacks original size prices")
+expect(next(i for i in cat["items"] if i["key"] == "door:" + CUSTOM["id"])["size_prices"] != [
+    {"size": "91 × 213", "price": 245.50}, {"size": "101 × 223", "price": 307.01},
+    {"size": "По размер на клиента", "price": 0}], "panel lost supplier defaults")
 robots = io.open(os.path.join(SITE, "robots.txt"), encoding="utf-8").read()
 smap = io.open(os.path.join(SITE, "sitemap.xml"), encoding="utf-8").read()
 expect("Disallow: /admin/" in robots and "/admin/" not in smap, "admin not kept out of search")
