@@ -213,7 +213,7 @@ def _at(m, width):
     """Where one size of an image lives: /assets/img for the catalogue, Supabase for hers."""
     if "urls" in m:
         return m["urls"][width]
-    return "/assets/img/%s-%d.webp" % (m["key"], width)
+    return "/assets/img/%s-%d.%s" % (m["key"], width, m.get("format", "webp"))
 
 
 def img_tag(url, alt, sizes="(max-width: 520px) 50vw, 300px", cls="", eager=False):
@@ -248,7 +248,7 @@ def contrast(item):
         return 0.0
     key = MANIFEST[urls[0]]["key"]
     if key not in _CONTRAST:
-        path = os.path.join(SITE, "assets", "img", "%s-%d.webp" % (key, GRID_W))
+        path = os.path.join(SITE, "assets", "img", os.path.basename(_at(MANIFEST[urls[0]], GRID_W)))
         try:
             from PIL import Image, ImageStat
             with Image.open(path) as im:

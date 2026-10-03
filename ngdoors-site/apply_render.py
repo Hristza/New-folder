@@ -18,10 +18,18 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--product")
 parser.add_argument("--index", type=int, default=0)
 parser.add_argument("--image", type=pathlib.Path)
-parser.add_argument("--quality", type=int, choices=range(60, 96), default=82,
-                    help="WebP encoding quality; the full native PNG is preserved")
+parser.add_argument("--format", choices=("webp", "avif"), default="webp")
+parser.add_argument("--quality", type=int, choices=range(1, 96),
+                    help="Encoding quality; defaults to WebP 82 or AVIF 55, preserving the native PNG")
 parser.add_argument("--init", action="store_true")
 args = parser.parse_args()
+if args.quality is None:
+    args.quality = 55 if args.format == "avif" else 82
+
+
+def encode(image, path, quality, image_format):
+    options = {"speed": 6} if image_format == "avif" else {"method": 6}
+    image.save(path, quality=quality, **options)
 data = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
 manifest = json.loads((ROOT / "images.json").read_text(encoding="utf-8"))
 products = {"door:" + p["id"]: p for p in data["products"].values()}
@@ -41,7 +49,7 @@ for row in ledger.values():
         source = row["source"]
         hashes = []
         for width in source["sizes"]:
-            path = assets / (source["key"] + "-" + str(width) + ".webp")
+            path = assets / (source["key"] + "-" + str(width) + "." + source.get("format", "webp"))
             if not path.exists():
                 path = backup / path.name
             if not path.exists():
@@ -59,6 +67,8 @@ if not args.init:
         raise ValueError("unexpected source asset key")
     raw = args.image.read_bytes()
     key = source_key + "-gpt-" + hashlib.sha256(raw).hexdigest()[:12]
+    if args.format != "webp":
+        key += "-" + args.format
     if args.quality != 82:
         key += "-q" + str(args.quality)
     backup.mkdir(parents=True, exist_ok=True)
@@ -70,11 +80,11 @@ if not args.init:
         w, h = generated.size
         for width in row["source"]["sizes"]:
             size = min(width, w)
-            generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS).save(
-                assets / (key + "-" + str(width) + ".webp"), quality=args.quality, method=6)
+            encode(generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS),
+                   assets / (key + "-" + str(width) + "." + args.format), args.quality, args.format)
     old_keys.add(manifest["images"][url]["key"])
     old_keys.add(source_key)
-    manifest["images"][url] = {"key": key, "w": w, "h": h, "sizes": row["source"]["sizes"]}
+    manifest["images"][url] = {"key": key, "w": w, "h": h, "sizes": row["source"]["sizes"], "format": args.format}
     row.update(state="accepted", generated=manifest["images"][url], master=str(masters / (key + ".png")), encoding_quality=args.quality)
 # Exact same generated PNGs share one website asset. Reusing a render on a
 # different reference is allowed only after it was explicitly accepted above.
@@ -107,19 +117,20 @@ for row in ledger.values():
 for key, rows in groups.items():
     widths = sorted({width for row in rows for width in row["source"]["sizes"]})
     rows[0]["generated"]["sizes"] = widths
-    missing = [width for width in widths if not (assets / (key + "-" + str(width) + ".webp")).exists()]
+    image_format = rows[0]["generated"].get("format", "webp")
+    missing = [width for width in widths if not (assets / (key + "-" + str(width) + "." + image_format)).exists()]
     if missing:
         with Image.open(rows[0]["master"]) as generated:
             generated = generated.convert("RGB")
             w, h = generated.size
             for width in missing:
-                path = assets / (key + "-" + str(width) + ".webp")
+                path = assets / (key + "-" + str(width) + "." + image_format)
                 size = min(width, w)
-                generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS).save(
-                    path, quality=rows[0].get("encoding_quality", 82), method=6)
+                encode(generated.resize((size, round(h * size / w)), Image.Resampling.LANCZOS),
+                       path, rows[0].get("encoding_quality", 82), image_format)
     for row in rows:
         row["generated"] = rows[0]["generated"]
-    for path in assets.glob(key + "-*.webp"):
+    for path in assets.glob(key + "-*." + image_format):
         if int(path.stem.rsplit("-", 1)[1]) not in widths:
             path.unlink()
 for url, row in ledger.items():
@@ -128,7 +139,9 @@ for url, row in ledger.items():
 used = {row["key"] for row in manifest["images"].values()}
 backup.mkdir(parents=True, exist_ok=True)
 for old_key in old_keys - used:
-    for old in assets.glob(old_key + "-*.webp"):
+    for old in assets.glob(old_key + "-*"):
+        if old.suffix not in (".webp", ".avif"):
+            continue
         if old.stem.rsplit("-", 1)[0] != old_key:
             continue
         if "-gpt-" not in old.name:
@@ -137,7 +150,7 @@ for old_key in old_keys - used:
 for row in ledger.values():
     if row["state"] == "accepted":
         for width in row["generated"]["sizes"]:
-            assert (assets / (row["generated"]["key"] + "-" + str(width) + ".webp")).exists(), "Missing rendered asset"
+            assert (assets / (row["generated"]["key"] + "-" + str(width) + "." + row["generated"].get("format", "webp"))).exists(), "Missing rendered asset"
 (ROOT / "images.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\r\n")
 LEDGER.parent.mkdir(parents=True, exist_ok=True)
 LEDGER.write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
