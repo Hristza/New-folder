@@ -988,7 +988,7 @@
     "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9697ade0e65c6645-gpt-01611966f826.png"
   },
   "https://ngdoors.bg/assets/products/large/r_6a05bbb27717b_9a950d1c289b4.jpg": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "c9619e018df65716",
       "w": 152,
@@ -1000,10 +1000,19 @@
     "products": [
       "door:2877"
     ],
-    "reference_sha256": "3e1378b92a155a2ac0aa10f7f6b1c0a3d4a76c89758f5da3d271558a9ea7eaea"
+    "reference_sha256": "3e1378b92a155a2ac0aa10f7f6b1c0a3d4a76c89758f5da3d271558a9ea7eaea",
+    "generated": {
+      "key": "c9619e018df65716-gpt-ac6c471a066c",
+      "w": 893,
+      "h": 1762,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\c9619e018df65716-gpt-ac6c471a066c.png"
   },
   "https://ngdoors.bg/assets/products/large/r_6a05c2b327de3_7ef978267a78e.jpg": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "2935f70e596a979d",
       "w": 153,
@@ -1015,10 +1024,19 @@
     "products": [
       "door:2894"
     ],
-    "reference_sha256": "d8af91b6a62c5bb705733f38dfc84b7caf6f40de4084c91b39d78a11a481268b"
+    "reference_sha256": "d8af91b6a62c5bb705733f38dfc84b7caf6f40de4084c91b39d78a11a481268b",
+    "generated": {
+      "key": "2935f70e596a979d-gpt-e50ad217f5a8",
+      "w": 896,
+      "h": 1756,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\2935f70e596a979d-gpt-e50ad217f5a8.png"
   },
   "https://ngdoors.bg/assets/products/large/r_6a05c33dc5432_03d32b97434a1.jpg": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "9313c29716953e33",
       "w": 153,
@@ -1030,10 +1048,19 @@
     "products": [
       "door:2895"
     ],
-    "reference_sha256": "933e819a5c433d1ec16596905304d1b73e45cc48d06ad1b6cb0f86ab33b88b4b"
+    "reference_sha256": "933e819a5c433d1ec16596905304d1b73e45cc48d06ad1b6cb0f86ab33b88b4b",
+    "generated": {
+      "key": "9313c29716953e33-gpt-2c9569fcc374",
+      "w": 896,
+      "h": 1756,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9313c29716953e33-gpt-2c9569fcc374.png"
   },
   "https://ngdoors.bg/assets/products/large/r_6a05c37a6d660_c097050787a34.jpg": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f102745225f50214",
       "w": 405,
@@ -1045,10 +1072,19 @@
     "products": [
       "door:2896"
     ],
-    "reference_sha256": "62bdf620c2a4e132586bb27282988fc962b64ce0e8061d8a7e067911237866b7"
+    "reference_sha256": "62bdf620c2a4e132586bb27282988fc962b64ce0e8061d8a7e067911237866b7",
+    "generated": {
+      "key": "f102745225f50214-gpt-a1d18188e12d",
+      "w": 892,
+      "h": 1764,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\f102745225f50214-gpt-a1d18188e12d.png"
   },
   "https://ngdoors.bg/assets/products/large/r_6a05c3c3a1150_2910d242f51c1.jpg": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "0fe7293438bc9fab",
       "w": 153,
@@ -1060,10 +1096,19 @@
     "products": [
       "door:2897"
     ],
-    "reference_sha256": "058025b44923160290f093cbcdca963a57a81474b29f3e073b587dac9946e063"
+    "reference_sha256": "058025b44923160290f093cbcdca963a57a81474b29f3e073b587dac9946e063",
+    "generated": {
+      "key": "0fe7293438bc9fab-gpt-8163b2cad3cc",
+      "w": 896,
+      "h": 1756,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\0fe7293438bc9fab-gpt-8163b2cad3cc.png"
   },
   "https://ngdoors.bg/assets/products/large/r_6a05c3fd33e44_fc3f8eee9f6e4.jpg": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "8b473a1d89172d7d",
       "w": 153,
@@ -1075,10 +1120,19 @@
     "products": [
       "door:2898"
     ],
-    "reference_sha256": "200796aed25d92f632255df8cedeabb08668d78626c6e2ff833f3750e9ce3605"
+    "reference_sha256": "200796aed25d92f632255df8cedeabb08668d78626c6e2ff833f3750e9ce3605",
+    "generated": {
+      "key": "8b473a1d89172d7d-gpt-31db9aeae44e",
+      "w": 896,
+      "h": 1756,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\8b473a1d89172d7d-gpt-31db9aeae44e.png"
   },
   "https://ngdoors.bg/assets/products/large/r_6a05c429519ca_90f63db96d695.jpg": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "91cd0eb3ebf18d3e",
       "w": 153,
@@ -1090,10 +1144,19 @@
     "products": [
       "door:2899"
     ],
-    "reference_sha256": "0dcb268828ef9b55a3a92fd1add1d4e7265cae2a35f8b0c31cc815fe9089becb"
+    "reference_sha256": "0dcb268828ef9b55a3a92fd1add1d4e7265cae2a35f8b0c31cc815fe9089becb",
+    "generated": {
+      "key": "91cd0eb3ebf18d3e-gpt-98a318fde7f3",
+      "w": 896,
+      "h": 1756,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\91cd0eb3ebf18d3e-gpt-98a318fde7f3.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60bf4f8373ad6_3a222be0d29cd.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "887d018df8d56790",
       "w": 328,
@@ -1105,10 +1168,19 @@
     "products": [
       "door:263"
     ],
-    "reference_sha256": "b2abaaf1e7ee462ccf22d5d9581e30f9c56a8f6960f2e9201596d327b50ff3a7"
+    "reference_sha256": "b2abaaf1e7ee462ccf22d5d9581e30f9c56a8f6960f2e9201596d327b50ff3a7",
+    "generated": {
+      "key": "887d018df8d56790-gpt-bad8fe2d64b6",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\887d018df8d56790-gpt-bad8fe2d64b6.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60bf4f8373ad6_4f93a4a2d876e.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "dda89c504518ea39",
       "w": 328,
@@ -1120,10 +1192,19 @@
     "products": [
       "door:263"
     ],
-    "reference_sha256": "67c37189b6a3149c413e2661f7275f95a996bed12400b43f0557c6be9b50fb8a"
+    "reference_sha256": "67c37189b6a3149c413e2661f7275f95a996bed12400b43f0557c6be9b50fb8a",
+    "generated": {
+      "key": "dda89c504518ea39-gpt-ddb8179ded2a",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\dda89c504518ea39-gpt-ddb8179ded2a.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60c0847ab4920_26a5203fe3aad.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "80b65e61fbce797a",
       "w": 328,
@@ -1135,10 +1216,19 @@
     "products": [
       "door:271"
     ],
-    "reference_sha256": "eb3ae61a2869d7273fb217659cce376acccb32bff9bec4be548ab92bbb63ed13"
+    "reference_sha256": "eb3ae61a2869d7273fb217659cce376acccb32bff9bec4be548ab92bbb63ed13",
+    "generated": {
+      "key": "80b65e61fbce797a-gpt-59a2fbfe4aaa",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\80b65e61fbce797a-gpt-59a2fbfe4aaa.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60c0847ab4920_3d7edb3b3fc3b.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "91de7412e67e3562",
       "w": 328,
@@ -1150,10 +1240,19 @@
     "products": [
       "door:271"
     ],
-    "reference_sha256": "f1f9148e39fe2c526b2368cfc91d8278acaa0ca7aef9c3614bf73f43aeb2bab4"
+    "reference_sha256": "f1f9148e39fe2c526b2368cfc91d8278acaa0ca7aef9c3614bf73f43aeb2bab4",
+    "generated": {
+      "key": "91de7412e67e3562-gpt-768dbec1f26d",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\91de7412e67e3562-gpt-768dbec1f26d.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60bf5076e3125_2113b6f28010e.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e4a78d03de7ac290",
       "w": 328,
@@ -1165,10 +1264,19 @@
     "products": [
       "door:264"
     ],
-    "reference_sha256": "ff229ea644a6ab638bf56e4a206faa53c0d2560327db21c3a87e26c55f6207a5"
+    "reference_sha256": "ff229ea644a6ab638bf56e4a206faa53c0d2560327db21c3a87e26c55f6207a5",
+    "generated": {
+      "key": "e4a78d03de7ac290-gpt-c359c18ea905",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\e4a78d03de7ac290-gpt-c359c18ea905.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60bf5076e3125_9a322608f8f04.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "1116607c111a0a71",
       "w": 328,
@@ -1180,10 +1288,19 @@
     "products": [
       "door:264"
     ],
-    "reference_sha256": "50c73e562c62b3445b6e7542624aff8b7f3b6c5855c4ba7a985dffa0e3512e42"
+    "reference_sha256": "50c73e562c62b3445b6e7542624aff8b7f3b6c5855c4ba7a985dffa0e3512e42",
+    "generated": {
+      "key": "1116607c111a0a71-gpt-8563f13b542d",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\1116607c111a0a71-gpt-8563f13b542d.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60c0850299461_48553c356f836.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d712c56a54a39002",
       "w": 328,
@@ -1195,10 +1312,19 @@
     "products": [
       "door:272"
     ],
-    "reference_sha256": "6f5c757811c92f597e71e810131c29080e0aebb9e19895196fe6b3ff72b9a216"
+    "reference_sha256": "6f5c757811c92f597e71e810131c29080e0aebb9e19895196fe6b3ff72b9a216",
+    "generated": {
+      "key": "d712c56a54a39002-gpt-95eb96ad8e7e",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\d712c56a54a39002-gpt-95eb96ad8e7e.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60c0850299461_b28d4d41599fc.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d52c592f2f7bd7ed",
       "w": 328,
@@ -1210,10 +1336,19 @@
     "products": [
       "door:272"
     ],
-    "reference_sha256": "dc2aa70de834ac1001c52176f225dc7f1543d5d505aeadc029a5a60c033404fc"
+    "reference_sha256": "dc2aa70de834ac1001c52176f225dc7f1543d5d505aeadc029a5a60c033404fc",
+    "generated": {
+      "key": "d52c592f2f7bd7ed-gpt-c23b20715b19",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\d52c592f2f7bd7ed-gpt-c23b20715b19.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60c085854ccf5_f25273264e22d.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "5e1b42ea0da70704",
       "w": 328,
@@ -1225,7 +1360,16 @@
     "products": [
       "door:273"
     ],
-    "reference_sha256": "8e47a992c4b9c7921798420a901cd9f7398ae5f61bc4872b07c435472175645f"
+    "reference_sha256": "8e47a992c4b9c7921798420a901cd9f7398ae5f61bc4872b07c435472175645f",
+    "generated": {
+      "key": "5e1b42ea0da70704-gpt-65e21b09fc0b",
+      "w": 889,
+      "h": 1768,
+      "sizes": [
+        600
+      ]
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\5e1b42ea0da70704-gpt-65e21b09fc0b.png"
   },
   "https://ngdoors.bg/assets/products/large/r_60c085854ccf5_af3128e0872fc.png": {
     "state": "pending",
