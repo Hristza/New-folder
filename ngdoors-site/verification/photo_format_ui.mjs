@@ -28,7 +28,7 @@ const browser = await chromium.launch({headless: true,
   executablePath: 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe',
   args: ['--no-first-run', '--no-default-browser-check']});
 try {
-  for (const key of ['door:2714', 'door:1820']) {
+  for (const key of (process.argv.includes('--floors') ? ['floor:8685850263886', 'floor:16037974147406'] : ['door:2714', 'door:1820'])) {
     const item = catalogue.items.find(x => x.key === key);
     assert.ok(item, 'Missing target product');
     for (const width of [390, 1440]) {
