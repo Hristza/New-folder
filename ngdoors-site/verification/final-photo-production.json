@@ -1,0 +1,17 @@
+{
+  "source_references": 1638,
+  "encoded_assets_byte_matched": 1171,
+  "production_domain": "https://ngdoors.pages.dev",
+  "all_sha256_match": true,
+  "commit": "f57f18df0ee626a4ae175205042925eeb2a760f7",
+  "cloudflare_deployment": "bf39ec5d-7023-44ef-a948-ee3a0efc3809",
+  "completed_at": "2026-10-04T11:17:00.484051Z",
+  "production_browser_targets": 2,
+  "production_browser_widths": [
+    390,
+    1440
+  ],
+  "native_masters": 1102,
+  "public_products": 961,
+  "gallery_entries_unchanged": 357
+}
