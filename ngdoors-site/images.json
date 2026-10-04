@@ -15821,12 +15821,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717957501309-001.jpg?v=1788286851": {
-   "key": "2609c35ab13f8328",
-   "w": 1000,
-   "h": 1000,
+   "key": "2609c35ab13f8328-gpt-26626cd543ad-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717957501309-002.jpg?v=1788286851": {
    "key": "45a07c7288f61ca0",
@@ -15837,12 +15838,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219030909-001.jpg?v=1788287019": {
-   "key": "951b1f804c3993d1",
-   "w": 788,
-   "h": 788,
+   "key": "951b1f804c3993d1-gpt-5a74bbbc4b23-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219030909-002.png?v=1788287020": {
    "key": "2fa3b619c474019e",
@@ -15861,12 +15863,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218998141-001.jpg?v=1788287027": {
-   "key": "fe59700ff9c3fe99",
-   "w": 788,
-   "h": 788,
+   "key": "fe59700ff9c3fe99-gpt-66cbb0c666e5-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218998141-002.png?v=1788287028": {
    "key": "e87524a5176c53f3",
@@ -15885,12 +15888,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701919924605-001.jpg?v=1788287482": {
-   "key": "48dba7cd8632f903",
-   "w": 788,
-   "h": 788,
+   "key": "48dba7cd8632f903-gpt-d1b7d1700d19-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701919924605-002.png?v=1788287483": {
    "key": "d7179796eaa5428a",
@@ -15909,12 +15913,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218965373-001.jpg?v=1788287036": {
-   "key": "0660d9ecb20098b6",
-   "w": 788,
-   "h": 788,
+   "key": "0660d9ecb20098b6-gpt-772b59fcfca2-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218965373-002.png?v=1788287036": {
    "key": "709d5457e587f5af",
@@ -15933,12 +15938,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15878982730109-001.jpg?v=1788286795": {
-   "key": "8aa9b4ed5cb0acb0",
-   "w": 788,
-   "h": 788,
+   "key": "8aa9b4ed5cb0acb0-gpt-d0e37dd0ea02-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15878982730109-002.png?v=1788286796": {
    "key": "bab782b88f75d1e2",
@@ -15982,12 +15988,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726362165596-001.jpg?v=1788301425": {
-   "key": "8add34ebd2f39b83",
-   "w": 1000,
-   "h": 1000,
+   "key": "8add34ebd2f39b83-gpt-7abd1d4af242-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726362165596-002.jpg?v=1788301426": {
    "key": "0fbe10d078ee5702",
@@ -16023,12 +16030,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726375141724-001.jpg?v=1788301480": {
-   "key": "7aae28ca4e0e785a",
-   "w": 1000,
-   "h": 1000,
+   "key": "7aae28ca4e0e785a-gpt-b638ca889896-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726375141724-002.webp?v=1788301481": {
    "key": "20f5399cf205f06c",
@@ -16039,12 +16047,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726372487516-001.jpg?v=1788299432": {
-   "key": "7898a4bd19c5d2e6",
-   "w": 1000,
-   "h": 1000,
+   "key": "7898a4bd19c5d2e6-gpt-be393ae437db-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726372487516-002.webp?v=1788299432": {
    "key": "c7b28ff33a64c8fd",
@@ -16055,12 +16064,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218604925-001.jpg?v=1788287080": {
-   "key": "3c246f1f084ed0e8",
-   "w": 2400,
-   "h": 1792,
+   "key": "3c246f1f084ed0e8-gpt-4f70fecd55be-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218604925-002.png?v=1788287080": {
    "key": "11eb75c296f2c85d",
@@ -16071,12 +16081,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218572157-001.jpg?v=1788287086": {
-   "key": "3f6cc211aeaa93e7",
-   "w": 2400,
-   "h": 1792,
+   "key": "3f6cc211aeaa93e7-gpt-3d895172154d-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218572157-002.png?v=1788287085": {
    "key": "b6da7fc594acb281",
@@ -16087,12 +16098,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218506621-001.jpg?v=1788287092": {
-   "key": "5098df991ac6314c",
-   "w": 2400,
-   "h": 1792,
+   "key": "5098df991ac6314c-gpt-fb9ca1a6b4a0-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218506621-002.png?v=1788287091": {
    "key": "2b16561ee621d962",
@@ -16103,12 +16115,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218473853-001.jpg?v=1788287098": {
-   "key": "f18233964f2f87c6",
-   "w": 2400,
-   "h": 1792,
+   "key": "f18233964f2f87c6-gpt-5100bf6daad5-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218473853-002.png?v=1788287097": {
    "key": "13256a344203baf5",
@@ -16119,12 +16132,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218441085-001.jpg?v=1788287104": {
-   "key": "c95aae1a2e502d79",
-   "w": 2400,
-   "h": 1792,
+   "key": "c95aae1a2e502d79-gpt-5e60165ed2c9-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218441085-002.png?v=1788287104": {
    "key": "b862d8106a465888",
@@ -16135,12 +16149,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218408317-001.jpg?v=1788287110": {
-   "key": "025cc5dc3d10a38f",
-   "w": 2400,
-   "h": 1792,
+   "key": "025cc5dc3d10a38f-gpt-b4b06b9b43f0-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218408317-002.png?v=1788287109": {
    "key": "79d3a9b21d0568b9",
@@ -16151,12 +16166,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218375549-001.jpg?v=1788287118": {
-   "key": "40ca4f39eb5cdf71",
-   "w": 2400,
-   "h": 1792,
+   "key": "40ca4f39eb5cdf71-gpt-3d832fdb9110-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218375549-002.png?v=1788287117": {
    "key": "be72351f57fac36c",
@@ -16167,12 +16183,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218342781-001.jpg?v=1788287125": {
-   "key": "cc1193b301e8719b",
-   "w": 2400,
-   "h": 1792,
+   "key": "cc1193b301e8719b-gpt-d3bc4b012bb1-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218342781-002.png?v=1788287125": {
    "key": "4ae205a5104f90a8",
@@ -16183,12 +16200,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218310013-001.jpg?v=1788287131": {
-   "key": "d78f507ded12dfc7",
-   "w": 2400,
-   "h": 1792,
+   "key": "d78f507ded12dfc7-gpt-12b5b3e58737-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218310013-002.png?v=1788287131": {
    "key": "49dc957327ad7a37",
@@ -16199,12 +16217,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218277245-001.jpg?v=1788287137": {
-   "key": "030d241de4231375",
-   "w": 2400,
-   "h": 1792,
+   "key": "030d241de4231375-gpt-221134776884-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218277245-002.png?v=1788287136": {
    "key": "6c0f3f9df0eb1206",
@@ -16215,12 +16234,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218244477-001.jpg?v=1788287143": {
-   "key": "3057c77609348418",
-   "w": 2400,
-   "h": 1792,
+   "key": "3057c77609348418-gpt-1e2cfe32c66e-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218244477-002.png?v=1788287142": {
    "key": "279789aed82fbec9",
@@ -16231,12 +16251,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218211709-001.jpg?v=1788287148": {
-   "key": "65884243ce2c82ea",
-   "w": 2400,
-   "h": 1792,
+   "key": "65884243ce2c82ea-gpt-967ad5f4e555-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218211709-002.png?v=1788287147": {
    "key": "b88372512a70b6b6",
@@ -16247,12 +16268,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218178941-001.jpg?v=1788287156": {
-   "key": "23596f70331369f6",
-   "w": 2400,
-   "h": 1792,
+   "key": "23596f70331369f6-gpt-084dd2eecba0-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218178941-002.png?v=1788287155": {
    "key": "f3e181fe0a8d5d07",
@@ -16263,12 +16285,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218146173-001.jpg?v=1788287162": {
-   "key": "ce87ae6d7e222f2d",
-   "w": 2400,
-   "h": 1792,
+   "key": "ce87ae6d7e222f2d-gpt-4aefa2703e7a-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218146173-002.png?v=1788287161": {
    "key": "543b8b84a6f21225",
@@ -16279,12 +16302,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218113405-001.jpg?v=1788287168": {
-   "key": "3bd288266b272b33",
-   "w": 2400,
-   "h": 1792,
+   "key": "3bd288266b272b33-gpt-c110c1aa155e-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218113405-002.png?v=1788287167": {
    "key": "08f47afac2e1f3d3",
@@ -16295,12 +16319,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218080637-001.jpg?v=1788287173": {
-   "key": "853c5f4b8e01f01c",
-   "w": 2400,
-   "h": 1792,
+   "key": "853c5f4b8e01f01c-gpt-0817c1ece129-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218080637-002.png?v=1788287172": {
    "key": "c711a07c4c72d7fb",
@@ -16311,12 +16336,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218047869-001.jpg?v=1788287179": {
-   "key": "b49a0cea830adff7",
-   "w": 2400,
-   "h": 1792,
+   "key": "b49a0cea830adff7-gpt-a42be2d24b8e-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218047869-002.png?v=1788287178": {
    "key": "3304d7f912a799e0",
@@ -16327,12 +16353,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717831344509-001.jpg?v=1788286875": {
-   "key": "8a368943be75b2ce",
-   "w": 5000,
-   "h": 5000,
+   "key": "8a368943be75b2ce-gpt-1773252c6ff7-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717831344509-002.jpg?v=1788286872": {
    "key": "262dbed75744d08b",
@@ -16343,12 +16370,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217916797-001.jpg?v=1788287184": {
-   "key": "41ca531940f905ad",
-   "w": 788,
-   "h": 788,
+   "key": "41ca531940f905ad-gpt-26de2b960e1f-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217916797-002.png?v=1788287185": {
    "key": "367cdad8fc870582",
@@ -16367,12 +16395,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217490813-001.jpg?v=1788287193": {
-   "key": "753185813d2e21da",
-   "w": 1500,
-   "h": 1500,
+   "key": "753185813d2e21da-gpt-cb4b3fa97849-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217490813-002.jpg?v=1788287194": {
    "key": "88de5cb784f524b6",
@@ -16383,12 +16412,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217458045-001.jpg?v=1788287202": {
-   "key": "18b46dfc2e36100c",
-   "w": 2000,
-   "h": 2000,
+   "key": "18b46dfc2e36100c-gpt-363819add736-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217458045-002.jpg?v=1788287202": {
    "key": "59b2690fdb832f3c",
@@ -16399,12 +16429,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217425277-001.jpg?v=1788287209": {
-   "key": "6ac2183b0fd8e3ea",
-   "w": 1400,
-   "h": 1400,
+   "key": "6ac2183b0fd8e3ea-gpt-4263ef954d8a-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217425277-002.jpg?v=1788287209": {
    "key": "610d5778744b0822",
@@ -16423,12 +16454,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217392509-001.jpg?v=1788287218": {
-   "key": "c2fb788a2ed0c978",
-   "w": 2000,
-   "h": 2000,
+   "key": "c2fb788a2ed0c978-gpt-c00d66669f7b-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702217392509-002.jpg?v=1788287218": {
    "key": "d919862ace43e339",
