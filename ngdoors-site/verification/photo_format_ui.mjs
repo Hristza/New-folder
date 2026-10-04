@@ -28,7 +28,10 @@ const browser = await chromium.launch({headless: true,
   executablePath: 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe',
   args: ['--no-first-run', '--no-default-browser-check']});
 try {
-  for (const key of (process.argv.includes('--floors') ? ['floor:8685850263886', 'floor:16037974147406'] : ['door:2714', 'door:1820'])) {
+  const targets = process.argv.includes('--handles') ? ['door:1709', 'door:1710']
+    : process.argv.includes('--floors') ? ['floor:8685850263886', 'floor:16037974147406']
+    : ['door:2714', 'door:1820'];
+  for (const key of targets) {
     const item = catalogue.items.find(x => x.key === key);
     assert.ok(item, 'Missing target product');
     for (const width of [390, 1440]) {
@@ -43,6 +46,10 @@ try {
       assert.match(image.src, /-gpt-.*\.avif$/);
       assert.match(await page.evaluate(async src => (await fetch(src)).headers.get('content-type'), image.src), /image\/avif/);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      if (key === 'door:1709') {
+        const box = await page.locator('#pmain').boundingBox();
+        assert.ok(box.height < box.width * 0.75, 'Wide hardware photo must have a compact frame');
+      }
       assert.deepEqual(errors, []);
       await page.screenshot({path: `verification/photo-avif-${key.replace(':', '-')}-${width}-${live ? 'live' : 'local'}.png`});
       console.log(JSON.stringify({key, width, mode: live ? 'production' : 'local', avif_decoded: true, no_overflow: true, page_errors: errors.length}));

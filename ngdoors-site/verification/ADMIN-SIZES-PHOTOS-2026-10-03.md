@@ -1,6 +1,6 @@
 # NG Doors admin sizes and photos, 3 October 2026
 
-Scope: per-product size labels and individual EUR prices, catalogue and owner-added products, public size selection, preserve unsaved edits during photo uploads, and begin the authorised ChatGPT product-photo replacement.
+Scope: per-product size labels and individual EUR prices, catalogue and owner-added products, public size selection, preserve unsaved edits during photo uploads, and the authorised ChatGPT replacement of all 1,638 product source-photo URLs.
 
 ## Verification
 
@@ -9,7 +9,7 @@ Scope: per-product size labels and individual EUR prices, catalogue and owner-ad
 - Fixtures cover arbitrary size labels, distinct cent-accurate prices, one size, empty sizes, inherited catalogue prices, zero-price quotes, duplicate rejection, saved reload, owner-added products, wrong-password refusal, and retaining unsaved size edits across a photo upload.
 - Live Supabase migration `owner_door_size_prices`, version `20261003191547`, applied successfully. Product and override row counts and content fingerprints were identical before and after (both tables currently empty). Existing RLS policies remain in place.
 - A final build using live Supabase data produced 1,037 pages and 961 product pages. `check.py` passed; public files weigh 67.6 MB (initial six-photo build), above the approximate 60 MB target and below the 70 MB ceiling.
-- 321 of 1,638 product source-photo URLs now use inspected native ChatGPT renders. 319 native masters cover these URLs, including the initial aluminium, D, O, Z, T, KL, LCR and PVC entrance ranges. The M05/M06/M07 reference views share one accepted render after comparison; M05/M07 are exact image duplicates. Hardware, finish, panel design and frame were compared before acceptance. The 357 non-product image entries are unchanged. The pending ledger does not generate images automatically.
+- 345 of 1,638 product source-photo URLs now use inspected native ChatGPT renders. 343 native masters cover these URLs, including the initial aluminium, D, O, Z, T, KL, LCR and PVC entrance ranges. The M05/M06/M07 reference views share one accepted render after comparison; M05/M07 are exact image duplicates. Hardware, finish, panel design and frame were compared before acceptance. The 357 non-product image entries are unchanged. The pending ledger does not generate images automatically.
 
 ## Production acceptance
 
@@ -34,9 +34,9 @@ Scope: per-product size labels and individual EUR prices, catalogue and owner-ad
 
 ## Remaining work
 
-Publish the next accepted images and finish replacing the remaining product reference URLs (1,317 pending at this checkpoint). Main photos for remaining catalogue products are being prioritised before additional views. The full replacement queue contains 1,638 URLs with 1,103 distinct references when grouped by original dimensions and 600px bytes; the automatic reuse rule additionally requires every available reference resolution to match. The queue is not a background rendering worker. Magic-link inbox delivery has not been verified; the tested direct password route provides immediate access.
+Publish the next accepted images and finish replacing the remaining product reference URLs (1,293 pending at this checkpoint). Main photos for remaining catalogue products are being prioritised before additional views. The full replacement queue contains 1,638 URLs with 1,103 distinct references when grouped by original dimensions and 600px bytes; the automatic reuse rule additionally requires every available reference resolution to match. The queue is not a background rendering worker. Magic-link inbox delivery has not been verified; the tested direct password route provides immediate access.
 
-Photo batch validation: final build and check pass at 67.6 MB public, with all 321 replacement references resolvable. All 357 non-product image entries are unchanged from the original manifest. Reapplying the last image preserves its files after the source-key cleanup regression fix. Published sizes follow the existing catalogue resolution choices; native PNG masters remain available separately.
+Photo batch validation: final build and check pass at 67.6 MB public, with all 345 replacement references resolvable. All 357 non-product image entries are unchanged from the original manifest. Reapplying the last image preserves its files after the source-key cleanup regression fix. Published sizes follow the existing catalogue resolution choices; native PNG masters remain available separately.
 
 One Z-02 candidate was rejected because it invented a large pull handle. A corrected native render was inspected and accepted with the original fittings.
 
@@ -69,3 +69,7 @@ Actual owner Publish acceptance: two consecutive clean runs of live_publish_ui.m
 The 273-photo checkpoint, commit c49a38c064922c557b695b2cf0ffc7eedad6e6af, deployed as 9434beee-be4a-4ac7-9921-55f60558cdba on 4 October. All 40 new assets for twenty-four new reference URLs match production byte for byte. Local build and checks passed at 68.3 MB public.
 
 The 297-photo checkpoint, commit 6f876749e1af854fd42e67b74af0d6e072669986, deployed as 8a031403-12c3-4dde-a489-d5d41569f663, finished 00:54:39 UTC on 4 October. All 31 new assets for twenty-four new reference URLs match production byte for byte. Local build and checks passed at 67.2 MB public.
+
+The 321-photo checkpoint, commit 2bdafe0664d1deed9287d429b4110044c70af2b2, deployed as 2d70d01d-c8ee-421b-b16e-13d9f766ee45, finished 01:08:02 UTC on 4 October. All 24 new assets for twenty-four new reference URLs match production byte for byte. Local build and checks passed at 67.6 MB public.
+
+Wide hardware photos now use a compact 3:2 gallery frame. Portrait lock plates keep their tall frame. Two consecutive actual local Brave runs passed both products at 390px and 1440px, including a physical frame-height check. A first check failed because an edit to generated CSS was overwritten by the build. The source static/site.css was corrected and the rebuilt screens passed. Representative mobile wide-handle and desktop portrait-lock screenshots were inspected.

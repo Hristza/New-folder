@@ -1210,6 +1210,10 @@ def page_category(path):
 
 def page_product(rec):
     main = rec["images"][0]
+    photo = MANIFEST[main]
+    gallery_class = "gallery-main"
+    if rec["kind"] == "door" and photo["w"] > photo["h"]:
+        gallery_class += " gallery-wide"
     thumbs = ""
     if len(rec["images"]) > 1:
         thumbs = '<div class="thumbs">%s</div>' % "".join(
@@ -1251,7 +1255,7 @@ def page_product(rec):
 %s
 <div class="product">
   <div>
-    <button class="gallery-main" type="button" id="pmain" data-gallery='%s' aria-label="Уголеми снимката">%s</button>
+    <button class="%s" type="button" id="pmain" data-gallery='%s' aria-label="Уголеми снимката">%s</button>
     %s
   </div>
   <div>
@@ -1274,7 +1278,7 @@ def page_product(rec):
 </section>
 <section class="section"><div class="wrap"><a class="link-underline" href="%s">&#8249; Обратно към категорията</a></div></section>
 %s
-""" % (crumbs(trail), esc(lb),
+""" % (crumbs(trail), gallery_class, esc(lb),
        img_tag(main, rec["name"], "(max-width: 860px) 100vw, 620px", eager=True), thumbs,
        ('<span class="badge badge-%s">%s</span>' % (rec["badge"], BADGES[rec["badge"]])
         if rec.get("badge") in BADGES else "") +
