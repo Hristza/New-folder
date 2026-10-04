@@ -28,7 +28,8 @@ const browser = await chromium.launch({headless: true,
   executablePath: 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe',
   args: ['--no-first-run', '--no-default-browser-check']});
 try {
-  const targets = process.argv.includes('--handles') ? ['door:1709', 'door:1710']
+  const targets = process.argv.includes('--final') ? ['floor:8685849346382', 'floor:8685846823246']
+    : process.argv.includes('--handles') ? ['door:1709', 'door:1710']
     : process.argv.includes('--floors') ? ['floor:8685850263886', 'floor:16037974147406']
     : ['door:2714', 'door:1820'];
   for (const key of targets) {
@@ -49,6 +50,17 @@ try {
       if (key === 'door:1709') {
         const box = await page.locator('#pmain').boundingBox();
         assert.ok(box.height < box.width * 0.75, 'Wide hardware photo must have a compact frame');
+      }
+      if (process.argv.includes('--final')) {
+        const thumbs = page.locator('.thumb');
+        for (let i = 0; i < await thumbs.count(); i++) {
+          await thumbs.nth(i).click();
+          await page.waitForFunction(() => { const img = document.querySelector('#pmain img'); return img?.complete && img.naturalWidth > 0; });
+          const src = await page.locator('#pmain img').evaluate(img => img.currentSrc);
+          assert.match(src, /-gpt-.*\.avif$/);
+          assert.equal(await thumbs.nth(i).getAttribute('aria-current'), 'true');
+          assert.equal(await page.locator('#pmain').getAttribute('data-at'), String(i));
+        }
       }
       assert.deepEqual(errors, []);
       await page.screenshot({path: `verification/photo-avif-${key.replace(':', '-')}-${width}-${live ? 'live' : 'local'}.png`});
