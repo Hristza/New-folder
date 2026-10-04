@@ -13119,28 +13119,31 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15694031749468-002.jpg?v=1788299489": {
-   "key": "2ef9e7c3da92a23b",
-   "w": 1326,
-   "h": 825,
+   "key": "2ef9e7c3da92a23b-gpt-37fdc93dd326-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15694031749468-003.jpg?v=1788299490": {
-   "key": "7d9f000419e9fe6f",
-   "w": 2560,
-   "h": 1551,
+   "key": "7d9f000419e9fe6f-gpt-304907962a7a-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15694031749468-004.jpg?v=1788299488": {
-   "key": "424eadc1bda5ed8a",
-   "w": 402,
-   "h": 257,
+   "key": "424eadc1bda5ed8a-gpt-f1c330526003-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928380883325-001.jpg?v=1788286240": {
    "key": "3e57a13bb7c9c57f-gpt-8c8f92611ea4-avif-q55",
@@ -13152,20 +13155,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928380883325-002.jpg?v=1788286240": {
-   "key": "4e5b3ec4da7f7d64",
-   "w": 1820,
-   "h": 1364,
+   "key": "4e5b3ec4da7f7d64-gpt-24c454551a5f-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928380883325-003.png?v=1788286241": {
-   "key": "ba85103f44c9a701",
-   "w": 1166,
-   "h": 554,
+   "key": "ba85103f44c9a701-gpt-beebcb86f59b-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928383471997-001.jpg?v=1788286209": {
    "key": "3416bbee3a191f9b-gpt-e10fd737674c-avif-q55",
@@ -13177,20 +13182,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928383471997-002.jpg?v=1788286209": {
-   "key": "c2cd425b1e4f6510",
-   "w": 2048,
-   "h": 1365,
+   "key": "c2cd425b1e4f6510-gpt-422d4661ffcd-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928383471997-003.png?v=1788286209": {
-   "key": "946e27556eeaec05",
-   "w": 1167,
-   "h": 610,
+   "key": "946e27556eeaec05-gpt-84138202cc84-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928381178237-001.jpg?v=1788286233": {
    "key": "608449256baa0236-gpt-5991efe2a14c-avif-q55",
@@ -13202,20 +13209,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928381178237-002.jpg?v=1788286234": {
-   "key": "66cc745a7a569ef3",
-   "w": 1088,
-   "h": 816,
+   "key": "66cc745a7a569ef3-gpt-9e155b64f74d-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928381178237-003.png?v=1788286235": {
-   "key": "5607342d8d648a8c",
-   "w": 1148,
-   "h": 571,
+   "key": "5607342d8d648a8c-gpt-04023eab1a2b-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928381374845-001.jpg?v=1788286228": {
    "key": "fa781a94cb7eb020-gpt-b1ef44f82b56-avif-q55",
@@ -13227,20 +13236,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928381374845-002.jpg?v=1788286228": {
-   "key": "3db977b3ac4da148",
-   "w": 1500,
-   "h": 1000,
+   "key": "3db977b3ac4da148-gpt-008301960a8f-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928381374845-003.jpg?v=1788286229": {
-   "key": "e79fa6afe9eb3679",
-   "w": 878,
-   "h": 1345,
+   "key": "e79fa6afe9eb3679-gpt-9c1b10e9c77f-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15927725195645-001.jpg?v=1788286221": {
    "key": "784b681ad948a72a-gpt-4131772d8612-avif-q55",
@@ -13252,20 +13263,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15927725195645-002.jpg?v=1788286221": {
-   "key": "4356875eed12b1ed",
-   "w": 2048,
-   "h": 1512,
+   "key": "4356875eed12b1ed-gpt-f25b32ef9c24-avif-q55",
+   "w": 1460,
+   "h": 1078,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15927725195645-003.png?v=1788286221": {
-   "key": "57f3d999d552cfba",
-   "w": 1157,
-   "h": 625,
+   "key": "57f3d999d552cfba-gpt-8b7409219088-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654374375772-001.jpg?v=1788297452": {
    "key": "cfd4eca2c15b894f-gpt-9c0fd0b0bf0c-avif-q55",
@@ -13286,12 +13299,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654374277468-002.jpg?v=1788297414": {
-   "key": "206f886b5d501cee",
-   "w": 550,
-   "h": 550,
+   "key": "206f886b5d501cee-gpt-5e6dab28c239-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654374343004-001.jpg?v=1788297378": {
    "key": "81c8d0858d91a43f-gpt-14a190626b8f-avif-q55",
@@ -14977,12 +14991,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654340100444-002.jpg?v=1788297188": {
-   "key": "7c5abd90b00523af",
-   "w": 1000,
-   "h": 1371,
+   "key": "7c5abd90b00523af-gpt-546d09a4254e-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15879104332157-001.jpg?v=1788286788": {
    "key": "e203531edcaf3c1b-gpt-6a2970e0072c-avif-q55",
@@ -14994,20 +15009,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15879104332157-002.jpg?v=1788286788": {
-   "key": "4bb41ac5d6d6fa86",
-   "w": 1200,
-   "h": 790,
+   "key": "4bb41ac5d6d6fa86-gpt-d698614de77e-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15879104332157-003.jpg?v=1788286789": {
-   "key": "f2e7a546005b7d7f",
-   "w": 2000,
-   "h": 2668,
+   "key": "f2e7a546005b7d7f-gpt-20ed15d2da75-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-001.jpg?v=1788299309": {
    "key": "f156cd3ac4ea9fc1-gpt-5ef4900b29aa-avif-q55",
@@ -15019,52 +15036,58 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-002.jpg?v=1788299309": {
-   "key": "2b34653132775695",
-   "w": 1024,
-   "h": 768,
-   "sizes": [
-    600
-   ]
-  },
-  "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-003.jpg?v=1788299309": {
-   "key": "9f261ee0c8d76cd6",
-   "w": 1024,
-   "h": 768,
-   "sizes": [
-    600
-   ]
-  },
-  "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-004.jpg?v=1788299309": {
-   "key": "1cabf36d5eebb6ca",
-   "w": 1024,
-   "h": 768,
-   "sizes": [
-    600
-   ]
-  },
-  "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-005.jpg?v=1788299309": {
-   "key": "139d0c4a64564217",
-   "w": 768,
+   "key": "2b34653132775695-gpt-64acb2c82c60-avif-q55",
+   "w": 1536,
    "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
+  },
+  "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-003.jpg?v=1788299309": {
+   "key": "9f261ee0c8d76cd6-gpt-e7690004716e-avif-q55",
+   "w": 1536,
+   "h": 1024,
+   "sizes": [
+    600
+   ],
+   "format": "avif"
+  },
+  "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-004.jpg?v=1788299309": {
+   "key": "1cabf36d5eebb6ca-gpt-fe30a8dd399b-avif-q55",
+   "w": 1536,
+   "h": 1024,
+   "sizes": [
+    600
+   ],
+   "format": "avif"
+  },
+  "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-005.jpg?v=1788299309": {
+   "key": "139d0c4a64564217-gpt-3c0653f8fe30-avif-q55",
+   "w": 1536,
+   "h": 1024,
+   "sizes": [
+    600
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-006.jpg?v=1788299309": {
-   "key": "e12efe0fa08a25e4",
-   "w": 1024,
-   "h": 768,
+   "key": "e12efe0fa08a25e4-gpt-42ae0bc953af-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428672348-007.png?v=1788299309": {
-   "key": "37f06514c14527c7",
-   "w": 1024,
-   "h": 768,
+   "key": "37f06514c14527c7-gpt-8b49eae19ef7-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428574044-001.jpg?v=1788299298": {
    "key": "1d82110cb9cb6f2b-gpt-5fa42a90e193-q75",
@@ -15075,44 +15098,49 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428574044-002.jpg?v=1788299298": {
-   "key": "ca090a9f152202a4",
-   "w": 1024,
-   "h": 768,
+   "key": "ca090a9f152202a4-gpt-3088ad7c29bc-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428574044-003.jpg?v=1788299298": {
-   "key": "e694b103ec12b562",
-   "w": 1024,
-   "h": 768,
+   "key": "e694b103ec12b562-gpt-04492e5a0153-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428574044-004.jpg?v=1788299298": {
-   "key": "a615876f2bc116a3",
-   "w": 1024,
-   "h": 768,
+   "key": "a615876f2bc116a3-gpt-69bbdc5bfd09-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428574044-005.jpg?v=1788299298": {
-   "key": "06b0b1c595a372df",
-   "w": 1024,
-   "h": 768,
+   "key": "06b0b1c595a372df-gpt-163d7a19473c-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428574044-006.png?v=1788299298": {
-   "key": "ce3f82380a9250d3",
-   "w": 1024,
-   "h": 768,
+   "key": "ce3f82380a9250d3-gpt-c36d44e41f42-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428508508-001.jpg?v=1788301291": {
    "key": "0f6cee37331c63b4-gpt-b67a8e2f0986-avif-q55",
@@ -15124,44 +15152,49 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428508508-002.jpg?v=1788301291": {
-   "key": "0a7ed792e1661dc0",
-   "w": 1024,
-   "h": 768,
-   "sizes": [
-    600
-   ]
-  },
-  "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428508508-003.jpg?v=1788301291": {
-   "key": "55a3bda66efc5daf",
-   "w": 768,
+   "key": "0a7ed792e1661dc0-gpt-88cc6a75348f-avif-q55",
+   "w": 1536,
    "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
+  },
+  "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428508508-003.jpg?v=1788301291": {
+   "key": "55a3bda66efc5daf-gpt-853bc0532a61-avif-q55",
+   "w": 1536,
+   "h": 1024,
+   "sizes": [
+    600
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428508508-004.jpg?v=1788301291": {
-   "key": "6c2b94715aa1135b",
-   "w": 1024,
-   "h": 768,
+   "key": "6c2b94715aa1135b-gpt-5aa26d4dccf0-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428508508-005.jpg?v=1788301291": {
-   "key": "ddd88f56ef9f160f",
-   "w": 1024,
-   "h": 768,
+   "key": "ddd88f56ef9f160f-gpt-85b7a806ae5a-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654428508508-006.png?v=1788301291": {
-   "key": "82dd6b571341ac79",
-   "w": 1024,
-   "h": 768,
+   "key": "82dd6b571341ac79-gpt-8c10053f5081-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928392024445-001.jpg?v=1788286772": {
    "key": "9117c9088090e535-gpt-94767e2594fd-avif-q55",
@@ -15173,12 +15206,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15928392024445-002.jpg?v=1788286773": {
-   "key": "00ce2ad9407a109c",
-   "w": 5048,
-   "h": 3835,
+   "key": "00ce2ad9407a109c-gpt-05eefd6dc613-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/FN034COASTALOAK.jpg?v=1750421255": {
    "key": "a3433555cbd27d62-gpt-3d62c8eb3e09-avif-q55",
@@ -15190,12 +15224,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/FN034COASTALOAKi.jpg?v=1750421269": {
-   "key": "2ca8ea08be4e12c2",
-   "w": 5048,
-   "h": 3835,
+   "key": "2ca8ea08be4e12c2-gpt-4a820cf7356a-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654266962268-001.jpg?v=1788299912": {
    "key": "103dbaf27d2b5f1e-gpt-4799115f2757-avif-q55",
@@ -15207,28 +15242,31 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654266962268-002.jpg?v=1788299912": {
-   "key": "03bc31b06d73adda",
-   "w": 1080,
-   "h": 1080,
+   "key": "03bc31b06d73adda-gpt-0205ca906377-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654266962268-003.jpg?v=1788299912": {
-   "key": "b92c7435addde959",
-   "w": 1080,
-   "h": 1620,
+   "key": "b92c7435addde959-gpt-e7b9cfc08735-avif-q55",
+   "w": 1024,
+   "h": 1536,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654266962268-004.jpg?v=1788299912": {
-   "key": "520da1de99235096",
-   "w": 1080,
-   "h": 1080,
+   "key": "520da1de99235096-gpt-b942a012b0b9-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654266667356-001.jpg?v=1788295677": {
    "key": "f9bb224c4550437a-gpt-23852d0a0b5f-avif-q55",
@@ -15240,20 +15278,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654266667356-002.jpg?v=1788295677": {
-   "key": "847240ed0f1c2841",
-   "w": 1080,
-   "h": 1080,
+   "key": "847240ed0f1c2841-gpt-812fa2adac38-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654266667356-003.jpg?v=1788295677": {
-   "key": "aa5efc5dddc00396",
-   "w": 1080,
-   "h": 1620,
+   "key": "aa5efc5dddc00396-gpt-a0ebe6f312c8-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717451694461-001.jpg?v=1788286889": {
    "key": "0751ef9f22f89c61-gpt-99352e1e3170-avif-q55",
@@ -15265,12 +15305,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717451694461-002.jpg?v=1788286889": {
-   "key": "78b09780270cd167",
-   "w": 900,
-   "h": 480,
+   "key": "78b09780270cd167-gpt-6a597efbae37-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717930762621-001.jpg?v=1788286865": {
    "key": "bf341654d094c832-gpt-508420b8b601-avif-q55",
@@ -15282,12 +15323,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717930762621-002.jpg?v=1788286865": {
-   "key": "e997e6458eddaab9",
-   "w": 1200,
-   "h": 800,
+   "key": "e997e6458eddaab9-gpt-8a5bef424129-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411436380-001.jpg?v=1788298978": {
    "key": "bdb1599088226a40-gpt-0b01a0044a17-avif-q55",
@@ -15299,20 +15341,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411436380-002.jpg?v=1788298977": {
-   "key": "d1c7b22d0c23d5fe",
-   "w": 891,
-   "h": 1191,
+   "key": "d1c7b22d0c23d5fe-gpt-73c185532d5e-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411436380-003.jpg?v=1788298977": {
-   "key": "7d1a44df5c3c17dd",
-   "w": 1920,
-   "h": 1269,
+   "key": "7d1a44df5c3c17dd-gpt-11aee8ddb71b-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411469148-001.jpg?v=1788298978": {
    "key": "ce24e73ef0d29d58-gpt-77062e7d47e5-avif-q55",
@@ -15324,20 +15368,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411469148-002.jpg?v=1788298977": {
-   "key": "922239029b426f4a",
-   "w": 891,
-   "h": 1191,
+   "key": "922239029b426f4a-gpt-231c1123f8e2-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411469148-003.jpg?v=1788298978": {
-   "key": "47243518cdeefc8b",
-   "w": 1920,
-   "h": 1269,
+   "key": "47243518cdeefc8b-gpt-91ba1a2f904d-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411501916-001.jpg?v=1788299042": {
    "key": "6c6381d1c89712b3-gpt-8594d5b98525-avif-q55",
@@ -15349,20 +15395,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411501916-002.jpg?v=1788299042": {
-   "key": "9a195c4adb650d44",
-   "w": 891,
-   "h": 1191,
+   "key": "9a195c4adb650d44-gpt-b7a08163756c-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654411501916-003.jpg?v=1788299042": {
-   "key": "3c4d31c5563055c0",
-   "w": 1920,
-   "h": 1269,
+   "key": "3c4d31c5563055c0-gpt-cc7ceeb47f4c-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702216966525-001.jpg?v=1788287315": {
    "key": "5e41791eafcc1952-gpt-19439e37a164-avif-q55",
@@ -15374,12 +15422,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702216966525-002.png?v=1788287316": {
-   "key": "4cad303aed0fc1f7",
-   "w": 485,
-   "h": 800,
+   "key": "4cad303aed0fc1f7-gpt-abb5ffd30fbb-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701382136189-001.jpg?v=1788287576": {
    "key": "4512be5ef1b873a3-gpt-1d1e07baf0fb-avif-q55",
@@ -15391,20 +15440,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701382136189-002.png?v=1788287577": {
-   "key": "4044a7f0a8732912",
-   "w": 265,
-   "h": 353,
+   "key": "4044a7f0a8732912-gpt-a523863bde00-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701382136189-003.png?v=1788287577": {
-   "key": "f58e10ade87c5c2f",
-   "w": 450,
-   "h": 300,
+   "key": "f58e10ade87c5c2f-gpt-04a984d3dd0e-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749960761725-001.jpg?v=1788340491": {
    "key": "d1e8475759fabe69-gpt-367931501128-avif-q55",
@@ -15416,28 +15467,31 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749960761725-002.png?v=1788340491": {
-   "key": "ba2fb3bd3b6f4cf9",
-   "w": 435,
-   "h": 326,
+   "key": "ba2fb3bd3b6f4cf9-gpt-0940dd8959e9-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749960761725-003.png?v=1788340491": {
-   "key": "4779f8444c8e8ab0",
-   "w": 414,
-   "h": 488,
+   "key": "4779f8444c8e8ab0-gpt-64972137eefd-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749960761725-004.png?v=1788340491": {
-   "key": "97acadc94d9ca232",
-   "w": 940,
-   "h": 788,
+   "key": "97acadc94d9ca232-gpt-204292908a07-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749960892797-001.jpg?v=1788286824": {
    "key": "167159efee867eda-gpt-4f8c2bc9c630-avif-q55",
@@ -15449,28 +15503,31 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749960892797-002.jpg?v=1788286825": {
-   "key": "7a4043d8202abaf7",
-   "w": 960,
-   "h": 738,
+   "key": "7a4043d8202abaf7-gpt-ce8858eba1f1-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749960892797-003.jpg?v=1788286825": {
-   "key": "4f83e7790d73f673",
-   "w": 952,
-   "h": 1344,
+   "key": "4f83e7790d73f673-gpt-f66c9297c196-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749960892797-004.jpg?v=1788286824": {
-   "key": "9f81689ed694e06f",
-   "w": 950,
-   "h": 955,
+   "key": "9f81689ed694e06f-gpt-07bf0074efc5-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726383628636-001.webp?v=1788299504": {
    "key": "7a2e9309f33fc823-gpt-6013032aa7f7-avif-q55",
@@ -15482,12 +15539,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726383628636-002.webp?v=1788299504": {
-   "key": "3425b003b0738433",
-   "w": 1200,
-   "h": 800,
+   "key": "3425b003b0738433-gpt-2421f78e4048-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701382332797-001.jpg?v=1788287563": {
    "key": "dcfa30a24dd92988-gpt-5785959d7b2f-avif-q55",
@@ -15499,28 +15557,31 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701382332797-002.png?v=1788287563": {
-   "key": "7abca86f375144f4",
-   "w": 532,
-   "h": 355,
+   "key": "7abca86f375144f4-gpt-c9e6c20c3fac-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701382332797-003.png?v=1788287563": {
-   "key": "2471623cb950bd03",
-   "w": 265,
-   "h": 353,
+   "key": "2471623cb950bd03-gpt-63dec7ee3dc7-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701382332797-004.png?v=1788287563": {
-   "key": "092069d7e80e95ef",
-   "w": 443,
-   "h": 268,
+   "key": "092069d7e80e95ef-gpt-828e189ca5de-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749959909757-001.jpg?v=1788286839": {
    "key": "3268da41d47b80fa-gpt-8fdbf9ffccdb-avif-q55",
@@ -15532,20 +15593,22 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749959909757-002.jpg?v=1788286839": {
-   "key": "c061e10e31ad4035",
-   "w": 472,
-   "h": 354,
+   "key": "c061e10e31ad4035-gpt-a6cc03ff9ff9-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15749959909757-003.jpg?v=1788286839": {
-   "key": "b286268238bace58",
-   "w": 265,
-   "h": 353,
+   "key": "b286268238bace58-gpt-fe5c33c89e36-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/3032.jpg?v=1745415017": {
    "key": "ddb17d3b9b6e6d75-gpt-5159887dad8e-avif-q55",
@@ -15557,12 +15620,13 @@
    "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/3032i.jpg?v=1745415036": {
-   "key": "4bc2dbe06adeee6b",
-   "w": 2000,
-   "h": 1567,
+   "key": "4bc2dbe06adeee6b-gpt-b93312a480e0-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701612102013-001.jpg?v=1788341254": {
    "key": "a1bb0ce38d0bb047-gpt-a7d7b2ef2d66-avif-q55",
