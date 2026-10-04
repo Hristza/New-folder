@@ -2521,203 +2521,227 @@
    "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_64242080d2dc1_6380c8258bbf9_d503c575a30fa.png": {
-   "key": "bd94f38cbd5f6e11",
-   "w": 972,
-   "h": 2000,
+   "key": "bd94f38cbd5f6e11-gpt-07fae95f18da-avif-q55",
+   "w": 875,
+   "h": 1798,
    "sizes": [
     600,
     1200
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6424216b33781_6380c836c549a_78bfd7554b40e.png": {
-   "key": "7b86c378550ad983",
-   "w": 971,
-   "h": 1999,
+   "key": "7b86c378550ad983-gpt-793bd9d06694-avif-q55",
+   "w": 875,
+   "h": 1798,
    "sizes": [
     600,
     1200
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6424237b40b25_6380c836c549a_d545847beb20c.png": {
-   "key": "32ed29add6877ff9",
-   "w": 971,
-   "h": 1999,
+   "key": "32ed29add6877ff9-gpt-a5bca201c4f1-avif-q55",
+   "w": 875,
+   "h": 1798,
    "sizes": [
     600,
     1200
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6424244c8c987_6380c836c549a_30729f6f8e809.png": {
-   "key": "98990ad4ca32c308",
-   "w": 971,
-   "h": 1999,
+   "key": "98990ad4ca32c308-gpt-1e7743f1439c-avif-q55",
+   "w": 875,
+   "h": 1798,
    "sizes": [
     600,
     1200
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_642425ba2c52c_6380c836c549a_169444c4c9da3.png": {
-   "key": "0a4721649f9149df",
-   "w": 971,
-   "h": 1999,
+   "key": "0a4721649f9149df-gpt-c99e47a50957-avif-q55",
+   "w": 874,
+   "h": 1799,
    "sizes": [
     600,
     1200
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_642426e7bf8d9_6380c8258bbf9_a7475b203801a.png": {
-   "key": "381b25c8e6884f58",
-   "w": 972,
-   "h": 2000,
+   "key": "381b25c8e6884f58-gpt-2e24cdf5af27-avif-q55",
+   "w": 875,
+   "h": 1798,
    "sizes": [
     600,
     1200
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_642428c95de6d_6380c8258bbf9_22206451dd566.png": {
-   "key": "7cb40de2aa279f16",
-   "w": 972,
-   "h": 2000,
+   "key": "7cb40de2aa279f16-gpt-44f1f1e565d3-avif-q55",
+   "w": 875,
+   "h": 1798,
    "sizes": [
     600,
     1200
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6424299aa0b1c_6380c80588ec9_10b2dc8723e5e.png": {
-   "key": "6223e18acd928214",
-   "w": 328,
-   "h": 651,
+   "key": "6223e18acd928214-gpt-2ec2964ff6e9-avif-q55",
+   "w": 890,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_64242b1c43bfe_6380c80588ec9_e1b9ee2c74eb4.png": {
-   "key": "d6483ba7c83401d3",
-   "w": 328,
-   "h": 651,
+   "key": "d6483ba7c83401d3-gpt-d94c96d9328b-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_63fe01a57f674_6380c80588ec9_7e2c1036a4938.png": {
-   "key": "47dd061eca7d6fab",
-   "w": 328,
-   "h": 651,
+   "key": "47dd061eca7d6fab-gpt-6d0795e5600a-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_63fe09f464be3_6380c80588ec9_535a0c56fa3ef.png": {
-   "key": "813430d3ef7c53dd",
-   "w": 328,
-   "h": 651,
+   "key": "813430d3ef7c53dd-gpt-11b13f6d524a-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_64242dc0a24f5_6380c80588ec9_fb69831300d48.png": {
-   "key": "628f8f22be95ed0a",
-   "w": 328,
-   "h": 651,
+   "key": "628f8f22be95ed0a-gpt-521a3a7c63cb-avif-q55",
+   "w": 889,
+   "h": 1769,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c215a00126b_60ad0946879c8_dc2720eec1493.png": {
-   "key": "16ea5ec609fbda71",
-   "w": 328,
-   "h": 651,
+   "key": "16ea5ec609fbda71-gpt-b3f5f2c43c97-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c20e882ff40_5c7042b6b7ede_215cd657efed1.png": {
-   "key": "670d5bc4041643a5",
-   "w": 328,
-   "h": 651,
+   "key": "670d5bc4041643a5-gpt-bbf48afc01d3-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c2161dd51f9_60ad0946879c8_3e40214126047.png": {
-   "key": "a96b8ce4e2d78558",
-   "w": 328,
-   "h": 651,
+   "key": "a96b8ce4e2d78558-gpt-a10749b1a958-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c2143f171a3_5c7042b6b7ede_2a8febac85a42.png": {
-   "key": "a095f278c4ccdef6",
-   "w": 328,
-   "h": 651,
+   "key": "a095f278c4ccdef6-gpt-88bcb807db45-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c20886d0ce3_5c7042b6b7ede_ece28c3c360c7.png": {
-   "key": "6742a5fa1fe7fff9",
-   "w": 328,
-   "h": 651,
+   "key": "6742a5fa1fe7fff9-gpt-03f3ca80e61e-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c20cb40fc7e_60ad0946879c8_a7069bdcac67d.png": {
-   "key": "9e465d0ef59677bd",
-   "w": 328,
-   "h": 651,
+   "key": "9e465d0ef59677bd-gpt-1f3659790005-avif-q55",
+   "w": 890,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c20ae2d5861_5c7042b6b7ede_a4804c547dc28.png": {
-   "key": "6412270dcb4d7e82",
-   "w": 328,
-   "h": 651,
+   "key": "6412270dcb4d7e82-gpt-08a2f84af24a-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c20d5035459_60ad0946879c8_23cfbca4871f2.png": {
-   "key": "e56a08519ecdac8a",
-   "w": 328,
-   "h": 651,
+   "key": "e56a08519ecdac8a-gpt-36314a0fb3f3-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c1ed5d4d662_5c7042b6b7ede_7e513faf9b10e.png": {
-   "key": "e525b4a3011125be",
-   "w": 328,
-   "h": 651,
+   "key": "e525b4a3011125be-gpt-d795796a541a-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c1eee48072a_60ad09094d463_7d98522f0c451.png": {
-   "key": "e8b38a4c06cd9cb5",
-   "w": 328,
-   "h": 651,
+   "key": "e8b38a4c06cd9cb5-gpt-305953b8c561-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c1f074e752a_5c7042b6b7ede_6c0e5fe61bb3a.png": {
-   "key": "287b8c8e663b48ca",
-   "w": 328,
-   "h": 651,
+   "key": "287b8c8e663b48ca-gpt-ce55e523a92b-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c1f2e5a7936_60ad0926c1f04_5497ea9c50df7.png": {
-   "key": "872b0aa8bd695664",
-   "w": 328,
-   "h": 651,
+   "key": "872b0aa8bd695664-gpt-ce2a5329b760-avif-q55",
+   "w": 889,
+   "h": 1768,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60c1d1ee5a25f_5c7042b6b7ede_2eb0420ba4f06.png": {
    "key": "b4b1825aa508d6f4",
