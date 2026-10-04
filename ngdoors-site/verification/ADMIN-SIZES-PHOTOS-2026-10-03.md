@@ -9,7 +9,7 @@ Scope: per-product size labels and individual EUR prices, catalogue and owner-ad
 - Fixtures cover arbitrary size labels, distinct cent-accurate prices, one size, empty sizes, inherited catalogue prices, zero-price quotes, duplicate rejection, saved reload, owner-added products, wrong-password refusal, and retaining unsaved size edits across a photo upload.
 - Live Supabase migration `owner_door_size_prices`, version `20261003191547`, applied successfully. Product and override row counts and content fingerprints were identical before and after (both tables currently empty). Existing RLS policies remain in place.
 - A final build using live Supabase data produced 1,037 pages and 961 product pages. `check.py` passed; public files weigh 67.6 MB (initial six-photo build), above the approximate 60 MB target and below the 70 MB ceiling.
-- 249 of 1,638 product source-photo URLs now use inspected native ChatGPT renders. 247 native masters cover these URLs, including the initial aluminium, D, O, Z, T, KL, LCR and PVC entrance ranges. The M05/M06/M07 reference views share one accepted render after comparison; M05/M07 are exact image duplicates. Hardware, finish, panel design and frame were compared before acceptance. The 357 non-product image entries are unchanged. The pending ledger does not generate images automatically.
+- 273 of 1,638 product source-photo URLs now use inspected native ChatGPT renders. 271 native masters cover these URLs, including the initial aluminium, D, O, Z, T, KL, LCR and PVC entrance ranges. The M05/M06/M07 reference views share one accepted render after comparison; M05/M07 are exact image duplicates. Hardware, finish, panel design and frame were compared before acceptance. The 357 non-product image entries are unchanged. The pending ledger does not generate images automatically.
 
 ## Production acceptance
 
@@ -34,9 +34,9 @@ Scope: per-product size labels and individual EUR prices, catalogue and owner-ad
 
 ## Remaining work
 
-Publish the next accepted images and finish replacing the remaining product reference URLs (1,389 pending at this checkpoint). Main photos for remaining catalogue products are being prioritised before additional views. The full replacement queue contains 1,638 URLs with 1,103 distinct references when grouped by original dimensions and 600px bytes; the automatic reuse rule additionally requires every available reference resolution to match. The queue is not a background rendering worker. Magic-link inbox delivery has not been verified; the tested direct password route provides immediate access.
+Publish the next accepted images and finish replacing the remaining product reference URLs (1,365 pending at this checkpoint). Main photos for remaining catalogue products are being prioritised before additional views. The full replacement queue contains 1,638 URLs with 1,103 distinct references when grouped by original dimensions and 600px bytes; the automatic reuse rule additionally requires every available reference resolution to match. The queue is not a background rendering worker. Magic-link inbox delivery has not been verified; the tested direct password route provides immediate access.
 
-Photo batch validation: final build and check pass at 69.8 MB public, with all 249 replacement references resolvable. All 357 non-product image entries are unchanged from the original manifest. Reapplying the last image preserves its files after the source-key cleanup regression fix. Published sizes follow the existing catalogue resolution choices; native PNG masters remain available separately.
+Photo batch validation: final build and check pass at 68.3 MB public, with all 273 replacement references resolvable. All 357 non-product image entries are unchanged from the original manifest. Reapplying the last image preserves its files after the source-key cleanup regression fix. Published sizes follow the existing catalogue resolution choices; native PNG masters remain available separately.
 
 One Z-02 candidate was rejected because it invented a large pull handle. A corrected native render was inspected and accepted with the original fittings.
 
@@ -61,3 +61,7 @@ The 209-photo checkpoint, commit 186b049c9c982c0b1453a11a94fd1026cb31dfd4, deplo
 The 233-photo checkpoint, commit b6f6c4078008448939e6c76df1d66fbe1edff487, deployed as e1361a6f-ed3a-48da-bda6-9a3b18652e5a, finished 23:46:28 UTC. All 24 new assets for twenty-four new reference URLs match production byte for byte.
 
 The new AVIF oak D3910 and stone-look FT013 floor pages passed actual headless Brave checks locally and on production at 390px and 1440px: image decoded, image/avif MIME type, no page errors and no horizontal overflow. Encoded color/grain comparisons and representative production screenshots were inspected.
+
+The 249-photo checkpoint, commit ba20c6d14413cce167794e4d2624943362c6d7f5, deployed as 4c628a6c-37cf-4d60-bd5f-30e27a5e59a8, finished 23:59:35 UTC. All 18 new assets for sixteen new reference URLs match production byte for byte.
+
+Actual owner Publish acceptance: two consecutive clean runs of live_publish_ui.mjs passed real password login, the real Publish button, HTTP 200 and the visible success message. Cloudflare deploy_hook builds on main completed successfully: 0e746607-758c-48f9-99ef-299e19dc0d0d at 00:12:32 UTC, 6e0293d2-a071-4f67-8e79-cd07edd0b4f0 at 00:16:58 UTC, and 7440b6c6-6523-4e26-961d-d4be3e4fa887 at 00:20:40 UTC on 4 October. The first test incorrectly checked a CSS class after a successful HTTP response; the check was corrected to the real data-state attribute. This was a test error. No app change was needed. The successful admin screen was inspected. Publish audit rows were kept. No product data was changed by these button checks.
