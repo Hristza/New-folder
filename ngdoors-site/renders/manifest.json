@@ -36399,7 +36399,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701612102013-002.jpg?v=1788341254": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "65091e053d4a5954",
       "w": 1497,
@@ -36411,10 +36411,21 @@
     "products": [
       "floor:9789562847566"
     ],
-    "reference_sha256": "57c891c344580c66bce9e2a711bc49b981059f5bcd642838d6df375ae40becaa"
+    "reference_sha256": "57c891c344580c66bce9e2a711bc49b981059f5bcd642838d6df375ae40becaa",
+    "generated": {
+      "key": "65091e053d4a5954-gpt-a10a4527a8e3-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\65091e053d4a5954-gpt-a10a4527a8e3-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701612102013-003.jpg?v=1788341254": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "c181209ff68293f4",
       "w": 1500,
@@ -36426,7 +36437,18 @@
     "products": [
       "floor:9789562847566"
     ],
-    "reference_sha256": "f457abccd5456d72e67a5d7940fa0f8bfaced5a44ba1b00336bb70f6fc9686e1"
+    "reference_sha256": "f457abccd5456d72e67a5d7940fa0f8bfaced5a44ba1b00336bb70f6fc9686e1",
+    "generated": {
+      "key": "c181209ff68293f4-gpt-8b0baba49bc1-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\c181209ff68293f4-gpt-8b0baba49bc1-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853372797-001.jpg?v=1788287529": {
     "state": "accepted",
@@ -36455,7 +36477,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853372797-002.jpg?v=1788287528": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "225d48264d6692c3",
       "w": 1497,
@@ -36467,10 +36489,21 @@
     "products": [
       "floor:9789554000206"
     ],
-    "reference_sha256": "3ae5159e59e331170a6cb4a960296251cd436bf8e50c97d931e7ca2a668ecd67"
+    "reference_sha256": "3ae5159e59e331170a6cb4a960296251cd436bf8e50c97d931e7ca2a668ecd67",
+    "generated": {
+      "key": "225d48264d6692c3-gpt-038aab9c6def-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\225d48264d6692c3-gpt-038aab9c6def-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853372797-003.jpg?v=1788287529": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "828ee5204cbe34e7",
       "w": 1500,
@@ -36482,7 +36515,18 @@
     "products": [
       "floor:9789554000206"
     ],
-    "reference_sha256": "b9e06220af43295a1f75e71267c1b41f5ec2e18ff3acdd36da76045ff3cf8bdf"
+    "reference_sha256": "b9e06220af43295a1f75e71267c1b41f5ec2e18ff3acdd36da76045ff3cf8bdf",
+    "generated": {
+      "key": "828ee5204cbe34e7-gpt-2980519ff5b0-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\828ee5204cbe34e7-gpt-2980519ff5b0-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/4035.jpg?v=1728288621": {
     "state": "accepted",
@@ -36510,7 +36554,7 @@
     "encoding_quality": 75
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/4035i.jpg?v=1728288588": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "939921d7fc8fed1e",
       "w": 844,
@@ -36522,7 +36566,18 @@
     "products": [
       "floor:9789551247694"
     ],
-    "reference_sha256": "7d2aa6d3257deeb4c81f5a2df6de9570a9c1abb0cee7d77e74931c2558eeb7c2"
+    "reference_sha256": "7d2aa6d3257deeb4c81f5a2df6de9570a9c1abb0cee7d77e74931c2558eeb7c2",
+    "generated": {
+      "key": "939921d7fc8fed1e-gpt-37eceb9c685c-avif-q55",
+      "w": 1024,
+      "h": 1536,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\939921d7fc8fed1e-gpt-37eceb9c685c-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853569405-001.jpg?v=1788287514": {
     "state": "accepted",
@@ -36551,7 +36606,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853569405-002.jpg?v=1788287515": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "a7a433b489d0db1e",
       "w": 844,
@@ -36563,7 +36618,18 @@
     "products": [
       "floor:9789542334798"
     ],
-    "reference_sha256": "f62e4c3d4ef490ad53f8e4e21681542d4a0188389b9ac5a6d358da88b1e363fb"
+    "reference_sha256": "f62e4c3d4ef490ad53f8e4e21681542d4a0188389b9ac5a6d358da88b1e363fb",
+    "generated": {
+      "key": "a7a433b489d0db1e-gpt-d884d7f1b115-avif-q55",
+      "w": 1024,
+      "h": 1536,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\a7a433b489d0db1e-gpt-d884d7f1b115-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853864317-001.jpg?v=1788287496": {
     "state": "accepted",
@@ -36592,7 +36658,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853864317-002.jpg?v=1788287495": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f4e63e16454fb6f2",
       "w": 1500,
@@ -36604,7 +36670,18 @@
     "products": [
       "floor:9789540827470"
     ],
-    "reference_sha256": "faeda696cfc81e59f604725c218617499f1ee2049f267ad5528c3869ff30e2e1"
+    "reference_sha256": "faeda696cfc81e59f604725c218617499f1ee2049f267ad5528c3869ff30e2e1",
+    "generated": {
+      "key": "f4e63e16454fb6f2-gpt-230c2ed16b2f-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\f4e63e16454fb6f2-gpt-230c2ed16b2f-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853733245-001.jpg?v=1788287507": {
     "state": "accepted",
@@ -36633,7 +36710,7 @@
     "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853569405-001.jpg?v=1788287514"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853733245-002.jpg?v=1788287508": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "006e0647d6eccadd",
       "w": 1500,
@@ -36645,7 +36722,18 @@
     "products": [
       "floor:9789540303182"
     ],
-    "reference_sha256": "ab8e0e7ddfd29b93758ebde55601172a32f63a26d7c2a122cd88d59f8c8c631d"
+    "reference_sha256": "ab8e0e7ddfd29b93758ebde55601172a32f63a26d7c2a122cd88d59f8c8c631d",
+    "generated": {
+      "key": "006e0647d6eccadd-gpt-87bba058658f-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\006e0647d6eccadd-gpt-87bba058658f-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853503869-001.jpg?v=1788287522": {
     "state": "accepted",
@@ -36674,7 +36762,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853503869-002.jpg?v=1788287522": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "bcdce497626ab617",
       "w": 1500,
@@ -36686,7 +36774,18 @@
     "products": [
       "floor:9789539746126"
     ],
-    "reference_sha256": "1faf88c69fee696a67849c793c64100fc9516e579995d97fec79d9bcfda7c640"
+    "reference_sha256": "1faf88c69fee696a67849c793c64100fc9516e579995d97fec79d9bcfda7c640",
+    "generated": {
+      "key": "bcdce497626ab617-gpt-a38cfb938af2-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\bcdce497626ab617-gpt-a38cfb938af2-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853667709-001.jpg?v=1788284520": {
     "state": "accepted",
@@ -36715,7 +36814,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853667709-002.jpg?v=1788284519": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "50ba73dd0953511e",
       "w": 1500,
@@ -36727,10 +36826,21 @@
     "products": [
       "floor:9789538304334"
     ],
-    "reference_sha256": "3e0c738c3f8119643a3dbb1ca1e23a9bc964a63f2179b251638d645f56aa7656"
+    "reference_sha256": "3e0c738c3f8119643a3dbb1ca1e23a9bc964a63f2179b251638d645f56aa7656",
+    "generated": {
+      "key": "50ba73dd0953511e-gpt-ca5226fc75f8-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\50ba73dd0953511e-gpt-ca5226fc75f8-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853667709-003.jpg?v=1788284519": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "c34887718a367f79",
       "w": 1500,
@@ -36742,7 +36852,18 @@
     "products": [
       "floor:9789538304334"
     ],
-    "reference_sha256": "655f2a60f08e7305cc63c0be9ab26aea8f24e529f4d7259b2a0e32d1a1d28eb8"
+    "reference_sha256": "655f2a60f08e7305cc63c0be9ab26aea8f24e529f4d7259b2a0e32d1a1d28eb8",
+    "generated": {
+      "key": "c34887718a367f79-gpt-c2926ed788bf-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\c34887718a367f79-gpt-c2926ed788bf-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853798781-001.jpg?v=1788287502": {
     "state": "accepted",
@@ -36771,7 +36892,7 @@
     "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853667709-001.jpg?v=1788284520"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853798781-002.jpg?v=1788287502": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "4393557f9d2fefef",
       "w": 1500,
@@ -36783,10 +36904,21 @@
     "products": [
       "floor:9789537222990"
     ],
-    "reference_sha256": "3e0c738c3f8119643a3dbb1ca1e23a9bc964a63f2179b251638d645f56aa7656"
+    "reference_sha256": "3e0c738c3f8119643a3dbb1ca1e23a9bc964a63f2179b251638d645f56aa7656",
+    "generated": {
+      "key": "50ba73dd0953511e-gpt-ca5226fc75f8-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\50ba73dd0953511e-gpt-ca5226fc75f8-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853667709-002.jpg?v=1788284519"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701853798781-003.jpg?v=1788287502": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "22e6396166f48067",
       "w": 844,
@@ -36798,7 +36930,18 @@
     "products": [
       "floor:9789537222990"
     ],
-    "reference_sha256": "2422c598e3d3c9707a2da14bcb6cc0a3043f2aa29ae4ee581bfd8b16a6a6734f"
+    "reference_sha256": "2422c598e3d3c9707a2da14bcb6cc0a3043f2aa29ae4ee581bfd8b16a6a6734f",
+    "generated": {
+      "key": "22e6396166f48067-gpt-2deb77bb18f4-avif-q55",
+      "w": 1024,
+      "h": 1536,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\22e6396166f48067-gpt-2deb77bb18f4-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701988180349-001.jpg?v=1788287460": {
     "state": "accepted",
@@ -36827,7 +36970,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701988180349-002.jpg?v=1788287463": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "fecd4dbe1714232d",
       "w": 1352,
@@ -36839,10 +36982,21 @@
     "products": [
       "floor:9785799049550"
     ],
-    "reference_sha256": "2314a6b255d55301b6e64238bcbfc845c46c43ae1f9d60b6003568c1bff167b7"
+    "reference_sha256": "2314a6b255d55301b6e64238bcbfc845c46c43ae1f9d60b6003568c1bff167b7",
+    "generated": {
+      "key": "fecd4dbe1714232d-gpt-31333daa4167-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\fecd4dbe1714232d-gpt-31333daa4167-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701988180349-003.png?v=1788287460": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "52fb11a51c01185e",
       "w": 1024,
@@ -36854,7 +37008,18 @@
     "products": [
       "floor:9785799049550"
     ],
-    "reference_sha256": "56bcae5a9b56698284688d2d15927e098dc9a9c139b25e078ba5d467f5f7c609"
+    "reference_sha256": "56bcae5a9b56698284688d2d15927e098dc9a9c139b25e078ba5d467f5f7c609",
+    "generated": {
+      "key": "52fb11a51c01185e-gpt-dbd772236477-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\52fb11a51c01185e-gpt-dbd772236477-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701988344189-001.jpg?v=1788287444": {
     "state": "accepted",
@@ -36883,7 +37048,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701988344189-002.jpg?v=1788287446": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "5f24b5b1d7653b12",
       "w": 1352,
@@ -36895,10 +37060,21 @@
     "products": [
       "floor:9785805996366"
     ],
-    "reference_sha256": "51644c0098a7ee763ab0b01821d9ee41d5c9673b519095bc58cc00f7d155dc96"
+    "reference_sha256": "51644c0098a7ee763ab0b01821d9ee41d5c9673b519095bc58cc00f7d155dc96",
+    "generated": {
+      "key": "5f24b5b1d7653b12-gpt-e2b126924979-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\5f24b5b1d7653b12-gpt-e2b126924979-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701988344189-003.png?v=1788287444": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "861c154b31930366",
       "w": 1024,
@@ -36910,7 +37086,18 @@
     "products": [
       "floor:9785805996366"
     ],
-    "reference_sha256": "8bfaadfa76a0fecc69a6d18352642c863c886e8ed4c4e155102a4dc8843655e7"
+    "reference_sha256": "8bfaadfa76a0fecc69a6d18352642c863c886e8ed4c4e155102a4dc8843655e7",
+    "generated": {
+      "key": "861c154b31930366-gpt-a140a6f686b8-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\861c154b31930366-gpt-a140a6f686b8-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654342295900-001.jpg?v=1788300183": {
     "state": "accepted",
@@ -36939,7 +37126,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654342295900-002.jpg?v=1788300184": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "2a4fa1a3d23d3c87",
       "w": 1376,
@@ -36951,7 +37138,18 @@
     "products": [
       "floor:9785794855246"
     ],
-    "reference_sha256": "a2e5b75230f6106939e1a1bb5b7178b2f3794b0658163a92d65ce5f8220356df"
+    "reference_sha256": "a2e5b75230f6106939e1a1bb5b7178b2f3794b0658163a92d65ce5f8220356df",
+    "generated": {
+      "key": "2a4fa1a3d23d3c87-gpt-14377787757c-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\2a4fa1a3d23d3c87-gpt-14377787757c-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654341968220-001.webp?v=1788297261": {
     "state": "accepted",
@@ -36980,7 +37178,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654341968220-002.jpg?v=1788297261": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "5454fcef9c90a113",
       "w": 1376,
@@ -36992,7 +37190,18 @@
     "products": [
       "floor:9785790431566"
     ],
-    "reference_sha256": "af1278d781fa45d7e817f363e9ac3ff110568b3a6c378443b71045335a08ff57"
+    "reference_sha256": "af1278d781fa45d7e817f363e9ac3ff110568b3a6c378443b71045335a08ff57",
+    "generated": {
+      "key": "5454fcef9c90a113-gpt-908ced3d7e8d-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\5454fcef9c90a113-gpt-908ced3d7e8d-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654342132060-001.webp?v=1788297215": {
     "state": "accepted",
@@ -37021,7 +37230,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15654342132060-002.jpg?v=1788297215": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "7824c57032e77c13",
       "w": 1376,
@@ -37033,7 +37242,18 @@
     "products": [
       "floor:9785787154766"
     ],
-    "reference_sha256": "63262c53a54b938159c2d52dd48dc5faa4864f23205b7f8d33cec2486c33c1bf"
+    "reference_sha256": "63262c53a54b938159c2d52dd48dc5faa4864f23205b7f8d33cec2486c33c1bf",
+    "generated": {
+      "key": "7824c57032e77c13-gpt-9cbce3a4e7a6-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\7824c57032e77c13-gpt-9cbce3a4e7a6-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717419090301-001.jpg?v=1788286896": {
     "state": "accepted",
@@ -37062,7 +37282,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717419090301-002.jpg?v=1788286896": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "6fb94c4753cfc8c1",
       "w": 1500,
@@ -37074,7 +37294,18 @@
     "products": [
       "floor:8685862748494"
     ],
-    "reference_sha256": "3e088a94c57d31809354c4c940b0ce35a66e0d91e0ab1ddee71e35f0ec4ff05f"
+    "reference_sha256": "3e088a94c57d31809354c4c940b0ce35a66e0d91e0ab1ddee71e35f0ec4ff05f",
+    "generated": {
+      "key": "6fb94c4753cfc8c1-gpt-4b34dff69d58-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\6fb94c4753cfc8c1-gpt-4b34dff69d58-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717825511805-001.jpg?v=1788286882": {
     "state": "accepted",
@@ -37103,7 +37334,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717825511805-002.jpg?v=1788286882": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "60797b3551004fcd",
       "w": 1500,
@@ -37115,7 +37346,18 @@
     "products": [
       "floor:8685862715726"
     ],
-    "reference_sha256": "63dbb2cef75d0baa2278f97243d3b3f7c3187950766ce9504a072f2899a8487c"
+    "reference_sha256": "63dbb2cef75d0baa2278f97243d3b3f7c3187950766ce9504a072f2899a8487c",
+    "generated": {
+      "key": "60797b3551004fcd-gpt-a6851cae0114-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\60797b3551004fcd-gpt-a6851cae0114-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219555197-001.jpg?v=1788286901": {
     "state": "accepted",
@@ -37144,7 +37386,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219555197-002.png?v=1788286902": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "fe048b4b1eed6a41",
       "w": 940,
@@ -37156,10 +37398,21 @@
     "products": [
       "floor:8685862682958"
     ],
-    "reference_sha256": "6e9d15fcc478fe6797553caafdd541891cb5df90ed553840df653cc5ee2dbaea"
+    "reference_sha256": "6e9d15fcc478fe6797553caafdd541891cb5df90ed553840df653cc5ee2dbaea",
+    "generated": {
+      "key": "fe048b4b1eed6a41-gpt-796d8c6a4799-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\fe048b4b1eed6a41-gpt-796d8c6a4799-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219555197-003.jpg?v=1788286901": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f036a2cc5c683d20",
       "w": 1500,
@@ -37171,7 +37424,18 @@
     "products": [
       "floor:8685862682958"
     ],
-    "reference_sha256": "f503ec56af277aec189df4c6db0b78073ff13fb2ae724b5c8233418580b559f1"
+    "reference_sha256": "f503ec56af277aec189df4c6db0b78073ff13fb2ae724b5c8233418580b559f1",
+    "generated": {
+      "key": "f036a2cc5c683d20-gpt-17b4739c591d-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\f036a2cc5c683d20-gpt-17b4739c591d-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219522429-001.jpg?v=1788286909": {
     "state": "accepted",
@@ -37200,7 +37464,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219522429-002.png?v=1788286910": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "5ba7c93859378f00",
       "w": 940,
@@ -37212,10 +37476,21 @@
     "products": [
       "floor:8685862551886"
     ],
-    "reference_sha256": "b2a3425d99db026d5b1a4dc905a39b262278e10a713ced03e030803abc53d55f"
+    "reference_sha256": "b2a3425d99db026d5b1a4dc905a39b262278e10a713ced03e030803abc53d55f",
+    "generated": {
+      "key": "5ba7c93859378f00-gpt-64fe2d65231a-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\5ba7c93859378f00-gpt-64fe2d65231a-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219522429-003.jpg?v=1788286909": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "9833555ef636c6a8",
       "w": 1500,
@@ -37227,7 +37502,18 @@
     "products": [
       "floor:8685862551886"
     ],
-    "reference_sha256": "65d71d109911b19a1dbcacc265349f6f855f186118ab0273d075808d4d4b9388"
+    "reference_sha256": "65d71d109911b19a1dbcacc265349f6f855f186118ab0273d075808d4d4b9388",
+    "generated": {
+      "key": "9833555ef636c6a8-gpt-123a2d3ba894-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9833555ef636c6a8-gpt-123a2d3ba894-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219489661-001.jpg?v=1788286917": {
     "state": "accepted",
@@ -37256,7 +37542,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219489661-002.png?v=1788286918": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "11d959fd3739f088",
       "w": 940,
@@ -37268,10 +37554,21 @@
     "products": [
       "floor:8685862256974"
     ],
-    "reference_sha256": "7616f2d3656b7aabb8647ec8c5e50215fbd6fc0576af382c000f50a5211eb9a0"
+    "reference_sha256": "7616f2d3656b7aabb8647ec8c5e50215fbd6fc0576af382c000f50a5211eb9a0",
+    "generated": {
+      "key": "11d959fd3739f088-gpt-418f14d23184-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\11d959fd3739f088-gpt-418f14d23184-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219489661-003.jpg?v=1788286918": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "db7590786cfbb42b",
       "w": 1500,
@@ -37283,7 +37580,18 @@
     "products": [
       "floor:8685862256974"
     ],
-    "reference_sha256": "6d2b2a062336ae6fce6fd8faedfef2c7c5548837f858073f1da527e9982216fc"
+    "reference_sha256": "6d2b2a062336ae6fce6fd8faedfef2c7c5548837f858073f1da527e9982216fc",
+    "generated": {
+      "key": "db7590786cfbb42b-gpt-59378bbe8f4d-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\db7590786cfbb42b-gpt-59378bbe8f4d-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726373863772-001.jpg?v=1788299430": {
     "state": "accepted",
@@ -37312,7 +37620,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726373863772-002.jpg?v=1788299430": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e645c45439fc86cd",
       "w": 801,
@@ -37324,7 +37632,18 @@
     "products": [
       "floor:8685862158670"
     ],
-    "reference_sha256": "d9210704e1886bd6645fe38211663c30783ac42e0de36f24029177b0fb36db44"
+    "reference_sha256": "d9210704e1886bd6645fe38211663c30783ac42e0de36f24029177b0fb36db44",
+    "generated": {
+      "key": "e645c45439fc86cd-gpt-bc7a0ccba748-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\e645c45439fc86cd-gpt-bc7a0ccba748-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726373110108-001.jpg?v=1788299463": {
     "state": "accepted",
@@ -37353,7 +37672,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726373110108-002.webp?v=1788299463": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3e738f1f1a773fcc",
       "w": 1500,
@@ -37365,7 +37684,18 @@
     "products": [
       "floor:8685861732686"
     ],
-    "reference_sha256": "b5998378e7fb6f0d14506a7907e7120f64709345b758598281ac4856b9abc1af"
+    "reference_sha256": "b5998378e7fb6f0d14506a7907e7120f64709345b758598281ac4856b9abc1af",
+    "generated": {
+      "key": "3e738f1f1a773fcc-gpt-5b4b9150d583-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\3e738f1f1a773fcc-gpt-5b4b9150d583-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219391357-001.jpg?v=1788286942": {
     "state": "accepted",
@@ -37394,7 +37724,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219391357-002.jpg?v=1788286942": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "7c9b4902110cd2cc",
       "w": 921,
@@ -37406,10 +37736,21 @@
     "products": [
       "floor:8685861536078"
     ],
-    "reference_sha256": "89636a9d2688f60066fbf3777a71655c0e035749728aa86f1722580abca1ee5a"
+    "reference_sha256": "89636a9d2688f60066fbf3777a71655c0e035749728aa86f1722580abca1ee5a",
+    "generated": {
+      "key": "7c9b4902110cd2cc-gpt-43141a45f1c2-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\7c9b4902110cd2cc-gpt-43141a45f1c2-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219391357-003.png?v=1788286943": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "43e80bf96d44a0ab",
       "w": 940,
@@ -37421,7 +37762,18 @@
     "products": [
       "floor:8685861536078"
     ],
-    "reference_sha256": "d9ff5220f9c5eb07abd9e236910b2415f0bc69fc1f9d2f3060ecfb0628fb96d0"
+    "reference_sha256": "d9ff5220f9c5eb07abd9e236910b2415f0bc69fc1f9d2f3060ecfb0628fb96d0",
+    "generated": {
+      "key": "43e80bf96d44a0ab-gpt-b3005f3c9d52-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\43e80bf96d44a0ab-gpt-b3005f3c9d52-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219358589-001.jpg?v=1788286950": {
     "state": "accepted",
@@ -37450,7 +37802,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219358589-002.png?v=1788286951": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "136da666a8f8db57",
       "w": 940,
@@ -37462,10 +37814,21 @@
     "products": [
       "floor:8685861110094"
     ],
-    "reference_sha256": "6b5773e6f857e2758ecfd917699d03a5248b31e40c5b9e85f133a2b3b200cffe"
+    "reference_sha256": "6b5773e6f857e2758ecfd917699d03a5248b31e40c5b9e85f133a2b3b200cffe",
+    "generated": {
+      "key": "136da666a8f8db57-gpt-2bf98bc18e6e-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\136da666a8f8db57-gpt-2bf98bc18e6e-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219358589-003.jpg?v=1788286951": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "4efa2dedb57ba1c4",
       "w": 1500,
@@ -37477,7 +37840,18 @@
     "products": [
       "floor:8685861110094"
     ],
-    "reference_sha256": "503dffe220d69efc2aeb221070f67bff256600d28ec0e6db0959493feaa61bce"
+    "reference_sha256": "503dffe220d69efc2aeb221070f67bff256600d28ec0e6db0959493feaa61bce",
+    "generated": {
+      "key": "4efa2dedb57ba1c4-gpt-71ebaeebdea1-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\4efa2dedb57ba1c4-gpt-71ebaeebdea1-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219325821-001.jpg?v=1788286959": {
     "state": "accepted",
@@ -37506,7 +37880,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219325821-002.png?v=1788286960": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "ea825b60f61e89b3",
       "w": 940,
@@ -37518,10 +37892,21 @@
     "products": [
       "floor:8685860880718"
     ],
-    "reference_sha256": "41d61dbf7f0ec7abd67c4bea683ce6faffb184fce3bf8f43f7a8bef5d5c0d7bf"
+    "reference_sha256": "41d61dbf7f0ec7abd67c4bea683ce6faffb184fce3bf8f43f7a8bef5d5c0d7bf",
+    "generated": {
+      "key": "ea825b60f61e89b3-gpt-4fa8698ea1e6-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\ea825b60f61e89b3-gpt-4fa8698ea1e6-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219325821-003.jpg?v=1788286959": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "18dae243a54c43ba",
       "w": 1500,
@@ -37533,7 +37918,18 @@
     "products": [
       "floor:8685860880718"
     ],
-    "reference_sha256": "9175f80fc00079a90da94e1fa00b250f261f033ed50fbd1e1271f8705fec33a8"
+    "reference_sha256": "9175f80fc00079a90da94e1fa00b250f261f033ed50fbd1e1271f8705fec33a8",
+    "generated": {
+      "key": "18dae243a54c43ba-gpt-53167a12583c-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\18dae243a54c43ba-gpt-53167a12583c-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/products/FR013.jpg?v=1704808101": {
     "state": "accepted",
@@ -37562,7 +37958,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/products/FR013-1.jpg?v=1704808101": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e6582084fae85f7d",
       "w": 1005,
@@ -37574,7 +37970,18 @@
     "products": [
       "floor:8685860716878"
     ],
-    "reference_sha256": "33cf2d7497d539d98a84582c74d02b2a9dd72453ac11b6765d65beb4bc2b7c3d"
+    "reference_sha256": "33cf2d7497d539d98a84582c74d02b2a9dd72453ac11b6765d65beb4bc2b7c3d",
+    "generated": {
+      "key": "e6582084fae85f7d-gpt-10bd4296e6b9-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\e6582084fae85f7d-gpt-10bd4296e6b9-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726361543004-001.jpg?v=1788301468": {
     "state": "accepted",
@@ -37603,7 +38010,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726361543004-002.jpg?v=1788301469": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "2b13fec3f3305d65",
       "w": 1500,
@@ -37615,7 +38022,18 @@
     "products": [
       "floor:8685860553038"
     ],
-    "reference_sha256": "13ec940c615397270b23cb126117bc3ae1b0ddeea6763f7674679fe0ebd7b758"
+    "reference_sha256": "13ec940c615397270b23cb126117bc3ae1b0ddeea6763f7674679fe0ebd7b758",
+    "generated": {
+      "key": "2b13fec3f3305d65-gpt-f4ee2f6eadb5-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\2b13fec3f3305d65-gpt-f4ee2f6eadb5-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/products/FR008_7f3d0dd3-1408-4732-bcce-331ca900cab1.jpg?v=1704808092": {
     "state": "accepted",
@@ -37644,7 +38062,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/products/FR008-1_1df3177f-83cb-4a3c-8784-497f873a6264.jpg?v=1704808092": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "9b03069b112e97e9",
       "w": 1000,
@@ -37656,7 +38074,18 @@
     "products": [
       "floor:8685860225358"
     ],
-    "reference_sha256": "ba2e47234f339c2d6b62d206c4be86f33267c4d8ba72f8e0c1b304dad40854e9"
+    "reference_sha256": "ba2e47234f339c2d6b62d206c4be86f33267c4d8ba72f8e0c1b304dad40854e9",
+    "generated": {
+      "key": "9b03069b112e97e9-gpt-67e0063aa67d-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9b03069b112e97e9-gpt-67e0063aa67d-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219260285-001.jpg?v=1788286975": {
     "state": "accepted",
@@ -37685,7 +38114,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219260285-002.png?v=1788286976": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "80ac6888056f04cf",
       "w": 940,
@@ -37697,10 +38126,21 @@
     "products": [
       "floor:8685860028750"
     ],
-    "reference_sha256": "3e1398d7b826b24de3b71efc7fdbf0ed5714a83fde7ac2501ebd454a703c8012"
+    "reference_sha256": "3e1398d7b826b24de3b71efc7fdbf0ed5714a83fde7ac2501ebd454a703c8012",
+    "generated": {
+      "key": "80ac6888056f04cf-gpt-6926172ddd6b-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\80ac6888056f04cf-gpt-6926172ddd6b-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219260285-003.jpg?v=1788286975": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "62ebf5b0cb615620",
       "w": 1500,
@@ -37712,7 +38152,18 @@
     "products": [
       "floor:8685860028750"
     ],
-    "reference_sha256": "809cbb2a96c6e4cb983542851ac25f965c0b2a6943460295a26305d337d3d4f5"
+    "reference_sha256": "809cbb2a96c6e4cb983542851ac25f965c0b2a6943460295a26305d337d3d4f5",
+    "generated": {
+      "key": "62ebf5b0cb615620-gpt-cdf5783485ad-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\62ebf5b0cb615620-gpt-cdf5783485ad-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219227517-001.jpg?v=1788286982": {
     "state": "accepted",
@@ -37741,7 +38192,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219227517-002.png?v=1788286983": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "a62874d64772be28",
       "w": 940,
@@ -37753,10 +38204,21 @@
     "products": [
       "floor:8685859733838"
     ],
-    "reference_sha256": "006567e50b5068d522e7b8ec5a86cb10a049a9fef186eab3b080ccce036bb5cd"
+    "reference_sha256": "006567e50b5068d522e7b8ec5a86cb10a049a9fef186eab3b080ccce036bb5cd",
+    "generated": {
+      "key": "a62874d64772be28-gpt-82316a249b80-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\a62874d64772be28-gpt-82316a249b80-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219227517-003.jpg?v=1788286983": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "45e67c36fa23bda4",
       "w": 1500,
@@ -37768,7 +38230,18 @@
     "products": [
       "floor:8685859733838"
     ],
-    "reference_sha256": "f5cd98f486395173f97863addad9be9e7741777331ec183b65afd5f41c9f8f63"
+    "reference_sha256": "f5cd98f486395173f97863addad9be9e7741777331ec183b65afd5f41c9f8f63",
+    "generated": {
+      "key": "45e67c36fa23bda4-gpt-91d1eeb09b1a-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\45e67c36fa23bda4-gpt-91d1eeb09b1a-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726360363356-001.webp?v=1788301488": {
     "state": "accepted",
@@ -37797,7 +38270,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726360363356-002.webp?v=1788301488": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e103a684e65cbf18",
       "w": 1200,
@@ -37809,7 +38282,18 @@
     "products": [
       "floor:8685859569998"
     ],
-    "reference_sha256": "126f353bc11310ccb0d9359c2d6988c7ed3e4e9308c8db45d43fbc2f405acee1"
+    "reference_sha256": "126f353bc11310ccb0d9359c2d6988c7ed3e4e9308c8db45d43fbc2f405acee1",
+    "generated": {
+      "key": "e103a684e65cbf18-gpt-8633140df45c-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\e103a684e65cbf18-gpt-8633140df45c-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219161981-001.jpg?v=1788286991": {
     "state": "accepted",
@@ -37838,7 +38322,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219161981-002.png?v=1788286991": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "246d78f2e42968bd",
       "w": 940,
@@ -37850,10 +38334,21 @@
     "products": [
       "floor:8685859209550"
     ],
-    "reference_sha256": "ffc99a698b1d45f451062daafc3b60496eebe62610019c6cfdbe9f3a1f31525b"
+    "reference_sha256": "ffc99a698b1d45f451062daafc3b60496eebe62610019c6cfdbe9f3a1f31525b",
+    "generated": {
+      "key": "246d78f2e42968bd-gpt-8642375322e2-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\246d78f2e42968bd-gpt-8642375322e2-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219161981-003.jpg?v=1788286991": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "cc0f05d56a6dac86",
       "w": 1500,
@@ -37865,7 +38360,18 @@
     "products": [
       "floor:8685859209550"
     ],
-    "reference_sha256": "bdc51d29561fb4bbaf48a3b6a5006957eab0c2266503780e9f5417944955ff74"
+    "reference_sha256": "bdc51d29561fb4bbaf48a3b6a5006957eab0c2266503780e9f5417944955ff74",
+    "generated": {
+      "key": "cc0f05d56a6dac86-gpt-2b426c04c5b0-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\cc0f05d56a6dac86-gpt-2b426c04c5b0-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219129213-001.jpg?v=1788286997": {
     "state": "accepted",
@@ -37894,7 +38400,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219129213-002.png?v=1788286997": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e21b251119a22fea",
       "w": 940,
@@ -37906,10 +38412,21 @@
     "products": [
       "floor:8685859012942"
     ],
-    "reference_sha256": "838210f0385b29f02d045f35f6261cc782fc458587dc62aad2e247c39c78964d"
+    "reference_sha256": "838210f0385b29f02d045f35f6261cc782fc458587dc62aad2e247c39c78964d",
+    "generated": {
+      "key": "e21b251119a22fea-gpt-18ffdee1820a-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\e21b251119a22fea-gpt-18ffdee1820a-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219129213-003.jpg?v=1788286998": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "1ab63922569f5927",
       "w": 1500,
@@ -37921,7 +38438,18 @@
     "products": [
       "floor:8685859012942"
     ],
-    "reference_sha256": "a21bb34dc2083e441b8d2b18f16cf12e998a556ae05c9c0f4145c251dac49937"
+    "reference_sha256": "a21bb34dc2083e441b8d2b18f16cf12e998a556ae05c9c0f4145c251dac49937",
+    "generated": {
+      "key": "1ab63922569f5927-gpt-50ca2a00eef8-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\1ab63922569f5927-gpt-50ca2a00eef8-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219096445-001.jpg?v=1788287005": {
     "state": "accepted",
@@ -37950,7 +38478,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219096445-002.png?v=1788287006": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "644b03fb0beccea4",
       "w": 940,
@@ -37962,10 +38490,21 @@
     "products": [
       "floor:8685858750798"
     ],
-    "reference_sha256": "d581f6a29b11d85bce7baf0139f4ef62d64e10d7dc00ace4f8fbc8ce24b15f30"
+    "reference_sha256": "d581f6a29b11d85bce7baf0139f4ef62d64e10d7dc00ace4f8fbc8ce24b15f30",
+    "generated": {
+      "key": "644b03fb0beccea4-gpt-65322fe4f43e-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\644b03fb0beccea4-gpt-65322fe4f43e-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219096445-003.jpg?v=1788287004": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "943086be7d09a22e",
       "w": 1100,
@@ -37977,7 +38516,18 @@
     "products": [
       "floor:8685858750798"
     ],
-    "reference_sha256": "5edba22e64c2db972d563c600bd9cddd0e05c60d022710f3c46921708ba77cea"
+    "reference_sha256": "5edba22e64c2db972d563c600bd9cddd0e05c60d022710f3c46921708ba77cea",
+    "generated": {
+      "key": "943086be7d09a22e-gpt-cb09660e28d2-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\943086be7d09a22e-gpt-cb09660e28d2-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726374453596-001.jpg?v=1788299500": {
     "state": "accepted",
@@ -38006,7 +38556,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726374453596-002.webp?v=1788299500": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "ff403408898c73b4",
       "w": 1500,
@@ -38018,7 +38568,18 @@
     "products": [
       "floor:8685858554190"
     ],
-    "reference_sha256": "61be6644abe7d1a16b7df1c6b934195267654624d6bcb552a304a49552b579b3"
+    "reference_sha256": "61be6644abe7d1a16b7df1c6b934195267654624d6bcb552a304a49552b579b3",
+    "generated": {
+      "key": "ff403408898c73b4-gpt-36ee34f3c086-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\ff403408898c73b4-gpt-36ee34f3c086-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717957501309-001.jpg?v=1788286851": {
     "state": "accepted",
@@ -38047,7 +38608,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15717957501309-002.jpg?v=1788286851": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "45a07c7288f61ca0",
       "w": 1500,
@@ -38059,7 +38620,18 @@
     "products": [
       "floor:8685858423118"
     ],
-    "reference_sha256": "c6e134a0c1188a7c643e79abd85dff03df3da27409ca0140d72930cf171b19e6"
+    "reference_sha256": "c6e134a0c1188a7c643e79abd85dff03df3da27409ca0140d72930cf171b19e6",
+    "generated": {
+      "key": "45a07c7288f61ca0-gpt-38732bf6c630-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\45a07c7288f61ca0-gpt-38732bf6c630-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219030909-001.jpg?v=1788287019": {
     "state": "accepted",
@@ -38088,7 +38660,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219030909-002.png?v=1788287020": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "2fa3b619c474019e",
       "w": 940,
@@ -38100,10 +38672,21 @@
     "products": [
       "floor:8685858292046"
     ],
-    "reference_sha256": "96d5798fd2e0c8b3b7fa87f4b7ac5a969c42d73dae1011538024b63cdde26a65"
+    "reference_sha256": "96d5798fd2e0c8b3b7fa87f4b7ac5a969c42d73dae1011538024b63cdde26a65",
+    "generated": {
+      "key": "2fa3b619c474019e-gpt-30c6d67be635-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\2fa3b619c474019e-gpt-30c6d67be635-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702219030909-003.jpg?v=1788287019": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "c1461bc6d9354fa5",
       "w": 1500,
@@ -38115,7 +38698,18 @@
     "products": [
       "floor:8685858292046"
     ],
-    "reference_sha256": "4399d29adc546e47eeb22ace2e3f9f95f4eb9a1e49be9c0f92a92d685ba7800c"
+    "reference_sha256": "4399d29adc546e47eeb22ace2e3f9f95f4eb9a1e49be9c0f92a92d685ba7800c",
+    "generated": {
+      "key": "c1461bc6d9354fa5-gpt-d834e73e62a1-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\c1461bc6d9354fa5-gpt-d834e73e62a1-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218998141-001.jpg?v=1788287027": {
     "state": "accepted",
@@ -38144,7 +38738,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218998141-002.png?v=1788287028": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e87524a5176c53f3",
       "w": 940,
@@ -38156,10 +38750,21 @@
     "products": [
       "floor:8685857603918"
     ],
-    "reference_sha256": "552a16190de1771dd7bc3e393b1ad0114d9337ac0c68f94e31503e7c20b47a6e"
+    "reference_sha256": "552a16190de1771dd7bc3e393b1ad0114d9337ac0c68f94e31503e7c20b47a6e",
+    "generated": {
+      "key": "e87524a5176c53f3-gpt-fcf57d39849e-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\e87524a5176c53f3-gpt-fcf57d39849e-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218998141-003.jpg?v=1788287027": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f6f5479ee666f314",
       "w": 1500,
@@ -38171,7 +38776,18 @@
     "products": [
       "floor:8685857603918"
     ],
-    "reference_sha256": "8997e712a4637f4463453aed25bb91bde2238cb8381bfd853dd824d659cad37c"
+    "reference_sha256": "8997e712a4637f4463453aed25bb91bde2238cb8381bfd853dd824d659cad37c",
+    "generated": {
+      "key": "f6f5479ee666f314-gpt-aa7960b04571-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\f6f5479ee666f314-gpt-aa7960b04571-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701919924605-001.jpg?v=1788287482": {
     "state": "accepted",
@@ -38200,7 +38816,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701919924605-002.png?v=1788287483": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d7179796eaa5428a",
       "w": 940,
@@ -38212,10 +38828,21 @@
     "products": [
       "floor:8685857505614"
     ],
-    "reference_sha256": "e79c1cbaff639fa6f23e6e29ccf3a600a1dc34c70fabab36e3b66528d087e37d"
+    "reference_sha256": "e79c1cbaff639fa6f23e6e29ccf3a600a1dc34c70fabab36e3b66528d087e37d",
+    "generated": {
+      "key": "d7179796eaa5428a-gpt-9343b0f31196-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\d7179796eaa5428a-gpt-9343b0f31196-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15701919924605-003.jpg?v=1788287482": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "0cbd17014537dc00",
       "w": 1500,
@@ -38227,7 +38854,18 @@
     "products": [
       "floor:8685857505614"
     ],
-    "reference_sha256": "76142830a464385d954d41bc6cc1ff45273bf91899c1ddf2ccb8a87d9a5bca55"
+    "reference_sha256": "76142830a464385d954d41bc6cc1ff45273bf91899c1ddf2ccb8a87d9a5bca55",
+    "generated": {
+      "key": "0cbd17014537dc00-gpt-3278f8ba3d24-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\0cbd17014537dc00-gpt-3278f8ba3d24-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218965373-001.jpg?v=1788287036": {
     "state": "accepted",
@@ -38256,7 +38894,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218965373-002.png?v=1788287036": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "709d5457e587f5af",
       "w": 940,
@@ -38268,10 +38906,21 @@
     "products": [
       "floor:8685857407310"
     ],
-    "reference_sha256": "70111a8bb31922b833dae02ee7732dc9e127935e81942442432a2e3d15b1c072"
+    "reference_sha256": "70111a8bb31922b833dae02ee7732dc9e127935e81942442432a2e3d15b1c072",
+    "generated": {
+      "key": "709d5457e587f5af-gpt-2c14c93dc8de-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\709d5457e587f5af-gpt-2c14c93dc8de-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218965373-003.jpg?v=1788287036": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "ee387f4a0dccf0eb",
       "w": 1500,
@@ -38283,7 +38932,18 @@
     "products": [
       "floor:8685857407310"
     ],
-    "reference_sha256": "fe51ffc13dfa1268f602d313d10a57d1c20101574b99d13658014206ed55742d"
+    "reference_sha256": "fe51ffc13dfa1268f602d313d10a57d1c20101574b99d13658014206ed55742d",
+    "generated": {
+      "key": "ee387f4a0dccf0eb-gpt-ca3c6bb425c7-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\ee387f4a0dccf0eb-gpt-ca3c6bb425c7-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15878982730109-001.jpg?v=1788286795": {
     "state": "accepted",
@@ -38312,7 +38972,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15878982730109-002.png?v=1788286796": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "bab782b88f75d1e2",
       "w": 940,
@@ -38324,10 +38984,21 @@
     "products": [
       "floor:8685857243470"
     ],
-    "reference_sha256": "d6e89e8ac488d7013f5d47b05e092639864831b5df4bcd8267cf7783994e6ef0"
+    "reference_sha256": "d6e89e8ac488d7013f5d47b05e092639864831b5df4bcd8267cf7783994e6ef0",
+    "generated": {
+      "key": "bab782b88f75d1e2-gpt-f80dc4ab207a-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\bab782b88f75d1e2-gpt-f80dc4ab207a-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15878982730109-003.jpg?v=1788286796": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "989e692fee7b38e9",
       "w": 1500,
@@ -38339,7 +39010,18 @@
     "products": [
       "floor:8685857243470"
     ],
-    "reference_sha256": "4aa70b689f691f4b63dfd421d9cc1ec2448c3a65cfab21015f4bd3b92396ee43"
+    "reference_sha256": "4aa70b689f691f4b63dfd421d9cc1ec2448c3a65cfab21015f4bd3b92396ee43",
+    "generated": {
+      "key": "989e692fee7b38e9-gpt-903234a8d133-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\989e692fee7b38e9-gpt-903234a8d133-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218932605-001.jpg?v=1788287041": {
     "state": "accepted",
@@ -38368,7 +39050,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218932605-002.png?v=1788287042": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3d4994d463e32850",
       "w": 940,
@@ -38380,10 +39062,21 @@
     "products": [
       "floor:8685857145166"
     ],
-    "reference_sha256": "8636455fc849c01d33189db931c099fb02acf01fe156132376742baa30200108"
+    "reference_sha256": "8636455fc849c01d33189db931c099fb02acf01fe156132376742baa30200108",
+    "generated": {
+      "key": "3d4994d463e32850-gpt-7cd0b6a803e4-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\3d4994d463e32850-gpt-7cd0b6a803e4-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218932605-003.jpg?v=1788287041": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d27a44a2d78b1771",
       "w": 1500,
@@ -38395,7 +39088,18 @@
     "products": [
       "floor:8685857145166"
     ],
-    "reference_sha256": "9e84ab17ab9749bc6d441aaf64f9a84f26a061dadbd9087bfac648219accaee8"
+    "reference_sha256": "9e84ab17ab9749bc6d441aaf64f9a84f26a061dadbd9087bfac648219accaee8",
+    "generated": {
+      "key": "d27a44a2d78b1771-gpt-74708c791d08-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\d27a44a2d78b1771-gpt-74708c791d08-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726362165596-001.jpg?v=1788301425": {
     "state": "accepted",
@@ -38424,7 +39128,7 @@
     "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/parketen-sviat-15726362165596-002.jpg?v=1788301426": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "0fbe10d078ee5702",
       "w": 1500,
@@ -38436,7 +39140,18 @@
     "products": [
       "floor:8685856719182"
     ],
-    "reference_sha256": "325598c85156fff3526b43cdb70925d4243d8408a2a3d86f360c4b84f18d8b8b"
+    "reference_sha256": "325598c85156fff3526b43cdb70925d4243d8408a2a3d86f360c4b84f18d8b8b",
+    "generated": {
+      "key": "0fbe10d078ee5702-gpt-67af195867cd-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\0fbe10d078ee5702-gpt-67af195867cd-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/floorarena-15702218867069-001.jpg?v=1788287056": {
     "state": "accepted",
