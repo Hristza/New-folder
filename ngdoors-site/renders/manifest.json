@@ -9034,7 +9034,7 @@
     "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113e08853d22_584b5a4665573.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "361afe08306b9cec",
       "w": 200,
@@ -9046,10 +9046,21 @@
     "products": [
       "door:1717"
     ],
-    "reference_sha256": "3322b37e0861f74782d892fe20120c20fb63080b286b00b15ee1cfad0b2843a0"
+    "reference_sha256": "3322b37e0861f74782d892fe20120c20fb63080b286b00b15ee1cfad0b2843a0",
+    "generated": {
+      "key": "361afe08306b9cec-gpt-3170431b9c4a-avif-q55",
+      "w": 890,
+      "h": 1767,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\361afe08306b9cec-gpt-3170431b9c4a-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113e3a183fa2_9bee0fe9799f2.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "43dcf7c3692d923a",
       "w": 300,
@@ -9061,7 +9072,18 @@
     "products": [
       "door:1724"
     ],
-    "reference_sha256": "e6ea7e4bb93b02e5a5cf4e8711bdd16c20cc37c02884bc0b187e055c21739bad"
+    "reference_sha256": "e6ea7e4bb93b02e5a5cf4e8711bdd16c20cc37c02884bc0b187e055c21739bad",
+    "generated": {
+      "key": "43dcf7c3692d923a-gpt-8add2ba71a61-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\43dcf7c3692d923a-gpt-8add2ba71a61-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113e3a183fa2_d307889a6417e.png": {
     "state": "pending",
@@ -9109,7 +9131,7 @@
     "reference_sha256": "89e773d4ea55eb97ba7bdcdd5a7c51e4a3ae97cb0821e7bfbef03937c33a0479"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e452b7355_803961f243e1a.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "0f7de9aec9316769",
       "w": 300,
@@ -9121,7 +9143,18 @@
     "products": [
       "door:1726"
     ],
-    "reference_sha256": "f3ecbc02cd91f78c0b970ea01229f53eb69392a133b5d41038647bfeef218b54"
+    "reference_sha256": "f3ecbc02cd91f78c0b970ea01229f53eb69392a133b5d41038647bfeef218b54",
+    "generated": {
+      "key": "0f7de9aec9316769-gpt-b8847182e5a5-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\0f7de9aec9316769-gpt-b8847182e5a5-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113e452b7355_807269fd0bf3d.png": {
     "state": "pending",
@@ -9169,7 +9202,7 @@
     "reference_sha256": "84c497e28a1e27e3c76aea38df76f45a611c3e970c3bd0fa0b5ccd00c38f604c"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e2849fa67_46f9b686a02d4.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "2fa415230975b99b",
       "w": 300,
@@ -9181,7 +9214,18 @@
     "products": [
       "door:1722"
     ],
-    "reference_sha256": "f0a09c6cf224b8eb1916c0a0e25f048e85f1db9393f429b79c7ced9894874301"
+    "reference_sha256": "f0a09c6cf224b8eb1916c0a0e25f048e85f1db9393f429b79c7ced9894874301",
+    "generated": {
+      "key": "2fa415230975b99b-gpt-6a60dbadfafb-avif-q55",
+      "w": 1152,
+      "h": 1365,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\2fa415230975b99b-gpt-6a60dbadfafb-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113e2849fa67_70fde8fccc780.png": {
     "state": "pending",
@@ -9229,7 +9273,7 @@
     "reference_sha256": "ea310ecf102fbfcc0bb796573610db729c0fe1d671b741db02842a98281ebeb9"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e4a68307d_29d2f4f6fb573.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "cc891d569fdf8eb6",
       "w": 300,
@@ -9241,7 +9285,18 @@
     "products": [
       "door:1727"
     ],
-    "reference_sha256": "9d15e211d2c5874207ed626df26a0a48929f7d976349a2a2726b17ad8eab3947"
+    "reference_sha256": "9d15e211d2c5874207ed626df26a0a48929f7d976349a2a2726b17ad8eab3947",
+    "generated": {
+      "key": "cc891d569fdf8eb6-gpt-868fcfa76e53-avif-q55",
+      "w": 1122,
+      "h": 1402,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\cc891d569fdf8eb6-gpt-868fcfa76e53-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113e4a68307d_9c1ca6e7afb4d.png": {
     "state": "pending",
@@ -9289,7 +9344,7 @@
     "reference_sha256": "8e1f4a352de2b93e8015ebf6e2ee942df195ff1719aad02ff42aba7af34b478d"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e3453c514_5b2d0e330c905.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "931c668a05da924e",
       "w": 300,
@@ -9301,7 +9356,18 @@
     "products": [
       "door:1723"
     ],
-    "reference_sha256": "6955da3ae6b6ffe18c7b9838c3f940b0908998c8a3582e938e8c244be1a0f6aa"
+    "reference_sha256": "6955da3ae6b6ffe18c7b9838c3f940b0908998c8a3582e938e8c244be1a0f6aa",
+    "generated": {
+      "key": "931c668a05da924e-gpt-6adb3b4ab097-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\931c668a05da924e-gpt-6adb3b4ab097-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113e3453c514_704b7aa16e3e7.png": {
     "state": "pending",
@@ -9349,7 +9415,7 @@
     "reference_sha256": "1b9a3cbe86340fb246978f5072687af53c8bba45c309183689c79827900a98a2"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e400df9e4_cc929fe18a17b.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "429b5b5997d0e100",
       "w": 300,
@@ -9361,7 +9427,18 @@
     "products": [
       "door:1725"
     ],
-    "reference_sha256": "daa69ed8ed9c39ebdb9e0881d7954f85f8a8104f0434fb3242ad991410b3ace8"
+    "reference_sha256": "daa69ed8ed9c39ebdb9e0881d7954f85f8a8104f0434fb3242ad991410b3ace8",
+    "generated": {
+      "key": "429b5b5997d0e100-gpt-2d9d81f17b2d-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\429b5b5997d0e100-gpt-2d9d81f17b2d-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113e400df9e4_640740edf2d2d.png": {
     "state": "pending",
@@ -9409,7 +9486,7 @@
     "reference_sha256": "c71ad39bc8cfa7708dce2affbcee8af502cb1f58606063850cc0f453982c3b08"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e034194e1_87cf018c37493.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f13688e62c3283f0",
       "w": 200,
@@ -9421,10 +9498,21 @@
     "products": [
       "door:1716"
     ],
-    "reference_sha256": "906ef5421de726123b032ff49c6bddf3256448e4bf6b4eae193aad94f7b6a555"
+    "reference_sha256": "906ef5421de726123b032ff49c6bddf3256448e4bf6b4eae193aad94f7b6a555",
+    "generated": {
+      "key": "f13688e62c3283f0-gpt-34379dfcf708-avif-q55",
+      "w": 1105,
+      "h": 1423,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\f13688e62c3283f0-gpt-34379dfcf708-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_6113dd2f56d57_ab076c6bae9f7.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e4299bd131400a4b",
       "w": 200,
@@ -9436,10 +9524,21 @@
     "products": [
       "door:1711"
     ],
-    "reference_sha256": "64cbe8b48efde3b71127e7cdf3e8291c43f7214df71c73c7329d990c84f87a5f"
+    "reference_sha256": "64cbe8b48efde3b71127e7cdf3e8291c43f7214df71c73c7329d990c84f87a5f",
+    "generated": {
+      "key": "e4299bd131400a4b-gpt-c42f83e872db-avif-q55",
+      "w": 1024,
+      "h": 1536,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\e4299bd131400a4b-gpt-c42f83e872db-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_68c2d90b6dca9_e6d5c8a8d281a.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "c0b3fc85b15fdcaf",
       "w": 381,
@@ -9451,10 +9550,21 @@
     "products": [
       "door:2802"
     ],
-    "reference_sha256": "14dae2c0074017d5248b552124be11bf6e046cddb2ecd7552b73d9e9cf0189b4"
+    "reference_sha256": "14dae2c0074017d5248b552124be11bf6e046cddb2ecd7552b73d9e9cf0189b4",
+    "generated": {
+      "key": "c0b3fc85b15fdcaf-gpt-7accd12bd721-avif-q55",
+      "w": 872,
+      "h": 1802,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\c0b3fc85b15fdcaf-gpt-7accd12bd721-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_68c2d5da2d414_fc7db519abc5c.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "7c69093d7e0121e7",
       "w": 397,
@@ -9466,10 +9576,21 @@
     "products": [
       "door:2797"
     ],
-    "reference_sha256": "9739e18c23e2b55b72fcb6f841bb38c7ac4b36ebaea8943129baf4f5700d4b75"
+    "reference_sha256": "9739e18c23e2b55b72fcb6f841bb38c7ac4b36ebaea8943129baf4f5700d4b75",
+    "generated": {
+      "key": "7c69093d7e0121e7-gpt-0b0fdb139b2f-avif-q55",
+      "w": 887,
+      "h": 1774,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\7c69093d7e0121e7-gpt-0b0fdb139b2f-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_68c2d7780a821_a41792f7c5996.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "4dcb1239ad6a6d46",
       "w": 381,
@@ -9481,10 +9602,21 @@
     "products": [
       "door:2798"
     ],
-    "reference_sha256": "9dda1480031856cc05028e19a50bea535e108259778dd4e63939479f0f1cdc99"
+    "reference_sha256": "9dda1480031856cc05028e19a50bea535e108259778dd4e63939479f0f1cdc99",
+    "generated": {
+      "key": "4dcb1239ad6a6d46-gpt-cf14f498850b-avif-q55",
+      "w": 872,
+      "h": 1802,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\4dcb1239ad6a6d46-gpt-cf14f498850b-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_60bf2ef4a7868_d15c57e1906ee.png": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "bb89df74754b50a8",
       "w": 565,
@@ -9496,7 +9628,18 @@
     "products": [
       "door:249"
     ],
-    "reference_sha256": "d4b615b293a9fd88f09ae6d5e46f6670d14a788638c1e4918472b8e62135768a"
+    "reference_sha256": "d4b615b293a9fd88f09ae6d5e46f6670d14a788638c1e4918472b8e62135768a",
+    "generated": {
+      "key": "bb89df74754b50a8-gpt-0531a85589df-avif-q55",
+      "w": 1276,
+      "h": 1233,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\bb89df74754b50a8-gpt-0531a85589df-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://ngdoors.bg/assets/products/large/r_60bf2ef4a7868_b446b485bf168.png": {
     "state": "pending",
@@ -9514,7 +9657,7 @@
     "reference_sha256": "b2a086a8c610b2acf741e99dcc6d1e0a279f8469f226d55d0594d3d778881a17"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-055497268393dff955a651d3-0.jpg?v=1789242811": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "c077c2b92cf621d0",
       "w": 600,
@@ -9526,10 +9669,21 @@
     "products": [
       "floor:16067453714766"
     ],
-    "reference_sha256": "8fe07f94969ad4e7010edf119bb47a348307bb0178f1052b173896c94921dce9"
+    "reference_sha256": "8fe07f94969ad4e7010edf119bb47a348307bb0178f1052b173896c94921dce9",
+    "generated": {
+      "key": "c077c2b92cf621d0-gpt-04a680534f0b-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\c077c2b92cf621d0-gpt-04a680534f0b-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "015e05489499abc0",
       "w": 1440,
@@ -9541,7 +9695,18 @@
     "products": [
       "floor:16067102081358"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-1.jpg?v=1789238458": {
     "state": "pending",
@@ -9559,7 +9724,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dae166e39a358de729259c72-0.webp?v=1789238446": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "a66771dd6986df07",
       "w": 1440,
@@ -9571,7 +9736,18 @@
     "products": [
       "floor:16067100836174"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dae166e39a358de729259c72-1.jpg?v=1789238447": {
     "state": "pending",
@@ -9589,7 +9765,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e911bd2b8a4ff4f5ba1cfc06-0.webp?v=1789238435": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "7f63c28b59f8eb91",
       "w": 1440,
@@ -9601,7 +9777,18 @@
     "products": [
       "floor:16067099853134"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e911bd2b8a4ff4f5ba1cfc06-1.jpg?v=1789238436": {
     "state": "pending",
@@ -9619,7 +9806,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c1b95cc030dfedfaa303b58c-0.webp?v=1789238423": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "05682598f3d2b8cf",
       "w": 1440,
@@ -9631,7 +9818,18 @@
     "products": [
       "floor:16067098575182"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c1b95cc030dfedfaa303b58c-1.jpg?v=1789238424": {
     "state": "pending",
@@ -9649,7 +9847,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f33e8ea57822680c9936b7dd-0.webp?v=1789238410": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "8bdadc830a97a208",
       "w": 1440,
@@ -9661,7 +9859,18 @@
     "products": [
       "floor:16067097624910"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f33e8ea57822680c9936b7dd-1.jpg?v=1789238412": {
     "state": "pending",
@@ -9679,7 +9888,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9e2252f715b7a9c362868040-0.webp?v=1789238398": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "cd963e7942a123f4",
       "w": 1440,
@@ -9691,7 +9900,18 @@
     "products": [
       "floor:16067096576334"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9e2252f715b7a9c362868040-1.jpg?v=1789238400": {
     "state": "pending",
@@ -9709,7 +9929,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0ca5ec95f53727013c4d7aa8-0.webp?v=1789238386": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "283b757af30ca964",
       "w": 1440,
@@ -9721,7 +9941,18 @@
     "products": [
       "floor:16067095724366"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0ca5ec95f53727013c4d7aa8-1.jpg?v=1789238387": {
     "state": "pending",
@@ -9739,7 +9970,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-3594b9d4d48c97939f15b82d-0.webp?v=1789238375": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "beb2827a3ee82461",
       "w": 1440,
@@ -9751,7 +9982,18 @@
     "products": [
       "floor:16067094970702"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-3594b9d4d48c97939f15b82d-1.jpg?v=1789238376": {
     "state": "pending",
@@ -9769,7 +10011,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a56fe4b372ca0cb48db56254-0.webp?v=1789238363": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "a3526ee9e56ee0ba",
       "w": 1440,
@@ -9781,7 +10023,18 @@
     "products": [
       "floor:16067094151502"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a56fe4b372ca0cb48db56254-1.jpg?v=1789238364": {
     "state": "pending",
@@ -9799,7 +10052,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-bc0b283df6471ae0af6364e5-0.webp?v=1789238352": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "5b1f7a4e2e1d19a3",
       "w": 1440,
@@ -9811,7 +10064,18 @@
     "products": [
       "floor:16067093397838"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-bc0b283df6471ae0af6364e5-1.jpg?v=1789238353": {
     "state": "pending",
@@ -9829,7 +10093,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-cdbd6d810807eb3fe478ee80-0.webp?v=1789238340": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "eede948525391c38",
       "w": 1440,
@@ -9841,7 +10105,18 @@
     "products": [
       "floor:16067092709710"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-cdbd6d810807eb3fe478ee80-1.jpg?v=1789238342": {
     "state": "pending",
@@ -9859,7 +10134,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f94cd7442e5e733eada27453-0.webp?v=1789238328": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3c7df22ea4d0feb3",
       "w": 1440,
@@ -9871,7 +10146,18 @@
     "products": [
       "floor:16067091890510"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f94cd7442e5e733eada27453-1.jpg?v=1789238330": {
     "state": "pending",
@@ -9889,7 +10175,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-30b15db94b4c96474a110d33-0.webp?v=1789238317": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "56aa98cf329bc2d1",
       "w": 1440,
@@ -9901,7 +10187,18 @@
     "products": [
       "floor:16067091104078"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-30b15db94b4c96474a110d33-1.jpg?v=1789238319": {
     "state": "pending",
@@ -9919,7 +10216,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-930c1e9c96247e1f218ce53a-0.webp?v=1789238306": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "b9a39453f70c4cfd",
       "w": 1440,
@@ -9931,7 +10228,18 @@
     "products": [
       "floor:16067090252110"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-930c1e9c96247e1f218ce53a-1.jpg?v=1789238307": {
     "state": "pending",
@@ -9949,7 +10257,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4c1616c91f716899b7134832-0.webp?v=1789238294": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e914f187cc38388b",
       "w": 1440,
@@ -9961,7 +10269,18 @@
     "products": [
       "floor:16067089596750"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4c1616c91f716899b7134832-1.jpg?v=1789238295": {
     "state": "pending",
@@ -9979,7 +10298,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-125dfce27d09a44e2f66fcf1-0.webp?v=1789238282": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3fcb3243bb421e70",
       "w": 1440,
@@ -9991,7 +10310,18 @@
     "products": [
       "floor:16067088908622"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-125dfce27d09a44e2f66fcf1-1.jpg?v=1789238284": {
     "state": "pending",
@@ -10009,7 +10339,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f4b4aa5d867caa2e8c28008a-0.webp?v=1789238270": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "fbccdc236c16da19",
       "w": 1440,
@@ -10021,7 +10351,18 @@
     "products": [
       "floor:16067088056654"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f4b4aa5d867caa2e8c28008a-1.jpg?v=1789238271": {
     "state": "pending",
@@ -10039,7 +10380,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1521247e589862218e6c3170-0.webp?v=1789238258": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f6f2893da925c3e2",
       "w": 1440,
@@ -10051,7 +10392,18 @@
     "products": [
       "floor:16067087270222"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1521247e589862218e6c3170-1.jpg?v=1789238260": {
     "state": "pending",
@@ -10069,7 +10421,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-06b63712b59e53e47abd2a33-0.webp?v=1789238247": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "9ebd990da13625f2",
       "w": 1440,
@@ -10081,7 +10433,18 @@
     "products": [
       "floor:16067086516558"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-06b63712b59e53e47abd2a33-1.jpg?v=1789238248": {
     "state": "pending",
@@ -10099,7 +10462,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1f4aa7c554bf6e37af02259d-0.webp?v=1789238235": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f041fec6fd5b1f7b",
       "w": 1440,
@@ -10111,7 +10474,18 @@
     "products": [
       "floor:16067085828430"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1f4aa7c554bf6e37af02259d-1.jpg?v=1789238236": {
     "state": "pending",
@@ -10129,7 +10503,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-ebe140e90a687e528a2117b1-0.webp?v=1789238223": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "a4c61d4ee73184a9",
       "w": 1440,
@@ -10141,7 +10515,18 @@
     "products": [
       "floor:16067085074766"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-ebe140e90a687e528a2117b1-1.jpg?v=1789238225": {
     "state": "pending",
@@ -10159,7 +10544,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0c251db949028c559b24f94c-0.webp?v=1789238211": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "639d05ca8ef2f2ef",
       "w": 1440,
@@ -10171,7 +10556,18 @@
     "products": [
       "floor:16067084288334"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0c251db949028c559b24f94c-1.jpg?v=1789238213": {
     "state": "pending",
@@ -10189,7 +10585,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b74291b485a5179ed21b66cc-0.webp?v=1789238199": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d22b886e32efc979",
       "w": 1440,
@@ -10201,7 +10597,18 @@
     "products": [
       "floor:16067083338062"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b74291b485a5179ed21b66cc-1.jpg?v=1789238200": {
     "state": "pending",
@@ -10219,7 +10626,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-eee372b01c319711522b8217-0.webp?v=1789238186": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "26f78f61557573de",
       "w": 1440,
@@ -10231,7 +10638,18 @@
     "products": [
       "floor:16067082453326"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-eee372b01c319711522b8217-1.jpg?v=1789238187": {
     "state": "pending",
@@ -10249,7 +10667,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-887eca16b73b5d0ab13110d1-0.webp?v=1789238174": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "2a0a6b234f0ea172",
       "w": 1440,
@@ -10261,7 +10679,18 @@
     "products": [
       "floor:16067080913230"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-887eca16b73b5d0ab13110d1-1.jpg?v=1789238176": {
     "state": "pending",
@@ -10279,7 +10708,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2e05643ced35fe6654bb580b-0.webp?v=1789238163": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "55a352169760ad76",
       "w": 1440,
@@ -10291,7 +10720,18 @@
     "products": [
       "floor:16067080192334"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2e05643ced35fe6654bb580b-1.jpg?v=1789238164": {
     "state": "pending",
@@ -10309,7 +10749,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9c9aac511137d1b746248b6b-0.webp?v=1789238151": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e87255984e3b0314",
       "w": 1440,
@@ -10321,7 +10761,18 @@
     "products": [
       "floor:16067079405902"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9c9aac511137d1b746248b6b-1.jpg?v=1789238153": {
     "state": "pending",
@@ -10339,7 +10790,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b4058b4c7aba2ac0a4dd8f39-0.webp?v=1789238139": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "208a9638914fede6",
       "w": 1440,
@@ -10351,7 +10802,18 @@
     "products": [
       "floor:16067078750542"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b4058b4c7aba2ac0a4dd8f39-1.jpg?v=1789238140": {
     "state": "pending",
@@ -10369,7 +10831,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-399f6c63ece2d8856f0ab08d-0.webp?v=1789238128": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "c033c826457e4500",
       "w": 1440,
@@ -10381,7 +10843,18 @@
     "products": [
       "floor:16067077931342"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-399f6c63ece2d8856f0ab08d-1.jpg?v=1789238129": {
     "state": "pending",
@@ -10399,7 +10872,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-714b1e014aceb67de3db0ba1-0.webp?v=1789238116": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "062cccb19ceedc2f",
       "w": 1440,
@@ -10411,7 +10884,18 @@
     "products": [
       "floor:16067077079374"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-714b1e014aceb67de3db0ba1-1.jpg?v=1789238117": {
     "state": "pending",
@@ -10429,7 +10913,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0e3edff708ec12166bd75c59-0.webp?v=1789238104": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "8d76d17c922d9533",
       "w": 1440,
@@ -10441,7 +10925,18 @@
     "products": [
       "floor:16067076391246"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0e3edff708ec12166bd75c59-1.jpg?v=1789238105": {
     "state": "pending",
@@ -10459,7 +10954,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4d468771c67b929933143300-0.webp?v=1789238091": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "790defee384ac1ad",
       "w": 1440,
@@ -10471,7 +10966,18 @@
     "products": [
       "floor:16067075342670"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4d468771c67b929933143300-1.jpg?v=1789238093": {
     "state": "pending",
@@ -10489,7 +10995,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2f80300eac95f131ca7d83ca-0.webp?v=1789238078": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "132717d4505d750a",
       "w": 1440,
@@ -10501,7 +11007,18 @@
     "products": [
       "floor:16067074031950"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2f80300eac95f131ca7d83ca-1.jpg?v=1789238080": {
     "state": "pending",
@@ -10519,7 +11036,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-999569bb1677ff271cf957c6-0.webp?v=1789238066": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "6261933bded167f4",
       "w": 1440,
@@ -10531,7 +11048,18 @@
     "products": [
       "floor:16067073016142"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-999569bb1677ff271cf957c6-1.jpg?v=1789238067": {
     "state": "pending",
@@ -10549,7 +11077,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81ff369060d382ff48acc252-0.webp?v=1789238054": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "431727ce69e29929",
       "w": 1440,
@@ -10561,7 +11089,18 @@
     "products": [
       "floor:16067071803726"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81ff369060d382ff48acc252-1.jpg?v=1789238056": {
     "state": "pending",
@@ -10579,7 +11118,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55cdf66e232e01b5b256f711-0.webp?v=1789238042": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "48474cd733183326",
       "w": 1440,
@@ -10591,7 +11130,18 @@
     "products": [
       "floor:16067070755150"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55cdf66e232e01b5b256f711-1.jpg?v=1789238043": {
     "state": "pending",
@@ -10609,7 +11159,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b6183e01c9c3d6e638579e09-0.webp?v=1789238030": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3fa642c86c79b774",
       "w": 1440,
@@ -10621,7 +11171,18 @@
     "products": [
       "floor:16067069903182"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b6183e01c9c3d6e638579e09-1.jpg?v=1789238031": {
     "state": "pending",
@@ -10639,7 +11200,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-07f41666464ba6ba4691974a-0.webp?v=1789238018": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "2a532bd409a5647d",
       "w": 1440,
@@ -10651,7 +11212,18 @@
     "products": [
       "floor:16067069083982"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-07f41666464ba6ba4691974a-1.jpg?v=1789238019": {
     "state": "pending",
@@ -10669,7 +11241,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5b71c5af7ccdcab7f5bb9478-0.webp?v=1789238005": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "0a156b2b17730b54",
       "w": 1440,
@@ -10681,7 +11253,18 @@
     "products": [
       "floor:16067068232014"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5b71c5af7ccdcab7f5bb9478-1.jpg?v=1789238006": {
     "state": "pending",
@@ -10699,7 +11282,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b5135d96dd49c337755fa207-0.webp?v=1789237991": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "c5502395f737a28f",
       "w": 1440,
@@ -10711,7 +11294,18 @@
     "products": [
       "floor:16067067347278"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b5135d96dd49c337755fa207-1.jpg?v=1789237993": {
     "state": "pending",
@@ -10729,7 +11323,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-010842d598de94d7c61f7648-0.webp?v=1789237980": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "adedd7b9d2d6fd70",
       "w": 1440,
@@ -10741,7 +11335,18 @@
     "products": [
       "floor:16067066560846"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-010842d598de94d7c61f7648-1.jpg?v=1789237981": {
     "state": "pending",
@@ -10759,7 +11364,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1d9087bcb2782ed084fc1a01-0.webp?v=1789237968": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "1f6da2c252f05143",
       "w": 1440,
@@ -10771,7 +11376,18 @@
     "products": [
       "floor:16067065577806"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1d9087bcb2782ed084fc1a01-1.jpg?v=1789237969": {
     "state": "pending",
@@ -10789,7 +11405,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f09d8c5f8d1b26b7fea2080b-0.webp?v=1789237956": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "ac08820479d0eda6",
       "w": 1440,
@@ -10801,7 +11417,18 @@
     "products": [
       "floor:16067064725838"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f09d8c5f8d1b26b7fea2080b-1.jpg?v=1789237957": {
     "state": "pending",
@@ -10819,7 +11446,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-8579ba77f409543725aead94-0.webp?v=1789237944": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d8acd658b7f23661",
       "w": 1440,
@@ -10831,7 +11458,18 @@
     "products": [
       "floor:16067064070478"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-8579ba77f409543725aead94-1.jpg?v=1789237946": {
     "state": "pending",
@@ -10849,7 +11487,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b8c37023e1ccfbd35f90b4c1-0.webp?v=1789237932": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e19fd91b673a561b",
       "w": 1440,
@@ -10861,7 +11499,18 @@
     "products": [
       "floor:16067063349582"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b8c37023e1ccfbd35f90b4c1-1.jpg?v=1789237933": {
     "state": "pending",
@@ -10879,7 +11528,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5be86e528c334d9a39b89a5a-0.webp?v=1789237920": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "65c9226d5d6e7c41",
       "w": 1440,
@@ -10891,7 +11540,18 @@
     "products": [
       "floor:16067062530382"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5be86e528c334d9a39b89a5a-1.jpg?v=1789237921": {
     "state": "pending",
@@ -10909,7 +11569,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-68a11986cc6dc7eb6af477ea-0.webp?v=1789237909": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f050d135d3f637e4",
       "w": 1440,
@@ -10921,7 +11581,18 @@
     "products": [
       "floor:16067061907790"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-68a11986cc6dc7eb6af477ea-1.jpg?v=1789237910": {
     "state": "pending",
@@ -10939,7 +11610,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5e514bf77b52dbe6b96058ca-0.webp?v=1789237897": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "01aca018e17c97b2",
       "w": 1440,
@@ -10951,7 +11622,18 @@
     "products": [
       "floor:16067061219662"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5e514bf77b52dbe6b96058ca-1.jpg?v=1789237898": {
     "state": "pending",
@@ -10969,7 +11651,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-563f463aba6c4ebc5d2628bc-0.webp?v=1789237885": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "ea1446722b0942f7",
       "w": 1440,
@@ -10981,7 +11663,18 @@
     "products": [
       "floor:16067060400462"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-563f463aba6c4ebc5d2628bc-1.jpg?v=1789237887": {
     "state": "pending",
@@ -10999,7 +11692,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5a014444e3445a85fd01c78e-0.webp?v=1789237874": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "edf64aa2bc6dc588",
       "w": 1440,
@@ -11011,7 +11704,18 @@
     "products": [
       "floor:16067059482958"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5a014444e3445a85fd01c78e-1.jpg?v=1789237875": {
     "state": "pending",
@@ -11029,7 +11733,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4992f17c74b25bcf3edb38e2-0.webp?v=1789237862": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "8ec4e919806e4b67",
       "w": 1440,
@@ -11041,7 +11745,18 @@
     "products": [
       "floor:16067058532686"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4992f17c74b25bcf3edb38e2-1.jpg?v=1789237863": {
     "state": "pending",
@@ -11059,7 +11774,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-95bf119c2c59d26959a87d04-0.webp?v=1789237850": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "35dfc62ce55adfbb",
       "w": 1440,
@@ -11071,7 +11786,18 @@
     "products": [
       "floor:16067057779022"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-95bf119c2c59d26959a87d04-1.jpg?v=1789237851": {
     "state": "pending",
@@ -11089,7 +11815,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b543fae907975de98e26ca0f-0.webp?v=1789237839": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "5582a53d11cec77f",
       "w": 1440,
@@ -11101,7 +11827,18 @@
     "products": [
       "floor:16067056992590"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b543fae907975de98e26ca0f-1.jpg?v=1789237840": {
     "state": "pending",
@@ -11119,7 +11856,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dcdaec053efe2fcd80dde4fa-0.webp?v=1789237826": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "10a00f6dcccebb83",
       "w": 1440,
@@ -11131,7 +11868,18 @@
     "products": [
       "floor:16067056042318"
     ],
-    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c"
+    "reference_sha256": "405965e8f2848cd04e19720bc4090d7bac2e0e0c1182f69d67dccf8c94848d9c",
+    "generated": {
+      "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+      "w": 1254,
+      "h": 1254,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\015e05489499abc0-gpt-634187dcb6c9-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dcdaec053efe2fcd80dde4fa-1.jpg?v=1789237827": {
     "state": "pending",
@@ -11149,7 +11897,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "9633bc35050e36ca",
       "w": 1440,
@@ -11161,7 +11909,18 @@
     "products": [
       "floor:16067055288654"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-1.jpg?v=1789237815": {
     "state": "pending",
@@ -11179,7 +11938,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-cdf815f0a2e82e18aacc4659-0.webp?v=1789237802": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d910803ec39eef8d",
       "w": 1440,
@@ -11191,7 +11950,18 @@
     "products": [
       "floor:16067054534990"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-cdf815f0a2e82e18aacc4659-1.jpg?v=1789237803": {
     "state": "pending",
@@ -11209,7 +11979,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fff2b50fd5ba7115a9aba6eb-0.webp?v=1789237790": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "083808ae367aa033",
       "w": 1440,
@@ -11221,7 +11991,18 @@
     "products": [
       "floor:16067053748558"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fff2b50fd5ba7115a9aba6eb-1.jpg?v=1789237792": {
     "state": "pending",
@@ -11239,7 +12020,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-ac1f9f9dc48a3c10b1c57858-0.webp?v=1789237779": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "1a20de9fb051b3aa",
       "w": 1440,
@@ -11251,7 +12032,18 @@
     "products": [
       "floor:16067052896590"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-ac1f9f9dc48a3c10b1c57858-1.jpg?v=1789237780": {
     "state": "pending",
@@ -11269,7 +12061,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-07634a8ed913f955a533f886-0.webp?v=1789237768": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "254eecfdf071e94e",
       "w": 1440,
@@ -11281,7 +12073,18 @@
     "products": [
       "floor:16067052142926"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-07634a8ed913f955a533f886-1.jpg?v=1789237769": {
     "state": "pending",
@@ -11299,7 +12102,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-868850f7afd87e8087201905-0.webp?v=1789237755": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d68c94a460993852",
       "w": 1440,
@@ -11311,7 +12114,18 @@
     "products": [
       "floor:16067051192654"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-868850f7afd87e8087201905-1.jpg?v=1789237756": {
     "state": "pending",
@@ -11329,7 +12143,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e888072cbd826f0c5fecc390-0.webp?v=1789237743": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "98918d1ce1cfe8b8",
       "w": 1440,
@@ -11341,7 +12155,18 @@
     "products": [
       "floor:16067050340686"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e888072cbd826f0c5fecc390-1.jpg?v=1789237744": {
     "state": "pending",
@@ -11359,7 +12184,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e6843d812f1caa5cdedd1c21-0.webp?v=1789237732": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "4e041779bc4c6040",
       "w": 1440,
@@ -11371,7 +12196,18 @@
     "products": [
       "floor:16067049652558"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e6843d812f1caa5cdedd1c21-1.jpg?v=1789237733": {
     "state": "pending",
@@ -11389,7 +12225,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0770bd428409f0f3c2b865cc-0.webp?v=1789237720": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "325fe0ddd2291c55",
       "w": 1440,
@@ -11401,7 +12237,18 @@
     "products": [
       "floor:16067048800590"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0770bd428409f0f3c2b865cc-1.jpg?v=1789237721": {
     "state": "pending",
@@ -11419,7 +12266,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0693f371a7f37bb24a0f6da3-0.webp?v=1789237708": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "4699060b152eb102",
       "w": 1440,
@@ -11431,7 +12278,18 @@
     "products": [
       "floor:16067047915854"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0693f371a7f37bb24a0f6da3-1.jpg?v=1789237710": {
     "state": "pending",
@@ -11449,7 +12307,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2289d5cefa21480d31eb944d-0.webp?v=1789237696": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "af5e8f69bc764e75",
       "w": 1440,
@@ -11461,7 +12319,18 @@
     "products": [
       "floor:16067047031118"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2289d5cefa21480d31eb944d-1.jpg?v=1789237697": {
     "state": "pending",
@@ -11479,7 +12348,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-512234d006584d8485fbb03f-0.webp?v=1789237685": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "006b5e98d91a15c7",
       "w": 1440,
@@ -11491,7 +12360,18 @@
     "products": [
       "floor:16067046342990"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-512234d006584d8485fbb03f-1.jpg?v=1789237686": {
     "state": "pending",
@@ -11509,7 +12389,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-99baea7ecac9f70f40d65455-0.webp?v=1789237673": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "ef078a3d98d6eb20",
       "w": 1440,
@@ -11521,7 +12401,18 @@
     "products": [
       "floor:16067045589326"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-99baea7ecac9f70f40d65455-1.jpg?v=1789237674": {
     "state": "pending",
@@ -11539,7 +12430,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b1545d5d12b67555e61c6e15-0.webp?v=1789237661": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "dff7b99653b20236",
       "w": 1440,
@@ -11551,7 +12442,18 @@
     "products": [
       "floor:16067044966734"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b1545d5d12b67555e61c6e15-1.jpg?v=1789237663": {
     "state": "pending",
@@ -11569,7 +12471,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fca5aa2bed5e9be2d950f722-0.webp?v=1789237650": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "0effb2b5e31c306b",
       "w": 1440,
@@ -11581,7 +12483,18 @@
     "products": [
       "floor:16067044475214"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fca5aa2bed5e9be2d950f722-1.jpg?v=1789237651": {
     "state": "pending",
@@ -11599,7 +12512,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0caecd278f1da595a060dfa3-0.webp?v=1789237638": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3624b080d1d94ff4",
       "w": 1440,
@@ -11611,7 +12524,18 @@
     "products": [
       "floor:16067043918158"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0caecd278f1da595a060dfa3-1.jpg?v=1789237639": {
     "state": "pending",
@@ -11629,7 +12553,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aa87446428e97792f1367e54-0.webp?v=1789237626": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "fcde811c122550f0",
       "w": 1440,
@@ -11641,7 +12565,18 @@
     "products": [
       "floor:16067043459406"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aa87446428e97792f1367e54-1.jpg?v=1789237627": {
     "state": "pending",
@@ -11659,7 +12594,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-870e9f039a4392b0633aaff1-0.webp?v=1789237614": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "ced9ceeb9909c3e8",
       "w": 1440,
@@ -11671,7 +12606,18 @@
     "products": [
       "floor:16067043000654"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-870e9f039a4392b0633aaff1-1.jpg?v=1789237615": {
     "state": "pending",
@@ -11689,7 +12635,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5bba194d9e1a2f14ee6e1f68-0.webp?v=1789237603": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f3cbef1d3cfe1693",
       "w": 1440,
@@ -11701,7 +12647,18 @@
     "products": [
       "floor:16067042509134"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5bba194d9e1a2f14ee6e1f68-1.jpg?v=1789237603": {
     "state": "pending",
@@ -11719,7 +12676,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-749cc66433820881aad5573a-0.webp?v=1789237591": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "5f4b35d5847664f6",
       "w": 1440,
@@ -11731,7 +12688,18 @@
     "products": [
       "floor:16067042115918"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-749cc66433820881aad5573a-1.jpg?v=1789237591": {
     "state": "pending",
@@ -11749,7 +12717,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-705d732707bc6186549eceb9-0.webp?v=1789237579": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "b7682817a3b212da",
       "w": 1440,
@@ -11761,7 +12729,18 @@
     "products": [
       "floor:16067041624398"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-705d732707bc6186549eceb9-1.jpg?v=1789237580": {
     "state": "pending",
@@ -11779,7 +12758,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a599195b7e808d23f432881d-0.webp?v=1789237567": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e1332b9227ea2a74",
       "w": 1440,
@@ -11791,7 +12770,18 @@
     "products": [
       "floor:16067041165646"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a599195b7e808d23f432881d-1.jpg?v=1789237568": {
     "state": "pending",
@@ -11809,7 +12799,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-af1aeb3ce707ce373c8233c4-0.webp?v=1789237555": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "52e2d38bc3bd2dd3",
       "w": 1440,
@@ -11821,7 +12811,18 @@
     "products": [
       "floor:16067040674126"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-af1aeb3ce707ce373c8233c4-1.jpg?v=1789237556": {
     "state": "pending",
@@ -11839,7 +12840,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4cadf20a2c038bef027d57ab-0.webp?v=1789237543": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "54a7694ee3163de4",
       "w": 1440,
@@ -11851,7 +12852,18 @@
     "products": [
       "floor:16067040149838"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4cadf20a2c038bef027d57ab-1.jpg?v=1789237544": {
     "state": "pending",
@@ -11869,7 +12881,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6e5e6a60fbf63849875275e0-0.webp?v=1789237531": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d64fd3e72631c472",
       "w": 1440,
@@ -11881,7 +12893,18 @@
     "products": [
       "floor:16067039723854"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6e5e6a60fbf63849875275e0-1.jpg?v=1789237532": {
     "state": "pending",
@@ -11899,7 +12922,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d6a2aa60b0a14a42cf8788d5-0.webp?v=1789237518": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "53cff3a78af4eaf4",
       "w": 1440,
@@ -11911,7 +12934,18 @@
     "products": [
       "floor:16067039166798"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d6a2aa60b0a14a42cf8788d5-1.jpg?v=1789237520": {
     "state": "pending",
@@ -11929,7 +12963,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c512e1bf59afc7258a9e04e4-0.webp?v=1789237507": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "1b000538c755be02",
       "w": 1440,
@@ -11941,7 +12975,18 @@
     "products": [
       "floor:16067038609742"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c512e1bf59afc7258a9e04e4-1.jpg?v=1789237508": {
     "state": "pending",
@@ -11959,7 +13004,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b891be981349206ac9c6c12d-0.webp?v=1789237495": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "12b617276202873d",
       "w": 1440,
@@ -11971,7 +13016,18 @@
     "products": [
       "floor:16067038118222"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b891be981349206ac9c6c12d-1.jpg?v=1789237496": {
     "state": "pending",
@@ -11989,7 +13045,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1b82c19612e32d2827baf4e7-0.webp?v=1789237482": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "4812171ec8127a73",
       "w": 1440,
@@ -12001,7 +13057,18 @@
     "products": [
       "floor:16067037626702"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1b82c19612e32d2827baf4e7-1.jpg?v=1789237484": {
     "state": "pending",
@@ -12019,7 +13086,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-505a59a9b4559f9184564457-0.webp?v=1789237471": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "cc6380d986a36988",
       "w": 1440,
@@ -12031,7 +13098,18 @@
     "products": [
       "floor:16067037069646"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-505a59a9b4559f9184564457-1.jpg?v=1789237472": {
     "state": "pending",
@@ -12049,7 +13127,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d501acd636e670bab42c77ec-0.webp?v=1789237459": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d2f6e7cfd2fd0f60",
       "w": 1440,
@@ -12061,7 +13139,18 @@
     "products": [
       "floor:16067036447054"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d501acd636e670bab42c77ec-1.jpg?v=1789237460": {
     "state": "pending",
@@ -12079,7 +13168,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-bd4eb89bbfa3128263c86851-0.webp?v=1789237448": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "47cc7d22942fe38a",
       "w": 1440,
@@ -12091,7 +13180,18 @@
     "products": [
       "floor:16067035857230"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-bd4eb89bbfa3128263c86851-1.jpg?v=1789237448": {
     "state": "pending",
@@ -12109,7 +13209,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6c9a1c5e7a95778a34799d3d-0.webp?v=1789237435": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "201eeb9632eab3d5",
       "w": 1440,
@@ -12121,7 +13221,18 @@
     "products": [
       "floor:16067035234638"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6c9a1c5e7a95778a34799d3d-1.jpg?v=1789237436": {
     "state": "pending",
@@ -12139,7 +13250,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6c932e4170d58f36ac45bf6a-0.webp?v=1789237424": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e16c4c1e7044174b",
       "w": 1440,
@@ -12151,7 +13262,18 @@
     "products": [
       "floor:16067034743118"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6c932e4170d58f36ac45bf6a-1.jpg?v=1789237425": {
     "state": "pending",
@@ -12169,7 +13291,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c1b9dd884e9e39b92a901873-0.webp?v=1789237412": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "e8fdf19588430d22",
       "w": 1440,
@@ -12181,7 +13303,18 @@
     "products": [
       "floor:16067034251598"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c1b9dd884e9e39b92a901873-1.jpg?v=1789237413": {
     "state": "pending",
@@ -12199,7 +13332,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aba14e3a96a1dc73ac9ccea4-0.webp?v=1789237400": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d9b4362c73571b2a",
       "w": 1440,
@@ -12211,7 +13344,18 @@
     "products": [
       "floor:16067033760078"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aba14e3a96a1dc73ac9ccea4-1.jpg?v=1789237401": {
     "state": "pending",
@@ -12229,7 +13373,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-77b10d694077647311921dfb-0.webp?v=1789237388": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "79e836cec65dc774",
       "w": 1440,
@@ -12241,7 +13385,18 @@
     "products": [
       "floor:16067033203022"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-77b10d694077647311921dfb-1.jpg?v=1789237389": {
     "state": "pending",
@@ -12259,7 +13414,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-056d3dcd7de1cc19a13dc66e-0.webp?v=1789237377": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "71bf2442568d6c0b",
       "w": 1440,
@@ -12271,7 +13426,18 @@
     "products": [
       "floor:16067032580430"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-056d3dcd7de1cc19a13dc66e-1.jpg?v=1789237378": {
     "state": "pending",
@@ -12289,7 +13455,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5cf8cf94846655f94e4a6635-0.webp?v=1789237365": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "34b41323f983916f",
       "w": 1440,
@@ -12301,7 +13467,18 @@
     "products": [
       "floor:16067031925070"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5cf8cf94846655f94e4a6635-1.jpg?v=1789237366": {
     "state": "pending",
@@ -12319,7 +13496,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-89254d9c0ead3c56c1bc9af7-0.webp?v=1789237353": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "20aa54407806e639",
       "w": 1440,
@@ -12331,7 +13508,18 @@
     "products": [
       "floor:16067031302478"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-89254d9c0ead3c56c1bc9af7-1.jpg?v=1789237355": {
     "state": "pending",
@@ -12349,7 +13537,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aab36e1dddbf7ce6da0d8bf2-0.webp?v=1789237342": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "6bc7b6caa96ff7ce",
       "w": 1440,
@@ -12361,7 +13549,18 @@
     "products": [
       "floor:16067030745422"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aab36e1dddbf7ce6da0d8bf2-1.jpg?v=1789237343": {
     "state": "pending",
@@ -12379,7 +13578,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d5c1d7b5e33d32442371d53c-0.webp?v=1789237330": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "ce4f0b72f4f349b3",
       "w": 1440,
@@ -12391,7 +13590,18 @@
     "products": [
       "floor:16067030253902"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d5c1d7b5e33d32442371d53c-1.jpg?v=1789237331": {
     "state": "pending",
@@ -12409,7 +13619,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1e3e18a7c8f374735d16cf8d-0.webp?v=1789237318": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "977c2dd4f3987adf",
       "w": 1440,
@@ -12421,7 +13631,18 @@
     "products": [
       "floor:16067029795150"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1e3e18a7c8f374735d16cf8d-1.jpg?v=1789237319": {
     "state": "pending",
@@ -12439,7 +13660,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-8910477930622efd8b6ff990-0.webp?v=1789237306": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "a6c3f18e793678e7",
       "w": 1440,
@@ -12451,7 +13672,18 @@
     "products": [
       "floor:16067029303630"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-8910477930622efd8b6ff990-1.jpg?v=1789237307": {
     "state": "pending",
@@ -12469,7 +13701,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-84d2407472f1e2a06d4fade3-0.webp?v=1789237294": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "2149f9d4ded0c8f2",
       "w": 1440,
@@ -12481,7 +13713,18 @@
     "products": [
       "floor:16067028746574"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-84d2407472f1e2a06d4fade3-1.jpg?v=1789237295": {
     "state": "pending",
@@ -12499,7 +13742,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-851a18582264e6016095f53f-0.webp?v=1789237283": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "003cf35ab038ae2a",
       "w": 1440,
@@ -12511,7 +13754,18 @@
     "products": [
       "floor:16067028255054"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-851a18582264e6016095f53f-1.jpg?v=1789237283": {
     "state": "pending",
@@ -12529,7 +13783,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55b19575dd77e777f4e26d56-0.webp?v=1789237270": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "a008e68eddb349d5",
       "w": 1440,
@@ -12541,7 +13795,18 @@
     "products": [
       "floor:16067027796302"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55b19575dd77e777f4e26d56-1.jpg?v=1789237271": {
     "state": "pending",
@@ -12559,7 +13824,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d1d5121b20172cdbd09673e3-0.webp?v=1789237259": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "4bbcc048c884de2b",
       "w": 1440,
@@ -12571,7 +13836,18 @@
     "products": [
       "floor:16067027337550"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d1d5121b20172cdbd09673e3-1.jpg?v=1789237260": {
     "state": "pending",
@@ -12589,7 +13865,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4d852270d4e462a82925a52c-0.webp?v=1789237246": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "21a8d812b71d8467",
       "w": 1440,
@@ -12601,7 +13877,18 @@
     "products": [
       "floor:16067026878798"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4d852270d4e462a82925a52c-1.jpg?v=1789237247": {
     "state": "pending",
@@ -12619,7 +13906,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dcb2510a54b623421ebdc126-0.webp?v=1789237234": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "d3ac13f49d55a1dd",
       "w": 1440,
@@ -12631,7 +13918,18 @@
     "products": [
       "floor:16067026387278"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dcb2510a54b623421ebdc126-1.jpg?v=1789237236": {
     "state": "pending",
@@ -12649,7 +13947,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fde44375ffbb9b5f0e50ee6c-0.webp?v=1789237223": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3f53b423094f8934",
       "w": 1440,
@@ -12661,7 +13959,18 @@
     "products": [
       "floor:16067025895758"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fde44375ffbb9b5f0e50ee6c-1.jpg?v=1789237224": {
     "state": "pending",
@@ -12679,7 +13988,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6941f83a045692a897452ed7-0.webp?v=1789237211": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3bee0e07abaaa433",
       "w": 1440,
@@ -12691,7 +14000,18 @@
     "products": [
       "floor:16067025338702"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6941f83a045692a897452ed7-1.jpg?v=1789237212": {
     "state": "pending",
@@ -12709,7 +14029,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-3032cd16874b6e63bd3f2ccc-0.webp?v=1789237199": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "51a333b1e8ede431",
       "w": 1440,
@@ -12721,7 +14041,18 @@
     "products": [
       "floor:16067024945486"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-3032cd16874b6e63bd3f2ccc-1.jpg?v=1789237200": {
     "state": "pending",
@@ -12739,7 +14070,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b04155562d87793d46af94f8-0.png?v=1789237187": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "f9a500d8c14016ea",
       "w": 600,
@@ -12751,10 +14082,21 @@
     "products": [
       "floor:16067024421198"
     ],
-    "reference_sha256": "10baa02495a5ebbd2ea504ae12bcd5ad192dd3b5a1e3044ffd53d952a5cffa99"
+    "reference_sha256": "10baa02495a5ebbd2ea504ae12bcd5ad192dd3b5a1e3044ffd53d952a5cffa99",
+    "generated": {
+      "key": "f9a500d8c14016ea-gpt-c4b472b03d1f-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\f9a500d8c14016ea-gpt-c4b472b03d1f-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-7537bd9d54a9180fea23ac1b-0.png?v=1789237174": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "499c415be7a74cb3",
       "w": 600,
@@ -12766,10 +14108,21 @@
     "products": [
       "floor:16067023798606"
     ],
-    "reference_sha256": "091efca6147178ddf60ba6bd51db7dcce9ea70166b0856460fc14b6adb1746ff"
+    "reference_sha256": "091efca6147178ddf60ba6bd51db7dcce9ea70166b0856460fc14b6adb1746ff",
+    "generated": {
+      "key": "499c415be7a74cb3-gpt-a4dc5c872859-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\499c415be7a74cb3-gpt-a4dc5c872859-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f93f4a9191d862e1658b9e5b-0.png?v=1789237160": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "9dd3afc22c9cf261",
       "w": 600,
@@ -12781,10 +14134,21 @@
     "products": [
       "floor:16067023208782"
     ],
-    "reference_sha256": "aaa9840d7623ef85b6cf53e77ae625e2bf5a53e37b80457b05116cb2fcb5c617"
+    "reference_sha256": "aaa9840d7623ef85b6cf53e77ae625e2bf5a53e37b80457b05116cb2fcb5c617",
+    "generated": {
+      "key": "9dd3afc22c9cf261-gpt-047c710ab63f-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9dd3afc22c9cf261-gpt-047c710ab63f-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-088d395f758d82e1671836ae-0.png?v=1789237146": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "949dd0c2a26a590f",
       "w": 600,
@@ -12796,10 +14160,21 @@
     "products": [
       "floor:16067022422350"
     ],
-    "reference_sha256": "b0202150221ffcb566689071186ea034d884ff5643c4ac0787ae0b1c4da5268c"
+    "reference_sha256": "b0202150221ffcb566689071186ea034d884ff5643c4ac0787ae0b1c4da5268c",
+    "generated": {
+      "key": "949dd0c2a26a590f-gpt-2db9091726a9-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\949dd0c2a26a590f-gpt-2db9091726a9-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-df69c8c386ebfcf9ff60e05b-0.png?v=1789237132": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "657c066993f71969",
       "w": 600,
@@ -12811,10 +14186,21 @@
     "products": [
       "floor:16067020915022"
     ],
-    "reference_sha256": "ba8e0168ccf929605b088c30de6c7cbbadddea7e4deecd356149b8496a99c34a"
+    "reference_sha256": "ba8e0168ccf929605b088c30de6c7cbbadddea7e4deecd356149b8496a99c34a",
+    "generated": {
+      "key": "657c066993f71969-gpt-5c9895965d07-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\657c066993f71969-gpt-5c9895965d07-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9eb0237e79e070f7fc032068-0.png?v=1789237120": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "5ce18f7610637129",
       "w": 600,
@@ -12826,10 +14212,21 @@
     "products": [
       "floor:16067020390734"
     ],
-    "reference_sha256": "4db8e6c5405495587a38a9cc15c04e5e409e3ca114c35bac8ae844b6362f9c16"
+    "reference_sha256": "4db8e6c5405495587a38a9cc15c04e5e409e3ca114c35bac8ae844b6362f9c16",
+    "generated": {
+      "key": "5ce18f7610637129-gpt-08808a067673-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\5ce18f7610637129-gpt-08808a067673-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d2a5f7ae29b0d420ef2bcf27-0.png?v=1789237105": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "05de896d50b79bb1",
       "w": 600,
@@ -12841,10 +14238,21 @@
     "products": [
       "floor:16067019833678"
     ],
-    "reference_sha256": "b139ec34fce465bdfac314a2d00332bae361d223f8cb3cdbf158cbc203cf90d8"
+    "reference_sha256": "b139ec34fce465bdfac314a2d00332bae361d223f8cb3cdbf158cbc203cf90d8",
+    "generated": {
+      "key": "05de896d50b79bb1-gpt-447a15658897-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\05de896d50b79bb1-gpt-447a15658897-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f88163f15a912690a631c95c-0.png?v=1789237092": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "544bfb8b19b5cbe7",
       "w": 600,
@@ -12856,10 +14264,21 @@
     "products": [
       "floor:16067019243854"
     ],
-    "reference_sha256": "72d84c4163adfe86e046fe2879aab5fb9864ca0deef5c0bc38641dfd960eb5e5"
+    "reference_sha256": "72d84c4163adfe86e046fe2879aab5fb9864ca0deef5c0bc38641dfd960eb5e5",
+    "generated": {
+      "key": "544bfb8b19b5cbe7-gpt-291aa252b49e-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\544bfb8b19b5cbe7-gpt-291aa252b49e-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55082a5d48b696f7e61ce55d-0.png?v=1789237078": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "8cdf5fc2f480575d",
       "w": 600,
@@ -12871,10 +14290,21 @@
     "products": [
       "floor:16067018555726"
     ],
-    "reference_sha256": "e24c199107e901cd9a980fbb526e7c0615d2fe87f6e056f207dced2a792be846"
+    "reference_sha256": "e24c199107e901cd9a980fbb526e7c0615d2fe87f6e056f207dced2a792be846",
+    "generated": {
+      "key": "8cdf5fc2f480575d-gpt-4d85f3d17050-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\8cdf5fc2f480575d-gpt-4d85f3d17050-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-38a27aa814cfd832304ba8f7-0.png?v=1789237063": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "6c59ca513b69220b",
       "w": 600,
@@ -12886,10 +14316,21 @@
     "products": [
       "floor:16067017900366"
     ],
-    "reference_sha256": "7342f97bc58f1556ea87662aabeea674ea19afdb3265934c09092f4d760a3965"
+    "reference_sha256": "7342f97bc58f1556ea87662aabeea674ea19afdb3265934c09092f4d760a3965",
+    "generated": {
+      "key": "6c59ca513b69220b-gpt-909333931a62-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\6c59ca513b69220b-gpt-909333931a62-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-da174059e5b9a811690e504a-0.png?v=1789237047": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "1cb2aca237fd7f62",
       "w": 600,
@@ -12901,10 +14342,21 @@
     "products": [
       "floor:16067017113934"
     ],
-    "reference_sha256": "a90eac37d419ee5e439bed94bc282de5fd6da6a336ee512139ea3d2c7372eb21"
+    "reference_sha256": "a90eac37d419ee5e439bed94bc282de5fd6da6a336ee512139ea3d2c7372eb21",
+    "generated": {
+      "key": "1cb2aca237fd7f62-gpt-a066a2f8a6b2-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\1cb2aca237fd7f62-gpt-a066a2f8a6b2-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e10ca86150963494d95ee31d-0.png?v=1789237032": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "992982d704151b2b",
       "w": 600,
@@ -12916,10 +14368,21 @@
     "products": [
       "floor:16067016556878"
     ],
-    "reference_sha256": "55a57fe7ba4c78acf5423094fe4eba14e6d00f952ea67e8e14c9fc643c29842d"
+    "reference_sha256": "55a57fe7ba4c78acf5423094fe4eba14e6d00f952ea67e8e14c9fc643c29842d",
+    "generated": {
+      "key": "992982d704151b2b-gpt-dfddb7594683-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\992982d704151b2b-gpt-dfddb7594683-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-599f13671a4046863ffa0b64-0.png?v=1789237019": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "262121b5864de79c",
       "w": 600,
@@ -12931,10 +14394,21 @@
     "products": [
       "floor:16067015999822"
     ],
-    "reference_sha256": "4798c222ed62101384a628afbb87678eeea17aec645cbd9b2aaa9ef40b179278"
+    "reference_sha256": "4798c222ed62101384a628afbb87678eeea17aec645cbd9b2aaa9ef40b179278",
+    "generated": {
+      "key": "262121b5864de79c-gpt-7fc1cf90c4ac-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\262121b5864de79c-gpt-7fc1cf90c4ac-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6341a81460552f5a59c2590b-0.jpg?v=1789237004": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "15722f4231359e40",
       "w": 600,
@@ -12946,7 +14420,18 @@
     "products": [
       "floor:16067015475534"
     ],
-    "reference_sha256": "2bce6bcff1b71c8738b55456e0a303e3dd3c2389778727ba3bb393fa44c7436f"
+    "reference_sha256": "2bce6bcff1b71c8738b55456e0a303e3dd3c2389778727ba3bb393fa44c7436f",
+    "generated": {
+      "key": "15722f4231359e40-gpt-d0a72b94c19d-avif-q55",
+      "w": 1536,
+      "h": 1024,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\15722f4231359e40-gpt-d0a72b94c19d-avif-q55.png",
+    "encoding_quality": 55
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a214cb55bed0d59499385e95-0.jpg?v=1789236994": {
     "state": "pending",
@@ -16244,7 +17729,7 @@
     "reference_sha256": "49e1cd43a60009117e4ede522e1ccca79e1dd504ba32565d045b1ed015c6de13"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9093f27659c13ab4ed319176-existing-0.webp?v=1789234288": {
-    "state": "pending",
+    "state": "accepted",
     "source": {
       "key": "3284b91a8819026c",
       "w": 1440,
@@ -16256,7 +17741,18 @@
     "products": [
       "floor:16062449254734"
     ],
-    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d"
+    "reference_sha256": "7ef16d111bc2a54b5d1386748bc55e01da2d6012c091cefd731bad20f86d850d",
+    "generated": {
+      "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+      "w": 1060,
+      "h": 1484,
+      "sizes": [
+        600
+      ],
+      "format": "avif"
+    },
+    "master": "C:\\Users\\Win11\\Desktop\\Claudes Workspace\\Outputs\\ngdoors-product-renders\\9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55.png",
+    "duplicate_of": "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9093f27659c13ab4ed319176-existing-1.jpg?v=1789234289": {
     "state": "pending",

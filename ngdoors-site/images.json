@@ -3224,20 +3224,22 @@
    "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e08853d22_584b5a4665573.png": {
-   "key": "361afe08306b9cec",
-   "w": 200,
-   "h": 397,
+   "key": "361afe08306b9cec-gpt-3170431b9c4a-avif-q55",
+   "w": 890,
+   "h": 1767,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e3a183fa2_9bee0fe9799f2.png": {
-   "key": "43dcf7c3692d923a",
-   "w": 300,
-   "h": 595,
+   "key": "43dcf7c3692d923a-gpt-8add2ba71a61-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e3a183fa2_d307889a6417e.png": {
    "key": "2303a4debc690872",
@@ -3264,12 +3266,13 @@
    ]
   },
   "https://ngdoors.bg/assets/products/large/r_6113e452b7355_803961f243e1a.png": {
-   "key": "0f7de9aec9316769",
-   "w": 300,
-   "h": 595,
+   "key": "0f7de9aec9316769-gpt-b8847182e5a5-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e452b7355_807269fd0bf3d.png": {
    "key": "1038d4d017de196d",
@@ -3296,12 +3299,13 @@
    ]
   },
   "https://ngdoors.bg/assets/products/large/r_6113e2849fa67_46f9b686a02d4.png": {
-   "key": "2fa415230975b99b",
-   "w": 300,
-   "h": 595,
+   "key": "2fa415230975b99b-gpt-6a60dbadfafb-avif-q55",
+   "w": 1152,
+   "h": 1365,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e2849fa67_70fde8fccc780.png": {
    "key": "771a543536be76f7",
@@ -3328,12 +3332,13 @@
    ]
   },
   "https://ngdoors.bg/assets/products/large/r_6113e4a68307d_29d2f4f6fb573.png": {
-   "key": "cc891d569fdf8eb6",
-   "w": 300,
-   "h": 595,
+   "key": "cc891d569fdf8eb6-gpt-868fcfa76e53-avif-q55",
+   "w": 1122,
+   "h": 1402,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e4a68307d_9c1ca6e7afb4d.png": {
    "key": "18c5f75d896d4f52",
@@ -3360,12 +3365,13 @@
    ]
   },
   "https://ngdoors.bg/assets/products/large/r_6113e3453c514_5b2d0e330c905.png": {
-   "key": "931c668a05da924e",
-   "w": 300,
-   "h": 595,
+   "key": "931c668a05da924e-gpt-6adb3b4ab097-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e3453c514_704b7aa16e3e7.png": {
    "key": "35837f0994884e12",
@@ -3392,12 +3398,13 @@
    ]
   },
   "https://ngdoors.bg/assets/products/large/r_6113e400df9e4_cc929fe18a17b.png": {
-   "key": "429b5b5997d0e100",
-   "w": 300,
-   "h": 595,
+   "key": "429b5b5997d0e100-gpt-2d9d81f17b2d-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113e400df9e4_640740edf2d2d.png": {
    "key": "fcd18ddbc36f07e4",
@@ -3424,52 +3431,58 @@
    ]
   },
   "https://ngdoors.bg/assets/products/large/r_6113e034194e1_87cf018c37493.png": {
-   "key": "f13688e62c3283f0",
-   "w": 200,
-   "h": 397,
+   "key": "f13688e62c3283f0-gpt-34379dfcf708-avif-q55",
+   "w": 1105,
+   "h": 1423,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_6113dd2f56d57_ab076c6bae9f7.png": {
-   "key": "e4299bd131400a4b",
-   "w": 200,
-   "h": 397,
+   "key": "e4299bd131400a4b-gpt-c42f83e872db-avif-q55",
+   "w": 1024,
+   "h": 1536,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_68c2d90b6dca9_e6d5c8a8d281a.png": {
-   "key": "c0b3fc85b15fdcaf",
-   "w": 381,
-   "h": 788,
+   "key": "c0b3fc85b15fdcaf-gpt-7accd12bd721-avif-q55",
+   "w": 872,
+   "h": 1802,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_68c2d5da2d414_fc7db519abc5c.png": {
-   "key": "7c69093d7e0121e7",
-   "w": 397,
-   "h": 794,
+   "key": "7c69093d7e0121e7-gpt-0b0fdb139b2f-avif-q55",
+   "w": 887,
+   "h": 1774,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_68c2d7780a821_a41792f7c5996.png": {
-   "key": "4dcb1239ad6a6d46",
-   "w": 381,
-   "h": 788,
+   "key": "4dcb1239ad6a6d46-gpt-cf14f498850b-avif-q55",
+   "w": 872,
+   "h": 1802,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60bf2ef4a7868_d15c57e1906ee.png": {
-   "key": "bb89df74754b50a8",
-   "w": 565,
-   "h": 546,
+   "key": "bb89df74754b50a8-gpt-0531a85589df-avif-q55",
+   "w": 1276,
+   "h": 1233,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://ngdoors.bg/assets/products/large/r_60bf2ef4a7868_b446b485bf168.png": {
    "key": "777c3cb52d6ae486",
@@ -6544,20 +6557,22 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-055497268393dff955a651d3-0.jpg?v=1789242811": {
-   "key": "c077c2b92cf621d0",
-   "w": 600,
-   "h": 600,
+   "key": "c077c2b92cf621d0-gpt-04a680534f0b-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-0.webp?v=1789238457": {
-   "key": "015e05489499abc0",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2d486328cfd1bc55465125b3-1.jpg?v=1789238458": {
    "key": "80f9196635715b1a",
@@ -6568,12 +6583,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dae166e39a358de729259c72-0.webp?v=1789238446": {
-   "key": "a66771dd6986df07",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dae166e39a358de729259c72-1.jpg?v=1789238447": {
    "key": "8dc7f74202b70649",
@@ -6584,12 +6600,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e911bd2b8a4ff4f5ba1cfc06-0.webp?v=1789238435": {
-   "key": "7f63c28b59f8eb91",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e911bd2b8a4ff4f5ba1cfc06-1.jpg?v=1789238436": {
    "key": "4cb771c40914955c",
@@ -6600,12 +6617,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c1b95cc030dfedfaa303b58c-0.webp?v=1789238423": {
-   "key": "05682598f3d2b8cf",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c1b95cc030dfedfaa303b58c-1.jpg?v=1789238424": {
    "key": "4e5e4b12d3872e71",
@@ -6616,12 +6634,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f33e8ea57822680c9936b7dd-0.webp?v=1789238410": {
-   "key": "8bdadc830a97a208",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f33e8ea57822680c9936b7dd-1.jpg?v=1789238412": {
    "key": "93fe36059ad883de",
@@ -6632,12 +6651,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9e2252f715b7a9c362868040-0.webp?v=1789238398": {
-   "key": "cd963e7942a123f4",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9e2252f715b7a9c362868040-1.jpg?v=1789238400": {
    "key": "87607d3768600ae5",
@@ -6648,12 +6668,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0ca5ec95f53727013c4d7aa8-0.webp?v=1789238386": {
-   "key": "283b757af30ca964",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0ca5ec95f53727013c4d7aa8-1.jpg?v=1789238387": {
    "key": "895813942e5fce9a",
@@ -6664,12 +6685,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-3594b9d4d48c97939f15b82d-0.webp?v=1789238375": {
-   "key": "beb2827a3ee82461",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-3594b9d4d48c97939f15b82d-1.jpg?v=1789238376": {
    "key": "e8b8ec3263d4b88c",
@@ -6680,12 +6702,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a56fe4b372ca0cb48db56254-0.webp?v=1789238363": {
-   "key": "a3526ee9e56ee0ba",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a56fe4b372ca0cb48db56254-1.jpg?v=1789238364": {
    "key": "4a6e501c77c3dad7",
@@ -6696,12 +6719,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-bc0b283df6471ae0af6364e5-0.webp?v=1789238352": {
-   "key": "5b1f7a4e2e1d19a3",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-bc0b283df6471ae0af6364e5-1.jpg?v=1789238353": {
    "key": "07a34040ce026dba",
@@ -6712,12 +6736,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-cdbd6d810807eb3fe478ee80-0.webp?v=1789238340": {
-   "key": "eede948525391c38",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-cdbd6d810807eb3fe478ee80-1.jpg?v=1789238342": {
    "key": "6c4ea50b09993c49",
@@ -6728,12 +6753,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f94cd7442e5e733eada27453-0.webp?v=1789238328": {
-   "key": "3c7df22ea4d0feb3",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f94cd7442e5e733eada27453-1.jpg?v=1789238330": {
    "key": "d62d1f4f931cd0ed",
@@ -6744,12 +6770,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-30b15db94b4c96474a110d33-0.webp?v=1789238317": {
-   "key": "56aa98cf329bc2d1",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-30b15db94b4c96474a110d33-1.jpg?v=1789238319": {
    "key": "f5f6037380851ee7",
@@ -6760,12 +6787,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-930c1e9c96247e1f218ce53a-0.webp?v=1789238306": {
-   "key": "b9a39453f70c4cfd",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-930c1e9c96247e1f218ce53a-1.jpg?v=1789238307": {
    "key": "aace1842d842c18f",
@@ -6776,12 +6804,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4c1616c91f716899b7134832-0.webp?v=1789238294": {
-   "key": "e914f187cc38388b",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4c1616c91f716899b7134832-1.jpg?v=1789238295": {
    "key": "f9ef41d34218e18c",
@@ -6792,12 +6821,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-125dfce27d09a44e2f66fcf1-0.webp?v=1789238282": {
-   "key": "3fcb3243bb421e70",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-125dfce27d09a44e2f66fcf1-1.jpg?v=1789238284": {
    "key": "bed241372e773ac2",
@@ -6808,12 +6838,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f4b4aa5d867caa2e8c28008a-0.webp?v=1789238270": {
-   "key": "fbccdc236c16da19",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f4b4aa5d867caa2e8c28008a-1.jpg?v=1789238271": {
    "key": "66031055daa34040",
@@ -6824,12 +6855,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1521247e589862218e6c3170-0.webp?v=1789238258": {
-   "key": "f6f2893da925c3e2",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1521247e589862218e6c3170-1.jpg?v=1789238260": {
    "key": "fd3034e26129d06e",
@@ -6840,12 +6872,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-06b63712b59e53e47abd2a33-0.webp?v=1789238247": {
-   "key": "9ebd990da13625f2",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-06b63712b59e53e47abd2a33-1.jpg?v=1789238248": {
    "key": "401d13035afa9331",
@@ -6856,12 +6889,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1f4aa7c554bf6e37af02259d-0.webp?v=1789238235": {
-   "key": "f041fec6fd5b1f7b",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1f4aa7c554bf6e37af02259d-1.jpg?v=1789238236": {
    "key": "36470d664541b134",
@@ -6872,12 +6906,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-ebe140e90a687e528a2117b1-0.webp?v=1789238223": {
-   "key": "a4c61d4ee73184a9",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-ebe140e90a687e528a2117b1-1.jpg?v=1789238225": {
    "key": "10b9702ef3b61866",
@@ -6888,12 +6923,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0c251db949028c559b24f94c-0.webp?v=1789238211": {
-   "key": "639d05ca8ef2f2ef",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0c251db949028c559b24f94c-1.jpg?v=1789238213": {
    "key": "429886398dca9e40",
@@ -6904,12 +6940,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b74291b485a5179ed21b66cc-0.webp?v=1789238199": {
-   "key": "d22b886e32efc979",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b74291b485a5179ed21b66cc-1.jpg?v=1789238200": {
    "key": "ee83e501e4eb4337",
@@ -6920,12 +6957,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-eee372b01c319711522b8217-0.webp?v=1789238186": {
-   "key": "26f78f61557573de",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-eee372b01c319711522b8217-1.jpg?v=1789238187": {
    "key": "78b868b5945636b1",
@@ -6936,12 +6974,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-887eca16b73b5d0ab13110d1-0.webp?v=1789238174": {
-   "key": "2a0a6b234f0ea172",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-887eca16b73b5d0ab13110d1-1.jpg?v=1789238176": {
    "key": "dc5d1b6eb42d88ee",
@@ -6952,12 +6991,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2e05643ced35fe6654bb580b-0.webp?v=1789238163": {
-   "key": "55a352169760ad76",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2e05643ced35fe6654bb580b-1.jpg?v=1789238164": {
    "key": "7da4824b43eefcd3",
@@ -6968,12 +7008,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9c9aac511137d1b746248b6b-0.webp?v=1789238151": {
-   "key": "e87255984e3b0314",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9c9aac511137d1b746248b6b-1.jpg?v=1789238153": {
    "key": "b44cd7fd834a7aa5",
@@ -6984,12 +7025,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b4058b4c7aba2ac0a4dd8f39-0.webp?v=1789238139": {
-   "key": "208a9638914fede6",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b4058b4c7aba2ac0a4dd8f39-1.jpg?v=1789238140": {
    "key": "f0227d5b67db37b7",
@@ -7000,12 +7042,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-399f6c63ece2d8856f0ab08d-0.webp?v=1789238128": {
-   "key": "c033c826457e4500",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-399f6c63ece2d8856f0ab08d-1.jpg?v=1789238129": {
    "key": "801ac817e6c52d8e",
@@ -7016,12 +7059,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-714b1e014aceb67de3db0ba1-0.webp?v=1789238116": {
-   "key": "062cccb19ceedc2f",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-714b1e014aceb67de3db0ba1-1.jpg?v=1789238117": {
    "key": "7595333b9d0f32be",
@@ -7032,12 +7076,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0e3edff708ec12166bd75c59-0.webp?v=1789238104": {
-   "key": "8d76d17c922d9533",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0e3edff708ec12166bd75c59-1.jpg?v=1789238105": {
    "key": "a1c07d7bb74d27b2",
@@ -7048,12 +7093,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4d468771c67b929933143300-0.webp?v=1789238091": {
-   "key": "790defee384ac1ad",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4d468771c67b929933143300-1.jpg?v=1789238093": {
    "key": "1c8fcfd9ac6572c9",
@@ -7064,12 +7110,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2f80300eac95f131ca7d83ca-0.webp?v=1789238078": {
-   "key": "132717d4505d750a",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2f80300eac95f131ca7d83ca-1.jpg?v=1789238080": {
    "key": "4c8bd715ecbe42dc",
@@ -7080,12 +7127,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-999569bb1677ff271cf957c6-0.webp?v=1789238066": {
-   "key": "6261933bded167f4",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-999569bb1677ff271cf957c6-1.jpg?v=1789238067": {
    "key": "f1c17d46ef223683",
@@ -7096,12 +7144,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81ff369060d382ff48acc252-0.webp?v=1789238054": {
-   "key": "431727ce69e29929",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81ff369060d382ff48acc252-1.jpg?v=1789238056": {
    "key": "8e376f56fd0f1e48",
@@ -7112,12 +7161,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55cdf66e232e01b5b256f711-0.webp?v=1789238042": {
-   "key": "48474cd733183326",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55cdf66e232e01b5b256f711-1.jpg?v=1789238043": {
    "key": "9553eeb4a33d5b6c",
@@ -7128,12 +7178,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b6183e01c9c3d6e638579e09-0.webp?v=1789238030": {
-   "key": "3fa642c86c79b774",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b6183e01c9c3d6e638579e09-1.jpg?v=1789238031": {
    "key": "49009b76bec2ca59",
@@ -7144,12 +7195,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-07f41666464ba6ba4691974a-0.webp?v=1789238018": {
-   "key": "2a532bd409a5647d",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-07f41666464ba6ba4691974a-1.jpg?v=1789238019": {
    "key": "5e08110bc655e405",
@@ -7160,12 +7212,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5b71c5af7ccdcab7f5bb9478-0.webp?v=1789238005": {
-   "key": "0a156b2b17730b54",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5b71c5af7ccdcab7f5bb9478-1.jpg?v=1789238006": {
    "key": "246c6c9b4d4fdc67",
@@ -7176,12 +7229,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b5135d96dd49c337755fa207-0.webp?v=1789237991": {
-   "key": "c5502395f737a28f",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b5135d96dd49c337755fa207-1.jpg?v=1789237993": {
    "key": "450706e373b563cd",
@@ -7192,12 +7246,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-010842d598de94d7c61f7648-0.webp?v=1789237980": {
-   "key": "adedd7b9d2d6fd70",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-010842d598de94d7c61f7648-1.jpg?v=1789237981": {
    "key": "3a54f8e826bf4918",
@@ -7208,12 +7263,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1d9087bcb2782ed084fc1a01-0.webp?v=1789237968": {
-   "key": "1f6da2c252f05143",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1d9087bcb2782ed084fc1a01-1.jpg?v=1789237969": {
    "key": "bb80d7eb879d5352",
@@ -7224,12 +7280,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f09d8c5f8d1b26b7fea2080b-0.webp?v=1789237956": {
-   "key": "ac08820479d0eda6",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f09d8c5f8d1b26b7fea2080b-1.jpg?v=1789237957": {
    "key": "4a2476958748c258",
@@ -7240,12 +7297,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-8579ba77f409543725aead94-0.webp?v=1789237944": {
-   "key": "d8acd658b7f23661",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-8579ba77f409543725aead94-1.jpg?v=1789237946": {
    "key": "d33aa2821243bbf5",
@@ -7256,12 +7314,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b8c37023e1ccfbd35f90b4c1-0.webp?v=1789237932": {
-   "key": "e19fd91b673a561b",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b8c37023e1ccfbd35f90b4c1-1.jpg?v=1789237933": {
    "key": "3e3c2c74fb9a4594",
@@ -7272,12 +7331,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5be86e528c334d9a39b89a5a-0.webp?v=1789237920": {
-   "key": "65c9226d5d6e7c41",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5be86e528c334d9a39b89a5a-1.jpg?v=1789237921": {
    "key": "01ef544d3ea70501",
@@ -7288,12 +7348,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-68a11986cc6dc7eb6af477ea-0.webp?v=1789237909": {
-   "key": "f050d135d3f637e4",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-68a11986cc6dc7eb6af477ea-1.jpg?v=1789237910": {
    "key": "9510a0f836bef1a9",
@@ -7304,12 +7365,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5e514bf77b52dbe6b96058ca-0.webp?v=1789237897": {
-   "key": "01aca018e17c97b2",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5e514bf77b52dbe6b96058ca-1.jpg?v=1789237898": {
    "key": "6990fff399e0b133",
@@ -7320,12 +7382,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-563f463aba6c4ebc5d2628bc-0.webp?v=1789237885": {
-   "key": "ea1446722b0942f7",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-563f463aba6c4ebc5d2628bc-1.jpg?v=1789237887": {
    "key": "aace1c1821c7d5cb",
@@ -7336,12 +7399,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5a014444e3445a85fd01c78e-0.webp?v=1789237874": {
-   "key": "edf64aa2bc6dc588",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5a014444e3445a85fd01c78e-1.jpg?v=1789237875": {
    "key": "5733ceeb0541ae5b",
@@ -7352,12 +7416,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4992f17c74b25bcf3edb38e2-0.webp?v=1789237862": {
-   "key": "8ec4e919806e4b67",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4992f17c74b25bcf3edb38e2-1.jpg?v=1789237863": {
    "key": "7e950b6a9be87636",
@@ -7368,12 +7433,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-95bf119c2c59d26959a87d04-0.webp?v=1789237850": {
-   "key": "35dfc62ce55adfbb",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-95bf119c2c59d26959a87d04-1.jpg?v=1789237851": {
    "key": "1823e0ba07f75479",
@@ -7384,12 +7450,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b543fae907975de98e26ca0f-0.webp?v=1789237839": {
-   "key": "5582a53d11cec77f",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b543fae907975de98e26ca0f-1.jpg?v=1789237840": {
    "key": "7ece82acbfb35846",
@@ -7400,12 +7467,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dcdaec053efe2fcd80dde4fa-0.webp?v=1789237826": {
-   "key": "10a00f6dcccebb83",
-   "w": 1440,
-   "h": 1440,
+   "key": "015e05489499abc0-gpt-634187dcb6c9-avif-q55",
+   "w": 1254,
+   "h": 1254,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dcdaec053efe2fcd80dde4fa-1.jpg?v=1789237827": {
    "key": "b57abe4cbca7fca7",
@@ -7416,12 +7484,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-0.webp?v=1789237814": {
-   "key": "9633bc35050e36ca",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-81fe34ae9b0de1e3b87dc958-1.jpg?v=1789237815": {
    "key": "a8149112cb19595c",
@@ -7432,12 +7501,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-cdf815f0a2e82e18aacc4659-0.webp?v=1789237802": {
-   "key": "d910803ec39eef8d",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-cdf815f0a2e82e18aacc4659-1.jpg?v=1789237803": {
    "key": "cbe9eb5dfea5ab8c",
@@ -7448,12 +7518,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fff2b50fd5ba7115a9aba6eb-0.webp?v=1789237790": {
-   "key": "083808ae367aa033",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fff2b50fd5ba7115a9aba6eb-1.jpg?v=1789237792": {
    "key": "fadd7a8cac6f08bc",
@@ -7464,12 +7535,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-ac1f9f9dc48a3c10b1c57858-0.webp?v=1789237779": {
-   "key": "1a20de9fb051b3aa",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-ac1f9f9dc48a3c10b1c57858-1.jpg?v=1789237780": {
    "key": "71106d3e53a30b29",
@@ -7480,12 +7552,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-07634a8ed913f955a533f886-0.webp?v=1789237768": {
-   "key": "254eecfdf071e94e",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-07634a8ed913f955a533f886-1.jpg?v=1789237769": {
    "key": "633b8cacc53df1fa",
@@ -7496,12 +7569,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-868850f7afd87e8087201905-0.webp?v=1789237755": {
-   "key": "d68c94a460993852",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-868850f7afd87e8087201905-1.jpg?v=1789237756": {
    "key": "f9aff196d3d2eba7",
@@ -7512,12 +7586,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e888072cbd826f0c5fecc390-0.webp?v=1789237743": {
-   "key": "98918d1ce1cfe8b8",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e888072cbd826f0c5fecc390-1.jpg?v=1789237744": {
    "key": "baf7817d1aaa41a5",
@@ -7528,12 +7603,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e6843d812f1caa5cdedd1c21-0.webp?v=1789237732": {
-   "key": "4e041779bc4c6040",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e6843d812f1caa5cdedd1c21-1.jpg?v=1789237733": {
    "key": "2bf2ef3bb374d97b",
@@ -7544,12 +7620,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0770bd428409f0f3c2b865cc-0.webp?v=1789237720": {
-   "key": "325fe0ddd2291c55",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0770bd428409f0f3c2b865cc-1.jpg?v=1789237721": {
    "key": "b00bb8ae69b9acba",
@@ -7560,12 +7637,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0693f371a7f37bb24a0f6da3-0.webp?v=1789237708": {
-   "key": "4699060b152eb102",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0693f371a7f37bb24a0f6da3-1.jpg?v=1789237710": {
    "key": "103e63fba9c73870",
@@ -7576,12 +7654,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2289d5cefa21480d31eb944d-0.webp?v=1789237696": {
-   "key": "af5e8f69bc764e75",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-2289d5cefa21480d31eb944d-1.jpg?v=1789237697": {
    "key": "9c29bfcc10faff55",
@@ -7592,12 +7671,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-512234d006584d8485fbb03f-0.webp?v=1789237685": {
-   "key": "006b5e98d91a15c7",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-512234d006584d8485fbb03f-1.jpg?v=1789237686": {
    "key": "32310f9fdb4d709a",
@@ -7608,12 +7688,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-99baea7ecac9f70f40d65455-0.webp?v=1789237673": {
-   "key": "ef078a3d98d6eb20",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-99baea7ecac9f70f40d65455-1.jpg?v=1789237674": {
    "key": "633d2e6c9987382e",
@@ -7624,12 +7705,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b1545d5d12b67555e61c6e15-0.webp?v=1789237661": {
-   "key": "dff7b99653b20236",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b1545d5d12b67555e61c6e15-1.jpg?v=1789237663": {
    "key": "4aa16dd228ff7a5c",
@@ -7640,12 +7722,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fca5aa2bed5e9be2d950f722-0.webp?v=1789237650": {
-   "key": "0effb2b5e31c306b",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fca5aa2bed5e9be2d950f722-1.jpg?v=1789237651": {
    "key": "8f336edd1624cf6a",
@@ -7656,12 +7739,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0caecd278f1da595a060dfa3-0.webp?v=1789237638": {
-   "key": "3624b080d1d94ff4",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-0caecd278f1da595a060dfa3-1.jpg?v=1789237639": {
    "key": "d4b7f7da208cf652",
@@ -7672,12 +7756,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aa87446428e97792f1367e54-0.webp?v=1789237626": {
-   "key": "fcde811c122550f0",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aa87446428e97792f1367e54-1.jpg?v=1789237627": {
    "key": "8fd1b007b5efd724",
@@ -7688,12 +7773,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-870e9f039a4392b0633aaff1-0.webp?v=1789237614": {
-   "key": "ced9ceeb9909c3e8",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-870e9f039a4392b0633aaff1-1.jpg?v=1789237615": {
    "key": "1bb30ef86983cf36",
@@ -7704,12 +7790,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5bba194d9e1a2f14ee6e1f68-0.webp?v=1789237603": {
-   "key": "f3cbef1d3cfe1693",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5bba194d9e1a2f14ee6e1f68-1.jpg?v=1789237603": {
    "key": "5a7ca90d11380e29",
@@ -7720,12 +7807,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-749cc66433820881aad5573a-0.webp?v=1789237591": {
-   "key": "5f4b35d5847664f6",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-749cc66433820881aad5573a-1.jpg?v=1789237591": {
    "key": "a0fbfaf86c20c980",
@@ -7736,12 +7824,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-705d732707bc6186549eceb9-0.webp?v=1789237579": {
-   "key": "b7682817a3b212da",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-705d732707bc6186549eceb9-1.jpg?v=1789237580": {
    "key": "01b093411a657482",
@@ -7752,12 +7841,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a599195b7e808d23f432881d-0.webp?v=1789237567": {
-   "key": "e1332b9227ea2a74",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a599195b7e808d23f432881d-1.jpg?v=1789237568": {
    "key": "53666a9b5433e963",
@@ -7768,12 +7858,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-af1aeb3ce707ce373c8233c4-0.webp?v=1789237555": {
-   "key": "52e2d38bc3bd2dd3",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-af1aeb3ce707ce373c8233c4-1.jpg?v=1789237556": {
    "key": "7bfbe9753150b074",
@@ -7784,12 +7875,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4cadf20a2c038bef027d57ab-0.webp?v=1789237543": {
-   "key": "54a7694ee3163de4",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4cadf20a2c038bef027d57ab-1.jpg?v=1789237544": {
    "key": "09847ba257fb7419",
@@ -7800,12 +7892,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6e5e6a60fbf63849875275e0-0.webp?v=1789237531": {
-   "key": "d64fd3e72631c472",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6e5e6a60fbf63849875275e0-1.jpg?v=1789237532": {
    "key": "5245b344b2433315",
@@ -7816,12 +7909,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d6a2aa60b0a14a42cf8788d5-0.webp?v=1789237518": {
-   "key": "53cff3a78af4eaf4",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d6a2aa60b0a14a42cf8788d5-1.jpg?v=1789237520": {
    "key": "0f4664d2290b04b9",
@@ -7832,12 +7926,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c512e1bf59afc7258a9e04e4-0.webp?v=1789237507": {
-   "key": "1b000538c755be02",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c512e1bf59afc7258a9e04e4-1.jpg?v=1789237508": {
    "key": "713bd522f03633b1",
@@ -7848,12 +7943,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b891be981349206ac9c6c12d-0.webp?v=1789237495": {
-   "key": "12b617276202873d",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b891be981349206ac9c6c12d-1.jpg?v=1789237496": {
    "key": "147ff880367fc3c9",
@@ -7864,12 +7960,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1b82c19612e32d2827baf4e7-0.webp?v=1789237482": {
-   "key": "4812171ec8127a73",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1b82c19612e32d2827baf4e7-1.jpg?v=1789237484": {
    "key": "e8136d2147498921",
@@ -7880,12 +7977,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-505a59a9b4559f9184564457-0.webp?v=1789237471": {
-   "key": "cc6380d986a36988",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-505a59a9b4559f9184564457-1.jpg?v=1789237472": {
    "key": "ff9fedc065191c36",
@@ -7896,12 +7994,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d501acd636e670bab42c77ec-0.webp?v=1789237459": {
-   "key": "d2f6e7cfd2fd0f60",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d501acd636e670bab42c77ec-1.jpg?v=1789237460": {
    "key": "66ff4419948e1554",
@@ -7912,12 +8011,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-bd4eb89bbfa3128263c86851-0.webp?v=1789237448": {
-   "key": "47cc7d22942fe38a",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-bd4eb89bbfa3128263c86851-1.jpg?v=1789237448": {
    "key": "973a819230017203",
@@ -7928,12 +8028,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6c9a1c5e7a95778a34799d3d-0.webp?v=1789237435": {
-   "key": "201eeb9632eab3d5",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6c9a1c5e7a95778a34799d3d-1.jpg?v=1789237436": {
    "key": "0564b024d2afa8df",
@@ -7944,12 +8045,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6c932e4170d58f36ac45bf6a-0.webp?v=1789237424": {
-   "key": "e16c4c1e7044174b",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6c932e4170d58f36ac45bf6a-1.jpg?v=1789237425": {
    "key": "1f9c98d822750edc",
@@ -7960,12 +8062,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c1b9dd884e9e39b92a901873-0.webp?v=1789237412": {
-   "key": "e8fdf19588430d22",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-c1b9dd884e9e39b92a901873-1.jpg?v=1789237413": {
    "key": "f7db23ae4ce91908",
@@ -7976,12 +8079,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aba14e3a96a1dc73ac9ccea4-0.webp?v=1789237400": {
-   "key": "d9b4362c73571b2a",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aba14e3a96a1dc73ac9ccea4-1.jpg?v=1789237401": {
    "key": "954901910835bef5",
@@ -7992,12 +8096,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-77b10d694077647311921dfb-0.webp?v=1789237388": {
-   "key": "79e836cec65dc774",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-77b10d694077647311921dfb-1.jpg?v=1789237389": {
    "key": "7fbbaec64c135034",
@@ -8008,12 +8113,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-056d3dcd7de1cc19a13dc66e-0.webp?v=1789237377": {
-   "key": "71bf2442568d6c0b",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-056d3dcd7de1cc19a13dc66e-1.jpg?v=1789237378": {
    "key": "287c4cb9cd359d67",
@@ -8024,12 +8130,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5cf8cf94846655f94e4a6635-0.webp?v=1789237365": {
-   "key": "34b41323f983916f",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-5cf8cf94846655f94e4a6635-1.jpg?v=1789237366": {
    "key": "840cbbd241f7715f",
@@ -8040,12 +8147,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-89254d9c0ead3c56c1bc9af7-0.webp?v=1789237353": {
-   "key": "20aa54407806e639",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-89254d9c0ead3c56c1bc9af7-1.jpg?v=1789237355": {
    "key": "4b6a2fb56d552d35",
@@ -8056,12 +8164,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aab36e1dddbf7ce6da0d8bf2-0.webp?v=1789237342": {
-   "key": "6bc7b6caa96ff7ce",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-aab36e1dddbf7ce6da0d8bf2-1.jpg?v=1789237343": {
    "key": "08a8c0adc584985b",
@@ -8072,12 +8181,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d5c1d7b5e33d32442371d53c-0.webp?v=1789237330": {
-   "key": "ce4f0b72f4f349b3",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d5c1d7b5e33d32442371d53c-1.jpg?v=1789237331": {
    "key": "48265fd071e3003f",
@@ -8088,12 +8198,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1e3e18a7c8f374735d16cf8d-0.webp?v=1789237318": {
-   "key": "977c2dd4f3987adf",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-1e3e18a7c8f374735d16cf8d-1.jpg?v=1789237319": {
    "key": "9a87e7d0cb175dbe",
@@ -8104,12 +8215,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-8910477930622efd8b6ff990-0.webp?v=1789237306": {
-   "key": "a6c3f18e793678e7",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-8910477930622efd8b6ff990-1.jpg?v=1789237307": {
    "key": "890025f094614164",
@@ -8120,12 +8232,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-84d2407472f1e2a06d4fade3-0.webp?v=1789237294": {
-   "key": "2149f9d4ded0c8f2",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-84d2407472f1e2a06d4fade3-1.jpg?v=1789237295": {
    "key": "bd91fbb11e699caa",
@@ -8136,12 +8249,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-851a18582264e6016095f53f-0.webp?v=1789237283": {
-   "key": "003cf35ab038ae2a",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-851a18582264e6016095f53f-1.jpg?v=1789237283": {
    "key": "4024263950632659",
@@ -8152,12 +8266,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55b19575dd77e777f4e26d56-0.webp?v=1789237270": {
-   "key": "a008e68eddb349d5",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55b19575dd77e777f4e26d56-1.jpg?v=1789237271": {
    "key": "43be051a4c89ea2b",
@@ -8168,12 +8283,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d1d5121b20172cdbd09673e3-0.webp?v=1789237259": {
-   "key": "4bbcc048c884de2b",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d1d5121b20172cdbd09673e3-1.jpg?v=1789237260": {
    "key": "d62e0a1bc275b2fc",
@@ -8184,12 +8300,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4d852270d4e462a82925a52c-0.webp?v=1789237246": {
-   "key": "21a8d812b71d8467",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-4d852270d4e462a82925a52c-1.jpg?v=1789237247": {
    "key": "6bafa2aece3daf55",
@@ -8200,12 +8317,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dcb2510a54b623421ebdc126-0.webp?v=1789237234": {
-   "key": "d3ac13f49d55a1dd",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-dcb2510a54b623421ebdc126-1.jpg?v=1789237236": {
    "key": "2e196277a096fc34",
@@ -8216,12 +8334,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fde44375ffbb9b5f0e50ee6c-0.webp?v=1789237223": {
-   "key": "3f53b423094f8934",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-fde44375ffbb9b5f0e50ee6c-1.jpg?v=1789237224": {
    "key": "992522431ec08b9c",
@@ -8232,12 +8351,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6941f83a045692a897452ed7-0.webp?v=1789237211": {
-   "key": "3bee0e07abaaa433",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6941f83a045692a897452ed7-1.jpg?v=1789237212": {
    "key": "f3184879f2d8a623",
@@ -8248,12 +8368,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-3032cd16874b6e63bd3f2ccc-0.webp?v=1789237199": {
-   "key": "51a333b1e8ede431",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-3032cd16874b6e63bd3f2ccc-1.jpg?v=1789237200": {
    "key": "55aa38311bd616d8",
@@ -8264,116 +8385,130 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-b04155562d87793d46af94f8-0.png?v=1789237187": {
-   "key": "f9a500d8c14016ea",
-   "w": 600,
-   "h": 420,
+   "key": "f9a500d8c14016ea-gpt-c4b472b03d1f-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-7537bd9d54a9180fea23ac1b-0.png?v=1789237174": {
-   "key": "499c415be7a74cb3",
-   "w": 600,
-   "h": 420,
+   "key": "499c415be7a74cb3-gpt-a4dc5c872859-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f93f4a9191d862e1658b9e5b-0.png?v=1789237160": {
-   "key": "9dd3afc22c9cf261",
-   "w": 600,
-   "h": 420,
+   "key": "9dd3afc22c9cf261-gpt-047c710ab63f-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-088d395f758d82e1671836ae-0.png?v=1789237146": {
-   "key": "949dd0c2a26a590f",
-   "w": 600,
-   "h": 420,
+   "key": "949dd0c2a26a590f-gpt-2db9091726a9-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-df69c8c386ebfcf9ff60e05b-0.png?v=1789237132": {
-   "key": "657c066993f71969",
-   "w": 600,
-   "h": 420,
+   "key": "657c066993f71969-gpt-5c9895965d07-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9eb0237e79e070f7fc032068-0.png?v=1789237120": {
-   "key": "5ce18f7610637129",
-   "w": 600,
-   "h": 420,
+   "key": "5ce18f7610637129-gpt-08808a067673-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-d2a5f7ae29b0d420ef2bcf27-0.png?v=1789237105": {
-   "key": "05de896d50b79bb1",
-   "w": 600,
-   "h": 420,
+   "key": "05de896d50b79bb1-gpt-447a15658897-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-f88163f15a912690a631c95c-0.png?v=1789237092": {
-   "key": "544bfb8b19b5cbe7",
-   "w": 600,
-   "h": 420,
+   "key": "544bfb8b19b5cbe7-gpt-291aa252b49e-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-55082a5d48b696f7e61ce55d-0.png?v=1789237078": {
-   "key": "8cdf5fc2f480575d",
-   "w": 600,
-   "h": 420,
+   "key": "8cdf5fc2f480575d-gpt-4d85f3d17050-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-38a27aa814cfd832304ba8f7-0.png?v=1789237063": {
-   "key": "6c59ca513b69220b",
-   "w": 600,
-   "h": 420,
+   "key": "6c59ca513b69220b-gpt-909333931a62-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-da174059e5b9a811690e504a-0.png?v=1789237047": {
-   "key": "1cb2aca237fd7f62",
-   "w": 600,
-   "h": 420,
+   "key": "1cb2aca237fd7f62-gpt-a066a2f8a6b2-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-e10ca86150963494d95ee31d-0.png?v=1789237032": {
-   "key": "992982d704151b2b",
-   "w": 600,
-   "h": 420,
+   "key": "992982d704151b2b-gpt-dfddb7594683-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-599f13671a4046863ffa0b64-0.png?v=1789237019": {
-   "key": "262121b5864de79c",
-   "w": 600,
-   "h": 420,
+   "key": "262121b5864de79c-gpt-7fc1cf90c4ac-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-6341a81460552f5a59c2590b-0.jpg?v=1789237004": {
-   "key": "15722f4231359e40",
-   "w": 600,
-   "h": 420,
+   "key": "15722f4231359e40-gpt-d0a72b94c19d-avif-q55",
+   "w": 1536,
+   "h": 1024,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-a214cb55bed0d59499385e95-0.jpg?v=1789236994": {
    "key": "faf4109e848b5424",
@@ -10128,12 +10263,13 @@
    ]
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9093f27659c13ab4ed319176-existing-0.webp?v=1789234288": {
-   "key": "3284b91a8819026c",
-   "w": 1440,
-   "h": 1440,
+   "key": "9633bc35050e36ca-gpt-73c0ddaebf3c-avif-q55",
+   "w": 1060,
+   "h": 1484,
    "sizes": [
     600
-   ]
+   ],
+   "format": "avif"
   },
   "https://cdn.shopify.com/s/files/1/0757/9500/5774/files/darnox-GENSOFT-9093f27659c13ab4ed319176-existing-1.jpg?v=1789234289": {
    "key": "5bb832622453cda2",
