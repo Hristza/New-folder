@@ -143,6 +143,9 @@ create table if not exists public.inquiries (
   status     text not null default 'new' check (status in ('new', 'done')),
   created_at timestamptz not null default now()
 );
+-- Additive: older forms and existing inquiries keep their legacy contact value.
+alter table public.inquiries add column if not exists email text not null default '' check (length(email) <= 254);
+alter table public.inquiries add column if not exists phone text not null default '' check (length(phone) <= 32);
 create index if not exists inquiries_created on public.inquiries (created_at desc);
 alter table public.inquiries enable row level security;
 

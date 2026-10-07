@@ -651,8 +651,11 @@
     var box = $('#inbox');
     if (!state.inbox.length) { box.replaceChildren(h('p.muted', null, 'Няма запитвания.')); return; }
     box.replaceChildren.apply(box, state.inbox.map(function (q) {
-      var tel = /^[+\d][\d\s()-]{5,}$/.test(q.contact.trim()) ? q.contact.replace(/[^\d+]/g, '') : null;
-      var mail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(q.contact.trim()) ? q.contact.trim() : null;
+      var contact = (q.contact || '').trim();
+      var phone = (q.phone || '').trim() || (/^[+\d][\d\s().-]{5,}$/.test(contact) ? contact : '');
+      var email = (q.email || '').trim() || (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(contact) ? contact : '');
+      var tel = /^[+\d][\d\s().-]{5,}$/.test(phone) ? phone.replace(/[^\d+]/g, '') : null;
+      var mail = /^[^@\s<>"?&#]+@[^@\s<>"?&#]+\.[^@\s<>"?&#]+$/.test(email) ? email : null;
       var done = h('button.btn.btn-ghost.btn-sm', { type: 'button' }, q.status === 'new' ? 'Готово' : 'Върни като ново');
       done.addEventListener('click', function () {
         var st = q.status === 'new' ? 'done' : 'new';
@@ -670,7 +673,10 @@
       });
       return h('article.inq' + (q.status === 'done' ? '.done' : ''), null,
         h('div.meta', null, new Date(q.created_at).toLocaleString('bg-BG') + (q.topic ? ' · ' + q.topic : '') + (q.page ? ' · от ' + q.page : '')),
-        h('div.name', null, q.name + ' — ' + q.contact),
+        h('div.name', null, q.name),
+        email ? h('div.text', null, 'Имейл: ' + email) : null,
+        phone ? h('div.text', null, 'Телефон: ' + phone) : null,
+        !email && !phone ? h('div.text', null, 'За връзка: ' + contact) : null,
         q.message ? h('div.text', null, q.message) : null,
         h('div.actions', null,
           tel ? h('a.btn.btn-primary.btn-sm', { href: 'tel:' + tel }, 'Обади се') : null,

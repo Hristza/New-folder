@@ -127,5 +127,20 @@ for (const [role, uid] of [['anon', null], ['authenticated', OTHER]]) {
 ok((await as('anon', null, `select excluded_images from product_overrides where product_key='door:12345'`)).rows?.[0]?.excluded_images?.[0] === 'https://catalogue.test/door.jpg', 'build can read excluded photos');
 ok(!(await as('authenticated', ADMIN, `update product_overrides set excluded_images='[]' where product_key='door:12345'`)).err, 'restore originals accepted');
 
+// Migrate an older table with real rows; old forms must remain compatible.
+await db.exec('alter table inquiries drop column email; alter table inquiries drop column phone;');
+const contactMigration = readFileSync(fileURLToPath(new URL('./inquiry_contacts.sql', import.meta.url)), 'utf8');
+await db.exec(contactMigration);
+await db.exec(contactMigration);
+ok((await db.query("select count(*)::int as n from inquiries where email = '' and phone = ''")).rows[0].n === 30, 'migration preserves all legacy inquiries');
+await db.exec("delete from inquiries where name like 'n%'");
+ok(!(await as('anon', null, "insert into inquiries (name, contact, email, phone) values ('New visitor', 'visitor@example.com / +359 888 123 456', 'visitor@example.com', '+359 888 123 456')")).err, 'public form can save both contacts');
+const savedContact = (await as('authenticated', ADMIN, "select email, phone from inquiries where name = 'New visitor'")).rows?.[0];
+ok(savedContact?.email === 'visitor@example.com' && savedContact?.phone === '+359 888 123 456', 'admin reads both contacts without loss');
+ok((await as('anon', null, 'select email, phone from inquiries')).rows?.length === 0, 'contact details remain private');
+ok((await as('authenticated', OTHER, 'select email, phone from inquiries')).rows?.length === 0, 'non-admin cannot read contact details');
+ok((await as('anon', null, "insert into inquiries (name, contact, email) values ('x', 'abc', repeat('x', 255))")).err, 'oversize email rejected');
+ok((await as('anon', null, "insert into inquiries (name, contact, phone) values ('x', 'abc', repeat('1', 33))")).err, 'oversize phone rejected');
+
 console.log(fails ? `\n${fails} FAIL, ${passes} pass` : `schema: ALL ${passes} PASS`);
 process.exit(fails ? 1 : 0);

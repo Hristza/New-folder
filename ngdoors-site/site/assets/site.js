@@ -157,7 +157,8 @@
     };
     var mailto = function (d) {
       var body = 'Име: ' + (d.get('name') || '') +
-        '\nЗа връзка: ' + (d.get('contact') || '') +
+        '\nИмейл: ' + (d.get('email') || '') +
+        '\nТелефон: ' + (d.get('phone') || '') +
         '\nИнтерес: ' + (d.get('topic') || '') +
         '\n\n' + (d.get('message') || '');
       window.location.href = 'mailto:' + (form.getAttribute('data-email') || 'info@ngdoors.bg') +
@@ -176,7 +177,9 @@
         headers: { 'apikey': key, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
         body: JSON.stringify({
           name: String(d.get('name') || '').trim().slice(0, 120),
-          contact: String(d.get('contact') || '').trim().slice(0, 160),
+          contact: (String(d.get('email') || '').trim() + ' / ' + String(d.get('phone') || '').trim()).slice(0, 160),
+          email: String(d.get('email') || '').trim().slice(0, 254),
+          phone: String(d.get('phone') || '').trim().slice(0, 32),
           topic: String(d.get('topic') || '').slice(0, 80),
           message: String(d.get('message') || '').slice(0, 4000),
           page: location.pathname.slice(0, 300)

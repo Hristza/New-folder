@@ -1409,7 +1409,8 @@ def page_contact():
       <form id="enquiry-form"%s>
         <label class="hp" aria-hidden="true">Не попълвайте<input name="website" tabindex="-1" autocomplete="off"></label>
         <label class="field"><span>Име</span><input name="name" required autocomplete="name"></label>
-        <label class="field"><span>Телефон или имейл</span><input name="contact" required></label>
+        <label class="field"><span>Имейл</span><input type="email" name="email" required autocomplete="email" maxlength="254"></label>
+        <label class="field"><span>Телефон</span><input type="tel" name="phone" required autocomplete="tel" minlength="6" maxlength="32" pattern="[+0-9 .\\(\\)\\-]{6,32}" title="Въведете телефон с цифри, интервали и при нужда +, скоби или тире."></label>
         <label class="field"><span>Какво търсите</span>
           <select name="topic">
             <option>Входна врата</option><option>Интериорна врата</option>
