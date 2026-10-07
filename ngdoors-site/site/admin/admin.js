@@ -31,6 +31,9 @@
     return el;
   }
   function say(el, state, text) { el.setAttribute('data-state', state || ''); el.textContent = text || ''; }
+  // Ask before the first side effect, including uploads and unsaved destructive edits.
+  // Browser confirmation blocks the action; Cancel/Escape leaves the current state intact.
+  function confirmChange(action) { return window.confirm('Сигурни ли сте?\n\n' + action); }
 
   var CAT = null, sb = null, RATE = 1.95583;
   var state = { overrides: {}, products: [], photos: [], inbox: [], settings: {} };
@@ -68,6 +71,7 @@
         h('label.field', null, h('span', null, 'Размер'), size),
         h('label.field', null, h('span', null, 'Цена, €'), price),
         h('button.btn.btn-ghost.btn-sm', { type: 'button', 'aria-label': 'Махни размера', onclick: function () {
+          if (!confirmChange('Да премахнем този размер от списъка? Промяната ще се запише с „Запази“.')) return;
           inherited = false; row.remove(); add.disabled = false;
         } }, '×'));
       [size, price].forEach(function (input) { input.addEventListener('input', function () { inherited = false; }); });
@@ -75,10 +79,12 @@
     }
     add = h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () {
       if (list.children.length >= 30) return;
+      if (!confirmChange('Да добавим нов размер към списъка?')) return;
       inherited = false; append({}); add.disabled = list.children.length >= 30;
       $('input', list.lastElementChild).focus();
     } }, '+ Добави размер');
     box.appendChild(h('div.actions', null, add, defaults ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () {
+      if (!confirmChange('Да върнем каталожните размери? Въведените тук размери и цени ще бъдат заменени.')) return;
       inherited = true; draw(defaults());
     } }, 'Върни каталожните размери') : null));
     draw(rows || []);
@@ -152,6 +158,7 @@
   });
   $('#newpass').addEventListener('submit', function (e) {
     e.preventDefault();
+    if (!confirmChange('Да запазим новата парола за достъп до панела?')) return;
     var msg = $('#gate-msg');
     sb.auth.updateUser({ password: e.target.password.value }).then(function (r) {
       if (r.error) { say(msg, 'err', 'Паролата не беше сменена: ' + r.error.message); return; }
@@ -160,9 +167,12 @@
       sb.auth.getSession().then(function (s) { enter(s.data.session); });
     });
   });
-  $('#logout').addEventListener('click', function () { sb.auth.signOut(); });
+  $('#logout').addEventListener('click', function () {
+    if (confirmChange('Да излезем от панела? Незапазените промени ще се загубят.')) sb.auth.signOut();
+  });
   $('#myform').addEventListener('submit', function (e) {
     e.preventDefault();
+    if (!confirmChange('Да сменим паролата за достъп до панела?')) return;
     var f = e.target, msg = $('#mymsg');
     say(msg, '', 'Запазване…');
     sb.auth.updateUser({ password: f.password.value }).then(function (r) {
@@ -270,6 +280,9 @@
         return h('option', { value: b[0], selected: (o.badge || '') === b[0] }, b[1]);
       }));
     var hide = h('input', { type: 'checkbox', checked: !!o.hidden });
+    hide.addEventListener('change', function () {
+      if (!confirmChange((hide.checked ? 'Да скрием' : 'Да покажем') + ' „' + it.name + '“? Потвърдете промяната и със „Запази“.')) hide.checked = !hide.checked;
+    });
     var msg = h('span.msg', { role: 'status' });
     function defaults() {
       return (it.size_prices || []).map(function (s) {
@@ -285,7 +298,9 @@
     function coverSrc() { var visible = visibleOriginals(); return mine.length ? mediaUrl(mine[0].s) : visible.length ? visible[0].thumb : '/assets/no-photo.svg'; }
     var cover = h('img', { src: coverSrc(), alt: '', loading: 'lazy', width: 64, height: 64 });
     var photos = h('div.thumbs-edit');
-    var restorePhotos = h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () { setPhotos([], []); } }, 'Върни каталожните снимки');
+    var restorePhotos = h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () {
+      if (confirmChange('Да върнем всички каталожни снимки за „' + it.name + '“? Качените заместители ще бъдат изтрити.')) setPhotos([], []);
+    } }, 'Върни каталожните снимки');
     var resetButton = h('button.btn.btn-ghost.btn-sm', { type: 'button', hidden: !o.product_key, onclick: reset }, 'Върни каталожните');
     var saveButton = h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: save }, 'Запази');
     var files = h('input', { type: 'file', accept: 'image/*', multiple: true, onchange: swapPhotos });
@@ -315,6 +330,7 @@
         return h('figure', null, h('img', { src: uploaded ? mediaUrl(im.s) : im.thumb, alt: 'Снимка ' + (i + 1) }),
           h('button', { type: 'button', 'aria-label': 'Изтрий снимка ' + (i + 1), title: 'Изтрий снимката',
             onclick: function () {
+              if (!confirmChange('Да изтрием снимка ' + (i + 1) + ' от „' + it.name + '“? Самият продукт ще остане.')) return;
               if (uploaded) {
                 var next = mine.filter(function (x) { return x !== im; });
                 setPhotos(next, next.length ? excluded : originals.map(function (x) { return x.id; }));
@@ -353,6 +369,7 @@
       var list = Array.prototype.slice.call(files.files, 0, 20 - mine.length);
       files.value = '';
       if (!list.length) { say(msg, 'err', 'До 20 снимки на продукт.'); return; }
+      if (!confirmChange('Да качим избраните снимки за „' + it.name + '“? Те ще заменят каталожните снимки на сайта.')) return;
       busyPhotos(true);
       say(msg, '', 'Качване на ' + list.length + (list.length === 1 ? ' снимка…' : ' снимки…'));
       Promise.all(list.map(function (f) { return uploadPhoto(f, 'catalogue'); }))
@@ -370,6 +387,8 @@
       if (op != null && !(op > eff)) { say(msg, 'err', 'Старата цена трябва да е по-висока от новата.'); return; }
       var rec = { product_key: it.key, price: p, old_price: op, hidden: hide.checked, badge: badge.value || null };
       if (sizes) rec.size_prices = sizePrices;
+      if (!confirmChange('Да запазим цените, размерите и останалите промени за „' + it.name + '“?' +
+        (rec.hidden ? '\nПродуктът ще бъде скрит от сайта след публикуване.' : ''))) return;
       busyPhotos(true);
       say(msg, '', 'Запазване…');
       all(sb.from('product_overrides').upsert(rec).select()).then(function (d) {
@@ -383,6 +402,7 @@
     }
     function reset() {
       if (photoBusy) return;
+      if (!confirmChange('Да върнем всички каталожни данни за „' + it.name + '“? Вашите цени, размери и качени снимки ще бъдат премахнати.')) return;
       busyPhotos(true);
       all(sb.from('product_overrides').delete().eq('product_key', it.key)).then(function () {
         removeFiles(mine);
@@ -458,9 +478,13 @@
   }
   pf.section.addEventListener('change', function () { $('#pcat-wrap').hidden = pf.section.value !== 'door'; });
   $('#add-product').addEventListener('click', function () { openProduct(null); });
-  $('#pcancel').addEventListener('click', function () { pf.hidden = true; $('#add-product').hidden = false; });
+  $('#pcancel').addEventListener('click', function () {
+    if (!confirmChange('Да затворим формата? Незапазените промени по продукта ще се загубят.')) return;
+    pf.hidden = true; $('#add-product').hidden = false;
+  });
 
   function openProduct(p) {
+    if (!pf.hidden && !confirmChange('Да отворим продукта за редакция отново? Незапазените промени в текущата форма ще се загубят.')) return;
     editing = p; pImages = p ? (p.images || []).slice() : [];
     pf.reset();
     $('#pform-title').textContent = p ? 'Редакция: ' + p.name : 'Нов продукт';
@@ -474,7 +498,6 @@
     pSizes = sizeEditor(values, false);
     pSizes.element.open = true;
     $('#psizes').replaceChildren(pSizes.element);
-    $('#pdelete').removeAttribute('data-confirm'); $('#pdelete').textContent = 'Изтрий продукта';
     $('#pcat-wrap').hidden = pf.section.value !== 'door';
     $('#pdelete').hidden = !p;
     say($('#pmsg'), '', '');
@@ -485,13 +508,17 @@
   function drawThumbs() {
     $('#pthumbs').replaceChildren.apply($('#pthumbs'), pImages.map(function (im, i) {
       return h('figure', null, h('img', { src: mediaUrl(im.s), alt: 'Снимка ' + (i + 1) }),
-        h('button', { type: 'button', 'aria-label': 'Премахни снимка ' + (i + 1), onclick: function () { pImages.splice(i, 1); drawThumbs(); } }, '×'));
+        h('button', { type: 'button', 'aria-label': 'Премахни снимка ' + (i + 1), onclick: function () {
+          if (!confirmChange('Да премахнем тази снимка от продукта? Промяната ще се запише с „Запази“.')) return;
+          pImages.splice(i, 1); drawThumbs();
+        } }, '×'));
     }));
   }
   $('#pfiles').addEventListener('change', function (e) {
     var files = [].slice.call(e.target.files), msg = $('#pmsg');
     e.target.value = '';
     if (pImages.length + files.length > 20) { say(msg, 'err', 'До 20 снимки на продукт.'); return; }
+    if (!files.length || !confirmChange('Да качим избраните снимки за този продукт?')) return;
     var n = 0;
     say(msg, '', 'Качване 0/' + files.length + '…');
     files.reduce(function (p, f) {
@@ -520,6 +547,7 @@
       badge: pf.badge.value || null, description: pf.description.value.trim() || null, images: pImages
     };
     var dropped = editing ? (editing.images || []).filter(function (a) { return !pImages.some(function (b) { return b.s === a.s; }); }) : [];
+    if (!confirmChange('Да запазим продукта „' + rec.name + '“ и неговите снимки, размери и цени?')) return;
     say(msg, '', 'Запазване…');
     var q = editing ? sb.from('products').update(rec).eq('id', editing.id).select() : sb.from('products').insert(rec).select();
     all(q).then(function (d) {
@@ -534,11 +562,7 @@
   $('#pdelete').addEventListener('click', function () {
     if (!editing) return;
     var p = editing, msg = $('#pmsg');
-    if ($('#pdelete').getAttribute('data-confirm') !== '1') {
-      $('#pdelete').setAttribute('data-confirm', '1'); $('#pdelete').textContent = 'Натиснете пак за изтриване';
-      return;
-    }
-    $('#pdelete').removeAttribute('data-confirm'); $('#pdelete').textContent = 'Изтрий продукта';
+    if (!confirmChange('Да изтрием продукта „' + p.name + '“ и качените му снимки? Това действие не може да бъде отменено.')) return;
     all(sb.from('products').delete().eq('id', p.id)).then(function () {
       removeFiles(p.images || []);
       state.products = state.products.filter(function (x) { return x.id !== p.id; });
@@ -552,9 +576,13 @@
     box.replaceChildren.apply(box, state.products.map(function (p) {
       var hide = h('input', { type: 'checkbox', checked: !!p.hidden });
       hide.addEventListener('change', function () {
+        if (!confirmChange((hide.checked ? 'Да скрием' : 'Да покажем') + ' „' + p.name + '“ на сайта?')) { hide.checked = !!p.hidden; return; }
+        hide.disabled = true;
         all(sb.from('products').update({ hidden: hide.checked }).eq('id', p.id).select()).then(function (d) {
           p.hidden = d[0].hidden; row.classList.toggle('is-hidden', p.hidden);
-        });
+        }).catch(function (err) {
+          hide.checked = !!p.hidden; say($('#publish-bar'), 'err', 'Не е запазено: ' + err.message);
+        }).finally(function () { hide.disabled = false; });
       });
       var row = h('div.row' + (p.hidden ? '.is-hidden' : ''), null,
         p.images && p.images[0] ? h('img', { src: mediaUrl(p.images[0].s), alt: '', width: 64, height: 64 }) : h('div'),
@@ -582,6 +610,7 @@
     e.target.value = '';
     var album = $('#album').value === '__new' ? $('#newalbum').value.trim().replace(/\s+/g, ' ') : $('#album').value;
     if (!album || album.length < 2) { say(msg, 'err', 'Напишете име на албума.'); return; }
+    if (!files.length || !confirmChange('Да качим избраните снимки в албум „' + album + '“?')) return;
     var n = 0;
     say(msg, '', 'Качване 0/' + files.length + '…');
     files.reduce(function (p, f) {
@@ -605,7 +634,7 @@
     box.replaceChildren.apply(box, state.photos.map(function (p) {
       var del = h('button.btn.btn-danger.btn-sm', { type: 'button' }, 'Изтрий');
       del.addEventListener('click', function () {
-        if (del.getAttribute('data-confirm') !== '1') { del.setAttribute('data-confirm', '1'); del.textContent = 'Сигурно?'; return; }
+        if (!confirmChange('Да изтрием тази снимка от албум „' + p.album + '“? Това действие не може да бъде отменено.')) return;
         all(sb.from('project_photos').delete().eq('id', p.id)).then(function () {
           removeFiles([p.photo]);
           state.photos = state.photos.filter(function (x) { return x.id !== p.id; });
@@ -627,13 +656,14 @@
       var done = h('button.btn.btn-ghost.btn-sm', { type: 'button' }, q.status === 'new' ? 'Готово' : 'Върни като ново');
       done.addEventListener('click', function () {
         var st = q.status === 'new' ? 'done' : 'new';
+        if (!confirmChange('Да отбележим запитването от „' + q.name + '“ като ' + (st === 'done' ? 'обработено' : 'ново') + '?')) return;
         all(sb.from('inquiries').update({ status: st }).eq('id', q.id).select()).then(function (d) {
           q.status = d[0].status; renderInbox(); renderHome();
         });
       });
       var del = h('button.btn.btn-danger.btn-sm', { type: 'button' }, 'Изтрий');
       del.addEventListener('click', function () {
-        if (del.getAttribute('data-confirm') !== '1') { del.setAttribute('data-confirm', '1'); del.textContent = 'Сигурно?'; return; }
+        if (!confirmChange('Да изтрием запитването от „' + q.name + '“? Това действие не може да бъде отменено.')) return;
         all(sb.from('inquiries').delete().eq('id', q.id)).then(function () {
           state.inbox = state.inbox.filter(function (x) { return x.id !== q.id; }); renderInbox(); renderHome();
         });
@@ -663,6 +693,7 @@
       var v = f[k].value.trim();
       if (v) up.push({ key: k, value: v }); else del.push(k);
     });
+    if (!confirmChange('Да запазим настройките за телефон, имейл, адрес, работно време и съобщение на сайта?')) return;
     say(msg, '', 'Запазване…');
     Promise.all([
       up.length ? all(sb.from('settings').upsert(up)) : null,
@@ -676,6 +707,7 @@
   /* ---------------------------------------------------------------- publish */
   $('#publish').addEventListener('click', function () {
     var btn = $('#publish'), bar = $('#publish-bar');
+    if (!confirmChange('Да публикуваме всички запазени промени? Те ще станат видими за посетителите на сайта.')) return;
     btn.disabled = true; say(bar, '', 'Изпращане…');
     sb.functions.invoke('publish', { body: {} }).then(function (r) {
       if (r.error) {

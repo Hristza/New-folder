@@ -25,6 +25,7 @@ const browser = await chromium.launch({headless:true,
 const context = await browser.newContext({viewport:{width:390,height:844}});
 await context.addInitScript({content:readFileSync('supabase/admin_mock.js','utf8')});
 const page = await context.newPage(), errors = [];
+page.on('dialog', dialog => dialog.accept()); // Cancellation is covered by test_admin_confirmations.mjs.
 page.on('pageerror', e => errors.push(e.message));
 try {
   await page.goto(base + '/admin/');
