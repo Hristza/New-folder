@@ -24,6 +24,10 @@ floors = [f for f in DATA["darnox"] if any(u in IMG for u in f["images"])]
 PRICED, HIDDEN, ASK = doors[0], doors[1], doors[2]
 CUSTOM, SINGLE, NO_SIZES = doors[3:6]
 FLOOR_HIDE = floors[0]
+REMOVED = next(p for p in doors[6:] if len(set(u for u in p['images'] if u in IMG)) > 1)
+EMPTY_PHOTOS = next(p for p in doors[6:] if p is not REMOVED)
+FLOOR_PHOTOS = floors[1]
+REMOVED_URL = next(u for u in REMOVED['images'] if u in IMG)
 root_cat = sorted(DATA["cat_labels"])[0]
 album = "Входни врати"
 SB = "https://fake.supabase.co"
@@ -36,6 +40,9 @@ def fake_load():
     cfg = {"url": SB, "key": "k"}
     fix = {
         "overrides": {
+            "door:" + REMOVED['id']: {"excluded_images": [REMOVED_URL]},
+            "door:" + EMPTY_PHOTOS['id']: {"excluded_images": EMPTY_PHOTOS['images']},
+            "floor:" + FLOOR_PHOTOS['id']: {"excluded_images": FLOOR_PHOTOS['images']},
             "door:" + PRICED["id"]: {"product_key": "door:" + PRICED["id"], "price": 460.5,
                                      "old_price": 562.0, "hidden": False, "badge": "sale",
                                      "images": [OV]},
@@ -107,6 +114,13 @@ def expect(cond, msg):
 
 
 rec = {r["id"]: r for r in build.CATALOGUE}
+expect(REMOVED_URL not in rec[REMOVED['id']]['images'], 'deleted original remains in product gallery')
+expect(rec[REMOVED['id']]['images'] == [u for u in rec[REMOVED['id']]['catalogue_images'] if u != REMOVED_URL], 'remaining originals changed order or disappeared')
+for product in (EMPTY_PHOTOS, FLOOR_PHOTOS):
+    edited = rec[product['id']]
+    expect(not set(edited['images']) & set(product['images']), 'deleting last photo restored originals')
+    expect(page(edited['url']) is not None and not edited.get('hidden'), 'deleting all photos hid the product')
+    expect('/assets/no-photo.svg' in (page(edited['url']) or ''), 'empty gallery lacks clear no-photo state')
 # 1. her price, sale price and badge
 html = page(rec[PRICED["id"]]["url"])
 expect(html and "460,50 €" in html and "(900,66 лв.)" in html, "her euro price not shown exactly as typed")
@@ -163,6 +177,9 @@ k = page("/kontakti/")
 expect(k and 'data-sb-url="https://fake.supabase.co"' in k, "contact form not wired to Supabase")
 expect(os.path.exists(os.path.join(SITE, "admin", "index.html")), "admin panel not built")
 cat = json.load(io.open(os.path.join(SITE, "admin", "catalogue.json"), encoding="utf-8"))
+expect(all(i.get('images') for i in cat['items']), 'admin lacks individual catalogue photographs')
+originals = next(i for i in cat['items'] if i['key'] == 'door:' + REMOVED['id']).get('images', [])
+expect([i['id'] for i in originals] == rec[REMOVED['id']]['catalogue_images'], 'admin cannot restore deleted originals')
 expect(len(cat["items"]) >= 490 and cat["supabase_url"] == SB, "admin catalogue incomplete")
 expect(any(i["key"] == "door:" + HIDDEN["id"] for i in cat["items"]), "hidden door missing from the panel (she could not unhide it)")
 expect(all(not i["key"].startswith("door:n") for i in cat["items"]), "her own products leaked into the override list")

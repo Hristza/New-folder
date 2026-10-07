@@ -85,4 +85,9 @@ assert seen == [0, 500, 1000], seen
 rows = [{"i": i} for i in range(500)]
 seen.clear()
 assert a._get({"url": U, "key": K}, "/rest/v1/t?select=*") == rows and seen == [0, 500]
+# Saved per-product exclusions survive the same real loader used by publishing.
+excluded = ['https://catalogue.test/photo.jpg']
+a.config = lambda: {"url": U, "key": K}
+a._get = lambda config, path: [{"product_key": "door:123", "images": [], "excluded_images": excluded}] if 'product_overrides?' in path else []
+assert a.load()['overrides']['door:123']['excluded_images'] == excluded
 print("test_admin_sync: ALL PASS")

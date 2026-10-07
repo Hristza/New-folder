@@ -181,6 +181,10 @@ import admin_sync
 assert admin_sync.SIZES == (GRID_W, FULL_W), "admin photos must encode at the catalogue widths"
 ADMIN = admin_sync.load()
 MANIFEST.update(ADMIN["images"])
+# Keep products available when the owner removes their last photograph.
+NO_PHOTO = "/assets/no-photo.svg"
+MANIFEST[NO_PHOTO] = {"key": "no-photo", "w": 600, "h": 600, "sizes": [600],
+                      "urls": {600: NO_PHOTO, 1200: NO_PHOTO}}
 ADMIN_CFG = admin_sync.config()
 
 
@@ -318,6 +322,9 @@ def apply_override(rec, key):
     mine = [u for u in o.get("images") or [] if have(u)]
     if mine:
         rec["images"] = mine
+    else:
+        excluded = set(o.get("excluded_images") or [])
+        rec["images"] = [u for u in rec["images"] if u not in excluded] or [NO_PHOTO]
     if o.get("price") is not None:
         # Her prices are euro. Converted unrounded, so money() prints her euro back
         # exactly; the lev figure is the one that gets rounded, as the law intends.
@@ -1475,7 +1482,9 @@ def write_admin_catalogue():
                       "size_prices": [{"size": s["size"], "price": s["price"] / BGN_PER_EUR}
                                       for s in r.get("catalogue_sizes") or []],
                       "draft": bool(r.get("draft_price") or (r["kind"] == "door" and PRICES.get("draft"))),
-                      "thumb": thumb(r), "url": r["url"]})
+                      "thumb": thumb(r), "url": r["url"],
+                      "images": [{"id": u, "thumb": _at(MANIFEST[u], GRID_W)}
+                                 for u in r["catalogue_images"]]})
     cats = []
     for p in TREE:
         segs = p.split("/")
@@ -1506,6 +1515,7 @@ def main():
     shutil.copy(os.path.join(STATIC, "site.css"), os.path.join(SITE, "assets", "site.css"))
     shutil.copy(os.path.join(STATIC, "site.js"), os.path.join(SITE, "assets", "site.js"))
     shutil.copy(os.path.join(STATIC, "favicon.svg"), os.path.join(SITE, "assets", "favicon.svg"))
+    shutil.copy(os.path.join(STATIC, "no-photo.svg"), os.path.join(SITE, "assets", "no-photo.svg"))
     # Generated room scenes. They carry no product claim, which is the whole reason they
     # exist: the 623 catalogue photos stay real because a price sits next to them.
     mirror(os.path.join(STATIC, "scenes"), os.path.join(SITE, "assets", "scenes"))

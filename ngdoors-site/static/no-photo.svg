@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img" aria-label="Снимка не е добавена">
+  <rect width="600" height="600" fill="#f4f2ed"/>
+  <g fill="none" stroke="#87847b" stroke-width="3">
+    <rect x="252" y="228" width="96" height="76" rx="8"/>
+    <circle cx="280" cy="251" r="8"/>
+    <path d="m260 294 24-24 16 16 18-28 22 36"/>
+  </g>
+  <text x="300" y="350" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#625f57">Снимка не е добавена</text>
+</svg>

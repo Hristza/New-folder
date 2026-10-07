@@ -280,10 +280,14 @@
     var sizes = it.key.indexOf('door:') === 0 ? sizeEditor(o.size_prices == null ? defaults() : o.size_prices, o.size_prices == null, defaults) : null;
     if (sizes) price.addEventListener('input', function () { sizes.refresh(defaults()); });
     var mine = o.images || [];
-    var cover = h('img', { src: mine.length ? mediaUrl(mine[0].s) : it.thumb, alt: '', loading: 'lazy', width: 64, height: 64 });
+    var originals = it.images || [], excluded = o.excluded_images || [], photoBusy = false;
+    function visibleOriginals() { return originals.filter(function (im) { return excluded.indexOf(im.id) < 0; }); }
+    function coverSrc() { var visible = visibleOriginals(); return mine.length ? mediaUrl(mine[0].s) : visible.length ? visible[0].thumb : '/assets/no-photo.svg'; }
+    var cover = h('img', { src: coverSrc(), alt: '', loading: 'lazy', width: 64, height: 64 });
     var photos = h('div.thumbs-edit');
-    var restorePhotos = h('button.btn.btn-ghost.btn-sm', { type: 'button', hidden: !mine.length, onclick: function () { setPhotos([]); } }, 'Върни каталожните снимки');
+    var restorePhotos = h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () { setPhotos([], []); } }, 'Върни каталожните снимки');
     var resetButton = h('button.btn.btn-ghost.btn-sm', { type: 'button', hidden: !o.product_key, onclick: reset }, 'Върни каталожните');
+    var saveButton = h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: save }, 'Запази');
     var files = h('input', { type: 'file', accept: 'image/*', multiple: true, onchange: swapPhotos });
     var row = h('div.row' + (o.hidden ? '.is-hidden' : '') + (o.product_key ? '.is-changed' : ''), null,
       cover,
@@ -298,46 +302,65 @@
         sizes ? sizes.element : null,
         h('div.actions', null,
           h('label.toggle', null, hide, 'Скрий от сайта'),
-          h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: save }, 'Запази'),
+          saveButton,
           resetButton,
           msg),
         photos,
         h('div.actions', null,
           h('label.btn.btn-ghost.btn-sm.file-btn', null, '+ Добави снимки', files), restorePhotos)));
     function drawPhotos() {
-      restorePhotos.hidden = !mine.length;
-      photos.replaceChildren.apply(photos, mine.length ? mine.map(function (im, i) {
-          return h('figure', null, h('img', { src: mediaUrl(im.s), alt: 'Снимка ' + (i + 1) }),
-            h('button', { type: 'button', 'aria-label': 'Махни снимка ' + (i + 1), title: 'Махни снимката',
-              onclick: function () { setPhotos(mine.filter(function (x) { return x !== im; })); } }, '×'));
-        }) : [h('figure', null, h('img', { src: it.thumb, alt: 'Каталожна снимка' }), h('figcaption.sub', null, 'от каталога'))]);
+      restorePhotos.hidden = !mine.length && !excluded.length;
+      var uploaded = mine.length > 0, visible = uploaded ? mine : visibleOriginals();
+      photos.replaceChildren.apply(photos, visible.length ? visible.map(function (im, i) {
+        return h('figure', null, h('img', { src: uploaded ? mediaUrl(im.s) : im.thumb, alt: 'Снимка ' + (i + 1) }),
+          h('button', { type: 'button', 'aria-label': 'Изтрий снимка ' + (i + 1), title: 'Изтрий снимката',
+            onclick: function () {
+              if (uploaded) {
+                var next = mine.filter(function (x) { return x !== im; });
+                setPhotos(next, next.length ? excluded : originals.map(function (x) { return x.id; }));
+              } else setPhotos(mine, excluded.concat([im.id]));
+            } }, '×'), h('figcaption.sub', null, uploaded ? 'качена' : 'от каталога'));
+      }) : [h('p.sub', null, 'Няма снимки. Продуктът остава видим на сайта.')]);
     }
     drawPhotos();
-    // Her photos replace the supplier's on the site. Only the images column is sent,
-    // so her price, hide and label on this product stay as they are.
-    function setPhotos(next) {
+    function busyPhotos(value) {
+      photoBusy = value;
+      files.disabled = restorePhotos.disabled = resetButton.disabled = saveButton.disabled = value;
+      $$('button', photos).forEach(function (button) { button.disabled = value; });
+    }
+    // Original files may serve other products. Exclude them for this product only;
+    // storage deletion is reserved for this product's uploaded copies.
+    function setPhotos(next, nextExcluded) {
+      if (photoBusy) return Promise.resolve();
+      nextExcluded = nextExcluded || excluded;
+      busyPhotos(true);
       say(msg, '', 'Запазване…');
-      return all(sb.from('product_overrides').upsert({ product_key: it.key, images: next }).select()).then(function (d) {
+      return all(sb.from('product_overrides').upsert({ product_key: it.key, images: next, excluded_images: nextExcluded }).select()).then(function (d) {
         removeFiles(mine.filter(function (x) { return next.indexOf(x) < 0; }));   // ponytail: an orphan file on failure is harmless
         state.overrides[it.key] = d[0];
         mine = d[0].images || [];
+        excluded = d[0].excluded_images || [];
         resetButton.hidden = false;
-        cover.src = mine.length ? mediaUrl(mine[0].s) : it.thumb;
+        cover.src = coverSrc();
         drawPhotos(); row.classList.add('is-changed');
-        say(msg, 'ok', next.length ? 'Снимките са запазени. Натиснете „Публикувай промените“.' : 'Върната е каталожната снимка. Натиснете „Публикувай промените“.');
+        say(msg, 'ok', 'Снимките са запазени. Натиснете „Публикувай промените“.');
         renderHome();
-      }).catch(function (e) { removeFiles(next.filter(function (x) { return mine.indexOf(x) < 0; })); say(msg, 'err', 'Не е запазено: ' + e.message); });
+      }).catch(function (e) { removeFiles(next.filter(function (x) { return mine.indexOf(x) < 0; })); say(msg, 'err', 'Не е запазено: ' + e.message); })
+        .finally(function () { busyPhotos(false); });
     }
     function swapPhotos() {
+      if (photoBusy) return;
       var list = Array.prototype.slice.call(files.files, 0, 20 - mine.length);
       files.value = '';
       if (!list.length) { say(msg, 'err', 'До 20 снимки на продукт.'); return; }
+      busyPhotos(true);
       say(msg, '', 'Качване на ' + list.length + (list.length === 1 ? ' снимка…' : ' снимки…'));
       Promise.all(list.map(function (f) { return uploadPhoto(f, 'catalogue'); }))
-        .then(function (up) { return setPhotos(mine.concat(up)); })
-        .catch(function (e) { say(msg, 'err', 'Снимката не е качена: ' + e.message); });
+        .then(function (up) { busyPhotos(false); return setPhotos(mine.concat(up)); })
+        .catch(function (e) { busyPhotos(false); say(msg, 'err', 'Снимката не е качена: ' + e.message); });
     }
     function save() {
+      if (photoBusy) return;
       var p = parseEur(price.value), op = parseEur(old.value);
       if (Number.isNaN(p) || Number.isNaN(op)) { say(msg, 'err', 'Цената трябва да е число, напр. 245,50'); return; }
       var sizePrices;
@@ -347,6 +370,7 @@
       if (op != null && !(op > eff)) { say(msg, 'err', 'Старата цена трябва да е по-висока от новата.'); return; }
       var rec = { product_key: it.key, price: p, old_price: op, hidden: hide.checked, badge: badge.value || null };
       if (sizes) rec.size_prices = sizePrices;
+      busyPhotos(true);
       say(msg, '', 'Запазване…');
       all(sb.from('product_overrides').upsert(rec).select()).then(function (d) {
         state.overrides[it.key] = d[0];
@@ -354,14 +378,18 @@
         say(msg, 'ok', 'Запазено. Натиснете „Публикувай“.');
         row.classList.toggle('is-hidden', rec.hidden); row.classList.add('is-changed');
         renderHome();
-      }).catch(function (e) { say(msg, 'err', 'Не е запазено: ' + e.message); });
+      }).catch(function (e) { say(msg, 'err', 'Не е запазено: ' + e.message); })
+        .finally(function () { busyPhotos(false); });
     }
     function reset() {
+      if (photoBusy) return;
+      busyPhotos(true);
       all(sb.from('product_overrides').delete().eq('product_key', it.key)).then(function () {
         removeFiles(mine);
         delete state.overrides[it.key];
         row.replaceWith(catRow(it)); renderHome();
-      }).catch(function (e) { say(msg, 'err', 'Грешка: ' + e.message); });
+      }).catch(function (e) { say(msg, 'err', 'Грешка: ' + e.message); })
+        .finally(function () { busyPhotos(false); });
     }
     return row;
   }

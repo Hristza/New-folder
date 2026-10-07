@@ -112,5 +112,20 @@ for (let i = 0; i < 31; i++) {
 }
 ok(refused === 2, "flood guard refuses past 30 per 10 min (refused " + refused + ", 1 already sent)");
 
+// A real existing database receives this migration separately, and safely twice.
+const photoMigration = readFileSync(fileURLToPath(new URL('./excluded_images.sql', import.meta.url)), 'utf8');
+await db.exec(photoMigration);
+await db.exec(photoMigration);
+ok(!(await as('authenticated', ADMIN, `update product_overrides set excluded_images='["https://catalogue.test/door.jpg"]' where product_key='door:12345'`)).err, 'admin excludes original photo');
+for (const invalid of [null, {}, 'url', [null], [12], [{}], [''], ['x'.repeat(2049)], Array(101).fill('x')]) {
+  const value = JSON.stringify(invalid).replaceAll("'", "''");
+  ok((await as('authenticated', ADMIN, `update product_overrides set excluded_images='${value}' where product_key='door:12345'`)).err, 'invalid excluded image list rejected');
+}
+for (const [role, uid] of [['anon', null], ['authenticated', OTHER]]) {
+  ok((await as(role, uid, `update product_overrides set excluded_images='[]' where product_key='door:12345' returning *`)).rows?.length === 0, 'non-admin cannot change excluded photos');
+}
+ok((await as('anon', null, `select excluded_images from product_overrides where product_key='door:12345'`)).rows?.[0]?.excluded_images?.[0] === 'https://catalogue.test/door.jpg', 'build can read excluded photos');
+ok(!(await as('authenticated', ADMIN, `update product_overrides set excluded_images='[]' where product_key='door:12345'`)).err, 'restore originals accepted');
+
 console.log(fails ? `\n${fails} FAIL, ${passes} pass` : `schema: ALL ${passes} PASS`);
 process.exit(fails ? 1 : 0);

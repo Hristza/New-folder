@@ -29,6 +29,10 @@
   Q.prototype.then = function (ok, bad) {
     var t = this.t, rows = db[t], f = this.f, match = function (r) { return f.every(function (fn) { return fn(r); }); };
     calls.push({ table: t, op: this.op, payload: this.payload });
+    if (window.__failNextWrite && this.op !== 'select') {
+      window.__failNextWrite = false;
+      return Promise.resolve({data:null, error:{message:'Test save rejected'}}).then(ok, bad);
+    }
     var out;
     if (this.op === 'select') out = rows.filter(match);
     else if (this.op === 'insert' || this.op === 'upsert') {
