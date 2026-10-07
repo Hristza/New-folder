@@ -15,7 +15,7 @@ const B = process.env.VERIFY_BASE || 'http://127.0.0.1:8099';
 const PAGES = [
   ['/', 'home'],
   ['/vrati/vhodni-vrati/', 'vhodni'],
-  ['/granitogres/', 'granitogres'],
+  ['/nastilki/', 'nastilki'],
   ['/parvazi/', 'parvazi'],
   ['/vrati/', 'vrati'],
 ];

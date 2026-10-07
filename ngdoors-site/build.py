@@ -580,7 +580,7 @@ ALBUMS.sort(key=lambda a: -len(a["photos"]))
 
 # ------------------------------------------------------------------ shell
 NAV = [("/vrati/", "Врати"), ("/nastilki/", "Настилки"),
-       ("/granitogres/", "Гранитогрес"), ("/parvazi/", "Первази"),
+       ("/parvazi/", "Первази"),
        ("/proekti/", "Проекти"), ("/kontakti/", "Контакти")]
 
 
@@ -645,7 +645,7 @@ def shell(path, title, desc, body, cls="", nav_as=None):
     <div class="footer-grid">
       <div>
         <a class="brand" href="/">NG<span>&nbsp;Doors</span></a>
-        <p class="tagline">Входни и интериорни врати, ламинат и гранитогрес. Шоурум в Божурище, доставка в цялата страна.</p>
+        <p class="tagline">Входни и интериорни врати, ламинат, SPC настилки и первази. Шоурум в Божурище, доставка в цялата страна.</p>
       </div>
       <div>
         <h4>Врати</h4>
@@ -655,7 +655,6 @@ def shell(path, title, desc, body, cls="", nav_as=None):
         <h4>Настилки</h4>
         <ul>
           <li><a href="/nastilki/">Ламинат и SPC</a></li>
-          <li><a href="/granitogres/">Гранитогрес</a></li>
           <li><a href="/parvazi/">Первази</a></li>
         </ul>
       </div>
@@ -1013,7 +1012,6 @@ def page_home():
 </a>""" % (url, img_tag(items[0]["images"][0], label, "150px"), esc(label), plural(len(items), "артикул", "артикула"))
         for url, label, items in [
             ("/nastilki/", "Настилки", SECTION_OF["nastilki"]),
-            ("/granitogres/", "Гранитогрес", SECTION_OF["granitogres"]),
             ("/parvazi/", "Первази", SECTION_OF["parvazi"])] if items)
 
     big = TREE[ROOTS[0]]
@@ -1079,7 +1077,7 @@ def page_home():
     <div>
       <p class="eyebrow">NG Doors · Божурище</p>
       <h1>Врати и настилки, които издържат.</h1>
-      <p class="lede">%s врати и %s настилки, первази и гранитогрес. Замерване, доставка и монтаж в цялата страна.</p>
+      <p class="lede">%s врати и %s настилки и первази. Замерване, доставка и монтаж в цялата страна.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="/vrati/">Разгледайте вратите</a>
         <a class="link-underline" href="/nastilki/">Вижте настилките</a>
@@ -1138,8 +1136,8 @@ def page_home():
         photo("mostri", "Мостри на ламинат и фурнир върху маса", TRUST_SIZES, "trust-img"),
         HOURS, ENQUIRY)
 
-    write("/", shell("/", "NG Doors — входни и интериорни врати, ламинат и гранитогрес",
-                     "Входни и интериорни врати, алуминиеви врати, ламинат, SPC настилки и гранитогрес. "
+    write("/", shell("/", "NG Doors — входни и интериорни врати, ламинат и SPC настилки",
+                     "Входни и интериорни врати, алуминиеви врати, ламинат, SPC настилки и первази. "
                      "Шоурум в Божурище, доставка и монтаж в цялата страна.", body))
 
 
@@ -1416,7 +1414,7 @@ def page_contact():
           <select name="topic">
             <option>Входна врата</option><option>Интериорна врата</option>
             <option>Алуминиева врата</option><option>Настилка / ламинат</option>
-            <option>Гранитогрес</option><option>Первази</option>
+            <option>Первази</option>
             <option>Обков и аксесоари</option><option>Друго</option>
           </select></label>
         <label class="field"><span>Съобщение</span><textarea name="message" placeholder="Размери, модел, срок…"></textarea></label>
@@ -1543,8 +1541,6 @@ def main():
     for b, items in NASTILKI_BRANDS.items():
         floor_section("/nastilki/%s/" % slug(b), b,
                       "Настилки %s от NG Doors, Божурище." % b, items)
-    floor_section("/granitogres/", "Гранитогрес",
-                  "Гранитогрес за баня, кухня и тераса.", SECTION_OF["granitogres"])
     floor_section("/parvazi/", "Первази",
                   "PVC первази в цвят на настилката.", SECTION_OF["parvazi"])
     for rec in FLOORS:
