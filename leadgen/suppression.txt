@@ -1,0 +1,3 @@
+# Numbers that must never be dialled again.
+# One per line, any format - they are normalised on load.
+# Append every opt-out, wrong number, and DNC-register hit here.
