@@ -3,6 +3,7 @@
 Изисква: Python 3, Pillow, numpy, ffmpeg.
 Стартиране:  python3 make_video.py   ->  gmo_insulin_ecoli.mp4
 """
+import json
 import math
 import os
 import subprocess
@@ -16,7 +17,8 @@ from PIL import Image, ImageDraw, ImageFont
 W, H = 1920, 1080
 S = 2  # суперсемплиране за гладки ръбове
 FPS = 30
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gmo_insulin_ecoli.mp4")
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.environ.get("GMO_OUT") or os.path.join(HERE, "gmo_insulin_ecoli.mp4")
 
 FONT_DIR = "/usr/share/fonts/opentype/inter"
 FONTS = {
@@ -725,6 +727,11 @@ SCENES = [
     (sc_reactor, 13), (sc_history, 13), (sc_benefits, 12), (sc_safety, 12),
     (sc_conclusion, 11), (sc_sources, 10),
 ]
+# voiceover.py удължава сцените, така че гласът да се побере в тях
+TIMING_FILE = os.environ.get("GMO_TIMING")
+if TIMING_FILE:
+    with open(TIMING_FILE) as f:
+        SCENES = [(fn, d) for (fn, _), d in zip(SCENES, json.load(f)["durations"])]
 STARTS = np.cumsum([0] + [d for _, d in SCENES])
 TOTAL = float(STARTS[-1])
 FADE = 0.45
