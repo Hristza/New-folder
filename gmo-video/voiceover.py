@@ -72,7 +72,8 @@ def tts(voice, model, stability, similarity):
         if os.path.exists(clip_path(i)):
             print(f"{i:02d}: вече съществува, пропускам")
             continue
-        body = {"text": text, "model_id": model,
+        # без language_code моделът може да прочете кирилицата с руско произношение
+        body = {"text": text, "model_id": model, "language_code": "bg",
                 "voice_settings": {"stability": stability, "similarity_boost": similarity}}
         req = urllib.request.Request(
             f"https://api.elevenlabs.io/v1/text-to-speech/{voice}?output_format=mp3_44100_128",

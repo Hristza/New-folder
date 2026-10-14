@@ -20,7 +20,7 @@ FPS = 30
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.environ.get("GMO_OUT") or os.path.join(HERE, "gmo_insulin_ecoli.mp4")
 
-FONT_DIR = "/usr/share/fonts/opentype/inter"
+FONT_DIR = os.environ.get("GMO_FONT_DIR", "/usr/share/fonts/opentype/inter")
 FONTS = {
     "reg": os.path.join(FONT_DIR, "Inter-Regular.otf"),
     "med": os.path.join(FONT_DIR, "Inter-Medium.otf"),
