@@ -304,6 +304,33 @@ def set_size_prices(rec, rows):
         rec.pop("draft_price", None)
 
 
+SERIES_RULES = json.loads(ADMIN["settings"].get("series_prices") or "{}")
+
+
+def apply_series_price(rec):
+    """Her price for a whole series: one euro price for every model, or a % change.
+
+    Runs before apply_override, so it becomes the door's catalogue price and a price
+    she set on that single door still wins. Size surcharges keep their step.
+    """
+    rule = SERIES_RULES.get(rec.get("series") or "")
+    if not rule or rec["price"] <= 0:
+        return
+    if "price" in rule:
+        new = float(rule["price"]) * BGN_PER_EUR
+        for s in rec.get("size_opts") or []:
+            s["price"] = new + s["delta"]
+        rec["price"] = new
+        rec["confirmed"] = True
+        rec.pop("draft_price", None)
+    else:
+        f = 1 + float(rule["pct"]) / 100
+        for s in rec.get("size_opts") or []:
+            s["price"] *= f
+            s["delta"] *= f
+        rec["price"] *= f
+
+
 def apply_override(rec, key):
     """Her price, strike-through price, badge and hide switch, laid over one product.
 
@@ -449,6 +476,8 @@ def build_catalogue():
                 rec["size_opts"] = res["sizes"]
                 rec["size_tags"] = res["tags"]
                 rec["sizes"] = [s["size"] for s in res["sizes"]]
+                rec["series"] = pricing.series_key(PRICES, rec.get("cat", ""))
+                apply_series_price(rec)
             CATALOGUE.append(rec)
             apply_override(rec, "door:" + rec["id"])
             if rec["price"] > 0:
@@ -1489,9 +1518,17 @@ def write_admin_catalogue():
         chain = ["/".join(segs[:i]) for i in range(1, len(segs) + 1)]
         cats.append({"path": p, "label": " / ".join(TREE[a]["label"] for a in chain)})
     cats.sort(key=lambda c: c["label"])
+    label = {c["path"]: c["label"] for c in cats}
+    used = {}
+    for r in CATALOGUE:
+        if r.get("series") and not r.get("admin"):
+            used[r["series"]] = used.get(r["series"], 0) + 1
+    series = sorted(({"key": k, "label": fix_script(label.get(k, k)), "count": n,
+                      "price": PRICES["series"][k]["base_price"] / BGN_PER_EUR}
+                     for k, n in used.items()), key=lambda s: s["label"])
     os.makedirs(os.path.join(SITE, "admin"), exist_ok=True)
     with io.open(os.path.join(SITE, "admin", "catalogue.json"), "w", encoding="utf-8") as f:
-        json.dump({"items": items, "categories": cats, "albums": [a["label"] for a in ALBUMS],
+        json.dump({"items": items, "categories": cats, "series": series, "albums": [a["label"] for a in ALBUMS],
                    "bgn_per_eur": BGN_PER_EUR,
                    "api_url": ADMIN_CFG["url"] if ADMIN_CFG else ""},
                   f, ensure_ascii=False, separators=(",", ":"))

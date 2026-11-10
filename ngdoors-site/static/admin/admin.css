@@ -142,3 +142,5 @@ img { display: block; max-width: 100%; }
 .inq .meta { font-size: 12.5px; color: var(--muted); }
 .inq .text { white-space: pre-wrap; overflow-wrap: anywhere; }
 .inq .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.with-icon { display: flex; align-items: center; gap: 8px; }
+#series-rows .row { grid-template-columns: 1fr auto; align-items: center; }

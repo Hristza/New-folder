@@ -71,6 +71,32 @@ try {
     assert.deepEqual((await call("POST", "/auth/reset", { email: "hrisodim0@gmail.com" })).j, { ok: true });
   });
   await t("me", async () => assert.equal((await call("GET", "/admin/me", null, tok)).j.email, "ngbuildings@abv.bg"));
+  await t("change password needs the current one", async () => {
+    let r = await call("POST", "/auth/password", { current: "wrong-password", password: "Vrata-2027-ok" }, tok);
+    assert.equal(r.s, 400); assert.match(r.j.error, /Сегашната/);
+    r = await call("POST", "/auth/password", { current: "Vrata-2026-ok", password: "Vrata-2027-ok" }, tok);
+    assert.equal(r.s, 200, JSON.stringify(r.j));
+    assert.equal((await call("POST", "/auth/login", { email: "ngbuildings@abv.bg", password: "Vrata-2027-ok" })).s, 200);
+  });
+  await t("idle session: 7 days unused -> signed out, use pushes it out", async () => {
+    const h = createHash("sha256").update(tok).digest("base64url");
+    const q = (sql) => sh(["d1", "execute", "ngdoors", "--local", "--json", "--command", `"${sql}"`]).toString();
+    q(`update sessions set expires_at = ${Date.now() + 86400000} where token_hash = '${h}'`);    // 6 days idle
+    assert.equal((await call("GET", "/admin/me", null, tok)).s, 200);
+    const left = JSON.parse(q(`select expires_at from sessions where token_hash = '${h}'`))[0].results[0].expires_at;
+    assert.ok(left > Date.now() + 6.9 * 86400000, "use did not extend the session");
+    q(`update sessions set expires_at = ${Date.now() - 1} where token_hash = '${h}'`);           // 7 days idle
+    const r = await call("GET", "/admin/me", null, tok);
+    assert.equal(r.s, 401); assert.match(r.j.error, /Влезте отново/);
+    tok = (await call("POST", "/auth/login", { email: "ngbuildings@abv.bg", password: "Vrata-2027-ok" })).j.token;
+  });
+  await t("series prices: fixed or %, bad ones refused", async () => {
+    const ok = JSON.stringify({ "входни-врати/x/серия-parkdoor": { price: 450 }, "входни-врати/y/серия-панел": { pct: -10 } });
+    assert.equal((await call("PUT", "/admin/settings", { set: { series_prices: ok } }, tok)).s, 200);
+    for (const bad of ["nope", "[]", '{"a":{"price":-1}}', '{"a":{"pct":0}}', '{"a":{"pct":500}}', '{"a":{"price":1,"pct":2}}'])
+      assert.equal((await call("PUT", "/admin/settings", { set: { series_prices: bad } }, tok)).s, 400, bad);
+    assert.equal((await call("PUT", "/admin/settings", { del: ["series_prices"] }, tok)).s, 200);
+  });
 
   await t("override: partial upsert keeps the other fields", async () => {
     let r = await call("PUT", "/admin/overrides/door:abc-1", { price: 120.5, badge: "sale" }, tok);

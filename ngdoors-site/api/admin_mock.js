@@ -35,7 +35,7 @@
       window.__signedOut = false; return json(200, { token: 'mock-session', email: body.email });
     }
     if (path === '/auth/reset') { calls.push({ op: 'reset', email: body.email }); return json(200, { ok: true }); }
-    if (path === '/auth/password') { calls.push({ op: 'updateUser', reset: !!body.token }); return json(200, body.token ? { token: 'mock-session', email: 'owner@example.com' } : { ok: true }); }
+    if (path === '/auth/password') { calls.push({ op: 'updateUser', reset: !!body.token, current: body.current || null }); return json(200, body.token ? { token: 'mock-session', email: 'owner@example.com' } : { ok: true }); }
     if (path === '/auth/logout') { calls.push({ op: 'signOut' }); window.__signedOut = true; return json(200, { ok: true }); }
     if (seg[0] !== 'admin') return json(404, { error: 'not found' });
     if (window.__signedOut) return json(401, { error: 'Влезте отново.' });

@@ -144,6 +144,46 @@ try {
   await page.locator('#sform input[name=phone]').fill('+359 888 111 222');
   await page.locator('#sform button[type=submit]').click();
   await page.locator('#smsg[data-state=ok]').waitFor();
+
+  // Password per the owner's screenshot: current + new + repeat, mismatch refused locally.
+  const pf = page.locator('#myform');
+  await pf.locator('input[name=current]').fill('old-password-1');
+  await pf.locator('input[name=password]').fill('new-password-12');
+  await pf.locator('input[name=repeat]').fill('new-password-13');
+  await pf.locator('button[type=submit]').click();
+  await page.locator('#mymsg[data-state=err]').waitFor();
+  assert.equal(await page.evaluate(()=>window.__calls.some(c=>c.op==='updateUser')),false,'mismatch reached the server');
+  await pf.locator('input[name=repeat]').fill('new-password-12');
+  await pf.locator('button[type=submit]').click();
+  await page.locator('#mymsg[data-state=ok]').waitFor();
+  assert.equal(await page.evaluate(()=>window.__calls.find(c=>c.op==='updateUser').current),'old-password-1');
+  await pf.screenshot({path:resolve(proof,'password-form-390.png')});
+
+  // One price for a whole series, then a % rule replacing it, then removing it.
+  await page.locator('[data-tab=catalogue]').click();
+  const sf = page.locator('#seriesform'), rules = () => page.evaluate(()=>{
+    const s = window.__db.settings.find(x=>x.key==='series_prices'); return s ? JSON.parse(s.value) : null; });
+  const series = await sf.locator('select[name=series] option').first().getAttribute('value');
+  await sf.locator('input[name=value]').fill('450');
+  await sf.locator('button[type=submit]').click();
+  await page.locator('#seriesmsg[data-state=ok]').waitFor();
+  assert.deepEqual(await rules(), {[series]:{price:450}});
+  await sf.locator('select[name=mode]').selectOption('pct');
+  await sf.locator('input[name=value]').fill('abc');
+  await sf.locator('button[type=submit]').click();
+  await page.locator('#seriesmsg[data-state=err]').waitFor();
+  await sf.locator('input[name=value]').fill('-10,5');
+  await sf.locator('button[type=submit]').click();
+  await page.locator('#seriesmsg[data-state=ok]').waitFor();
+  assert.deepEqual(await rules(), {[series]:{pct:-10.5}});
+  assert.equal(await page.locator('#series-rows .row').count(),1);
+  assert.match(await page.locator('#series-rows').innerText(),/-10,5 %/);
+  await sf.screenshot({path:resolve(proof,'series-price-390.png')});
+  await page.locator('#series-rows').getByRole('button',{name:'Махни'}).click();
+  await page.locator('#seriesmsg[data-state=ok]').waitFor();
+  assert.equal(await rules(), null);
+  assert.equal(await page.locator('#series-rows .row').count(),0);
+  await page.locator('[data-tab=settings]').click();
   await page.locator('#logout').click();
   await page.locator('#gate').waitFor();
   await page.locator('#login input[name=email]').fill('owner@example.com');

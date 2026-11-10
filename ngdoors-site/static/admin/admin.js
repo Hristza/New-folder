@@ -183,12 +183,13 @@
   });
   $('#myform').addEventListener('submit', function (e) {
     e.preventDefault();
-    if (!confirmChange('Да сменим паролата за достъп до панела?')) return;
     var f = e.target, msg = $('#mymsg');
+    if (f.password.value !== f.repeat.value) { say(msg, 'err', 'Новата парола и повторението не съвпадат.'); return; }
+    if (!confirmChange('Да сменим паролата за достъп до панела?')) return;
     say(msg, '', 'Запазване…');
-    api('POST', '/auth/password', { password: f.password.value }).then(function () {
-      f.reset(); say(msg, 'ok', 'Паролата е запазена. Следващия път влезте с нея.');
-    }, function (err) { say(msg, 'err', 'Паролата не е запазена: ' + err.message); });
+    api('POST', '/auth/password', { current: f.current.value, password: f.password.value }).then(function () {
+      f.reset(); say(msg, 'ok', 'Паролата е сменена. Следващия път влезте с новата.');
+    }, function (err) { say(msg, 'err', 'Паролата не е сменена: ' + err.message); });
   });
 
   function enter() {
@@ -213,7 +214,7 @@
       state.products = d.products; state.photos = d.photos; state.inbox = d.inquiries;
       state.settings = {}; d.settings.forEach(function (s) { state.settings[s.key] = s.value; });
       state.lastPublish = d.lastPublish;
-      renderHome(); renderCatalogue(true); renderMine(); renderAlbums(); renderPhotos(); renderInbox(); renderSettings();
+      renderHome(); renderSeries(); renderCatalogue(true); renderMine(); renderAlbums(); renderPhotos(); renderInbox(); renderSettings();
     }).catch(function (e) {
       say($('#publish-bar'), 'err', 'Данните не се заредиха: ' + (e.message || e) + '. Опреснете страницата.');
     });
@@ -695,9 +696,62 @@
     if (!confirmChange('Да запазим настройките за телефон, имейл, адрес, работно време и съобщение на сайта?')) return;
     say(msg, '', 'Запазване…');
     api('PUT', '/admin/settings', { set: up, del: del }).then(function () {
-      state.settings = up;
+      Object.keys(up).forEach(function (k) { state.settings[k] = up[k]; });   // keeps series_prices
+      del.forEach(function (k) { delete state.settings[k]; });
       say(msg, 'ok', 'Запазено. Натиснете „Публикувай промените“.');
     }).catch(function (err) { say(msg, 'err', 'Не е запазено: ' + err.message); });
+  });
+
+  /* ---------------------------------------------------------------- series prices
+     One price for every model of a series, or a % change on it. All rules live in one
+     setting; a price set on a single door still wins over its series. */
+  function seriesRules() { try { return JSON.parse(state.settings.series_prices || '{}'); } catch (e) { return {}; } }
+  function seriesLabel(key) {
+    var s = (CAT.series || []).filter(function (x) { return x.key === key; })[0];
+    return s ? s.label : key;
+  }
+  function saveSeries(rules, done) {
+    var msg = $('#seriesmsg'), keys = Object.keys(rules);
+    say(msg, '', 'Запазване…');
+    api('PUT', '/admin/settings', keys.length ? { set: { series_prices: JSON.stringify(rules) }, del: [] } : { set: {}, del: ['series_prices'] }).then(function () {
+      if (keys.length) state.settings.series_prices = JSON.stringify(rules); else delete state.settings.series_prices;
+      renderSeries(); if (done) done();
+      say(msg, 'ok', 'Запазено. Натиснете „Публикувай промените“.');
+    }).catch(function (err) { say(msg, 'err', 'Не е запазено: ' + err.message); });
+  }
+  function renderSeries() {
+    var f = $('#seriesform'), rules = seriesRules();
+    if (!f.series.options.length) {
+      (CAT.series || []).forEach(function (s) {
+        f.series.appendChild(h('option', { value: s.key }, s.label + ' (' + s.count + (s.count === 1 ? ' модел' : ' модела') + ', каталог ' + eur(s.price) + ' €)'));
+      });
+    }
+    $('#series-rows').replaceChildren.apply($('#series-rows'), Object.keys(rules).map(function (k) {
+      var r = rules[k];
+      return h('div.row.is-changed', null, h('div', null,
+        h('div.name', null, seriesLabel(k)),
+        h('div.sub', null, 'price' in r ? 'Една цена: ' + eur(r.price) + ' €' : 'Промяна: ' + (r.pct > 0 ? '+' : '') + String(r.pct).replace('.', ',') + ' %')),
+        h('div.actions', null, h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: function () {
+          if (!confirmChange('Да махнем правилото за „' + seriesLabel(k) + '“? Серията се връща към каталожните цени.')) return;
+          var next = seriesRules(); delete next[k]; saveSeries(next);
+        } }, 'Махни')));
+    }));
+  }
+  $('#seriesform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, msg = $('#seriesmsg'), raw = f.value.value.trim().replace(/\s/g, '').replace(',', '.'), rule;
+    if (f.mode.value === 'price') {
+      var p = parseEur(raw);
+      if (p == null || Number.isNaN(p) || p <= 0) { say(msg, 'err', 'Напишете цена в евро, напр. 450 или 450,50.'); return; }
+      rule = { price: p };
+    } else {
+      if (!/^[-+]?\d{1,3}(\.\d{1,2})?$/.test(raw) || +raw === 0 || +raw < -90 || +raw > 300) { say(msg, 'err', 'Напишете процент между -90 и 300, напр. -10 или 15.'); return; }
+      rule = { pct: +raw };
+    }
+    var label = seriesLabel(f.series.value);
+    if (!confirmChange('Да сложим ' + ('price' in rule ? 'цена ' + eur(rule.price) + ' € на всички модели' : 'промяна ' + raw + ' % на цените') + ' в „' + label + '“?')) return;
+    var next = seriesRules(); next[f.series.value] = rule;
+    saveSeries(next, function () { f.value.value = ''; });
   });
 
   /* ---------------------------------------------------------------- publish */

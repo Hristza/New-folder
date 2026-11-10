@@ -146,7 +146,9 @@ try {
   await page.locator('[data-tab=settings]').click();
   await page.locator('#sform input[name=phone]').fill('+359888111222');
   await deny('save site settings',()=>page.locator('#sform button[type=submit]').click());
+  await page.locator('#myform input[name=current]').fill('old-password-only');
   await page.locator('#myform input[name=password]').fill('test-password-only');
+  await page.locator('#myform input[name=repeat]').fill('test-password-only');
   await deny('change account password',()=>page.locator('#myform button[type=submit]').click());
   await deny('publish website',()=>page.locator('#publish').click());
   assert.equal(await page.locator('#publish').isEnabled(),true);

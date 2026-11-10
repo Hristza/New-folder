@@ -79,15 +79,19 @@ def _family(prices, series):
     return prices["families"].get(series.get("family") or "", prices["families"]["hardware"])
 
 
-def series_for(prices, cat):
-    """Nearest declared ancestor of the product's category path."""
+def series_key(prices, cat):
+    """Path of the nearest declared ancestor of the product's category path."""
     segs = (cat or "").split("/")
     while segs:
-        hit = prices["series"].get("/".join(segs))
-        if hit:
-            return hit
+        if "/".join(segs) in prices["series"]:
+            return "/".join(segs)
         segs.pop()
     return None
+
+
+def series_for(prices, cat):
+    key = series_key(prices, cat)
+    return prices["series"][key] if key else None
 
 
 def _surcharge(fam, size, base_size):

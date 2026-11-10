@@ -12,13 +12,15 @@
 import { EmailMessage } from "cloudflare:email";
 
 const DAY = 86400000;
-const SESSION_MS = 30 * DAY;
+// A session lives as long as it is used: each visit pushes the end 7 days out. Seven
+// days without opening the panel and she signs in again (user's request, 2026-11-11).
+const IDLE_MS = 7 * DAY;
 const RESET_MS = 3600000;
 const PBKDF2_ITER = 100000;          // the Workers runtime caps PBKDF2 at 100k iterations
 const MEDIA_PATH = /^(catalogue|products|projects)\/[A-Za-z0-9-]{8,64}-(600|1200)\.(webp|jpg)$/;
 const MEDIA_TYPES = { "image/webp": "webp", "image/jpeg": "jpg", "image/png": "png" };
 const MAX_UPLOAD = 10485760;
-const SETTING_KEYS = ["phone", "email", "hours", "address", "announcement"];
+const SETTING_KEYS = ["phone", "email", "hours", "address", "announcement", "series_prices"];
 const SECTIONS = ["door", "nastilki", "granitogres", "parvazi"];
 const BADGES = [null, "new", "sale", "hit"];
 
@@ -187,15 +189,19 @@ async function mail(env, to, subject, text) {
 async function session(req, env) {
   const h = req.headers.get("Authorization") || "";
   if (!h.startsWith("Bearer ")) throw new Bad(401, "Влезте отново.");
-  const s = await env.DB.prepare("select email from sessions where token_hash = ? and expires_at > ?")
-    .bind(await sha256(h.slice(7)), Date.now()).first();
-  if (!s) throw new Bad(401, "Сесията е изтекла. Влезте отново.");
+  const th = await sha256(h.slice(7)), t = Date.now();
+  const s = await env.DB.prepare("select email, expires_at from sessions where token_hash = ? and expires_at > ?")
+    .bind(th, t).first();
+  if (!s) throw new Bad(401, "Не сте влизали няколко дни. Влезте отново с паролата си.");
+  // ponytail: one write per hour at most, not one per request
+  if (s.expires_at < t + IDLE_MS - 3600000)
+    await env.DB.prepare("update sessions set expires_at = ? where token_hash = ?").bind(t + IDLE_MS, th).run();
   return s.email;
 }
 async function newSession(env, email) {
   const t = token();
   await env.DB.prepare("insert into sessions (token_hash, email, expires_at) values (?, ?, ?)")
-    .bind(await sha256(t), email, Date.now() + SESSION_MS).run();
+    .bind(await sha256(t), email, Date.now() + IDLE_MS).run();
   return t;
 }
 
@@ -250,7 +256,11 @@ async function setPassword(req, env) {
     ]);
     return { token: await newSession(env, r.email), email: r.email };
   }
+  // Changing it from inside the panel needs the current one, so an unattended open
+  // panel cannot be used to lock her out.
   const email = await session(req, env);
+  const a = await env.DB.prepare("select pass_hash from admins where email = ?").bind(email).first();
+  if (!(await checkPassword(String(b.current || ""), a && a.pass_hash))) throw bad("Сегашната парола е грешна.");
   await env.DB.prepare("update admins set pass_hash = ? where email = ?").bind(await hashPassword(password), email).run();
   return { ok: true };
 }
@@ -358,12 +368,32 @@ async function setInquiry(env, id, b) {
   return r;
 }
 
+// One price for a whole door series, or a % change on it. Stored as one JSON setting:
+// {"<series path>": {"price": 450} | {"pct": -10}}. build.py applies it; a price she set
+// on a single door still wins over its series.
+function seriesPrices(v) {
+  let o;
+  try { o = JSON.parse(String(v)); } catch (_) { throw bad("Невалидни цени на серии."); }
+  if (!o || typeof o !== "object" || Array.isArray(o) || Object.keys(o).length > 200) throw bad("Невалидни цени на серии.");
+  const out = {};
+  for (const [k, r] of Object.entries(o)) {
+    if (k.length < 1 || k.length > 200 || /[\x00-\x1f\x7f]/.test(k) || !r || typeof r !== "object" || Object.keys(r).length !== 1)
+      throw bad("Невалидна серия.");
+    if ("price" in r) out[k] = { price: money(r.price, "цена на серия", { nullable: false, positive: true }) };
+    else if (typeof r.pct === "number" && Number.isFinite(r.pct) && r.pct >= -90 && r.pct <= 300 && r.pct !== 0 && cents(r.pct))
+      out[k] = { pct: r.pct };
+    else throw bad("Процентът трябва да е между -90 и 300.");
+  }
+  return JSON.stringify(out);
+}
+
 async function putSettings(env, b) {
   const set = b.set || {}, del = b.del || [];
   const stmts = [];
   for (const k of Object.keys(set)) {
     if (!SETTING_KEYS.includes(k)) throw bad("Невалидна настройка.");
-    stmts.push(env.DB.prepare("insert or replace into settings (key, value, updated_at) values (?, ?, ?)").bind(k, str(set[k], 1, 300, k).trim(), now()));
+    const v = k === "series_prices" ? seriesPrices(set[k]) : str(set[k], 1, 300, k).trim();
+    stmts.push(env.DB.prepare("insert or replace into settings (key, value, updated_at) values (?, ?, ?)").bind(k, v, now()));
   }
   for (const k of del) {
     if (!SETTING_KEYS.includes(k)) throw bad("Невалидна настройка.");
