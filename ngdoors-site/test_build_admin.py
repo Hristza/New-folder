@@ -41,10 +41,16 @@ PR = pricing.load()
 TAKEN = {d["id"] for d in doors[:6]} | {REMOVED["id"], EMPTY_PHOTOS["id"]}
 FIXED_KEY = pricing.series_key(PR, PRICED.get("category", ""))
 SAME = next(d for d in doors if d["id"] not in TAKEN and pricing.series_key(PR, d.get("category", "")) == FIXED_KEY)
-PCT = next(d for d in doors if d["id"] not in TAKEN and pricing.series_key(PR, d.get("category", "")) not in (None, FIXED_KEY)
-           and pricing.resolve(dict(d, cat=d.get("category", "")), PR)["price"] > 0)
-PCT_KEY = pricing.series_key(PR, PCT.get("category", ""))
+_free = [d for d in doors if d["id"] not in TAKEN and pricing.series_key(PR, d.get("category", "")) not in (None, FIXED_KEY)
+         and "/" in pricing.series_key(PR, d.get("category", ""))
+         and pricing.resolve(dict(d, cat=d.get("category", "")), PR)["price"] > 0]
+_key = lambda d: pricing.series_key(PR, d.get("category", ""))
+PCT, SIB = next((a, b) for a in _free for b in _free
+                if _key(a) != _key(b) and _key(a).rsplit("/", 1)[0] == _key(b).rsplit("/", 1)[0])
+PCT_KEY = _key(PCT)
 PCT_BEFORE = pricing.resolve(dict(PCT, cat=PCT.get("category", "")), PR)["price"]
+PARENT = PCT_KEY.rsplit("/", 1)[0]
+SIB_BEFORE = pricing.resolve(dict(SIB, cat=SIB.get("category", "")), PR)["price"]
 
 
 def fake_load():
@@ -83,7 +89,7 @@ def fake_load():
         "photos": [{"id": "p1", "album": album, "photo": PJ},
                    {"id": "p2", "album": "Тераси", "photo": PJ}],
         "settings": {"announcement": "Промоция <b>до 30.10</b>", "phone": "+359 888 111 222",
-                     "series_prices": json.dumps({FIXED_KEY: {"price": 450}, PCT_KEY: {"pct": -10}})},
+                     "series_prices": json.dumps({FIXED_KEY: {"price": 450}, PCT_KEY: {"pct": -10}, PARENT: {"pct": 20}})},
     }
     images = {}
     for pr in fix["products"]:
@@ -131,9 +137,11 @@ same = rec[SAME["id"]]
 expect(abs(same["price"] - 450 * build.BGN_PER_EUR) < 1e-6 and same.get("confirmed"), "series fixed price not applied")
 expect(all(abs(s["price"] - (same["price"] + s["delta"])) < 1e-6 for s in same.get("size_opts") or []), "series price lost the size steps")
 expect("450,00 €" in (page(same["url"]) or ""), "series price not on the page")
-expect(abs(rec[PCT["id"]]["price"] - PCT_BEFORE * 0.9) < 1e-6, "series -10 % not applied")
+expect(abs(rec[PCT["id"]]["price"] - PCT_BEFORE * 0.9) < 1e-6, "series -10 % not applied (or parent rule beat it)")
+expect(abs(rec[SIB["id"]]["price"] - SIB_BEFORE * 1.2) < 1e-6, "category +20 % did not reach a door below it")
 cat_json = json.load(io.open(os.path.join(SITE, "admin", "catalogue.json"), encoding="utf-8"))
 expect(any(s["key"] == FIXED_KEY and s["count"] >= 2 for s in cat_json["series"]), "panel has no series list")
+expect(any(s["key"] == PARENT and s["price"] is None for s in cat_json["series"]), "panel cannot pick a whole category")
 expect(REMOVED_URL not in rec[REMOVED['id']]['images'], 'deleted original remains in product gallery')
 expect(rec[REMOVED['id']]['images'] == [u for u in rec[REMOVED['id']]['catalogue_images'] if u != REMOVED_URL], 'remaining originals changed order or disappeared')
 for product in (EMPTY_PHOTOS, FLOOR_PHOTOS):

@@ -723,7 +723,7 @@
     var f = $('#seriesform'), rules = seriesRules();
     if (!f.series.options.length) {
       (CAT.series || []).forEach(function (s) {
-        f.series.appendChild(h('option', { value: s.key }, s.label + ' (' + s.count + (s.count === 1 ? ' модел' : ' модела') + ', каталог ' + eur(s.price) + ' €)'));
+        f.series.appendChild(h('option', { value: s.key }, s.label + ' (' + s.count + (s.count === 1 ? ' модел' : ' модела') + (s.price ? ', каталог ' + eur(s.price) + ' €' : '') + ')'));
       });
     }
     $('#series-rows').replaceChildren.apply($('#series-rows'), Object.keys(rules).map(function (k) {

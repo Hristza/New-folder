@@ -313,7 +313,12 @@ def apply_series_price(rec):
     Runs before apply_override, so it becomes the door's catalogue price and a price
     she set on that single door still wins. Size surcharges keep their step.
     """
-    rule = SERIES_RULES.get(rec.get("series") or "")
+    # The nearest rule up the category path wins: a series rule beats one on its
+    # parent category ("Входни врати за къщи"), which beats one on "Входни врати".
+    segs, rule = (rec.get("cat") or "").split("/"), None
+    while segs and not rule:
+        rule = SERIES_RULES.get("/".join(segs))
+        segs.pop()
     if not rule or rec["price"] <= 0:
         return
     if "price" in rule:
@@ -1519,12 +1524,15 @@ def write_admin_catalogue():
         cats.append({"path": p, "label": " / ".join(TREE[a]["label"] for a in chain)})
     cats.sort(key=lambda c: c["label"])
     label = {c["path"]: c["label"] for c in cats}
+    # Every door category, with how many catalogue doors sit in it or below it.
     used = {}
     for r in CATALOGUE:
-        if r.get("series") and not r.get("admin"):
-            used[r["series"]] = used.get(r["series"], 0) + 1
+        if r["kind"] == "door" and not r.get("admin") and r.get("cat"):
+            segs = r["cat"].split("/")
+            for i in range(1, len(segs) + 1):
+                used["/".join(segs[:i])] = used.get("/".join(segs[:i]), 0) + 1
     series = sorted(({"key": k, "label": fix_script(label.get(k, k)), "count": n,
-                      "price": PRICES["series"][k]["base_price"] / BGN_PER_EUR}
+                      "price": (PRICES["series"][k]["base_price"] / BGN_PER_EUR) if k in PRICES["series"] else None}
                      for k, n in used.items()), key=lambda s: s["label"])
     os.makedirs(os.path.join(SITE, "admin"), exist_ok=True)
     with io.open(os.path.join(SITE, "admin", "catalogue.json"), "w", encoding="utf-8") as f:
