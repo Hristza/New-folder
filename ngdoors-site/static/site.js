@@ -168,13 +168,13 @@
       e.preventDefault();
       var d = new FormData(form);
       if (d.get('website')) { say('ok', 'Благодарим! Ще се свържем с вас.'); return; }   // bot
-      var url = form.getAttribute('data-sb-url'), key = form.getAttribute('data-sb-key');
-      if (!url || !key || !window.fetch) { mailto(d); return; }
+      var url = form.getAttribute('data-api');
+      if (!url || !window.fetch) { mailto(d); return; }
       btn.disabled = true;
       say('', 'Изпращане…');
-      fetch(url + '/rest/v1/inquiries', {
+      fetch(url + '/inquiry', {
         method: 'POST',
-        headers: { 'apikey': key, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: String(d.get('name') || '').trim().slice(0, 120),
           contact: (String(d.get('email') || '').trim() + ' / ' + String(d.get('phone') || '').trim()).slice(0, 160),

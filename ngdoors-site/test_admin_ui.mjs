@@ -1,5 +1,5 @@
-// Real browser + real built pages, with an explicitly mocked Supabase service.
-// Database constraints and permissions are tested separately by test_schema.mjs.
+// Real browser + real built pages, with an explicitly mocked ngdoors-api service.
+// The real Worker's rules are tested separately by api/test_api.mjs.
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import http from 'node:http';
@@ -23,7 +23,7 @@ const base = 'http://127.0.0.1:' + server.address().port;
 const browser = await chromium.launch({headless:true,
   executablePath:process.env.BRAVE_PATH || (process.platform === 'win32' ? 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe' : undefined)});
 const context = await browser.newContext({viewport:{width:390,height:844}});
-await context.addInitScript({content:readFileSync('supabase/admin_mock.js','utf8')});
+await context.addInitScript({content:readFileSync('api/admin_mock.js','utf8')});
 const page = await context.newPage(), errors = [];
 page.on('dialog', dialog => dialog.accept()); // Cancellation is covered by test_admin_confirmations.mjs.
 page.on('pageerror', e => errors.push(e.message));
@@ -154,7 +154,7 @@ try {
   await page.locator('#login input[name=password]').fill('');
   await page.locator('#login button[type=submit]').click();
   await page.locator('#gate-msg[data-state=ok]').waitFor();
-  assert.equal(await page.evaluate(()=>window.__calls.find(c=>c.op==='signInWithOtp').options.shouldCreateUser),false);
+  assert.equal(await page.evaluate(()=>window.__calls.find(c=>c.op==='reset').email),'owner@example.com');
   await page.locator('#login input[name=password]').fill('test-password-only');
   await page.locator('#login button[type=submit]').click();
   await page.locator('#app').waitFor();

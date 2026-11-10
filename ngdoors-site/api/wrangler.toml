@@ -1,0 +1,26 @@
+# NG Doors backend: panel data, photos, login, contact form, publish button.
+# Replaced Supabase on 2026-11-11. Deploy: npx wrangler deploy (from this folder).
+# Secret: npx wrangler secret put DEPLOY_HOOK  (the Cloudflare Pages deploy hook URL)
+name = "ngdoors-api"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Email Routing only delivers to verified destination addresses (dash > Email > Destination addresses).
+# Must stay above the [[tables]] below, or TOML files it under the last one.
+send_email = [{ name = "MAIL" }]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ngdoors"
+database_id = "4657e0c5-b92f-49c1-8051-1216a7e3c47d"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "ngdoors-media"
+
+[vars]
+FROM = "notify@hristoforstudio.com"
+TO = "hrisodim0@gmail.com,ngbuildings@abv.bg"
+SITE_ORIGINS = "https://ngdoors.pages.dev,https://ngdoors.bg,https://www.ngdoors.bg,http://localhost:8788"
+ADMIN_URL = "https://ngdoors.pages.dev/admin/"

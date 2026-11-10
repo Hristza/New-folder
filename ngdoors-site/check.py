@@ -36,11 +36,11 @@ def main():
     with io.open(os.path.join(HERE, "images.json"), encoding="utf-8") as f:
         images = json.load(f)
 
-    # Her uploaded photos are linked straight from Supabase storage. Those are the
+    # Her uploaded photos are linked straight from the API's /media/ (R2). Those are the
     # only remote images allowed; anything else absolute is a hotlink and fails.
     import admin_sync
     _cfg = admin_sync.config()
-    remote_ok = (_cfg["url"] + "/storage/v1/object/public/media/") if _cfg else None
+    remote_ok = (_cfg["url"] + "/media/") if _cfg else None
 
     def img_missing(u):
         if u.startswith("/"):

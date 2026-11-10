@@ -30,14 +30,14 @@ FLOOR_PHOTOS = floors[1]
 REMOVED_URL = next(u for u in REMOVED['images'] if u in IMG)
 root_cat = sorted(DATA["cat_labels"])[0]
 album = "Входни врати"
-SB = "https://fake.supabase.co"
+SB = "https://api.test"
 PH = {"s": "products/x-600.webp", "l": "products/x-1200.webp", "w": 1200, "h": 900}
 OV = {"s": "catalogue/z-600.webp", "l": "catalogue/z-1200.webp", "w": 1200, "h": 1500}
 PJ = {"s": "projects/y-600.webp", "l": "projects/y-1200.webp", "w": 1200, "h": 1600}
 
 
 def fake_load():
-    cfg = {"url": SB, "key": "k"}
+    cfg = {"url": SB}
     fix = {
         "overrides": {
             "door:" + REMOVED['id']: {"excluded_images": [REMOVED_URL]},
@@ -96,7 +96,7 @@ def fake_load():
 
 
 admin_sync.load = fake_load
-admin_sync.config = lambda: {"url": SB, "key": "sb_publishable_test"}
+admin_sync.config = lambda: {"url": SB}
 import build            # noqa: E402  (module-level build runs against the fixture)
 build.main()
 
@@ -127,7 +127,7 @@ expect(html and "460,50 €" in html and "(900,66 лв.)" in html, "her euro pri
 expect(html and 'class="was"' in html and "562,00 €" in html, "old price not struck through")
 expect(html and "badge-sale" in html, "sale badge missing on product page")
 expect(html and "price-note" not in html, "confirmed price still carries the draft notice")
-expect(html and SB + "/storage/v1/object/public/media/catalogue/z-1200.webp" in html, "her photo did not replace the supplier photo")
+expect(html and SB + "/media/catalogue/z-1200.webp" in html, "her photo did not replace the supplier photo")
 # size ladder moved with the base price
 if rec[PRICED["id"]].get("size_opts"):
     expect(all(abs(s["price"] - (460.5 * build.BGN_PER_EUR + s["delta"])) < 0.01 for s in rec[PRICED["id"]]["size_opts"]),
@@ -157,7 +157,7 @@ mine_door = [r for r in build.ALL_DOORS if r.get("admin")]
 expect(len(mine_door) == 1, "her door not in the catalogue")
 if mine_door:
     html = page(mine_door[0]["url"])
-    expect(html and SB + "/storage/v1/object/public/media/products/x-1200.webp" in html, "her door photo not linked from Supabase")
+    expect(html and SB + "/media/products/x-1200.webp" in html, "her door photo not linked from the API")
     expect(html and "badge-new" in html and "Размери" in html and "80/200, 90/200" in html, "her door badge/sizes missing")
     expect(html and "darnox.com" not in html and "ngdoors.bg." not in html, "her door claims a supplier source")
     parent = page(build.TREE[root_cat]["url"]) or ""
@@ -172,15 +172,15 @@ expect(page("/proekti/terasi/") is not None, "new album page not written")
 # 7. settings: announcement escaped, phone replaced everywhere
 expect(home and "Промоция &lt;b&gt;до 30.10&lt;/b&gt;" in home, "announcement missing or not escaped")
 expect(home and "tel:+359888111222" in home and "+359 898 441 552" not in home, "phone setting not applied")
-# 8. contact form wired to Supabase, panel present and private
+# 8. contact form wired to the API, panel present and private
 k = page("/kontakti/")
-expect(k and 'data-sb-url="https://fake.supabase.co"' in k, "contact form not wired to Supabase")
+expect(k and 'data-api="https://api.test"' in k and 'data-sb-' not in k, "contact form not wired to the API")
 expect(os.path.exists(os.path.join(SITE, "admin", "index.html")), "admin panel not built")
 cat = json.load(io.open(os.path.join(SITE, "admin", "catalogue.json"), encoding="utf-8"))
 expect(all(i.get('images') for i in cat['items']), 'admin lacks individual catalogue photographs')
 originals = next(i for i in cat['items'] if i['key'] == 'door:' + REMOVED['id']).get('images', [])
 expect([i['id'] for i in originals] == rec[REMOVED['id']]['catalogue_images'], 'admin cannot restore deleted originals')
-expect(len(cat["items"]) >= 490 and cat["supabase_url"] == SB, "admin catalogue incomplete")
+expect(len(cat["items"]) >= 490 and cat["api_url"] == SB and "supabase_key" not in cat, "admin catalogue incomplete")
 expect(any(i["key"] == "door:" + HIDDEN["id"] for i in cat["items"]), "hidden door missing from the panel (she could not unhide it)")
 expect(all(not i["key"].startswith("door:n") for i in cat["items"]), "her own products leaked into the override list")
 expect(all("size_prices" in i for i in cat["items"] if i["key"].startswith("door:")), "panel lacks original size prices")

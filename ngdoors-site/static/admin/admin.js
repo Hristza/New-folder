@@ -1,6 +1,6 @@
 /* NG Doors admin panel.
-   Everything is saved straight to Supabase under her login; row-level security on
-   the server decides what she may do, never this file. The public site changes only
+   Everything is saved straight to the ngdoors-api Worker (api/worker.js) under her
+   login; the Worker decides what she may do, never this file. The public site changes only
    when she presses "Публикувай", which rebuilds it from what is saved here.
    Every value that came from the database goes into the page with textContent,
    never innerHTML. */
@@ -35,7 +35,26 @@
   // Browser confirmation blocks the action; Cancel/Escape leaves the current state intact.
   function confirmChange(action) { return window.confirm('Сигурни ли сте?\n\n' + action); }
 
-  var CAT = null, sb = null, RATE = 1.95583;
+  var CAT = null, API = '', RATE = 1.95583, TOKEN_KEY = 'ngdoors-admin-token', resetToken = null;
+
+  /* ---------------------------------------------------------------- server
+     Bearer token in localStorage: the API lives on another site, and Safari drops
+     third-party cookies. An expired session sends her back to the sign-in form. */
+  function token() { try { return localStorage.getItem(TOKEN_KEY); } catch (e) { return null; } }
+  function keep(t) { try { if (t) localStorage.setItem(TOKEN_KEY, t); else localStorage.removeItem(TOKEN_KEY); } catch (e) {} }
+  function api(method, path, body, type) {
+    var headers = {}, t = token();
+    if (t) headers.Authorization = 'Bearer ' + t;
+    if (body != null) headers['Content-Type'] = type || 'application/json';
+    return fetch(API + path, { method: method, headers: headers, body: body == null ? undefined : type ? body : JSON.stringify(body) })
+      .then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (r.ok) return j;
+          if (r.status === 401 && path.indexOf('/admin/') === 0) { keep(null); showGate('login'); say($('#gate-msg'), 'err', j.error || 'Влезте отново.'); }
+          throw new Error(j.error || 'Сървърът не отговори (' + r.status + ').');
+        });
+      }, function () { throw new Error('Няма връзка със сървъра. Проверете интернета.'); });
+  }
   var state = { overrides: {}, products: [], photos: [], inbox: [], settings: {} };
 
   /* ---------------------------------------------------------------- money
@@ -106,24 +125,21 @@
   fetch('/admin/catalogue.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (c) {
     CAT = c; RATE = c.bgn_per_eur || RATE;
     $('#boot').hidden = true;
-    if (!c.supabase_url || !c.supabase_key || !window.supabase) {
+    if (!c.api_url) {
       $('#gate').hidden = false;
       $('#login').hidden = true;
       say($('#gate-msg'), 'err', 'Панелът още не е свързан със сървъра.');
       return;
     }
-    var recovering = location.hash.indexOf('type=recovery') >= 0;   // read before the library clears the hash
-    sb = window.supabase.createClient(c.supabase_url, c.supabase_key, {
-      auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
-    });
-    sb.auth.onAuthStateChange(function (ev, session) {
-      if (ev === 'PASSWORD_RECOVERY') { showGate('newpass'); return; }
-      if (ev === 'SIGNED_OUT') showGate('login');
-    });
-    sb.auth.getSession().then(function (r) {
-      if (recovering) { showGate('newpass'); return; }   // email link: choose a password first
-      if (r.data.session) enter(r.data.session); else showGate('login');
-    });
+    API = c.api_url.replace(/\/+$/, '');
+    var m = /[#&]reset=([A-Za-z0-9_-]{20,})/.exec(location.hash);
+    if (m) {                                             // emailed link: choose a password first
+      resetToken = m[1];
+      history.replaceState(null, '', '/admin/');          // the token must not linger in the address bar
+      showGate('newpass'); return;
+    }
+    if (!token()) { showGate('login'); return; }
+    api('GET', '/admin/me').then(enter, function () { showGate('login'); });
   }).catch(function () {
     $('#boot').textContent = 'Панелът не можа да се зареди. Опреснете страницата.';
   });
@@ -133,66 +149,51 @@
     $('#login').hidden = which !== 'login'; $('#newpass').hidden = which !== 'newpass';
   }
 
-  // Password if she set one in Settings, else an email link. The link alone hit the 2-emails-an-hour cap.
-  // shouldCreateUser:false so strangers get no account.
+  // Password, or an empty password field for an emailed link that lets her choose one.
+  // The server answers the same for any address, so the form cannot reveal who has access.
   $('#login').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target, btn = $('button[type=submit]', f), msg = $('#gate-msg');
     btn.disabled = true;
     if (f.password.value) {
       say(msg, '', 'Влизане…');
-      sb.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value }).then(function (r) {
-        btn.disabled = false;
-        if (r.error) { say(msg, 'err', 'Грешен имейл или парола. Нямате парола? Оставете полето празно.'); return; }
-        say(msg, '', ''); enter(r.data.session);
-      });
+      api('POST', '/auth/login', { email: f.email.value.trim(), password: f.password.value }).then(function (r) {
+        keep(r.token); say(msg, '', ''); f.reset(); enter();
+      }, function (err) { say(msg, 'err', err.message + ' Нямате парола? Оставете полето празно.'); })
+        .then(function () { btn.disabled = false; });
       return;
     }
     say(msg, '', 'Изпращане…');
-    sb.auth.signInWithOtp({ email: f.email.value.trim(), options: { shouldCreateUser: false, emailRedirectTo: location.origin + '/admin/' } }).then(function (r) {
-      btn.disabled = false;
-      if (r.error && /signups not allowed|not found/i.test(r.error.message)) { say(msg, 'err', 'Този имейл няма достъп до панела.'); return; }
-      if (r.error) { say(msg, 'err', 'Писмото не беше изпратено. Опитайте пак след минута.'); return; }
-      say(msg, 'ok', 'Готово. Проверете пощата си и отворете връзката от писмото.');
-    });
+    api('POST', '/auth/reset', { email: f.email.value.trim() }).then(function () {
+      say(msg, 'ok', 'Ако този имейл има достъп, до минута ще получите писмо с връзка. Тя важи един час.');
+    }, function (err) { say(msg, 'err', err.message); }).then(function () { btn.disabled = false; });
   });
   $('#newpass').addEventListener('submit', function (e) {
     e.preventDefault();
     if (!confirmChange('Да запазим новата парола за достъп до панела?')) return;
     var msg = $('#gate-msg');
-    sb.auth.updateUser({ password: e.target.password.value }).then(function (r) {
-      if (r.error) { say(msg, 'err', 'Паролата не беше сменена: ' + r.error.message); return; }
-      history.replaceState(null, '', '/admin/');
-      say(msg, 'ok', 'Паролата е сменена.');
-      sb.auth.getSession().then(function (s) { enter(s.data.session); });
-    });
+    api('POST', '/auth/password', { token: resetToken, password: e.target.password.value }).then(function (r) {
+      resetToken = null; keep(r.token); e.target.reset();
+      say(msg, 'ok', 'Паролата е запазена.'); enter();
+    }, function (err) { say(msg, 'err', 'Паролата не беше запазена: ' + err.message); });
   });
   $('#logout').addEventListener('click', function () {
-    if (confirmChange('Да излезем от панела? Незапазените промени ще се загубят.')) sb.auth.signOut();
+    if (!confirmChange('Да излезем от панела? Незапазените промени ще се загубят.')) return;
+    api('POST', '/auth/logout').catch(function () {}).then(function () { keep(null); showGate('login'); });
   });
   $('#myform').addEventListener('submit', function (e) {
     e.preventDefault();
     if (!confirmChange('Да сменим паролата за достъп до панела?')) return;
     var f = e.target, msg = $('#mymsg');
     say(msg, '', 'Запазване…');
-    sb.auth.updateUser({ password: f.password.value }).then(function (r) {
-      if (r.error) { say(msg, 'err', 'Паролата не е запазена: ' + r.error.message); return; }
-      f.reset(); say(msg, 'ok', 'Паролата е запазена. Следващия път влезте с имейл и парола.');
-    });
+    api('POST', '/auth/password', { password: f.password.value }).then(function () {
+      f.reset(); say(msg, 'ok', 'Паролата е запазена. Следващия път влезте с нея.');
+    }, function (err) { say(msg, 'err', 'Паролата не е запазена: ' + err.message); });
   });
 
-  function enter(session) {
-    // RLS lets a user read only their own admins row, so this is "am I an admin?".
-    sb.from('admins').select('user_id').eq('user_id', session.user.id).maybeSingle().then(function (r) {
-      if (r.error || !r.data) {
-        showGate('login');
-        say($('#gate-msg'), 'err', 'Този профил няма достъп до управлението.');
-        sb.auth.signOut();
-        return;
-      }
-      $('#gate').hidden = true; $('#app').hidden = false;
-      loadAll();
-    });
+  function enter() {
+    $('#gate').hidden = true; $('#app').hidden = false;
+    loadAll();
   }
 
   /* ---------------------------------------------------------------- tabs */
@@ -206,20 +207,12 @@
   }
 
   /* ---------------------------------------------------------------- data */
-  function all(q) { return q.then(function (r) { if (r.error) throw r.error; return r.data; }); }
   function loadAll() {
-    return Promise.all([
-      all(sb.from('product_overrides').select('*')),
-      all(sb.from('products').select('*').order('created_at', { ascending: false })),
-      all(sb.from('project_photos').select('*').order('created_at', { ascending: false })),
-      all(sb.from('inquiries').select('*').order('created_at', { ascending: false }).limit(300)),
-      all(sb.from('settings').select('key,value')),
-      all(sb.from('publish_log').select('*').order('requested_at', { ascending: false }).limit(1))
-    ]).then(function (d) {
-      state.overrides = {}; d[0].forEach(function (o) { state.overrides[o.product_key] = o; });
-      state.products = d[1]; state.photos = d[2]; state.inbox = d[3];
-      state.settings = {}; d[4].forEach(function (s) { state.settings[s.key] = s.value; });
-      state.lastPublish = d[5][0] || null;
+    return api('GET', '/admin/data').then(function (d) {
+      state.overrides = {}; d.overrides.forEach(function (o) { state.overrides[o.product_key] = o; });
+      state.products = d.products; state.photos = d.photos; state.inbox = d.inquiries;
+      state.settings = {}; d.settings.forEach(function (s) { state.settings[s.key] = s.value; });
+      state.lastPublish = d.lastPublish;
       renderHome(); renderCatalogue(true); renderMine(); renderAlbums(); renderPhotos(); renderInbox(); renderSettings();
     }).catch(function (e) {
       say($('#publish-bar'), 'err', 'Данните не се заредиха: ' + (e.message || e) + '. Опреснете страницата.');
@@ -351,11 +344,11 @@
       nextExcluded = nextExcluded || excluded;
       busyPhotos(true);
       say(msg, '', 'Запазване…');
-      return all(sb.from('product_overrides').upsert({ product_key: it.key, images: next, excluded_images: nextExcluded }).select()).then(function (d) {
+      return putOverride(it.key, { images: next, excluded_images: nextExcluded }).then(function (d) {
         removeFiles(mine.filter(function (x) { return next.indexOf(x) < 0; }));   // ponytail: an orphan file on failure is harmless
-        state.overrides[it.key] = d[0];
-        mine = d[0].images || [];
-        excluded = d[0].excluded_images || [];
+        state.overrides[it.key] = d;
+        mine = d.images || [];
+        excluded = d.excluded_images || [];
         resetButton.hidden = false;
         cover.src = coverSrc();
         drawPhotos(); row.classList.add('is-changed');
@@ -385,14 +378,14 @@
       catch (e) { say(msg, 'err', e.message); return; }
       var eff = sizePrices && sizePrices.length ? Math.min.apply(null, sizePrices.map(function (s) { return s.price; })) : (p != null ? p : it.price / RATE);
       if (op != null && !(op > eff)) { say(msg, 'err', 'Старата цена трябва да е по-висока от новата.'); return; }
-      var rec = { product_key: it.key, price: p, old_price: op, hidden: hide.checked, badge: badge.value || null };
+      var rec = { price: p, old_price: op, hidden: hide.checked, badge: badge.value || null };
       if (sizes) rec.size_prices = sizePrices;
       if (!confirmChange('Да запазим цените, размерите и останалите промени за „' + it.name + '“?' +
         (rec.hidden ? '\nПродуктът ще бъде скрит от сайта след публикуване.' : ''))) return;
       busyPhotos(true);
       say(msg, '', 'Запазване…');
-      all(sb.from('product_overrides').upsert(rec).select()).then(function (d) {
-        state.overrides[it.key] = d[0];
+      putOverride(it.key, rec).then(function (d) {
+        state.overrides[it.key] = d;
         resetButton.hidden = false;
         say(msg, 'ok', 'Запазено. Натиснете „Публикувай“.');
         row.classList.toggle('is-hidden', rec.hidden); row.classList.add('is-changed');
@@ -404,7 +397,7 @@
       if (photoBusy) return;
       if (!confirmChange('Да върнем всички каталожни данни за „' + it.name + '“? Вашите цени, размери и качени снимки ще бъдат премахнати.')) return;
       busyPhotos(true);
-      all(sb.from('product_overrides').delete().eq('product_key', it.key)).then(function () {
+      api('DELETE', '/admin/overrides/' + encodeURIComponent(it.key)).then(function () {
         removeFiles(mine);
         delete state.overrides[it.key];
         row.replaceWith(catRow(it)); renderHome();
@@ -413,6 +406,8 @@
     }
     return row;
   }
+  // Fields left out keep their saved value, so a photo change never resets her price.
+  function putOverride(key, fields) { return api('PUT', '/admin/overrides/' + encodeURIComponent(key), fields); }
 
   /* ---------------------------------------------------------------- photos
      Resized in the browser to a 1200px and a 600px copy before upload: a phone
@@ -452,19 +447,17 @@
       return Promise.all([scaled(bmp, 600), scaled(bmp, 1200)]).then(function (b) {
         var id = folder + '/' + uid(), ext = function (x) { return x.type === 'image/webp' ? 'webp' : 'jpg'; };
         var s = id + '-600.' + ext(b[0]), l = id + '-1200.' + ext(b[1]);
-        var put = function (path, blob) {
-          return sb.storage.from('media').upload(path, blob, { contentType: blob.type, upsert: false }).then(function (r) { if (r.error) throw r.error; });
-        };
+        var put = function (path, blob) { return api('PUT', '/admin/media/' + path, blob, blob.type); };
         return put(s, b[0]).then(function () { return put(l, b[1]); }).then(function () {
           return { s: s, l: l, w: Math.min(1200, bmp.width), h: Math.round(bmp.height * Math.min(1200, bmp.width) / bmp.width) };
         });
       });
     });
   }
-  function mediaUrl(path) { return sb.storage.from('media').getPublicUrl(path).data.publicUrl; }
+  function mediaUrl(path) { return API + '/media/' + path; }
   function removeFiles(photos) {
     var paths = []; photos.forEach(function (p) { paths.push(p.s, p.l); });
-    return paths.length ? sb.storage.from('media').remove(paths) : Promise.resolve();
+    return paths.length ? api('POST', '/admin/media/delete', { paths: paths }).catch(function () {}) : Promise.resolve();
   }
 
   /* ---------------------------------------------------------------- her products */
@@ -549,11 +542,11 @@
     var dropped = editing ? (editing.images || []).filter(function (a) { return !pImages.some(function (b) { return b.s === a.s; }); }) : [];
     if (!confirmChange('Да запазим продукта „' + rec.name + '“ и неговите снимки, размери и цени?')) return;
     say(msg, '', 'Запазване…');
-    var q = editing ? sb.from('products').update(rec).eq('id', editing.id).select() : sb.from('products').insert(rec).select();
-    all(q).then(function (d) {
+    var q = editing ? api('PATCH', '/admin/products/' + encodeURIComponent(editing.id), rec) : api('POST', '/admin/products', rec);
+    q.then(function (d) {
       removeFiles(dropped);
-      if (editing) state.products = state.products.map(function (x) { return x.id === editing.id ? d[0] : x; });
-      else state.products.unshift(d[0]);
+      if (editing) state.products = state.products.map(function (x) { return x.id === editing.id ? d : x; });
+      else state.products.unshift(d);
       pf.hidden = true; $('#add-product').hidden = false;
       renderMine(); renderHome();
       say($('#publish-bar'), '', 'Продуктът е запазен. Натиснете „Публикувай промените“, за да излезе на сайта.');
@@ -563,7 +556,7 @@
     if (!editing) return;
     var p = editing, msg = $('#pmsg');
     if (!confirmChange('Да изтрием продукта „' + p.name + '“ и качените му снимки? Това действие не може да бъде отменено.')) return;
-    all(sb.from('products').delete().eq('id', p.id)).then(function () {
+    api('DELETE', '/admin/products/' + encodeURIComponent(p.id)).then(function () {
       removeFiles(p.images || []);
       state.products = state.products.filter(function (x) { return x.id !== p.id; });
       pf.hidden = true; $('#add-product').hidden = false; renderMine(); renderHome();
@@ -578,8 +571,8 @@
       hide.addEventListener('change', function () {
         if (!confirmChange((hide.checked ? 'Да скрием' : 'Да покажем') + ' „' + p.name + '“ на сайта?')) { hide.checked = !!p.hidden; return; }
         hide.disabled = true;
-        all(sb.from('products').update({ hidden: hide.checked }).eq('id', p.id).select()).then(function (d) {
-          p.hidden = d[0].hidden; row.classList.toggle('is-hidden', p.hidden);
+        api('PATCH', '/admin/products/' + encodeURIComponent(p.id), { hidden: hide.checked }).then(function (d) {
+          p.hidden = d.hidden; row.classList.toggle('is-hidden', p.hidden);
         }).catch(function (err) {
           hide.checked = !!p.hidden; say($('#publish-bar'), 'err', 'Не е запазено: ' + err.message);
         }).finally(function () { hide.disabled = false; });
@@ -615,9 +608,9 @@
     say(msg, '', 'Качване 0/' + files.length + '…');
     files.reduce(function (p, f) {
       return p.then(function () { return uploadPhoto(f, 'projects'); }).then(function (ph) {
-        return all(sb.from('project_photos').insert({ album: album, photo: ph }).select());
+        return api('POST', '/admin/photos', { album: album, photo: ph });
       }).then(function (d) {
-        state.photos.unshift(d[0]); say(msg, '', 'Качване ' + (++n) + '/' + files.length + '…');
+        state.photos.unshift(d); say(msg, '', 'Качване ' + (++n) + '/' + files.length + '…');
       });
     }, Promise.resolve()).then(function () {
       say(msg, 'ok', (n === 1 ? '1 снимка е качена' : n + ' снимки са качени') + ' в „' + album + '“. Натиснете „Публикувай промените“.');
@@ -635,11 +628,11 @@
       var del = h('button.btn.btn-danger.btn-sm', { type: 'button' }, 'Изтрий');
       del.addEventListener('click', function () {
         if (!confirmChange('Да изтрием тази снимка от албум „' + p.album + '“? Това действие не може да бъде отменено.')) return;
-        all(sb.from('project_photos').delete().eq('id', p.id)).then(function () {
+        api('DELETE', '/admin/photos/' + encodeURIComponent(p.id)).then(function () {
           removeFiles([p.photo]);
           state.photos = state.photos.filter(function (x) { return x.id !== p.id; });
           renderPhotos(); renderHome();
-        });
+        }, function (err) { say($('#upmsg'), 'err', 'Не е изтрита: ' + err.message); });
       });
       return h('figure', null, h('img', { src: mediaUrl(p.photo.s), alt: p.album, loading: 'lazy' }),
         h('figcaption', null, h('span', null, p.album), del));
@@ -660,16 +653,16 @@
       done.addEventListener('click', function () {
         var st = q.status === 'new' ? 'done' : 'new';
         if (!confirmChange('Да отбележим запитването от „' + q.name + '“ като ' + (st === 'done' ? 'обработено' : 'ново') + '?')) return;
-        all(sb.from('inquiries').update({ status: st }).eq('id', q.id).select()).then(function (d) {
-          q.status = d[0].status; renderInbox(); renderHome();
-        });
+        api('PATCH', '/admin/inquiries/' + encodeURIComponent(q.id), { status: st }).then(function (d) {
+          q.status = d.status; renderInbox(); renderHome();
+        }, function (err) { say($('#publish-bar'), 'err', 'Не е запазено: ' + err.message); });
       });
       var del = h('button.btn.btn-danger.btn-sm', { type: 'button' }, 'Изтрий');
       del.addEventListener('click', function () {
         if (!confirmChange('Да изтрием запитването от „' + q.name + '“? Това действие не може да бъде отменено.')) return;
-        all(sb.from('inquiries').delete().eq('id', q.id)).then(function () {
+        api('DELETE', '/admin/inquiries/' + encodeURIComponent(q.id)).then(function () {
           state.inbox = state.inbox.filter(function (x) { return x.id !== q.id; }); renderInbox(); renderHome();
-        });
+        }, function (err) { say($('#publish-bar'), 'err', 'Не е изтрито: ' + err.message); });
       });
       return h('article.inq' + (q.status === 'done' ? '.done' : ''), null,
         h('div.meta', null, new Date(q.created_at).toLocaleString('bg-BG') + (q.topic ? ' · ' + q.topic : '') + (q.page ? ' · от ' + q.page : '')),
@@ -693,19 +686,16 @@
   }
   $('#sform').addEventListener('submit', function (e) {
     e.preventDefault();
-    var f = e.target, msg = $('#smsg'), up = [], del = [];
+    var f = e.target, msg = $('#smsg'), up = {}, del = [];
     if (f.phone.value.trim() && !/^\+?[\d ()-]{6,24}$/.test(f.phone.value.trim())) { say(msg, 'err', 'Телефонът може да съдържа само цифри, интервали и +.'); return; }
     ['phone', 'email', 'hours', 'address', 'announcement'].forEach(function (k) {
       var v = f[k].value.trim();
-      if (v) up.push({ key: k, value: v }); else del.push(k);
+      if (v) up[k] = v; else del.push(k);
     });
     if (!confirmChange('Да запазим настройките за телефон, имейл, адрес, работно време и съобщение на сайта?')) return;
     say(msg, '', 'Запазване…');
-    Promise.all([
-      up.length ? all(sb.from('settings').upsert(up)) : null,
-      del.length ? all(sb.from('settings').delete().in('key', del)) : null
-    ]).then(function () {
-      state.settings = {}; up.forEach(function (s) { state.settings[s.key] = s.value; });
+    api('PUT', '/admin/settings', { set: up, del: del }).then(function () {
+      state.settings = up;
       say(msg, 'ok', 'Запазено. Натиснете „Публикувай промените“.');
     }).catch(function (err) { say(msg, 'err', 'Не е запазено: ' + err.message); });
   });
@@ -715,13 +705,7 @@
     var btn = $('#publish'), bar = $('#publish-bar');
     if (!confirmChange('Да публикуваме всички запазени промени? Те ще станат видими за посетителите на сайта.')) return;
     btn.disabled = true; say(bar, '', 'Изпращане…');
-    sb.functions.invoke('publish', { body: {} }).then(function (r) {
-      if (r.error) {
-        var ctx = r.error.context;
-        return (ctx && ctx.json ? ctx.json() : Promise.resolve({})).then(function (j) {
-          throw new Error((j && j.error) || r.error.message);
-        });
-      }
+    api('POST', '/admin/publish').then(function () {
       say(bar, 'ok', 'Сайтът се обновява. След около 3 минути промените са видими.');
     }).catch(function (e) {
       say(bar, 'err', 'Публикуването не тръгна: ' + (e.message || e));

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Pull the admin panel's edits out of Supabase for build.py.
+"""Pull the admin panel's edits out of the ngdoors-api Worker (api/) for build.py.
 
 build.py calls load() once. It returns the price overrides, the products and project
 photos she added, and the site settings. Her photos are NOT copied into the site: the
 panel resizes each one in the browser and uploads a 600px and a 1200px copy, and the
-pages link those straight from Supabase storage. Copying them in would grow every
+pages link those straight from the Worker's /media/ (Cloudflare R2). Copying them in would grow every
 deploy by every photo she ever uploads, and this site already sits near its ceiling.
 
 Not configured (admin_config.json has no url) -> an empty result, and the build is the
@@ -28,38 +28,12 @@ SIZES = (600, 1200)
 EMPTY = {"overrides": {}, "products": [], "photos": [], "settings": {}, "images": {}}
 
 
-PAGE = 500
-
-
-def publishable(key):
-    """True only for keys that are safe on a public page.
-
-    This key is written into the contact form and the panel's catalogue.json, so a
-    secret key here hands the whole database to anyone who opens view-source.
-    """
-    if key.startswith("sb_publishable_"):
-        return True
-    if key.startswith("sb_secret_"):
-        return False
-    parts = key.split(".")
-    if len(parts) == 3:                      # legacy JWT key: read its role claim
-        import base64
-        try:
-            pad = parts[1] + "=" * (-len(parts[1]) % 4)
-            claims = json.loads(base64.urlsafe_b64decode(pad.encode()).decode("utf-8"))
-        except Exception:
-            return False
-        return claims.get("role") == "anon"
-    return False
-
-
 def config():
-    """{url, key}, or None ONLY when nothing anywhere says the admin is configured.
+    """{url}, or None ONLY when nothing anywhere says the admin is configured.
 
-    Env vars win over the file and do not need it. A file that exists but will not
-    parse, or a url without a key (or the reverse), is a broken configuration, and a
-    broken configuration exits: read as "not configured" it would build catalogue-only
-    and silently undo every price and hide she saved.
+    The env var wins over the file. A file that exists but will not parse is a broken
+    configuration, and a broken configuration exits: read as "not configured" it would
+    build catalogue-only and silently undo every price and hide she saved.
     """
     c = {}
     if os.path.exists(CONFIG):
@@ -70,46 +44,30 @@ def config():
                 raise ValueError("top level is not an object")
         except (OSError, ValueError) as e:
             sys.exit("admin: %s is unreadable (%s). Fix it or delete it." % (CONFIG, e))
-    url = (os.environ.get("NGDOORS_SUPABASE_URL") or c.get("supabase_url") or "").strip().rstrip("/")
-    key = (os.environ.get("NGDOORS_SUPABASE_KEY") or c.get("supabase_key") or "").strip()
-    if bool(url) != bool(key):
-        sys.exit("admin: half-configured (url %s, key %s). Refusing to build without her edits."
-                 % ("set" if url else "missing", "set" if key else "missing"))
+    url = (os.environ.get("NGDOORS_API_URL") or c.get("api_url") or "").strip().rstrip("/")
     if url and not url.startswith("https://"):
-        sys.exit("admin: supabase url must be https, got %r" % url)
-    if key and not publishable(key):
-        sys.exit("admin: that Supabase key is a SECRET key. It would be published in every"
-                 " page. Use the publishable (sb_publishable_...) or anon key.")
-    return {"url": url, "key": key} if url else None
+        sys.exit("admin: api url must be https, got %r" % url)
+    return {"url": url} if url else None
 
 
 def _get(cfg, path):
-    """Every row, page by page. PostgREST caps one response (1000 by default), and a
-    capped read would drop her later edits without an error. Callers pass an order
-    with a unique tiebreak so pages never overlap or skip."""
-    rows, offset = [], 0
-    while True:
-        sep = "&" if "?" in path else "?"
-        req = urllib.request.Request("%s%s%slimit=%d&offset=%d" % (cfg["url"], path, sep, PAGE, offset),
-                                     headers={"apikey": cfg["key"], "Accept": "application/json"})
-        with urllib.request.urlopen(req, timeout=30) as r:
-            page = json.loads(r.read().decode("utf-8"))
-        if not isinstance(page, list):
-            raise ValueError("expected a list from %s" % path)
-        rows += page
-        if len(page) < PAGE:
-            return rows
-        offset += PAGE
+    """One read of everything the build needs. The Worker returns it whole, no paging."""
+    req = urllib.request.Request(cfg["url"] + path, headers={"Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        data = json.loads(r.read().decode("utf-8"))
+    if not isinstance(data, dict) or not all(isinstance(data.get(k), list) for k in ("overrides", "products", "photos", "settings")):
+        raise ValueError("unexpected answer from %s" % path)
+    return data
 
 
 def public_url(cfg, path):
-    return "%s/storage/v1/object/public/media/%s" % (cfg["url"], urllib.parse.quote(path))
+    return "%s/media/%s" % (cfg["url"], urllib.parse.quote(path))
 
 
 def manifest_row(cfg, photo):
     """One uploaded photo as a manifest entry, keyed by its 1200px URL.
 
-    "urls" is what tells build.img_tag to link Supabase instead of /assets/img.
+    "urls" is what tells build.img_tag to link the API instead of /assets/img.
     """
     small, large = public_url(cfg, photo["s"]), public_url(cfg, photo["l"])
     w, h = int(photo["w"]), int(photo["h"])
@@ -124,12 +82,10 @@ def load():
         print("admin: not configured, catalogue-only build")
         return json.loads(json.dumps(EMPTY))
     try:
-        ov = _get(cfg, "/rest/v1/product_overrides?select=*&order=product_key.asc")
-        products = _get(cfg, "/rest/v1/products?select=*&hidden=eq.false&order=created_at.asc,id.asc")
-        photos = _get(cfg, "/rest/v1/project_photos?select=*&hidden=eq.false&order=created_at.asc,id.asc")
-        settings = _get(cfg, "/rest/v1/settings?select=key,value&order=key.asc")
+        d = _get(cfg, "/public-data")         # hidden products and photos are already left out
     except Exception as e:
-        sys.exit("admin: cannot reach Supabase (%s). Refusing to build without her edits." % e)
+        sys.exit("admin: cannot reach the admin API (%s). Refusing to build without her edits." % e)
+    ov, products, photos, settings = d["overrides"], d["products"], d["photos"], d["settings"]
 
     images = {}
     for pr in products:

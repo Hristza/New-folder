@@ -21,8 +21,8 @@ const browser = await chromium.launch({headless:true, executablePath:process.pla
 const context = await browser.newContext({viewport:{width:390,height:844}});
 let payload, posts = 0, reject = false;
 const errors = [];
-await context.route(/https:\/\/[^/]+\.supabase\.co\//, async route => {
-  if (route.request().method() === 'POST' && route.request().url().includes('/rest/v1/inquiries')) {
+await context.route(/https:\/\/(ngdoors-api\.[^/]+\.workers\.dev|api\.test)\//, async route => {
+  if (route.request().method() === 'POST' && route.request().url().endsWith('/inquiry')) {
     posts++; payload = route.request().postDataJSON();
     return route.fulfill({status:reject ? 503 : 201, contentType:'application/json', body:''});
   }
@@ -76,7 +76,7 @@ try {
   const fallback = new URL(await page.evaluate(() => window.__fallback)).searchParams.get('body');
   assert.ok(fallback.includes('Имейл: fallback@example.com') && fallback.includes('Телефон: 0888123456'));
   assert.equal(await form.locator('[name=email]').inputValue(), 'fallback@example.com');
-  await context.addInitScript({content:readFileSync('supabase/admin_mock.js','utf8')});
+  await context.addInitScript({content:readFileSync('api/admin_mock.js','utf8')});
   await page.goto(base + '/admin/');
   await page.locator('#app').waitFor();
   await page.evaluate(saved => {

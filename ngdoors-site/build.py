@@ -1427,8 +1427,7 @@ def page_contact():
 </div></section>""" % (PHONE, PHONE_H, VIBER, PHONE_H, EMAIL, EMAIL, esc(ADDRESS), HOURS,
                         urllib.parse.quote("NG Doors, " + ADDRESS),
                         # Without a backend the form still works: it opens an email.
-                        (' data-sb-url="%s" data-sb-key="%s" data-email="%s"'
-                         % (esc(ADMIN_CFG["url"]), esc(ADMIN_CFG["key"]), EMAIL)) if ADMIN_CFG
+                        (' data-api="%s" data-email="%s"' % (esc(ADMIN_CFG["url"]), EMAIL)) if ADMIN_CFG
                         else ' data-email="%s"' % EMAIL)
     write("/kontakti/", shell("/kontakti/", "Контакти — NG Doors",
                               "NG Doors, %s. Телефон %s, имейл %s." % (ADDRESS, PHONE_H, EMAIL), body))
@@ -1494,8 +1493,7 @@ def write_admin_catalogue():
     with io.open(os.path.join(SITE, "admin", "catalogue.json"), "w", encoding="utf-8") as f:
         json.dump({"items": items, "categories": cats, "albums": [a["label"] for a in ALBUMS],
                    "bgn_per_eur": BGN_PER_EUR,
-                   "supabase_url": ADMIN_CFG["url"] if ADMIN_CFG else "",
-                   "supabase_key": ADMIN_CFG["key"] if ADMIN_CFG else ""},
+                   "api_url": ADMIN_CFG["url"] if ADMIN_CFG else ""},
                   f, ensure_ascii=False, separators=(",", ":"))
 
 
@@ -1523,8 +1521,8 @@ def main():
     # directory that does not exist in this repository.
     mirror(os.path.join(STATIC, "fonts"), os.path.join(SITE, "assets", "fonts"))
     mirror(os.path.join(STATIC, "photos"), os.path.join(SITE, "assets", "photos"))
-    # The admin panel. Static files; everything it does goes through Supabase with
-    # her login, so the page itself holds nothing secret.
+    # The admin panel. Static files; everything it does goes through the ngdoors-api
+    # Worker with her login, so the page itself holds nothing secret.
     mirror(os.path.join(STATIC, "admin"), os.path.join(SITE, "admin"))
     write_admin_catalogue()
 

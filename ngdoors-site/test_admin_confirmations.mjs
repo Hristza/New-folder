@@ -22,9 +22,9 @@ const base = process.env.VERIFY_BASE || 'http://127.0.0.1:' + server.address().p
 const browser = await chromium.launch({headless:true,
   executablePath:process.env.BRAVE_PATH || (process.platform==='win32' ? 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe' : undefined)});
 const context = await browser.newContext({viewport:{width:390,height:844}});
-await context.addInitScript({content:readFileSync('supabase/admin_mock.js','utf8')});
-// Live-asset verification still uses a mocked backend. Never send test writes to Supabase.
-await context.route(/https:\/\/[^/]+\.supabase\.co\//, route => route.abort());
+await context.addInitScript({content:readFileSync('api/admin_mock.js','utf8')});
+// Live-asset verification still uses a mocked backend. Never send test writes to the real API.
+await context.route(/https:\/\/(ngdoors-api\.[^/]+\.workers\.dev|api\.test)\//, route => route.abort());
 const page = await context.newPage(), errors = [], checked = [];
 page.on('pageerror', e => errors.push(e.message));
 const mutations = () => page.evaluate(() => JSON.stringify({db:window.__db,calls:window.__calls.filter(c=>c.op!=='select')}));
@@ -154,7 +154,7 @@ try {
   await page.waitForFunction(()=>window.__calls.some(c=>c.op==='invoke'&&c.name==='publish'));
   await deny('sign out',()=>page.locator('#logout').click());
   assert.equal(await page.locator('#app').isVisible(),true);
-  await page.goto(base+'/admin/#type=recovery');
+  await page.goto(base+'/admin/#reset=test-reset-token-abcdefghij');
   await page.reload(); // A hash-only navigation does not rerun the recovery boot handler.
   await page.locator('#newpass input[name=password]').fill('test-password-only');
   await deny('save recovery password',()=>page.locator('#newpass button[type=submit]').click());

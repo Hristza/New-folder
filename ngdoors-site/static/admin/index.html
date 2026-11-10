@@ -23,7 +23,7 @@
     <form id="login" class="stack" autocomplete="on">
       <label class="field"><span>Имейл</span><input type="email" name="email" required autocomplete="username"></label>
       <label class="field"><span>Парола</span><input type="password" name="password" autocomplete="current-password"></label>
-      <p>Нямате парола? Оставете полето празно. Ще получите писмо с връзка за вход. После си сложете парола в „Настройки“.</p>
+      <p>Нямате парола или сте я забравили? Оставете полето празно и натиснете „Влез“. Ще получите писмо с връзка, от която си избирате парола.</p>
       <button class="btn btn-primary" type="submit">Влез</button>
     </form>
 
@@ -172,7 +172,7 @@
       </form>
       <form id="myform" class="card-form stack">
         <h2>Моята парола</h2>
-        <p>С нея влизате без писмо. Поне 10 знака.</p>
+        <p>Смяна на паролата, с която влизате. Поне 10 знака.</p>
         <label class="field"><span>Нова парола</span><input type="password" name="password" minlength="10" required autocomplete="new-password"></label>
         <button class="btn btn-primary" type="submit">Запази паролата</button>
         <p class="msg" id="mymsg" role="status" aria-live="polite"></p>
@@ -183,7 +183,6 @@
 
 <p class="boot" id="boot">Зареждане…</p>
 
-<script src="/admin/supabase.js"></script>
 <script src="/admin/admin.js"></script>
 </body>
 </html>
