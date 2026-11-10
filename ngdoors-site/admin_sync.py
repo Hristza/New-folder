@@ -52,7 +52,9 @@ def config():
 
 def _get(cfg, path):
     """One read of everything the build needs. The Worker returns it whole, no paging."""
-    req = urllib.request.Request(cfg["url"] + path, headers={"Accept": "application/json"})
+    # Cloudflare answers 403 to the default "Python-urllib/x" user-agent, so name ourselves.
+    req = urllib.request.Request(cfg["url"] + path, headers={"Accept": "application/json",
+                                                             "User-Agent": "ngdoors-build/1.0"})
     with urllib.request.urlopen(req, timeout=30) as r:
         data = json.loads(r.read().decode("utf-8"))
     if not isinstance(data, dict) or not all(isinstance(data.get(k), list) for k in ("overrides", "products", "photos", "settings")):
